@@ -7,6 +7,7 @@ export default defineConfig({
     format: 'prettier',
     lint: 'eslint',
     path: './src/frontend/client',
+    tsConfigPath: 'tsconfig.json',
   },
   plugins: [
     '@hey-api/schemas',
