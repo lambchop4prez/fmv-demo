@@ -1,20 +1,20 @@
 <script setup lang="ts">
+import type { Robot } from '~/client/types.gen';
 // import type { Robot } from '~/client';
 import { storeToRefs } from 'pinia';
 import { robotList } from '~/client/sdk.gen';
 import { useRobotStore } from '~/stores/robot';
 
 const { robots } = storeToRefs(useRobotStore());
-// const robots = ref<Robot[]>([]);
 const isFetching = ref<boolean>(false);
 
 onMounted(async () => {
   isFetching.value = true;
-  const { data, response } = await robotList();
+  const { data } = await robotList();
 
-  if (response.ok) {
+  if (data) {
     // This has a type mis-match, but I don't know why the other line doesn't work
-    robots.value = data;
+    robots.value = data as unknown as Array<Robot>;
     // robots.value = data![200];
   }
   isFetching.value = false;

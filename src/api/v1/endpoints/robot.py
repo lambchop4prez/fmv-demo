@@ -1,7 +1,6 @@
 from typing import List
 
 from fastapi import APIRouter, Body, HTTPException, status
-from fastapi.responses import Response
 from models import Robot
 
 from ...dependencies.service import ServiceDep
@@ -16,11 +15,11 @@ async def list(
     return await service.list()
 
 
-@router.post("/")
-async def create(service: ServiceDep, user: Robot = Body(...)) -> Response:
-    if user.is_great and not user.name == "Bender":
+@router.post("/", status_code=status.HTTP_201_CREATED)
+async def create(service: ServiceDep, robot: Robot = Body(...)) -> Robot:
+    if robot.is_great and not robot.name == "Bender":
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="Not possible"
         )
-    await service.create(user)
-    return Response(status_code=status.HTTP_201_CREATED)
+    await service.create(robot)
+    return robot

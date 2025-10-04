@@ -83,8 +83,11 @@ export interface RobotCreateResponses {
   /**
    * Successful Response
    */
-  200: unknown
+  201: Robot
 }
+
+export type RobotCreateResponse =
+  RobotCreateResponses[keyof RobotCreateResponses];
 
 export interface UtilitiesHealthData {
   body?: never

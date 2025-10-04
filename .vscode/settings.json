@@ -20,6 +20,7 @@
     "pnpm",
     "pydantic",
     "pytest",
+    "Traefik",
     "unocss",
     "unplugin",
     "Vite",
