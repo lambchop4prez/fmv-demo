@@ -36,9 +36,9 @@ catalogs:
     '@vue/test-utils': ^2.4.6
     cypress: ^14.2.1
     cypress-vite: ^1.6.0
-    eslint: ^9.23.0
-    eslint-plugin-cypress: ^4.2.0
-    eslint-plugin-format: ^1.0.1
+    eslint: 9.23.0
+    eslint-plugin-cypress: 4.2.0
+    eslint-plugin-format: 1.0.1
     https-localhost: ^4.7.1
     lint-staged: ^15.5.0
     simple-git-hooks: ^2.12.1
