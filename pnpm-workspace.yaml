@@ -6,8 +6,8 @@ catalogs:
     '@intlify/unplugin-vue-i18n': ^6.0.5
     '@shikijs/markdown-it': ^3.2.1
     '@unocss/eslint-config': ^66.1.0-beta.7
-    '@vitejs/plugin-basic-ssl': ^2.1.0
-    '@vitejs/plugin-vue': ^5.2.3
+    '@vitejs/plugin-basic-ssl': 2.1.0
+    '@vitejs/plugin-vue': 5.2.3
     beasties: ^0.2.0
     markdown-it-link-attributes: ^4.0.1
     rollup: ^4.37.0
@@ -19,12 +19,12 @@ catalogs:
     unplugin-vue-macros: ^2.14.5
     unplugin-vue-markdown: ^28.3.1
     unplugin-vue-router: ^0.12.0
-    vite: ^6.2.3
+    vite: 6.3.6
     vite-bundle-visualizer: ^1.2.1
-    vite-plugin-inspect: ^11.0.0
-    vite-plugin-pwa: ^0.21.2
-    vite-plugin-vue-devtools: ^7.7.2
-    vite-plugin-vue-layouts: ^0.11.0
+    vite-plugin-inspect: 11.3.3
+    vite-plugin-pwa: 0.21.2
+    vite-plugin-vue-devtools: 7.7.2
+    vite-plugin-vue-layouts: 0.11.0
     vite-ssg: ^26.0.0
     vite-ssg-sitemap: ^0.8.1
 
