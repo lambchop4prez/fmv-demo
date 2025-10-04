@@ -77,8 +77,8 @@ catalogs:
       specifier: 0.84.4
       version: 0.84.4
     '@iconify-json/carbon':
-      specifier: 1.2.8
-      version: 1.2.8
+      specifier: 1.2.13
+      version: 1.2.13
     '@vue-macros/volar':
       specifier: 3.0.0-beta.7
       version: 3.0.0-beta.7
@@ -196,7 +196,7 @@ importers:
         version: 0.84.4(typescript@5.8.2)
       '@iconify-json/carbon':
         specifier: catalog:dev
-        version: 1.2.8
+        version: 1.2.13
       '@intlify/unplugin-vue-i18n':
         specifier: catalog:build
         version: 6.0.5(@vue/compiler-dom@3.5.13)(eslint@9.23.0(jiti@2.4.2))(rollup@4.37.0)(typescript@5.8.2)(vue-i18n@11.1.2(vue@3.5.13(typescript@5.8.2)))(vue@3.5.13(typescript@5.8.2))
@@ -1446,8 +1446,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify-json/carbon@1.2.8':
-    resolution: {integrity: sha512-6xh4YiFBz6qoSnB3XMe23WvjTJroDFXB17J1MbiT7nATFe+70+em1acRXr8hgP/gYpwFMHFc4IvjA/IPTPnTzg==}
+  '@iconify-json/carbon@1.2.13':
+    resolution: {integrity: sha512-vXrFFKkfYaZSwf4WfnRQJQMnpEzxlPlupwZZlS1WvOAuNnWahsUudHycaMpoBzDqBfniH4KQ2b5qnw0VMKoJug==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -7448,7 +7448,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@iconify-json/carbon@1.2.8':
+  '@iconify-json/carbon@1.2.13':
     dependencies:
       '@iconify/types': 2.0.0
 
