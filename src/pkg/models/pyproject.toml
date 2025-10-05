@@ -8,5 +8,5 @@ requires-python = "==3.13.7"
 dependencies = []
 
 [build-system]
-requires = [ "uv_build==0.8.22" ]
+requires = [ "uv_build==0.8.23" ]
 build-backend = "uv_build"
