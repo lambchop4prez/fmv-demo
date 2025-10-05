@@ -48,7 +48,7 @@ catalogs:
     vue-tsc: 2.2.8
 
   frontend:
-    '@unhead/vue': 2.0.2
+    '@unhead/vue': 2.0.17
     '@unocss/reset': 66.1.0-beta.7
     '@vueuse/core': 13.0.0
     nprogress: 0.2.0
