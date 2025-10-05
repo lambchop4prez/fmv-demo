@@ -33,3 +33,12 @@ repos:
     hooks:
       - id: isort
         name: isort (python)
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.37.0 # Use the sha / tag you want to point at
+    hooks:
+      - id: eslint
+        additional_dependencies:
+          - eslint
+          - '@unocss/eslint-config'
+          - eslint-plugin-cypress
+          - eslint-plugin-format
