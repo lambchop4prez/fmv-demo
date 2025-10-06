@@ -1,7 +1,7 @@
 ---
 services:
   proxy:
-    image: traefik:v2.2
+    image: traefik:v2.11
     networks:
       - ${TRAEFIK_PUBLIC_NETWORK?Not Set}
       - default
@@ -102,6 +102,7 @@ services:
     env_file:
       - .env
       # - ./frontend/.env.local
+
     build:
       context: .
       dockerfile: Dockerfile.frontend
