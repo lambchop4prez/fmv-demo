@@ -34,7 +34,7 @@ catalogs:
     '@iconify-json/carbon': 1.2.13
     '@vue-macros/volar': 3.1.1
     '@vue/test-utils': 2.4.6
-    cypress: 14.2.1
+    cypress: 14.5.4
     cypress-vite: 1.6.0
     eslint: 9.23.0
     eslint-plugin-cypress: 4.2.0
@@ -59,7 +59,3 @@ catalogs:
   types:
     '@types/markdown-it-link-attributes': 3.0.5
     '@types/nprogress': 0.2.3
-
-# onlyBuiltDependencies:
-#   - cypress
-#   - esbuild
