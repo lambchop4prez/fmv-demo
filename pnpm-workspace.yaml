@@ -41,7 +41,7 @@ catalogs:
     lint-staged: 15.5.2
     taze: 19.7.0
     typescript: 5.9.3
-    vitest: 3.0.9
+    vitest: 3.2.4
     vue-tsc: 2.2.12
   frontend:
     '@unhead/vue': 2.0.17
