@@ -50,7 +50,6 @@
     "markdown-it-link-attributes": "catalog:build",
     "rollup": "catalog:build",
     "shiki": "catalog:build",
-    "simple-git-hooks": "catalog:dev",
     "taze": "catalog:dev",
     "typescript": "catalog:dev",
     "unocss": "catalog:build",

@@ -41,7 +41,6 @@ catalogs:
     eslint-plugin-format: 1.0.1
     https-localhost: 4.7.1
     lint-staged: 15.5.2
-    simple-git-hooks: 2.12.1
     taze: 19.0.2
     typescript: 5.8.2
     vitest: 3.0.9
@@ -61,7 +60,6 @@ catalogs:
     '@types/markdown-it-link-attributes': 3.0.5
     '@types/nprogress': 0.2.3
 
-onlyBuiltDependencies:
-  - cypress
-  - esbuild
-  - simple-git-hooks
+# onlyBuiltDependencies:
+#   - cypress
+#   - esbuild
