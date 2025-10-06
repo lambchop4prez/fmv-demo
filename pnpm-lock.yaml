@@ -95,8 +95,8 @@ catalogs:
       specifier: 9.37.0
       version: 9.37.0
     eslint-plugin-cypress:
-      specifier: 4.3.0
-      version: 4.3.0
+      specifier: 5.2.0
+      version: 5.2.0
     eslint-plugin-format:
       specifier: 1.0.2
       version: 1.0.2
@@ -235,7 +235,7 @@ importers:
         version: 9.37.0(jiti@2.6.1)
       eslint-plugin-cypress:
         specifier: catalog:dev
-        version: 4.3.0(eslint@9.37.0(jiti@2.6.1))
+        version: 5.2.0(eslint@9.37.0(jiti@2.6.1))
       eslint-plugin-format:
         specifier: catalog:dev
         version: 1.0.2(eslint@9.37.0(jiti@2.6.1))
@@ -3476,8 +3476,8 @@ packages:
     peerDependencies:
       eslint: '*'
 
-  eslint-plugin-cypress@4.3.0:
-    resolution: {integrity: sha512-CgS/S940MJlT8jtnWGKI0LvZQBGb/BB0QCpgBOxFMM/Z6znD+PZUwBhCTwHKN2GEr5AOny3xB92an0QfzBGooQ==}
+  eslint-plugin-cypress@5.2.0:
+    resolution: {integrity: sha512-vuCUBQloUSILxtJrUWV39vNIQPlbg0L7cTunEAzvaUzv9LFZZym+KFLH18n9j2cZuFPdlxOqTubCvg5se0DyGw==}
     peerDependencies:
       eslint: '>=9'
 
@@ -9872,10 +9872,10 @@ snapshots:
       '@es-joy/jsdoccomment': 0.50.2
       eslint: 9.37.0(jiti@2.6.1)
 
-  eslint-plugin-cypress@4.3.0(eslint@9.37.0(jiti@2.6.1)):
+  eslint-plugin-cypress@5.2.0(eslint@9.37.0(jiti@2.6.1)):
     dependencies:
       eslint: 9.37.0(jiti@2.6.1)
-      globals: 15.15.0
+      globals: 16.4.0
 
   eslint-plugin-es-x@7.8.0(eslint@9.37.0(jiti@2.6.1)):
     dependencies:
