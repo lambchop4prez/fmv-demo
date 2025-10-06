@@ -34,9 +34,9 @@ catalogs:
     '@vue/test-utils': 2.4.6
     cypress: 14.5.4
     cypress-vite: 1.8.0
-    eslint: 9.23.0
-    eslint-plugin-cypress: 4.2.0
-    eslint-plugin-format: 1.0.1
+    eslint: 9.37.0
+    eslint-plugin-cypress: 4.3.0
+    eslint-plugin-format: 1.0.2
     https-localhost: 4.7.1
     lint-staged: 15.5.2
     taze: 19.7.0
