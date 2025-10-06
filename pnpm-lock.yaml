@@ -95,8 +95,8 @@ catalogs:
       specifier: 9.37.0
       version: 9.37.0
     eslint-plugin-cypress:
-      specifier: 4.3.0
-      version: 4.3.0
+      specifier: 5.2.0
+      version: 5.2.0
     eslint-plugin-format:
       specifier: 1.0.2
       version: 1.0.2
@@ -235,7 +235,7 @@ importers:
         version: 9.37.0(jiti@2.6.1)
       eslint-plugin-cypress:
         specifier: catalog:dev
-        version: 4.3.0(eslint@9.37.0(jiti@2.6.1))
+        version: 5.2.0(eslint@9.37.0(jiti@2.6.1))
       eslint-plugin-format:
         specifier: catalog:dev
         version: 1.0.2(eslint@9.37.0(jiti@2.6.1))
@@ -3480,8 +3480,8 @@ packages:
     peerDependencies:
       eslint: '*'
 
-  eslint-plugin-cypress@4.3.0:
-    resolution: {integrity: sha512-CgS/S940MJlT8jtnWGKI0LvZQBGb/BB0QCpgBOxFMM/Z6znD+PZUwBhCTwHKN2GEr5AOny3xB92an0QfzBGooQ==}
+  eslint-plugin-cypress@5.2.0:
+    resolution: {integrity: sha512-vuCUBQloUSILxtJrUWV39vNIQPlbg0L7cTunEAzvaUzv9LFZZym+KFLH18n9j2cZuFPdlxOqTubCvg5se0DyGw==}
     peerDependencies:
       eslint: '>=9'
 
@@ -4978,9 +4978,6 @@ packages:
 
   path-to-regexp@0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
-
-  pathe@1.1.2:
-    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
@@ -6616,8 +6613,8 @@ snapshots:
   '@babel/helper-wrap-function@7.20.5':
     dependencies:
       '@babel/helper-function-name': 7.24.7
-      '@babel/template': 7.25.0
-      '@babel/traverse': 7.25.3
+      '@babel/template': 7.27.2
+      '@babel/traverse': 7.27.7
       '@babel/types': 7.28.4
     transitivePeerDependencies:
       - supports-color
@@ -6914,7 +6911,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
-      '@babel/template': 7.25.0
+      '@babel/template': 7.27.2
 
   '@babel/plugin-transform-destructuring@7.21.3(@babel/core@7.25.2)':
     dependencies:
@@ -9879,10 +9876,10 @@ snapshots:
       '@es-joy/jsdoccomment': 0.50.2
       eslint: 9.37.0(jiti@2.6.1)
 
-  eslint-plugin-cypress@4.3.0(eslint@9.37.0(jiti@2.6.1)):
+  eslint-plugin-cypress@5.2.0(eslint@9.37.0(jiti@2.6.1)):
     dependencies:
       eslint: 9.37.0(jiti@2.6.1)
-      globals: 15.15.0
+      globals: 16.4.0
 
   eslint-plugin-es-x@7.8.0(eslint@9.37.0(jiti@2.6.1)):
     dependencies:
@@ -11714,9 +11711,6 @@ snapshots:
   path-parse@1.0.7: {}
 
   path-to-regexp@0.1.7: {}
-
-  pathe@1.1.2:
-    optional: true
 
   pathe@2.0.3: {}
 
