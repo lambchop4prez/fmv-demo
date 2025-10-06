@@ -64,8 +64,8 @@ catalogs:
       specifier: 0.11.0
       version: 0.11.0
     vite-ssg:
-      specifier: 26.0.0
-      version: 26.0.0
+      specifier: 26.1.1
+      version: 26.1.1
     vite-ssg-sitemap:
       specifier: 0.8.1
       version: 0.8.1
@@ -298,7 +298,7 @@ importers:
         version: 0.11.0(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite-ssg:
         specifier: catalog:build
-        version: 26.0.0(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+        version: 26.1.1(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite-ssg-sitemap:
         specifier: catalog:build
         version: 0.8.1
@@ -5880,8 +5880,8 @@ packages:
   vite-ssg-sitemap@0.8.1:
     resolution: {integrity: sha512-4IjhsnsC+Kcc/3Z4zOie9KIU633oH0lODZHNIjz3vJvw8aZ2SUor2tvcK16VWpMkkmQkU1iAIY04WWm3DzjM1w==}
 
-  vite-ssg@26.0.0:
-    resolution: {integrity: sha512-sAMc54DA5A+dz4JZC00KAjiTmsGRTWCKOQvDtpj19cSA0yAr26lBzhnONCRWgvJ6S23+nFMXzZvI8TPsa+h0BQ==}
+  vite-ssg@26.1.1:
+    resolution: {integrity: sha512-cLcSh6csGf34Vv1ah9VuZwmHTqAXcCjOEAPQ2pWQove185UJcq6gtrOZI66v5GwCzIIS5Gex/NDXHrWyZ2dEpg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
@@ -12722,7 +12722,7 @@ snapshots:
 
   vite-ssg-sitemap@0.8.1: {}
 
-  vite-ssg@26.0.0(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  vite-ssg@26.1.1(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       '@unhead/dom': 2.0.2(unhead@2.0.17)
       '@unhead/vue': 2.0.17(vue@3.5.22(typescript@5.9.3))
