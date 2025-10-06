@@ -102,6 +102,7 @@ services:
     env_file:
       - .env
       # - ./frontend/.env.local
+
     build:
       context: .
       dockerfile: Dockerfile.frontend

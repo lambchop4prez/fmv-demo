@@ -6,16 +6,16 @@ from repository import RobotRepository
 from repository_inmemory import InMemoryRobotRepository
 from repository_mongodb import MongoDbRobotRepository
 
-from ..dependencies.settings import SettingsDep
+from .settings import MongoSettingsDep, SettingsDep
 
 
 def get_user_repository(
-    settings: SettingsDep,
+    settings: SettingsDep, mongo_settings: MongoSettingsDep
 ) -> RobotRepository:
     if settings.REPOSITORY == "inmemory":
         return InMemoryRobotRepository()
     elif settings.REPOSITORY == "mongodb":
-        return MongoDbRobotRepository(AsyncMongoClient())
+        return MongoDbRobotRepository(AsyncMongoClient(mongo_settings.HOST))
     else:
         raise NotImplementedError(f"Repository {settings.REPOSITORY} not implemented")
 

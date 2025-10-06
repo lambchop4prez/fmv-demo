@@ -1,7 +1,6 @@
 packages: []
 
 catalogs:
-
   build:
     '@intlify/unplugin-vue-i18n': 6.0.8
     '@shikijs/markdown-it': 3.2.1
@@ -27,7 +26,6 @@ catalogs:
     vite-plugin-vue-layouts: 0.11.0
     vite-ssg: 26.0.0
     vite-ssg-sitemap: 0.8.1
-
   dev:
     '@antfu/eslint-config': 4.19.0
     '@hey-api/openapi-ts': 0.84.4
@@ -45,7 +43,6 @@ catalogs:
     typescript: 5.8.2
     vitest: 3.0.9
     vue-tsc: 2.2.12
-
   frontend:
     '@unhead/vue': 2.0.17
     '@unocss/reset': 66.1.0-beta.7
@@ -55,7 +52,9 @@ catalogs:
     vue: 3.5.22
     vue-i18n: 11.1.12
     vue-router: 4.5.1
-
   types:
     '@types/markdown-it-link-attributes': 3.0.5
     '@types/nprogress': 0.2.3
+
+ignoredBuiltDependencies:
+  - cypress
