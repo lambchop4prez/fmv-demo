@@ -49,8 +49,8 @@ catalogs:
       specifier: 28.3.1
       version: 28.3.1
     unplugin-vue-router:
-      specifier: 0.12.0
-      version: 0.12.0
+      specifier: 0.15.0
+      version: 0.15.0
     vite-bundle-visualizer:
       specifier: 1.2.1
       version: 1.2.1
@@ -277,7 +277,7 @@ importers:
         version: 28.3.1(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))
       unplugin-vue-router:
         specifier: catalog:build
-        version: 0.12.0(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+        version: 0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite:
         specifier: 6.3.6
         version: 6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1)
@@ -2169,6 +2169,15 @@ packages:
       vue:
         optional: true
 
+  '@vue-macros/common@3.0.0-beta.16':
+    resolution: {integrity: sha512-8O2gWxWFiaoNkk7PGi0+p7NPGe/f8xJ3/INUufvje/RZOs7sJvlI1jnR4lydtRFa/mU0ylMXUXXjSK0fHDEYTA==}
+    engines: {node: '>=20.18.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    peerDependenciesMeta:
+      vue:
+        optional: true
+
   '@vue-macros/common@3.1.1':
     resolution: {integrity: sha512-afW2DMjgCBVs33mWRlz7YsGHzoEEupnl0DK5ZTKsgziAlLh5syc5m+GM7eqeYrgiQpwMaVxa1fk73caCvPxyAw==}
     engines: {node: '>=20.19.0'}
@@ -2563,6 +2572,10 @@ packages:
   ast-walker-scope@0.6.2:
     resolution: {integrity: sha512-1UWOyC50xI3QZkRuDj6PqDtpm1oHWtYs+NQGwqL/2R11eN3Q81PHAHPM0SWW3BNQm53UDwS//Jv8L4CCVLM1bQ==}
     engines: {node: '>=16.14.0'}
+
+  ast-walker-scope@0.8.2:
+    resolution: {integrity: sha512-3pYeLyDZ6nJew9QeBhS4Nly02269Dkdk32+zdbbKmL6n4ZuaGorwwA+xx12xgOciA8BF1w9x+dlH7oUkFTW91w==}
+    engines: {node: '>=20.18.0'}
 
   astral-regex@2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
@@ -5763,10 +5776,11 @@ packages:
     peerDependencies:
       vite: 6.3.6
 
-  unplugin-vue-router@0.12.0:
-    resolution: {integrity: sha512-xjgheKU0MegvXQcy62GVea0LjyOdMxN0/QH+ijN29W62ZlMhG7o7K+0AYqfpprvPwpWtuRjiyC5jnV2SxWye2w==}
+  unplugin-vue-router@0.15.0:
+    resolution: {integrity: sha512-PyGehCjd9Ny9h+Uer4McbBjjib3lHihcyUEILa7pHKl6+rh8N7sFyw4ZkV+N30Oq2zmIUG7iKs3qpL0r+gXAaQ==}
     peerDependencies:
-      vue-router: ^4.4.0
+      '@vue/compiler-sfc': ^3.5.17
+      vue-router: ^4.5.1
     peerDependenciesMeta:
       vue-router:
         optional: true
@@ -8261,6 +8275,16 @@ snapshots:
     optionalDependencies:
       vue: 3.5.22(typescript@5.9.3)
 
+  '@vue-macros/common@3.0.0-beta.16(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
+      '@vue/compiler-sfc': 3.5.22
+      ast-kit: 2.1.2
+      local-pkg: 1.1.2
+      magic-string-ast: 1.0.2
+      unplugin-utils: 0.2.4
+    optionalDependencies:
+      vue: 3.5.22(typescript@5.9.3)
+
   '@vue-macros/common@3.1.1(vue@3.5.22(typescript@5.9.3))':
     dependencies:
       '@vue/compiler-sfc': 3.5.22
@@ -8786,6 +8810,11 @@ snapshots:
     dependencies:
       '@babel/parser': 7.28.4
       ast-kit: 1.4.2
+
+  ast-walker-scope@0.8.2:
+    dependencies:
+      '@babel/parser': 7.28.4
+      ast-kit: 2.1.2
 
   astral-regex@2.0.0: {}
 
@@ -12546,26 +12575,29 @@ snapshots:
       unplugin-utils: 0.2.4
       vite: 6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1)
 
-  unplugin-vue-router@0.12.0(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  unplugin-vue-router@0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
-      '@babel/types': 7.28.4
-      '@vue-macros/common': 1.16.1(vue@3.5.22(typescript@5.9.3))
-      ast-walker-scope: 0.6.2
+      '@vue-macros/common': 3.0.0-beta.16(vue@3.5.22(typescript@5.9.3))
+      '@vue/compiler-sfc': 3.5.22
+      '@vue/language-core': 3.0.8(typescript@5.9.3)
+      ast-walker-scope: 0.8.2
       chokidar: 4.0.3
-      fast-glob: 3.3.3
       json5: 2.2.3
       local-pkg: 1.1.2
       magic-string: 0.30.19
-      micromatch: 4.0.8
       mlly: 1.7.4
+      muggle-string: 0.4.1
       pathe: 2.0.3
+      picomatch: 4.0.3
       scule: 1.3.0
+      tinyglobby: 0.2.15
       unplugin: 2.3.10
       unplugin-utils: 0.2.4
       yaml: 2.8.1
     optionalDependencies:
       vue-router: 4.5.1(vue@3.5.22(typescript@5.9.3))
     transitivePeerDependencies:
+      - typescript
       - vue
 
   unplugin@2.3.10:
