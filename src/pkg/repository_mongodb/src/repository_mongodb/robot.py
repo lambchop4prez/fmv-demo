@@ -8,10 +8,10 @@ from repository import RobotRepository
 class MongoDbRobotRepository(RobotRepository):
     def __init__(self, client: AsyncMongoClient):
         self.db = client.get_database("app")
-        self.collection = self.db.get_collection("user")
+        self.collection = self.db.get_collection("robot")
 
     async def list(self) -> List[Robot]:
         return await self.collection.find().to_list(1000)
 
     async def create(self, robot: Robot) -> None:
-        await self.collection.insert_one(robot)
+        await self.collection.insert_one(robot.model_dump())

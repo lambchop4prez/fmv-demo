@@ -1,10 +1,12 @@
 from typing import Literal
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    # model_config = SettingsConfigDict(env_file=".env", env_prefix="BACKEND_")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_prefix="BACKEND_", extra="allow"
+    )
     API_VERSION: Literal["v1"] = "v1"
     REPOSITORY: Literal["inmemory", "mongodb"] = "inmemory"
     PROJECT_NAME: str = "FMV Demo"

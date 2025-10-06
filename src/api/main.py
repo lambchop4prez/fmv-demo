@@ -32,6 +32,7 @@ app = FastAPI(
     lifespan=app_init,
     openapi_url=f"{API_ENDPOINT}/{API_VERSION}/openapi.json",
     generate_unique_id_function=custom_generate_unique_id,
+    # dependencies=[SettingsDep],
 )
 
 app.add_middleware(
