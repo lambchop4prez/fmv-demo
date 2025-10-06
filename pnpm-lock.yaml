@@ -67,8 +67,8 @@ catalogs:
       specifier: 26.1.1
       version: 26.1.1
     vite-ssg-sitemap:
-      specifier: 0.8.1
-      version: 0.8.1
+      specifier: 0.10.0
+      version: 0.10.0
   dev:
     '@antfu/eslint-config':
       specifier: 4.19.0
@@ -301,7 +301,7 @@ importers:
         version: 26.1.1(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite-ssg-sitemap:
         specifier: catalog:build
-        version: 0.8.1
+        version: 0.10.0
       vitest:
         specifier: catalog:dev
         version: 3.2.4(@types/debug@4.1.12)(@types/node@20.2.3)(jiti@2.6.1)(jsdom@26.0.0)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1)
@@ -5900,8 +5900,8 @@ packages:
       vue: ^3.2.4
       vue-router: ^4.0.11
 
-  vite-ssg-sitemap@0.8.1:
-    resolution: {integrity: sha512-4IjhsnsC+Kcc/3Z4zOie9KIU633oH0lODZHNIjz3vJvw8aZ2SUor2tvcK16VWpMkkmQkU1iAIY04WWm3DzjM1w==}
+  vite-ssg-sitemap@0.10.0:
+    resolution: {integrity: sha512-OIja4fqUMcvWl5+bxQARe3LgzWTd8U/dWHWgrqiC7vv3AmTn0YnhMNUAimQ0M/0Aa9myEIAGLV0yKlYbKP8BJQ==}
 
   vite-ssg@26.1.1:
     resolution: {integrity: sha512-cLcSh6csGf34Vv1ah9VuZwmHTqAXcCjOEAPQ2pWQove185UJcq6gtrOZI66v5GwCzIIS5Gex/NDXHrWyZ2dEpg==}
@@ -12771,7 +12771,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-ssg-sitemap@0.8.1: {}
+  vite-ssg-sitemap@0.10.0: {}
 
   vite-ssg@26.1.1(beasties@0.3.5)(prettier@3.6.2)(unhead@2.0.17)(vite@6.3.6(@types/node@20.2.3)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
