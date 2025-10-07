@@ -15,3 +15,6 @@ class RobotService:
 
     async def create(self, robot: Robot) -> None:
         await self.repository.create(robot)
+
+    async def find(self, name: str) -> Robot | None:
+        return await self.repository.find(name)

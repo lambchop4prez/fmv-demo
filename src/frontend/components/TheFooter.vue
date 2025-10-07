@@ -15,7 +15,11 @@ async function toggleLocales() {
 <template>
   <nav flex="~ gap-4" mt-6 justify-center text-xl>
     <RouterLink icon-btn to="/" :title="t('button.home')">
-      <div i-carbon-campsite />
+      <div i-carbon-home />
+    </RouterLink>
+
+    <RouterLink icon-btn to="/robot" :title="t('button.robots')">
+      <div i="mdi-robot hover:mdi-robot-excited" />
     </RouterLink>
 
     <button icon-btn :title="t('button.toggle_dark')" @click="toggleDark()">
@@ -30,7 +34,7 @@ async function toggleLocales() {
       <div i-carbon-dicom-overlay />
     </RouterLink>
 
-    <a icon-btn rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
+    <a icon-btn rel="noreferrer" href="https://github.com/lambchop4prez/fmv-demo" target="_blank" title="GitHub">
       <div i-carbon-logo-github />
     </a>
   </nav>

@@ -28,8 +28,8 @@ catalogs:
     vite-ssg-sitemap: 0.10.0
   dev:
     '@antfu/eslint-config': 5.4.1
-    '@hey-api/openapi-ts': 0.85.0
     '@iconify-json/carbon': 1.2.13
+    '@iconify-json/mdi': 1.2.3
     '@vue-macros/volar': 3.1.1
     '@vue/test-utils': 2.4.6
     cypress: 15.3.0
@@ -39,6 +39,7 @@ catalogs:
     eslint-plugin-format: 1.0.2
     https-localhost: 4.7.1
     lint-staged: 16.2.3
+    openapi-typescript: ^7.9.1
     taze: 19.7.0
     typescript: 5.9.3
     vitest: 3.2.4
@@ -48,6 +49,7 @@ catalogs:
     '@unocss/reset': 66.5.2
     '@vueuse/core': 13.9.0
     nprogress: 0.2.0
+    openapi-fetch: ^0.14.1
     pinia: 3.0.3
     vue: 3.5.22
     vue-i18n: 11.1.12
@@ -56,5 +58,6 @@ catalogs:
     '@types/markdown-it-link-attributes': 3.0.5
     '@types/nprogress': 0.2.3
 
-ignoredBuiltDependencies:
+onlyBuiltDependencies:
+  - esbuild
   - cypress
