@@ -2,13 +2,9 @@
 defineOptions({
   name: 'IndexPage',
 });
-const user = useUserStore();
-const name = ref(user.savedName);
-
 const router = useRouter();
 function go() {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`);
+  router.push(`/robot`);
 }
 
 const { t } = useI18n();
@@ -20,11 +16,11 @@ useHead({
 <template>
   <div>
     <div text-4xl>
-      <div i-carbon-campsite inline-block />
+      <div i-mdi-robot-love inline-block />
     </div>
     <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
+      <a rel="noreferrer" href="https://github.com/lambchop4prez/fmv-demo" target="_blank">
+        FMV Demo
       </a>
     </p>
     <p>
@@ -33,18 +29,17 @@ useHead({
 
     <div py-4 />
 
-    <TheInput
+    <!-- <TheInput
       v-model="name"
       :placeholder="t('intro.whats-your-name')"
       autocomplete="false"
       @keydown.enter="go"
     />
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
+    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label> -->
 
     <div>
       <button
-        m-3 text-sm btn
-        :disabled="!name"
+        m-3 btn text-sm
         @click="go"
       >
         {{ t('button.go') }}
