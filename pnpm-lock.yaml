@@ -107,7 +107,7 @@ catalogs:
       specifier: 16.2.3
       version: 16.2.3
     openapi-typescript:
-      specifier: ^7.9.1
+      specifier: 7.9.1
       version: 7.9.1
     taze:
       specifier: 19.7.0
@@ -135,7 +135,7 @@ catalogs:
       specifier: 0.2.0
       version: 0.2.0
     openapi-fetch:
-      specifier: ^0.14.1
+      specifier: 0.14.1
       version: 0.14.1
     pinia:
       specifier: 3.0.3
