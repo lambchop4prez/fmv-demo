@@ -120,8 +120,8 @@ catalogs:
       version: 3.1.1
   frontend:
     '@unhead/vue':
-      specifier: 2.0.17
-      version: 2.0.17
+      specifier: 2.0.18
+      version: 2.0.18
     '@unocss/reset':
       specifier: 66.5.2
       version: 66.5.2
@@ -162,7 +162,7 @@ importers:
     dependencies:
       '@unhead/vue':
         specifier: catalog:frontend
-        version: 2.0.17(vue@3.5.22(typescript@5.9.3))
+        version: 2.0.18(vue@3.5.22(typescript@5.9.3))
       '@unocss/reset':
         specifier: catalog:frontend
         version: 66.5.2
@@ -298,7 +298,7 @@ importers:
         version: 0.11.0(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite-ssg:
         specifier: catalog:build
-        version: 28.2.1(beasties@0.3.5)(postcss@8.5.6)(prettier@3.6.2)(unhead@2.0.17)(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+        version: 28.2.1(beasties@0.3.5)(postcss@8.5.6)(prettier@3.6.2)(unhead@2.0.18)(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       vite-ssg-sitemap:
         specifier: catalog:build
         version: 0.10.0
@@ -2009,8 +2009,8 @@ packages:
     peerDependencies:
       unhead: 2.0.17
 
-  '@unhead/vue@2.0.17':
-    resolution: {integrity: sha512-jzmGZYeMAhETV6qfetmLbZzUjjx1TjdNvFSobeFZb73D7dwD9wl/nOAx36qq+TvjZsLJdF5PQWToz2oDGAUqCg==}
+  '@unhead/vue@2.0.18':
+    resolution: {integrity: sha512-2i3AWz+0G5eS11iJPDKXc8u+rciI63oT3uh/bYzehLiC688IQ2cCnthu0rvIv2sLB+8LKIj1jv8JIHZZTMnJOg==}
     peerDependencies:
       vue: '>=3.5.18'
 
@@ -5612,8 +5612,8 @@ packages:
   unconfig@7.3.3:
     resolution: {integrity: sha512-QCkQoOnJF8L107gxfHL0uavn7WD9b3dpBcFX6HtfQYmjw2YzWxGuFQ0N0J6tE9oguCBJn9KOvfqYDCMPHIZrBA==}
 
-  unhead@2.0.17:
-    resolution: {integrity: sha512-xX3PCtxaE80khRZobyWCVxeFF88/Tg9eJDcJWY9us727nsTC7C449B8BUfVBmiF2+3LjPcmqeoB2iuMs0U4oJQ==}
+  unhead@2.0.18:
+    resolution: {integrity: sha512-WisN0JGW+ydCpWnarD70mc9VP2m6zWX8ebW2ZpHm/gpishkdyBQskZvd8cesfF8JSL/P8rIhEm9d256njnyPgA==}
 
   unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==}
@@ -7955,14 +7955,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@unhead/dom@2.0.17(unhead@2.0.17)':
+  '@unhead/dom@2.0.17(unhead@2.0.18)':
     dependencies:
-      unhead: 2.0.17
+      unhead: 2.0.18
 
-  '@unhead/vue@2.0.17(vue@3.5.22(typescript@5.9.3))':
+  '@unhead/vue@2.0.18(vue@3.5.22(typescript@5.9.3))':
     dependencies:
       hookable: 5.5.3
-      unhead: 2.0.17
+      unhead: 2.0.18
       vue: 3.5.22(typescript@5.9.3)
 
   '@unocss/astro@66.5.2(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))':
@@ -12299,7 +12299,7 @@ snapshots:
       jiti: 2.6.1
       quansync: 0.2.11
 
-  unhead@2.0.17:
+  unhead@2.0.18:
     dependencies:
       hookable: 5.5.3
 
@@ -12680,10 +12680,10 @@ snapshots:
 
   vite-ssg-sitemap@0.10.0: {}
 
-  vite-ssg@28.2.1(beasties@0.3.5)(postcss@8.5.6)(prettier@3.6.2)(unhead@2.0.17)(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  vite-ssg@28.2.1(beasties@0.3.5)(postcss@8.5.6)(prettier@3.6.2)(unhead@2.0.18)(vite@7.1.9(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
-      '@unhead/dom': 2.0.17(unhead@2.0.17)
-      '@unhead/vue': 2.0.17(vue@3.5.22(typescript@5.9.3))
+      '@unhead/dom': 2.0.17(unhead@2.0.18)
+      '@unhead/vue': 2.0.18(vue@3.5.22(typescript@5.9.3))
       ansis: 4.2.0
       cac: 6.7.14
       html-minifier-terser: 7.2.0

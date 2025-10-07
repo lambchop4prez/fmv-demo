@@ -44,7 +44,7 @@ catalogs:
     vitest: 3.2.4
     vue-tsc: 3.1.1
   frontend:
-    '@unhead/vue': 2.0.17
+    '@unhead/vue': 2.0.18
     '@unocss/reset': 66.5.2
     '@vueuse/core': 13.9.0
     nprogress: 0.2.0
