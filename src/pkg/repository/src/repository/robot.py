@@ -12,3 +12,7 @@ class RobotRepository(Protocol):
     @abstractmethod
     async def create(self, robot: Robot) -> None:
         raise NotImplementedError()
+
+    @abstractmethod
+    async def find(self, name: str) -> Robot:
+        raise NotImplementedError()
