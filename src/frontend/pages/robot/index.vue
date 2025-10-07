@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
 import { useRobotList } from '~/composables/robotList';
 
-// const { robots } = storeToRefs(useRobotStore());
-
-const { error, isFetching, isReady, state, execute } = useRobotList({});
+const { error, isFetching, isReady, state } = useRobotList({});
 </script>
 
 <template>
@@ -13,6 +10,9 @@ const { error, isFetching, isReady, state, execute } = useRobotList({});
       Robots
     </h2>
     <span v-if="isFetching" text-lg>Fetching</span>
+    <div v-if="error">
+      <span text-xl>{{ error.message }}</span>
+    </div>
     <ul v-if="isReady && state">
       <li v-for="robot in state.robots" :key="robot.name">
         <RobotItem :robot="robot" />
