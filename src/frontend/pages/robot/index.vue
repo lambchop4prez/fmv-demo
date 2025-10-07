@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useRobotList } from '~/composables/robotList';
 
-const { error, isFetching, isReady, state } = useRobotList({});
+const { error, isFetching, isReady, state, execute } = useRobotList({});
+onMounted(async () => {
+  await execute();
+});
 </script>
 
 <template>

@@ -31,7 +31,6 @@ export function useRobotList(fetchOptions: RobotQueryOptions<paths['/api/v1/robo
     }
     isFetching.value = false;
   }
-  execute();
   return {
     state,
     isReady,

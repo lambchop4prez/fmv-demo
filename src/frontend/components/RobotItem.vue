@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Robot } from '~/client';
+import type { components } from '~/client/api';
 
-const props = defineProps<{robot: Robot}>();
+const props = defineProps<{ robot: components['schemas']['Robot'] }>();
 </script>
+
 <template>
-    <div text-md font-bold>
-        <span >{{ props.robot.name }}</span>
-    </div>
+  <div text-md font-bold>
+    <span>{{ props.robot.name }}</span>
+  </div>
 </template>
