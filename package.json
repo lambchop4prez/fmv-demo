@@ -30,6 +30,7 @@
     "@antfu/eslint-config": "catalog:dev",
     "@hey-api/openapi-ts": "catalog:dev",
     "@iconify-json/carbon": "catalog:dev",
+    "@iconify-json/mdi": "catalog:dev",
     "@intlify/unplugin-vue-i18n": "catalog:build",
     "@shikijs/markdown-it": "catalog:build",
     "@types/markdown-it-link-attributes": "catalog:types",

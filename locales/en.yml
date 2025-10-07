@@ -3,6 +3,7 @@ button:
   back: Back
   go: GO
   home: Home
+  robots: Robots
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 intro:

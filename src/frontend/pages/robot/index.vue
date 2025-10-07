@@ -29,7 +29,7 @@ onMounted(async () => {
     <span v-if="isFetching" text-lg>Fetching</span>
     <ul v-else>
       <li v-for="robot in robots" :key="robot.name">
-        <span text-lg>{{ robot.name }}</span>
+        <RobotItem :robot="robot" />
       </li>
     </ul>
   </div>
