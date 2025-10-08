@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [ { name = "Tim", email = "lambchop4prez@users.noreply.github.com" } ]
-requires-python = "==3.13.7"
+requires-python = "==3.14.0"
 dependencies = [ "pymongo==4.15.3" ]
 
 [build-system]
