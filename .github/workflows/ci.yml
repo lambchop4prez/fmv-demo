@@ -46,6 +46,7 @@ jobs:
           DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
           DOCKER_IMAGE_BACKEND: fmv-demo-backend
           STACK_NAME: fmv-demo
+          DOMAIN: example.com
         run: docker compose build
 
   test:
