@@ -2,12 +2,11 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
+    types: ["opened", "reopened", "synchronize"]
 
 jobs:
   lint:
@@ -33,6 +32,22 @@ jobs:
 
       - name: Typecheck
         run: pnpm run typecheck
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: docker/setup-compose-action@364cc21a5de5b1ee4a7f5f9d3fa374ce0ccde746
+      - env:
+          TRAEFIK_PUBLIC_NETWORK_IS_EXTERNAL: false
+          TRAEFIK_PUBLIC_NETWORK: traefik-public
+          TRAEFIK_TAG: default
+          TRAEFIK_PUBLIC_TAG: traefik-public
+          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
+          DOCKER_IMAGE_BACKEND: fmv-demo-backend
+          STACK_NAME: fmv-demo
+          DOMAIN: example.com
+        run: docker compose build
 
   test:
     runs-on: ${{ matrix.os }}
