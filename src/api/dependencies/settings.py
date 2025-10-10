@@ -2,8 +2,7 @@ from typing import Annotated
 
 from fastapi import Depends, Request
 
-from ..config.mongo_settings import MongoSettings
-from ..config.settings import Settings
+from config import MongoSettings, Settings
 
 
 def load_settings(request: Request) -> Settings:

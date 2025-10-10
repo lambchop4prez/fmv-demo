@@ -3,10 +3,10 @@ name = "api"
 version = "0.1.0"
 description = "Demo project using FastAPI, MongoDB, and Vue"
 readme = "README.md"
-requires-python = "==3.14.0"
+requires-python = "==3.13.7"
 dependencies = [
   "fastapi[standard]==0.118.2",
-  "pydantic-settings==2.11.0",
+  "config",
   "models",
   "service",
   "repository",
@@ -25,6 +25,7 @@ dev = [
 members = [ "src/pkg/*" ]
 
 [tool.uv.sources]
+config = { workspace = true }
 models = { workspace = true }
 service = { workspace = true }
 repository = { workspace = true }
