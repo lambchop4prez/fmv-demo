@@ -43,6 +43,8 @@ jobs:
           TRAEFIK_PUBLIC_NETWORK: traefik-public
           TRAEFIK_TAG: default
           TRAEFIK_PUBLIC_TAG: traefik-public
+          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
+          DOCKER_IMAGE_BACKEND: fmv-demo-backend
         run: docker compose build
 
   test:
