@@ -26,7 +26,7 @@ async def create(service: ServiceDep, robot: Robot = Body(...)) -> Robot:
 
 
 @router.get("/{name}")
-async def find(service: ServiceDep, name: str = Path(...)) -> Robot:
-    if (robot := await service.find(urlparse(name))) is None:
+async def find(service: ServiceDep, name: str) -> Robot:
+    if (robot := await service.find(name)) is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     return robot
