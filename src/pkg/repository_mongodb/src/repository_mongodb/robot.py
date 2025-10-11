@@ -17,4 +17,6 @@ class MongoDbRobotRepository(RobotRepository):
         await self.collection.insert_one(robot.model_dump())
 
     async def find(self, name: str) -> Robot | None:
-        return await self.collection.find_one({"name": name})
+        if (item := await self.collection.find_one({"name": name})) is None:
+            return None
+        return Robot(**item)
