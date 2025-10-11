@@ -38,7 +38,7 @@ catalogs:
     eslint-plugin-cypress: 5.2.0
     eslint-plugin-format: 1.0.2
     https-localhost: 4.7.1
-    lint-staged: 16.2.3
+    lint-staged: 16.2.4
     openapi-typescript: 7.9.1
     taze: 19.7.0
     typescript: 5.9.3
