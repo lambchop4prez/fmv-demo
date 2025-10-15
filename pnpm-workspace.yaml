@@ -53,7 +53,7 @@ catalogs:
     pinia: 3.0.3
     vue: 3.5.22
     vue-i18n: 11.1.12
-    vue-router: 4.5.1
+    vue-router: 4.6.0
   types:
     '@types/markdown-it-link-attributes': 3.0.5
     '@types/nprogress': 0.2.3
