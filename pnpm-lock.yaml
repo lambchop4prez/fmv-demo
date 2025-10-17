@@ -110,8 +110,8 @@ catalogs:
       specifier: 7.10.1
       version: 7.10.1
     taze:
-      specifier: 19.7.0
-      version: 19.7.0
+      specifier: 19.8.0
+      version: 19.8.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
@@ -268,7 +268,7 @@ importers:
         version: 3.13.0
       taze:
         specifier: catalog:dev
-        version: 19.7.0
+        version: 19.8.0
       typescript:
         specifier: catalog:dev
         version: 5.9.3
@@ -5383,8 +5383,8 @@ packages:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
 
-  taze@19.7.0:
-    resolution: {integrity: sha512-+iQhlg/O0XLTYvJFpyTq8MiXBlZx6IWPOUeMHm/abE971LW4REA7IgQSCqyi9Cd9WPziL0J8IiHQhpJd5Z0PpA==}
+  taze@19.8.0:
+    resolution: {integrity: sha512-MeXJXgp3AI8G3gU6eGl1rD/CPlRdKX9Wrry0YZXe1XvtfjLnAQ9en+iCBuaWmEvgBoFFdWOjKSa3kCqferOhZw==}
     hasBin: true
 
   temp-dir@2.0.0:
@@ -11228,7 +11228,7 @@ snapshots:
     dependencies:
       destr: 2.0.3
       node-fetch-native: 1.6.7
-      ufo: 1.5.4
+      ufo: 1.6.1
 
   ohash@2.0.11: {}
 
@@ -12041,7 +12041,7 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  taze@19.7.0:
+  taze@19.8.0:
     dependencies:
       '@antfu/ni': 26.1.0
       cac: 6.7.14
