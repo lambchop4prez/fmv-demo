@@ -24,7 +24,7 @@ catalogs:
     vite-plugin-pwa: 1.1.0
     vite-plugin-vue-devtools: 8.0.3
     vite-plugin-vue-layouts: 0.11.0
-    vite-ssg: 28.2.1
+    vite-ssg: 28.2.2
     vite-ssg-sitemap: 0.10.0
   dev:
     '@antfu/eslint-config': 5.4.1
