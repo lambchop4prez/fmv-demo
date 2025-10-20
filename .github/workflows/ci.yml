@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-      - uses: docker/setup-compose-action@364cc21a5de5b1ee4a7f5f9d3fa374ce0ccde746
+      - uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
       - env:
           TRAEFIK_PUBLIC_NETWORK_IS_EXTERNAL: false
           TRAEFIK_PUBLIC_NETWORK: traefik-public
