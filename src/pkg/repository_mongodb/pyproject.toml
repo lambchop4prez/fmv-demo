@@ -6,8 +6,8 @@ readme = "README.md"
 authors = [ { name = "Tim", email = "lambchop4prez@users.noreply.github.com" } ]
 requires-python = "==3.13.7"
 dependencies = [
- "beanie>=2.0.0",
- "pymongo==4.15.3",
+  "beanie>=2.0.0",
+  "pymongo==4.15.3",
 ]
 
 [build-system]
