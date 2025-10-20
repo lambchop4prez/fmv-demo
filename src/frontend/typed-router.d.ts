@@ -24,6 +24,7 @@ declare module 'vue-router/auto-routes' {
     '/hi/[name]': RouteRecordInfo<'/hi/[name]', '/hi/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
     '/README': RouteRecordInfo<'/README', '/README', Record<never, never>, Record<never, never>>,
     '/robot/': RouteRecordInfo<'/robot/', '/robot', Record<never, never>, Record<never, never>>,
+    '/robot/[name]': RouteRecordInfo<'/robot/[name]', '/robot/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
   }
 
   /**
@@ -59,6 +60,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/frontend/pages/robot/index.vue': {
       routes: '/robot/'
+      views: never
+    }
+    'src/frontend/pages/robot/[name].vue': {
+      routes: '/robot/[name]'
       views: never
     }
   }

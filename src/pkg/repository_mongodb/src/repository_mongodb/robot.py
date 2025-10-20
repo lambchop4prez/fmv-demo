@@ -1,8 +1,10 @@
-from typing import List
+from typing import Sequence
 
-from models import Robot
+from models import Robot, RobotProfile
 from pymongo import AsyncMongoClient
 from repository import RobotRepository
+
+from .models import RobotDocument
 
 
 class MongoDbRobotRepository(RobotRepository):
@@ -10,13 +12,15 @@ class MongoDbRobotRepository(RobotRepository):
         self.db = client.get_database("app")
         self.collection = self.db.get_collection("robot")
 
-    async def list(self) -> List[Robot]:
+    async def list(self) -> Sequence[Robot]:
+        return await RobotDocument.find_all(limit=1000).project(Robot).to_list()
         return await self.collection.find().to_list(1000)
 
-    async def create(self, robot: Robot) -> None:
-        await self.collection.insert_one(robot.model_dump())
+    async def create(self, robot: RobotProfile) -> None:
+        await RobotDocument.insert_one(RobotDocument(**robot.model_dump()))
+        # await self.collection.insert_one(robot.model_dump())
 
-    async def find(self, name: str) -> Robot | None:
-        if (item := await self.collection.find_one({"name": name})) is None:
+    async def find(self, name: str) -> RobotProfile | None:
+        if (item := await RobotDocument.find_one({"name": name})) is None:
             return None
-        return Robot(**item)
+        return RobotProfile(**item.model_dump())

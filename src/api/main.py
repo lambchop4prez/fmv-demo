@@ -1,10 +1,11 @@
 from contextlib import asynccontextmanager
+from typing import AsyncIterator, Never
 
+from config import Settings
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
 from starlette.middleware.cors import CORSMiddleware
 
-from config import Settings
 from .util import utilities
 from .v1 import router
 
@@ -18,12 +19,12 @@ BACKEND_CORS_ORIGINS = [
 ]
 
 
-def custom_generate_unique_id(route: APIRoute):
+def custom_generate_unique_id(route: APIRoute) -> str:
     return f"{route.tags[0]}_{route.name}"
 
 
 @asynccontextmanager
-async def app_init(app: FastAPI):
+async def app_init(app: FastAPI) -> AsyncIterator[Never]:
     app.include_router(router.router, prefix=f"{API_ENDPOINT}/{API_VERSION}")
     app.include_router(utilities, prefix=API_ENDPOINT, tags=["utilities"])
     yield
