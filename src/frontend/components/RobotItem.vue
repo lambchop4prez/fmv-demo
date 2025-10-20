@@ -5,7 +5,8 @@ const props = defineProps<{ robot: components['schemas']['Robot'] }>();
 </script>
 
 <template>
-  <div text-md font-bold>
-    <span>{{ props.robot.name }}</span>
+  <div text-md relative font-bold>
+    <div>{{ props.robot.name }}</div>
+    <div v-if="props.robot.is_great" i-carbon-trophy absolute left-1 top-1 />
   </div>
 </template>

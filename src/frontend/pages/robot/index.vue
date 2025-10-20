@@ -8,7 +8,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div m-0>
     <h2 text-xl font-black>
       Robots
     </h2>

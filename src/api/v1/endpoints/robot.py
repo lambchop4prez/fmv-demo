@@ -1,7 +1,6 @@
-from urllib.parse import urlparse
-
-from fastapi import APIRouter, Body, HTTPException, Path, status
-from models import Robot, RobotCollection
+from fastapi import APIRouter, Body, HTTPException, status
+from models import RobotCollection
+from models.robot_profile import RobotProfile
 
 from ...dependencies.service import ServiceDep
 
@@ -16,7 +15,7 @@ async def list(
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-async def create(service: ServiceDep, robot: Robot = Body(...)) -> Robot:
+async def create(service: ServiceDep, robot: RobotProfile = Body(...)) -> RobotProfile:
     if robot.is_great and not robot.name == "Bender":
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="Not possible"
@@ -26,7 +25,7 @@ async def create(service: ServiceDep, robot: Robot = Body(...)) -> Robot:
 
 
 @router.get("/{name}")
-async def find(service: ServiceDep, name: str) -> Robot:
+async def find(service: ServiceDep, name: str) -> RobotProfile:
     if (robot := await service.find(name)) is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     return robot
