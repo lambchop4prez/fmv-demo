@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body, HTTPException, status
 from models import RobotCollection
 from models.robot_profile import RobotProfile
 
-from ...dependencies.service import ServiceDep
+from api.dpendencies.service import ServiceDep
 
 router = APIRouter()
 

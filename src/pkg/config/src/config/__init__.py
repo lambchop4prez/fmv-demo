@@ -1,4 +1,4 @@
-from .settings import Settings
-from .mongo_settings import MongoSettings
+from .api import ApiSettings
+from .mongo import MongoSettings
 
-__all__ = ["Settings", "MongoSettings"]
+__all__ = ["ApiSettings", "MongoSettings"]
