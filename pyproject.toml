@@ -5,7 +5,7 @@ description = "Demo project using FastAPI, MongoDB, and Vue"
 readme = "README.md"
 requires-python = "==3.13.7"
 dependencies = [
-  "fastapi[standard]==0.119.0",
+  "fastapi[standard]==0.120.0",
   "config",
   "models",
   "service",
@@ -18,7 +18,7 @@ dependencies = [
 dev = [
   "mypy==1.18.2",
   "pytest==8.4.2",
-  "ruff==0.14.1",
+  "ruff==0.14.2",
 ]
 
 [tool.uv.workspace]
