@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/")
 async def list(
-    service: ServiceDep,
+    service: ServiceDep
 ) -> RobotCollection:
     return RobotCollection(robots=await service.list())
 
