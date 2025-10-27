@@ -2,15 +2,13 @@ from fastapi import APIRouter, Body, HTTPException, status
 from models import RobotCollection
 from models.robot_profile import RobotProfile
 
-from api.dpendencies.service import ServiceDep
+from api.dependencies.service import ServiceDep
 
 router = APIRouter()
 
 
 @router.get("/")
-async def list(
-    service: ServiceDep
-) -> RobotCollection:
+async def list(service: ServiceDep) -> RobotCollection:
     return RobotCollection(robots=await service.list())
 
 
