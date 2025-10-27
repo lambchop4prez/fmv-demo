@@ -12,12 +12,12 @@ from .settings import MongoSettingsDep, SettingsDep
 def get_user_repository(
     settings: SettingsDep, mongo_settings: MongoSettingsDep
 ) -> RobotRepository:
-    if settings.REPOSITORY == "inmemory":
+    if settings.repository == "inmemory":
         return InMemoryRobotRepository()
-    elif settings.REPOSITORY == "mongodb":
+    elif settings.repository == "mongodb":
         return MongoDbRobotRepository(AsyncMongoClient(mongo_settings.HOST))
     else:
-        raise NotImplementedError(f"Repository {settings.REPOSITORY} not implemented")
+        raise NotImplementedError(f"Repository {settings.repository} not implemented")
 
 
 RepositoryDep = Annotated[RobotRepository, Depends(get_user_repository)]

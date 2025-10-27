@@ -18,6 +18,9 @@ async function toggleLocales() {
       <div i-carbon-home />
     </RouterLink>
 
+    <RouterLink to="/test">
+      <div i="mdi-robot-angry" />
+    </RouterLink>
     <RouterLink icon-btn to="/robot" :title="t('button.robots')">
       <div i="mdi-robot hover:mdi-robot-excited" />
     </RouterLink>
