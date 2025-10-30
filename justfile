@@ -44,4 +44,4 @@ analyze: spellcheck typecheck lint
 
 [group: 'build']
 build:
-    docker-compose build
+    docker compose build
