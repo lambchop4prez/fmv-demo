@@ -36,7 +36,7 @@ typecheck-frontend: pnpm-install
 typecheck: typecheck-frontend typecheck-frontend
 
 [group: 'check']
-spellcheck: 
+spellcheck:
     cspell .
 
 [group: 'check', parallel]
