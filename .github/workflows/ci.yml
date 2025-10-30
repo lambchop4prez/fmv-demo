@@ -43,6 +43,9 @@ jobs:
       - name: Setup | Setup Just
         uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff
 
+      - name: Setup | Install cspell
+        run: pnpm install --global cspell
+
       - name: Analyze | Run static code analysis
         run: just analyze
 
