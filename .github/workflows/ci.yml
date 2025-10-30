@@ -47,6 +47,7 @@ jobs:
         run: just analyze
 
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
@@ -68,6 +69,7 @@ jobs:
         run: just build
 
   test:
+    name: Unit Test
     runs-on: ${{ matrix.os }}
 
     strategy:
