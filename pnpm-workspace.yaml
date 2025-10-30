@@ -42,7 +42,7 @@ catalogs:
     openapi-typescript: 7.10.1
     taze: 19.8.1
     typescript: 5.9.3
-    vitest: 4.0.4
+    vitest: 4.0.5
     vue-tsc: 3.1.2
   frontend:
     '@unhead/vue': 2.0.19
