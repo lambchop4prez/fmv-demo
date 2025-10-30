@@ -110,8 +110,8 @@ catalogs:
       specifier: 7.10.1
       version: 7.10.1
     taze:
-      specifier: 19.8.1
-      version: 19.8.1
+      specifier: 19.9.0
+      version: 19.9.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
@@ -268,7 +268,7 @@ importers:
         version: 3.14.0
       taze:
         specifier: catalog:dev
-        version: 19.8.1
+        version: 19.9.0
       typescript:
         specifier: catalog:dev
         version: 5.9.3
@@ -389,8 +389,8 @@ packages:
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
-  '@antfu/ni@27.0.0':
-    resolution: {integrity: sha512-r6Qy0CU0xqOKUqEYUnjVrysytX0Z5FFQ0jWnnp9N/8HrvFFD+YmKu73MDgn/2EQrHcg1QmUvfWLKKbgUKPDFcA==}
+  '@antfu/ni@27.0.1':
+    resolution: {integrity: sha512-I6SOlwJ0MN73ECYcr7VJHpqSseyd7bpshx6JAaD0zNowS4kSWzFsqg8ikQT7DnCLiD4AZ+FaQJQ8WAk0Qi89Vw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3131,6 +3131,9 @@ packages:
   destr@2.0.3:
     resolution: {integrity: sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==}
 
+  destr@2.0.5:
+    resolution: {integrity: sha512-ugFTXCtDZunbzasqBxrK93Ik/DRYsO6S/fedkWEMKqt04xZ4csmnmwGDBAb07QWNaGMAmnTIemsYZCksjATwsA==}
+
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -4636,6 +4639,9 @@ packages:
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==}
 
+  ofetch@1.5.0:
+    resolution: {integrity: sha512-A7llJ7eZyziA5xq9//3ZurA8OhFqtS99K5/V1sLBJ5j137CM/OAjlbA/TEJXBuOWwOfLqih+oH5U3ran4za1FQ==}
+
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
 
@@ -5364,8 +5370,8 @@ packages:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
 
-  taze@19.8.1:
-    resolution: {integrity: sha512-0VqUKZZQuF1WIhTNpvtePt5/P+mecJs/Wy80O2LilceN9z3mX28k/ku/wQhehGkHyHxPJz/vbYHIC6+dlPgdmQ==}
+  taze@19.9.0:
+    resolution: {integrity: sha512-tai3JKoCGHMPIHtuGHwT6z9vJaVgQ/Oj9MmvU05vah063Le9r7ONIv7ig6G2lrMNd87iWgfYARbSOYg4zaGJjQ==}
     hasBin: true
 
   temp-dir@2.0.0:
@@ -6193,7 +6199,7 @@ snapshots:
       package-manager-detector: 1.5.0
       tinyexec: 1.0.1
 
-  '@antfu/ni@27.0.0':
+  '@antfu/ni@27.0.1':
     dependencies:
       ansis: 4.2.0
       fzf: 0.5.2
@@ -9317,6 +9323,8 @@ snapshots:
 
   destr@2.0.3: {}
 
+  destr@2.0.5: {}
+
   destroy@1.2.0: {}
 
   detect-node@2.1.0: {}
@@ -11200,6 +11208,12 @@ snapshots:
       node-fetch-native: 1.6.7
       ufo: 1.6.1
 
+  ofetch@1.5.0:
+    dependencies:
+      destr: 2.0.5
+      node-fetch-native: 1.6.7
+      ufo: 1.6.1
+
   ohash@2.0.11: {}
 
   on-finished@2.4.1:
@@ -11999,12 +12013,12 @@ snapshots:
 
   tapable@2.2.1: {}
 
-  taze@19.8.1:
+  taze@19.9.0:
     dependencies:
-      '@antfu/ni': 27.0.0
+      '@antfu/ni': 27.0.1
       cac: 6.7.14
       find-up-simple: 1.0.1
-      ofetch: 1.4.1
+      ofetch: 1.5.0
       package-manager-detector: 1.5.0
       pathe: 2.0.3
       pnpm-workspace-yaml: 1.3.0
@@ -12012,6 +12026,7 @@ snapshots:
       tinyexec: 1.0.1
       tinyglobby: 0.2.15
       unconfig: 7.3.3
+      yaml: 2.8.1
 
   temp-dir@2.0.0: {}
 
