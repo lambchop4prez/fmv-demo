@@ -1,4 +1,4 @@
-from typing import List
+from typing import Sequence
 
 from pydantic import BaseModel, Field
 
@@ -6,4 +6,4 @@ from .robot import Robot
 
 
 class RobotCollection(BaseModel):
-    robots: List[Robot] = Field([])
+    robots: Sequence[Robot] = Field([])

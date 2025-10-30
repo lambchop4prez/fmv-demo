@@ -10,6 +10,7 @@ on:
 
 jobs:
   analyze:
+    name: Static Code Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
@@ -30,9 +31,6 @@ jobs:
             uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
             uv-${{ runner.os }}
 
-      - name: Setup | Backend | Install the project
-        run: uv sync --locked --all-extras --dev
-
       - name: Setup | Frontend | Setup pnpm
         uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
 
@@ -42,20 +40,27 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
-      - name: Setup | Frontend | Install the project
-        run: pnpm install
+      - name: Setup | Setup Just
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff
+
+      - name: Setup | Install cspell
+        run: pnpm install --global cspell
 
       - name: Analyze | Run static code analysis
-        run: make analyze
+        run: just analyze
 
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
-      - env:
+      - name: Setup | Setup Just
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff
+      - name: Build
+        env:
           TRAEFIK_PUBLIC_NETWORK_IS_EXTERNAL: false
           TRAEFIK_PUBLIC_NETWORK: traefik-public
           TRAEFIK_TAG: default
@@ -64,9 +69,10 @@ jobs:
           DOCKER_IMAGE_BACKEND: fmv-demo-backend
           STACK_NAME: fmv-demo
           DOMAIN: example.com
-        run: make build
+        run: just build
 
   test:
+    name: Unit Test
     runs-on: ${{ matrix.os }}
 
     strategy:
