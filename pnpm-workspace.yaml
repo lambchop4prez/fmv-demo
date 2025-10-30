@@ -40,7 +40,7 @@ catalogs:
     https-localhost: 4.7.1
     lint-staged: 16.2.6
     openapi-typescript: 7.10.1
-    taze: 19.8.1
+    taze: 19.9.0
     typescript: 5.9.3
     vitest: 4.0.5
     vue-tsc: 3.1.2
