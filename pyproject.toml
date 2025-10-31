@@ -15,14 +15,19 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["mypy==1.18.2", "pytest==8.4.2", "pytest-mock>=3.15.1", "ruff==0.14.3"]
+dev = [
+  "mypy==1.18.2",
+  "pytest==8.4.2",
+  "pytest-mock>=3.15.1",
+  "ruff==0.14.3"
+]
 
 [build-system]
-requires = ["uv_build>=0.9.6,<0.10.0"]
+requires = [ "uv_build>=0.9.6,<0.10.0" ]
 build-backend = "uv_build"
 
 [tool.uv.workspace]
-members = ["src/pkg/*"]
+members = [ "src/pkg/*" ]
 
 [tool.uv.sources]
 config = { workspace = true }
@@ -33,7 +38,7 @@ repository_inmemory = { workspace = true }
 repository_mongodb = { workspace = true }
 
 [tool.mypy]
-plugins = ['pydantic.mypy']
+plugins = [ 'pydantic.mypy' ]
 disallow_untyped_defs = true
 disallow_any_unimported = true
 no_implicit_optional = true
