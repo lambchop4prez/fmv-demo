@@ -49,3 +49,15 @@ analyze: spellcheck typecheck lint
 [group('build')]
 build:
     docker compose build
+
+[group('test')]
+unit-test-frontend: pnpm-install
+    pnpm run test:unit
+
+[group('test')]
+unit-test-backend: uv-sync-dev
+    uv run pytest
+
+[group('test')]
+[parallel]
+unit-test: unit-test-frontend unit-test-backend
