@@ -3,13 +3,14 @@ abstractmethod
 accesslog
 ampproject
 antfu
-anymatch
 anyio
+anymatch
 apideck
 applescript
 argparse
 arraybuffer
 asamuzakjp
+asynccontextmanager
 asyncio
 asynckit
 attributify
@@ -34,6 +35,7 @@ colorette
 commonmark
 confbox
 consola
+contextlib
 corejs
 cssesc
 cssom
@@ -153,6 +155,7 @@ openharmony
 optimise
 optionator
 ospath
+oxlint
 parseurl
 pathe
 pbkdf
@@ -234,6 +237,7 @@ tagify
 tapable
 taze
 tempy
+testclient
 throttleit
 tinybench
 tinyexec
