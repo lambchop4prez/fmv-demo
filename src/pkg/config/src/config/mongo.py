@@ -7,3 +7,6 @@ class MongoSettings(BaseSettings):
     )
     HOST: str
     DATABASE: str
+
+
+settings = MongoSettings()
