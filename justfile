@@ -4,44 +4,48 @@
 
 default:
     just --list
-[group: 'setup']
+
+[group('setup')]
 uv-sync-dev:
     uv sync --locked --all-extras --dev
 
-[group: 'setup']
+[group('setup')]
 pnpm-install:
     pnpm install
 
-[group: 'check']
+[group('check')]
 lint-backend: uv-sync-dev
     uv run ruff check
     uv run ruff format --check
 
-[group: 'check']
+[group('check')]
 lint-frontend: pnpm-install
     pnpm run lint
 
-[group: 'lint', parallel]
+[group('check')]
+[parallel]
 lint: lint-frontend lint-backend
 
-[group: 'check']
+[group('check')]
 typecheck-backend: uv-sync-dev
     uv run mypy .
 
-[group: 'check']
+[group('check')]
 typecheck-frontend: pnpm-install
     pnpm run typecheck
 
-[group: 'check', parallel]
-typecheck: typecheck-frontend typecheck-frontend
+[group('check')]
+[parallel]
+typecheck: typecheck-frontend typecheck-backend
 
-[group: 'check']
+[group('check')]
 spellcheck:
     cspell .
 
-[group: 'check', parallel]
+[group('check')]
+[parallel]
 analyze: spellcheck typecheck lint
 
-[group: 'build']
+[group('build')]
 build:
     docker compose build
