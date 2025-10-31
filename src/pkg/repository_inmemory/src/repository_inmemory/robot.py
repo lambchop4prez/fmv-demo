@@ -13,11 +13,13 @@ ROBOTS = [
     ),
     RobotProfile(
         name="Crow T. Robot",
+        is_great=False,
         location="Satellite of Love",
         description="You know you want me baby",
     ),
     RobotProfile(
         name="Wall-E",
+        is_great=False,
         location="Earth",
         description=" Waste Allocation Load Lifter: Earth-class",
     ),
@@ -32,4 +34,4 @@ class InMemoryRobotRepository(RobotRepository):
         ROBOTS.append(robot)
 
     async def find(self, name: str) -> RobotProfile | None:
-        return next(robot for robot in ROBOTS if robot.name == name)
+        return next((robot for robot in ROBOTS if robot.name == name), None)
