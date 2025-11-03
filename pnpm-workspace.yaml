@@ -30,6 +30,8 @@ catalogs:
     '@antfu/eslint-config': 6.1.0
     '@iconify-json/carbon': 1.2.14
     '@iconify-json/mdi': 1.2.3
+    '@testing-library/jest-dom': catalog:dev
+    '@testing-library/vue': catalog:dev
     '@vue-macros/volar': 3.1.1
     '@vue/test-utils': 2.4.6
     cypress: 15.5.0
