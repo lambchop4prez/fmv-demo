@@ -83,16 +83,16 @@ catalogs:
       specifier: 8.1.0
       version: 8.1.0
     '@vitest/eslint-plugin':
-      specifier: ^1.4.0
+      specifier: 1.4.0
       version: 1.4.0
     '@vue-macros/volar':
       specifier: 3.1.1
       version: 3.1.1
     '@vue/eslint-config-prettier':
-      specifier: ^10.2.0
+      specifier: 10.2.0
       version: 10.2.0
     '@vue/eslint-config-typescript':
-      specifier: ^14.6.0
+      specifier: 14.6.0
       version: 14.6.0
     '@vue/test-utils':
       specifier: 2.4.6

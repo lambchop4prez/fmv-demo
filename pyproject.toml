@@ -18,12 +18,12 @@ dependencies = [
 dev = [
   "mypy==1.18.2",
   "pytest==8.4.2",
-  "pytest-mock>=3.15.1",
+  "pytest-mock==3.15.1",
   "ruff==0.14.3"
 ]
 
 [build-system]
-requires = [ "uv_build>=0.9.6,<0.10.0" ]
+requires = [ "uv_build==0.9.7" ]
 build-backend = "uv_build"
 
 [tool.uv.workspace]
