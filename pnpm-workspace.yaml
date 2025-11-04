@@ -2,11 +2,11 @@ packages: []
 
 catalogs:
   build:
-    "@intlify/unplugin-vue-i18n": 11.0.1
-    "@shikijs/markdown-it": 3.14.0
-    "@unocss/eslint-config": 66.5.4
-    "@vitejs/plugin-basic-ssl": 2.1.0
-    "@vitejs/plugin-vue": 6.0.1
+    '@intlify/unplugin-vue-i18n': 11.0.1
+    '@shikijs/markdown-it': 3.14.0
+    '@unocss/eslint-config': 66.5.4
+    '@vitejs/plugin-basic-ssl': 2.1.0
+    '@vitejs/plugin-vue': 6.0.1
     beasties: 0.3.5
     markdown-it-link-attributes: 4.0.1
     rollup: 4.52.5
@@ -27,20 +27,22 @@ catalogs:
     vite-ssg: 28.2.2
     vite-ssg-sitemap: 0.10.0
   dev:
-    "@iconify-json/carbon": 1.2.14
-    "@iconify-json/mdi": 1.2.3
-    "@testing-library/jest-dom": 6.9.1
-    "@testing-library/vue": 8.1.0
-    "@vue-macros/volar": 3.1.1
-    "@vue/eslint-config-prettier": ^10.2.0
-    "@vue/eslint-config-typescript": ^14.6.0
-    "@vue/test-utils": 2.4.6
+    '@iconify-json/carbon': 1.2.14
+    '@iconify-json/mdi': 1.2.3
+    '@testing-library/jest-dom': 6.9.1
+    '@testing-library/vue': 8.1.0
+    '@vitest/eslint-plugin': ^1.4.0
+    '@vue-macros/volar': 3.1.1
+    '@vue/eslint-config-prettier': ^10.2.0
+    '@vue/eslint-config-typescript': ^14.6.0
+    '@vue/test-utils': 2.4.6
     cypress: 15.5.0
     cypress-vite: 1.8.0
     eslint: 9.39.1
     eslint-plugin-cypress: 5.2.0
     eslint-plugin-format: 1.0.2
     eslint-plugin-playwright: ^2.3.0
+    eslint-plugin-testing-library: ^7.13.3
     https-localhost: 4.7.1
     openapi-typescript: 7.10.1
     taze: 19.9.0
@@ -48,9 +50,9 @@ catalogs:
     vitest: 4.0.6
     vue-tsc: 3.1.3
   frontend:
-    "@unhead/vue": 2.0.19
-    "@unocss/reset": 66.5.4
-    "@vueuse/core": 14.0.0
+    '@unhead/vue': 2.0.19
+    '@unocss/reset': 66.5.4
+    '@vueuse/core': 14.0.0
     nprogress: 0.2.0
     openapi-fetch: 0.15.0
     pinia: 3.0.3
@@ -58,8 +60,8 @@ catalogs:
     vue-i18n: 11.1.12
     vue-router: 4.6.3
   types:
-    "@types/markdown-it-link-attributes": 3.0.5
-    "@types/nprogress": 0.2.3
+    '@types/markdown-it-link-attributes': 3.0.5
+    '@types/nprogress': 0.2.3
 
 onlyBuiltDependencies:
   - esbuild

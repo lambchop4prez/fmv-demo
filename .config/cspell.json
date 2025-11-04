@@ -16,5 +16,12 @@
   ],
   "useGitignore": true,
   "dictionaries": ["project-words"],
-  "ignorePaths": ["dist", "node_modules", ".venv", "/.config/words.txt", "locales"]
+  "ignorePaths": [
+    "dist",
+    "node_modules",
+    ".venv",
+    "/.config/words.txt",
+    "locales",
+    "pnpm-lock.yaml"
+  ]
 }

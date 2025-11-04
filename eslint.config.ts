@@ -5,6 +5,7 @@ import {
 } from "@vue/eslint-config-typescript";
 import pluginVue from "eslint-plugin-vue";
 import pluginVitest from "@vitest/eslint-plugin";
+import testingLibrary from "eslint-plugin-testing-library";
 import pluginPlaywright from "eslint-plugin-playwright";
 import unocss from "@unocss/eslint-config/flat";
 
@@ -26,6 +27,7 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommendedTypeChecked,
   {
     ...pluginVitest.configs.recommended,
+    ...testingLibrary.configs["flat/vue"],
     files: ["src/**/__tests__/*"],
   },
 
