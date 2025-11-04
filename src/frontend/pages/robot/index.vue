@@ -9,15 +9,24 @@ onMounted(async () => {
 
 <template>
   <div m-0>
-    <h2 text-xl font-black>
+    <h2
+      text-xl
+      font-black
+    >
       Robots
     </h2>
-    <span v-if="isFetching" text-lg>Fetching</span>
+    <span
+      v-if="isFetching"
+      text-lg
+    >Fetching</span>
     <div v-if="error">
       <span text-xl>{{ error.message }}</span>
     </div>
     <ul v-if="isReady && state">
-      <li v-for="robot in state.robots" :key="robot.name">
+      <li
+        v-for="robot in state.robots"
+        :key="robot.name"
+      >
         <RobotItem :robot="robot" />
       </li>
     </ul>

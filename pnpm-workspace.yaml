@@ -30,15 +30,18 @@ catalogs:
     '@antfu/eslint-config': 6.1.0
     '@iconify-json/carbon': 1.2.14
     '@iconify-json/mdi': 1.2.3
-    '@testing-library/jest-dom': catalog:dev
-    '@testing-library/vue': catalog:dev
+    '@testing-library/jest-dom': 6.9.1
+    '@testing-library/vue': 8.10.0
     '@vue-macros/volar': 3.1.1
+    '@vue/eslint-config-prettier': ^10.2.0
+    '@vue/eslint-config-typescript': ^14.6.0
     '@vue/test-utils': 2.4.6
     cypress: 15.5.0
     cypress-vite: 1.8.0
     eslint: 9.38.0
     eslint-plugin-cypress: 5.2.0
     eslint-plugin-format: 1.0.2
+    eslint-plugin-playwright: ^2.3.0
     https-localhost: 4.7.1
     lint-staged: 16.2.6
     openapi-typescript: 7.10.1
