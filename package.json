@@ -28,7 +28,6 @@
     "vue-router": "catalog:frontend"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:dev",
     "@iconify-json/carbon": "catalog:dev",
     "@iconify-json/mdi": "catalog:dev",
     "@intlify/unplugin-vue-i18n": "catalog:build",
@@ -52,7 +51,6 @@
     "eslint-plugin-format": "catalog:dev",
     "eslint-plugin-playwright": "catalog:dev",
     "https-localhost": "catalog:dev",
-    "lint-staged": "catalog:dev",
     "markdown-it-link-attributes": "catalog:build",
     "openapi-typescript": "catalog:dev",
     "rollup": "catalog:build",
