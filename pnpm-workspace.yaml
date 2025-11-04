@@ -41,8 +41,8 @@ catalogs:
     eslint: 9.39.1
     eslint-plugin-cypress: 5.2.0
     eslint-plugin-format: 1.0.2
-    eslint-plugin-playwright: ^2.3.0
-    eslint-plugin-testing-library: ^7.13.3
+    eslint-plugin-playwright: 2.3.0
+    eslint-plugin-testing-library: 7.13.3
     https-localhost: 4.7.1
     openapi-typescript: 7.10.1
     taze: 19.9.0

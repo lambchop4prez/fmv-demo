@@ -113,10 +113,10 @@ catalogs:
       specifier: 1.0.2
       version: 1.0.2
     eslint-plugin-playwright:
-      specifier: ^2.3.0
+      specifier: 2.3.0
       version: 2.3.0
     eslint-plugin-testing-library:
-      specifier: ^7.13.3
+      specifier: 7.13.3
       version: 7.13.3
     https-localhost:
       specifier: 4.7.1
