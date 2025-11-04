@@ -1,4 +1,3 @@
-import importlib.metadata
 from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -11,7 +10,7 @@ class ApiSettings(BaseSettings):
     api_version: Literal["v1"] = "v1"
     repository: Literal["inmemory", "mongodb"] = "inmemory"
     app_name: str = "FMV Demo"
-    module_version: str = importlib.metadata.version("api")
+    # module_version: str = importlib.metadata.version("api")
 
 
 settings = ApiSettings()

@@ -1,30 +1,40 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'IndexPage',
+  name: "IndexPage",
 });
 const router = useRouter();
-function go() {
-  router.push(`/robot`);
+async function go() {
+  await router.push(`/robot`);
 }
 
 const { t } = useI18n();
 useHead({
-  title: () => t('button.home'),
+  title: () => t("button.home"),
 });
 </script>
 
 <template>
   <div>
     <div text-4xl>
-      <div i-mdi-robot-love inline-block />
+      <div
+        i-mdi-robot-love
+        inline-block
+      />
     </div>
     <p>
-      <a rel="noreferrer" href="https://github.com/lambchop4prez/fmv-demo" target="_blank">
+      <a
+        rel="noreferrer"
+        href="https://github.com/lambchop4prez/fmv-demo"
+        target="_blank"
+      >
         FMV Demo
       </a>
     </p>
     <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
+      <em
+        text-sm
+        opacity-75
+      >{{ t("intro.desc") }}</em>
     </p>
 
     <div py-4 />
@@ -39,10 +49,12 @@ useHead({
 
     <div>
       <button
-        m-3 btn text-sm
+        m-3
+        btn
+        text-sm
         @click="go"
       >
-        {{ t('button.go') }}
+        {{ t("button.go") }}
       </button>
     </div>
   </div>

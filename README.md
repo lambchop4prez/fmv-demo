@@ -81,13 +81,13 @@
 ## To Do
 
 - [x] - In memory database stub
-- [ ] - mongodb database adapter
+- [x] - mongodb database adapter
 - [ ] - API Authentication (OAuth2)
 - [ ] - Complete docker-compose file
 - [ ] - Unit/E2E testing
 
 ## Reference
 
-- https://github.com/mongodb-developer/mongodb-pymongo-fastapi
-- https://github.com/mongodb-labs/full-stack-fastapi-mongodb
-- https://github.com/antfu-collective/vitesse
+- <https://github.com/mongodb-developer/mongodb-pymongo-fastapi>
+- <https://github.com/mongodb-labs/full-stack-fastapi-mongodb>
+- <https://github.com/antfu-collective/vitesse>

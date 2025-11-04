@@ -27,18 +27,23 @@ catalogs:
     vite-ssg: 28.2.2
     vite-ssg-sitemap: 0.10.0
   dev:
-    '@antfu/eslint-config': 6.2.0
     '@iconify-json/carbon': 1.2.14
     '@iconify-json/mdi': 1.2.3
+    '@testing-library/jest-dom': 6.9.1
+    '@testing-library/vue': 8.1.0
+    '@vitest/eslint-plugin': ^1.4.0
     '@vue-macros/volar': 3.1.1
+    '@vue/eslint-config-prettier': ^10.2.0
+    '@vue/eslint-config-typescript': ^14.6.0
     '@vue/test-utils': 2.4.6
     cypress: 15.5.0
     cypress-vite: 1.8.0
     eslint: 9.39.1
     eslint-plugin-cypress: 5.2.0
     eslint-plugin-format: 1.0.2
+    eslint-plugin-playwright: ^2.3.0
+    eslint-plugin-testing-library: ^7.13.3
     https-localhost: 4.7.1
-    lint-staged: 16.2.6
     openapi-typescript: 7.10.1
     taze: 19.9.0
     typescript: 5.9.3
