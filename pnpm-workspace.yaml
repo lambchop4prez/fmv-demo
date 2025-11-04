@@ -31,10 +31,10 @@ catalogs:
     '@iconify-json/mdi': 1.2.3
     '@testing-library/jest-dom': 6.9.1
     '@testing-library/vue': 8.1.0
-    '@vitest/eslint-plugin': ^1.4.0
+    '@vitest/eslint-plugin': 1.4.0
     '@vue-macros/volar': 3.1.1
-    '@vue/eslint-config-prettier': ^10.2.0
-    '@vue/eslint-config-typescript': ^14.6.0
+    '@vue/eslint-config-prettier': 10.2.0
+    '@vue/eslint-config-typescript': 14.6.0
     '@vue/test-utils': 2.4.6
     cypress: 15.5.0
     cypress-vite: 1.8.0
