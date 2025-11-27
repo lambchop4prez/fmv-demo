@@ -52,7 +52,7 @@ catalogs:
   frontend:
     '@unhead/vue': 2.0.19
     '@unocss/reset': 66.5.9
-    '@vueuse/core': 14.0.0
+    '@vueuse/core': 14.1.0
     nprogress: 0.2.0
     openapi-fetch: 0.15.0
     pinia: 3.0.4
