@@ -113,8 +113,8 @@ catalogs:
       specifier: 1.0.2
       version: 1.0.2
     eslint-plugin-playwright:
-      specifier: 2.3.0
-      version: 2.3.0
+      specifier: 2.4.0
+      version: 2.4.0
     eslint-plugin-testing-library:
       specifier: 7.13.5
       version: 7.13.5
@@ -277,7 +277,7 @@ importers:
         version: 1.0.2(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-playwright:
         specifier: catalog:dev
-        version: 2.3.0(eslint@9.39.1(jiti@2.6.1))
+        version: 2.4.0(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-testing-library:
         specifier: catalog:dev
         version: 7.13.5(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -3284,8 +3284,8 @@ packages:
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0
 
-  eslint-plugin-playwright@2.3.0:
-    resolution: {integrity: sha512-7UeUuIb5SZrNkrUGb2F+iwHM97kn33/huajcVtAaQFCSMUYGNFvjzRPil5C0OIppslPfuOV68M/zsisXx+/ZvQ==}
+  eslint-plugin-playwright@2.4.0:
+    resolution: {integrity: sha512-MWNXfXlLfwXAjj4Z80PvCCFCXgCYy5OCHan57Z/beGrjkJ3maG1GanuGX8Ck6T6fagplBx2ZdkifxSfByftaTQ==}
     engines: {node: '>=16.9.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -9233,7 +9233,7 @@ snapshots:
       prettier: 3.6.2
       synckit: 0.9.3
 
-  eslint-plugin-playwright@2.3.0(eslint@9.39.1(jiti@2.6.1)):
+  eslint-plugin-playwright@2.4.0(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       eslint: 9.39.1(jiti@2.6.1)
       globals: 16.4.0
