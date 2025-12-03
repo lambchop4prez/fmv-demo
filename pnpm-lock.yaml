@@ -98,8 +98,8 @@ catalogs:
       specifier: 2.4.6
       version: 2.4.6
     cypress:
-      specifier: 15.7.0
-      version: 15.7.0
+      specifier: 15.7.1
+      version: 15.7.1
     cypress-vite:
       specifier: 1.8.0
       version: 1.8.0
@@ -262,7 +262,7 @@ importers:
         version: 0.3.5
       cypress:
         specifier: catalog:dev
-        version: 15.7.0
+        version: 15.7.1
       cypress-vite:
         specifier: catalog:dev
         version: 1.8.0(vite@7.2.6(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))
@@ -3013,8 +3013,8 @@ packages:
     peerDependencies:
       vite: 7.2.6
 
-  cypress@15.7.0:
-    resolution: {integrity: sha512-1C81zKxnQckYm2XGi37rPV4rN0bzUoWhydhKdOyshJn5gJKszEx5as9VLSZI0jp0ye49QxmnbU4TtMpcD+OmGQ==}
+  cypress@15.7.1:
+    resolution: {integrity: sha512-U3sYnJ+Cnpgr6IPycxsznTg//mGVXfPGeGV+om7VQCyp5XyVkhG4oPr3X3hTq1+OB0Om0O5DxusYmt7cbvwqMQ==}
     engines: {node: ^20.1.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
 
@@ -8823,7 +8823,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  cypress@15.7.0:
+  cypress@15.7.1:
     dependencies:
       '@cypress/request': 3.0.9
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
