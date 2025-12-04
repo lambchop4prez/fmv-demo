@@ -27,7 +27,7 @@ catalogs:
     vite-ssg: 28.2.2
     vite-ssg-sitemap: 0.10.0
   dev:
-    '@iconify-json/carbon': 1.2.14
+    '@iconify-json/carbon': 1.2.15
     '@iconify-json/mdi': 1.2.3
     '@testing-library/jest-dom': 6.9.1
     '@testing-library/vue': 8.1.0
