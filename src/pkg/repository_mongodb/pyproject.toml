@@ -7,7 +7,7 @@ authors = [ { name = "Tim", email = "lambchop4prez@users.noreply.github.com" } ]
 requires-python = "==3.14.1"
 dependencies = [
   "beanie==2.0.1",
-  "pymongo==4.15.4",
+  "pymongo==4.15.5",
 ]
 
 [build-system]
