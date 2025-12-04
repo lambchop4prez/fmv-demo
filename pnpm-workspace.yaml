@@ -3,14 +3,14 @@ packages: []
 catalogs:
   build:
     '@intlify/unplugin-vue-i18n': 11.0.1
-    '@shikijs/markdown-it': 3.18.0
+    '@shikijs/markdown-it': 3.19.0
     '@unocss/eslint-config': 66.5.10
     '@vitejs/plugin-basic-ssl': 2.1.0
     '@vitejs/plugin-vue': 6.0.2
     beasties: 0.3.5
     markdown-it-link-attributes: 4.0.1
     rollup: 4.53.3
-    shiki: 3.18.0
+    shiki: 3.19.0
     unocss: 66.5.10
     unplugin: 2.3.11
     unplugin-auto-import: 20.3.0
