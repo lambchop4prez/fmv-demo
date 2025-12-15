@@ -9,7 +9,7 @@ catalogs:
     '@vitejs/plugin-vue': 6.0.3
     beasties: 0.3.5
     markdown-it-link-attributes: 4.0.1
-    rollup: 4.53.3
+    rollup: 4.53.4
     shiki: 3.20.0
     unocss: 66.5.10
     unplugin: 2.3.11
