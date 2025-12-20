@@ -36,7 +36,7 @@ catalogs:
     '@vue/eslint-config-prettier': 10.2.0
     '@vue/eslint-config-typescript': 14.6.0
     '@vue/test-utils': 2.4.6
-    cypress: 15.7.1
+    cypress: 15.8.1
     cypress-vite: 1.8.0
     eslint: 9.39.2
     eslint-plugin-cypress: 5.2.0
