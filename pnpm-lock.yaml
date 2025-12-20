@@ -116,8 +116,8 @@ catalogs:
       specifier: 2.4.0
       version: 2.4.0
     eslint-plugin-testing-library:
-      specifier: 7.14.0
-      version: 7.14.0
+      specifier: 7.15.1
+      version: 7.15.1
     https-localhost:
       specifier: 4.7.1
       version: 4.7.1
@@ -280,7 +280,7 @@ importers:
         version: 2.4.0(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-testing-library:
         specifier: catalog:dev
-        version: 7.14.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+        version: 7.15.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       https-localhost:
         specifier: catalog:dev
         version: 4.7.1
@@ -3472,8 +3472,8 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-testing-library@7.14.0:
-    resolution: {integrity: sha512-Z2c/UClULF67VAjQL8G2wKVdCpYBmFof9yuThXjyWwAlTxAq4vbROmS6OMPy6n1AGAMiaGgMIrKauARSVXeIHg==}
+  eslint-plugin-testing-library@7.15.1:
+    resolution: {integrity: sha512-bz4s4S3yCbTShgcv4S8XE3Ku5psYtKyuoded/WQyFS3sNt7mzRnCSUkSNbNOgfq/6f79EQZ++1jZL6anbnyrRA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
@@ -9526,7 +9526,7 @@ snapshots:
     optionalDependencies:
       eslint-config-prettier: 10.1.8(eslint@9.39.2(jiti@2.6.1))
 
-  eslint-plugin-testing-library@7.14.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3):
+  eslint-plugin-testing-library@7.15.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.4
       '@typescript-eslint/utils': 8.46.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
