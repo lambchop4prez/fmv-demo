@@ -83,8 +83,8 @@ catalogs:
       specifier: 8.1.0
       version: 8.1.0
     '@vitest/eslint-plugin':
-      specifier: 1.6.3
-      version: 1.6.3
+      specifier: 1.6.4
+      version: 1.6.4
     '@vue-macros/volar':
       specifier: 3.1.1
       version: 3.1.1
@@ -244,7 +244,7 @@ importers:
         version: 6.0.3(vite@7.3.0(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue@3.5.26(typescript@5.9.3))
       '@vitest/eslint-plugin':
         specifier: catalog:dev
-        version: 1.6.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(jiti@2.6.1)(jsdom@27.0.1(postcss@8.5.6))(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))
+        version: 1.6.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(jiti@2.6.1)(jsdom@27.0.1(postcss@8.5.6))(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))
       '@vue-macros/volar':
         specifier: catalog:dev
         version: 3.1.1(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))
@@ -2306,8 +2306,8 @@ packages:
       vite: 7.3.0
       vue: ^3.2.25
 
-  '@vitest/eslint-plugin@1.6.3':
-    resolution: {integrity: sha512-2h4GQ113DR2KGQkZyXXXyKpAv9L130YCe/0be44VeSUsYXdh9XGt0+snCPTijNxG0vJo0YDrdFvpY1bOUfx5ng==}
+  '@vitest/eslint-plugin@1.6.4':
+    resolution: {integrity: sha512-+qw32ux8HMVNrJnQOYgdjrMYmCn9vsiKnJUv5MoOg40e18WOvhWurzHdbRB3vXLfUrP7+jYyQbd6TuRhL23AkQ==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -8039,7 +8039,7 @@ snapshots:
       vite: 7.3.0(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1)
       vue: 3.5.26(typescript@5.9.3)
 
-  '@vitest/eslint-plugin@1.6.3(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(jiti@2.6.1)(jsdom@27.0.1(postcss@8.5.6))(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))':
+  '@vitest/eslint-plugin@1.6.4(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16(jiti@2.6.1)(jsdom@27.0.1(postcss@8.5.6))(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.50.1
       '@typescript-eslint/utils': 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
