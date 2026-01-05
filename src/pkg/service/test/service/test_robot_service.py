@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 import pytest
-from service.robot import RobotService
+from service import RobotService
 
 
 @pytest.mark.anyio

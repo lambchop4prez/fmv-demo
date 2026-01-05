@@ -6,6 +6,7 @@ class MongoSettings(BaseSettings):
         env_file=".env", env_prefix="BACKEND_MONGO_", extra="allow"
     )
     HOST: str = "localhost"
+    DATABASE: str = "robot"
 
 
 settings = MongoSettings()

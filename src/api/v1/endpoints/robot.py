@@ -27,3 +27,12 @@ async def find(service: ServiceDep, name: str) -> RobotProfile:
     if (robot := await service.find(name)) is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     return robot
+
+
+@router.post("/{name}/run")
+async def run(service: ServiceDep, name: str) -> None:
+    if (robot := await service.find(name)) is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+
+    task = await service.start(robot)
+    return task.id

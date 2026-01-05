@@ -1,9 +1,16 @@
 #!/usr/bin/env -S just --justfile
 # ^ A shebang isn't required, but allows a justfile to be executed
-#   like a script, with `./justfile test`, for example.
+#   like a script, with `./.justfile test`, for example.
+set quiet := true
+set shell := ['bash', '-euo', 'pipefail', '-c']
 
+[private]
 default:
     just --list
+
+[private]
+log lvl msg *args:
+    gum log --time rfc822 -s --level "{{ lvl }}" "{{ msg }}" {{ args }}
 
 [group('setup')]
 uv-sync-dev:
@@ -12,6 +19,9 @@ uv-sync-dev:
 [group('setup')]
 pnpm-install:
     pnpm install
+
+dev: uv-sync-dev
+    uv run fastapi dev src/api
 
 [group('check')]
 lint-backend: uv-sync-dev
