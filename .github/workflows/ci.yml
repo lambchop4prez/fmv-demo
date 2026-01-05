@@ -24,9 +24,6 @@ jobs:
           cache: true # [default: true] cache mise using GitHub's cache
           experimental: true # [default: false] enable experimental features
 
-      - name: Setup | Backend | Install Python
-        run: uv python install
-
       - name: Setup | Backend | Restore uv cache
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
