@@ -127,7 +127,7 @@ librabbitmq
 lightningcss
 linkify
 listr
-loong
+logpath
 matchall
 mdit
 mdurl
