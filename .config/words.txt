@@ -2,6 +2,7 @@ aashutoshrathi
 abstractmethod
 accesslog
 ampproject
+amqp
 antfu
 anyio
 anymatch
@@ -120,11 +121,13 @@ jsprim
 justfile
 keyv
 kolorist
+kwargs
 levn
+librabbitmq
 lightningcss
 linkify
 listr
-loong
+logpath
 matchall
 mdit
 mdurl
@@ -177,6 +180,7 @@ pyproject
 pytest
 PYTHONUNBUFFERED
 quansync
+randint
 randombytes
 reactify
 readdirp
@@ -235,6 +239,7 @@ systemjs
 tagfilter
 tagify
 tapable
+taskmeta
 taze
 tempy
 testclient

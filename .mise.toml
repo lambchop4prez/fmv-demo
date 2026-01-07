@@ -1,0 +1,19 @@
+[env]
+PROJECT_NAME = "FastAPI MongoDB Vue Stack Demo"
+DOMAIN = "localhost"
+STACK_NAME = "fmv-demo"
+
+DOCKER_IMAGE_BACKEND = "backend"
+DOCKER_IMAGE_FRONTEND = "frontend"
+
+_.file = ["{{config_root}}/.secrets.env"]
+
+[tools]
+"python" = "3.14.2"
+"aqua:astral-sh/uv" = "0.9.17"
+"aqua:casey/just" = "1.45.0"
+"aqua:charmbracelet/gum" = "0.17.0"
+"aqua:jqlang/jq" = "1.8.1"
+"aqua:rhysd/actionlint" = "1.7.10"
+"aqua:pnpm/pnpm" = "10.20.0"
+"npm:cspell" = "9.4.0"

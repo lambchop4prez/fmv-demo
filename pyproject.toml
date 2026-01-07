@@ -9,6 +9,8 @@ dependencies = [
   "config",
   "models",
   "service",
+  "handlers",
+  "workers",
   "repository",
   "repository_inmemory",
   "repository_mongodb",
@@ -27,7 +29,7 @@ requires = [ "uv_build==0.9.21" ]
 build-backend = "uv_build"
 
 [tool.uv.workspace]
-members = [ "src/pkg/*" ]
+members = ["src/pkg/*"]
 
 [tool.uv.sources]
 config = { workspace = true }
@@ -36,9 +38,11 @@ service = { workspace = true }
 repository = { workspace = true }
 repository_inmemory = { workspace = true }
 repository_mongodb = { workspace = true }
+handlers = { workspace = true }
+workers = { workspace = true }
 
 [tool.mypy]
-plugins = [ 'pydantic.mypy' ]
+plugins = ['pydantic.mypy']
 disallow_untyped_defs = true
 disallow_any_unimported = true
 no_implicit_optional = true
