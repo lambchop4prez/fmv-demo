@@ -1,4 +1,4 @@
-from typing import Mapping, cast
+from typing import Any, Mapping, cast
 
 from celery import Celery
 from celery.signals import before_task_publish
@@ -19,7 +19,7 @@ worker.config_from_object("workers.task_config")
 
 
 @before_task_publish.connect
-def on_task_publish(headers: Mapping, body: Mapping, **kwargs) -> None:
+def on_task_publish(headers: Mapping, body: Mapping, **kwargs: dict[str, Any]) -> None:
     task_id = headers.get("id")
 
     robot, _, _ = body

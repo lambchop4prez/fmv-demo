@@ -21,5 +21,5 @@ class MongoDbRobotRepository(RobotRepository):
     async def find(self, name: str) -> RobotProfile | None:
         if (item := await RobotDocument.find_one({"name": name})) is None:
             return None
-        tasks = RobotTaskDocument.find_all({"robot": item.name})
+        tasks = await RobotTaskDocument.find({"robot": item.name}).to_list()
         return RobotProfile(tasks=tasks, **item.model_dump())

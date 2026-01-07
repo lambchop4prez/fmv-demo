@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Body, HTTPException, status
-from models import RobotCollection
-from models.robot_profile import RobotProfile
+from models import RobotCollection, RobotProfile, RobotTask
 
 from api.dependencies.service import ServiceDep
 
@@ -30,7 +29,7 @@ async def find(service: ServiceDep, name: str) -> RobotProfile:
 
 
 @router.post("/{name}/run")
-async def run(service: ServiceDep, name: str) -> None:
+async def run(service: ServiceDep, name: str) -> RobotTask:
     if (robot := await service.find(name)) is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
