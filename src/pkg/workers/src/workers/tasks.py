@@ -1,6 +1,11 @@
+from typing import Mapping, cast
+
 from celery import Celery
+from celery.signals import before_task_publish
 from config import BrokerSettings, MongoSettings
 from handlers import RobotHandlers
+
+from . import Backend
 
 mongo_settings = MongoSettings()
 broker_settings = BrokerSettings()
@@ -9,30 +14,28 @@ worker = Celery(
     broker=broker_settings.url,
     backend="workers.Backend",
     task_track_started=True,
-    mongodb_backend_settings={
-        "host": mongo_settings.HOST,
-        "database": mongo_settings.DATABASE,
-        "taskmeta_collection": "tasks",
-    },
 )
+worker.config_from_object("workers.task_config")
 
-#
-# @before_task_publish.connect
-# def on_task_publish(headers=None, body=None, exchange=None, routing_key=None, **kwargs):
-#     task_id = headers.get("id")
-#
-#     robot, _, _ = body
-#
-#     worker.backend.collection.insert_one(
-#         {
-#             "_id": task_id,
-#             "status": "QUEUED",
-#             "result": None,
-#             "traceback": None,
-#             "children": None,
-#             "robot": robot,
-#         }
-#     )
+
+@before_task_publish.connect
+def on_task_publish(headers: Mapping, body: Mapping, **kwargs) -> None:
+    task_id = headers.get("id")
+
+    robot, _, _ = body
+
+    # await RobotTaskDocument(robot=robot[0], task_id=task_id, status="QUEUED").insert()
+
+    cast(Backend, worker.backend).collection.insert_one(
+        {
+            "task_id": task_id,
+            "status": "QUEUED",
+            "result": None,
+            "traceback": None,
+            "children": None,
+            "robot": robot[0],
+        }
+    )
 
 
 @worker.task

@@ -35,4 +35,4 @@ async def run(service: ServiceDep, name: str) -> None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
     task = await service.start(robot)
-    return task.id
+    return task

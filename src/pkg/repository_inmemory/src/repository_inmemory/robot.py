@@ -10,18 +10,21 @@ ROBOTS = [
         is_great=True,
         location="Earth",
         description="Please insert girder",
+        tasks=None,
     ),
     RobotProfile(
         name="Crow T. Robot",
         is_great=False,
         location="Satellite of Love",
         description="You know you want me baby",
+        tasks=None,
     ),
     RobotProfile(
         name="Wall-E",
         is_great=False,
         location="Earth",
         description=" Waste Allocation Load Lifter: Earth-class",
+        tasks=None,
     ),
 ]
 

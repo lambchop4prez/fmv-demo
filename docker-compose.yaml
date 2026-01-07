@@ -67,36 +67,41 @@ services:
   #       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
   #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
-  backend:
-    image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
-    logging:
-      driver: json-file
-      options:
-        max-size: 200k
-        max-file: "3"
-    env_file:
-      - .env
-    environment:
-      - SERVER_NAME=${DOMAIN?Variable not set}
-      - SERVER_HOST=https://${DOMAIN?Variable not set}
-      # Allow explicit env var override for tests
-      # - SMTP_HOST=${SMTP_HOST}
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
-      args:
-        BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
-        BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
-        BACKEND_PROCESS_MANAGER: ${BACKEND_PROCESS_MANAGER-gunicorn}
-        BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
-        INSTALL_DEV: ${INSTALL_DEV-false}
-    command: uv run fastapi dev src/api
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.constraint-label-stack=${TRAEFIK_TAG?Variable not set}
-        - traefik.http.routers.${STACK_NAME?Variable not set}-backend-http.rule=PathPrefix(`/api`) || PathPrefix(`/docs`) || PathPrefix(`/redoc`)
-        - traefik.http.services.${STACK_NAME?Variable not set}-backend.loadbalancer.server.port=80
+  # backend:
+  #   image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
+  #   logging:
+  #     driver: json-file
+  #     options:
+  #       max-size: 200k
+  #       max-file: "3"
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - SERVER_NAME=${DOMAIN?Variable not set}
+  #     - SERVER_HOST=https://${DOMAIN?Variable not set}
+  #     - BACKEND_MONGO_HOST=mongodb
+  #     # Allow explicit env var override for tests
+  #     # - SMTP_HOST=${SMTP_HOST}
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.backend
+  #     args:
+  #       BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
+  #       BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
+  #       BACKEND_PROCESS_MANAGER: ${BACKEND_PROCESS_MANAGER-gunicorn}
+  #       BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
+  #       INSTALL_DEV: ${INSTALL_DEV-false}
+  #   ports:
+  #     - 8000:8000
+  #   command: uv run fastapi run src/api
+  #   volumes:
+  #     - .:/app
+  #   deploy:
+  #     labels:
+  #       - traefik.enable=true
+  #       - traefik.constraint-label-stack=${TRAEFIK_TAG?Variable not set}
+  #       - traefik.http.routers.${STACK_NAME?Variable not set}-backend-http.rule=PathPrefix(`/api`) || PathPrefix(`/docs`) || PathPrefix(`/redoc`)
+  #       - traefik.http.services.${STACK_NAME?Variable not set}-backend.loadbalancer.server.port=80
   workers:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
     logging:
@@ -109,6 +114,9 @@ services:
     environment:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
+      - BACKEND_REPOSITORY=mongodb
+      - BACKEND_MONGO_HOST=mongodb
+      - BACKEND_BROKER_HOST=rabbitmq
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
@@ -121,6 +129,8 @@ services:
         BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
         INSTALL_DEV: ${INSTALL_DEV-false}
     command: uv run celery -A workers worker -l INFO
+    volumes:
+      - .:/app
 
   frontend:
     image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}"
@@ -144,6 +154,7 @@ services:
     image: mongo
     ports:
       - 27017:27017
+    # command: ["mongod", "--logpath", "/dev/null"] # Reduces logging verbosity
 
   rabbitmq:
     image: rabbitmq:4-management
