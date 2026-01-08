@@ -7,6 +7,8 @@ on:
   pull_request:
     branches: [main]
     types: [opened, reopened, synchronize]
+env:
+  UV_CACHE_DIR: /tmp/.uv-cache
 
 jobs:
   analyze:
@@ -28,7 +30,7 @@ jobs:
       - name: Setup | Frontend | Restore pnpm cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: /.pnpm-store
+          path: ~/.cache/pnpm
           key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
           restore-keys: |
             pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
@@ -64,7 +66,7 @@ jobs:
       - name: Setup | Frontend | Restore pnpm cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: /.pnpm-store
+          path: ~/.cache/pnpm
           key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
           restore-keys: |
             pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
@@ -102,7 +104,7 @@ jobs:
       - name: Setup | Frontend | Restore pnpm cache
         uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
         with:
-          path: /.pnpm-store
+          path: ~/.cache/pnpm
           key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
           restore-keys: |
             pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
