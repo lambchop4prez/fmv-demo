@@ -61,3 +61,8 @@ publish:
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
 infra:
     docker compose --profile infra up -d
+
+[group('dev')]
+[doc('Bring down backing infrastructure')]
+infra-down:
+    docker compose --profile infra down
