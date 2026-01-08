@@ -16,6 +16,30 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
+      - name: Setup | Backend | Restore uv cache
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: /tmp/.uv-cache
+          key: uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
+          restore-keys: |
+            uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
+            uv-${{ runner.os }}
+
+      - name: Setup | Frontend | Restore pnpm cache
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: /.pnpm-store
+          key: uv-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+            pnpm-${{ runner.os }}
+
+      # - name: Setup | Frontend | Setup node with pnpm cache
+      #   uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
+      #   with:
+      #     node-version: lts/*
+      #     cache: pnpm
+
       - name: Setup | Mise-en-place
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
@@ -24,20 +48,6 @@ jobs:
           cache: true # [default: true] cache mise using GitHub's cache
           experimental: true # [default: false] enable experimental features
 
-      - name: Setup | Backend | Restore uv cache
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-            uv-${{ runner.os }}
-
-      - name: Setup | Frontend | Setup node with pnpm cache
-        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
-        with:
-          node-version: lts/*
-          cache: pnpm
 
       - name: Analyze | Run static code analysis
         run: just analyze
@@ -49,6 +59,30 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
+      - name: Setup | Backend | Restore uv cache
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: /tmp/.uv-cache
+          key: uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
+          restore-keys: |
+            uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
+            uv-${{ runner.os }}
+
+      - name: Setup | Frontend | Restore pnpm cache
+        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        with:
+          path: /.pnpm-store
+          key: uv-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+            pnpm-${{ runner.os }}
+
+      # - name: Setup | Frontend | Setup node with pnpm cache
+      #   uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
+      #   with:
+      #     node-version: lts/*
+      #     cache: pnpm
+
       - name: Setup | Mise-en-place
         uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
         with:
@@ -56,21 +90,6 @@ jobs:
           install: true # [default: true] run `mise install`
           cache: true # [default: true] cache mise using GitHub's cache
           experimental: true # [default: false] enable experimental features
-
-      - name: Setup | Backend | Restore uv cache
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
-        with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
-            uv-${{ runner.os }}
-
-      - name: Setup | Frontend | Setup node with pnpm cache
-        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6
-        with:
-          node-version: lts/*
-          cache: pnpm
 
       - name: Test | Run all unit tests
         run: just unit-test
