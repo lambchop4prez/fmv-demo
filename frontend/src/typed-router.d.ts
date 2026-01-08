@@ -37,27 +37,27 @@ declare module 'vue-router/auto-routes' {
    * @internal
    */
   export interface _RouteFileInfoMap {
-    'src/frontend/pages/index.vue': {
+    'src/pages/index.vue': {
       routes: '/'
       views: never
     }
-    'src/frontend/pages/[...all].vue': {
+    'src/pages/[...all].vue': {
       routes: '/[...all]'
       views: never
     }
-    'src/frontend/pages/about.md': {
+    'src/pages/about.md': {
       routes: '/about'
       views: never
     }
-    'src/frontend/pages/hi/[name].vue': {
+    'src/pages/hi/[name].vue': {
       routes: '/hi/[name]'
       views: never
     }
-    'src/frontend/pages/README.md': {
+    'src/pages/README.md': {
       routes: '/README'
       views: never
     }
-    'src/frontend/pages/robot/index.vue': {
+    'src/pages/robot/index.vue': {
       routes: '/robot/'
       views: never
     }

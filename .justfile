@@ -4,52 +4,34 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
+mod frontend 'frontend/'
+mod backend 'backend/'
+
 [private]
 default:
+    just log info "Frontend"
+    just --list frontend
+    just log info "Backend"
+    just --list backend
+    just log info "All"
     just --list
 
 [private]
 log lvl msg *args:
     gum log --time rfc822 -s --level "{{ lvl }}" "{{ msg }}" {{ args }}
 
-[group('setup')]
-uv-sync-dev:
-    uv sync --locked --all-extras --dev
-
-[group('setup')]
-pnpm-install:
-    pnpm install
-
-dev: uv-sync-dev
-    uv run fastapi dev src/api
-
 [group('check')]
-lint-backend: uv-sync-dev
-    uv run ruff check
-    uv run ruff format --check
+[parallel]
+lint: frontend::lint backend::lint
 
-[group('check')]
-lint-frontend: pnpm-install
-    pnpm run lint
 
 [group('check')]
 [parallel]
-lint: lint-frontend lint-backend
-
-[group('check')]
-typecheck-backend: uv-sync-dev
-    uv run mypy .
-
-[group('check')]
-typecheck-frontend: pnpm-install
-    pnpm run typecheck
-
-[group('check')]
-[parallel]
-typecheck: typecheck-frontend typecheck-backend
+typecheck: frontend::typecheck backend::typecheck
 
 [group('check')]
 spellcheck:
+    # just log info "Spellcheck"
     cspell .
 
 [group('check')]
@@ -57,17 +39,25 @@ spellcheck:
 analyze: spellcheck typecheck lint
 
 [group('build')]
-build:
-    docker compose build
-
-[group('test')]
-unit-test-frontend: pnpm-install
-    pnpm run test:unit
-
-[group('test')]
-unit-test-backend: uv-sync-dev
-    uv run pytest
+[parallel]
+build: frontend::build backend::build
 
 [group('test')]
 [parallel]
-unit-test: unit-test-frontend unit-test-backend
+unit-test: frontend::unit-test backend::unit-test
+
+[group('ci')]
+ci:
+    semantic-release -c .config/release.toml -v version --no-changelog --no-commit --no-tag
+[group('ci')]
+release:
+    semantic-release -c .config/release.toml -v --strict version --skip-build
+
+[group('ci')]
+publish:
+    semantic-release -c .config/release.toml publish
+
+[group('dev')]
+[doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
+infra:
+    docker compose --profile infra up -d
