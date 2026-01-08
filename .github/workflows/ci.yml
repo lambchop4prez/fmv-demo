@@ -10,7 +10,7 @@ on:
 
 jobs:
   analyze:
-    name: Static Code Analysis
+    name: Static Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
@@ -41,35 +41,6 @@ jobs:
 
       - name: Analyze | Run static code analysis
         run: just analyze
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup | Checkout
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-      - name: Setup | Mise-en-place
-        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
-        with:
-          version: 2025.12.13 # [default: latest] mise version to install
-          install: true # [default: true] run `mise install`
-          cache: true # [default: true] cache mise using GitHub's cache
-          experimental: true # [default: false] enable experimental features
-      - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
-      - name: Setup | Setup Just
-        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff
-      - name: Build
-        env:
-          TRAEFIK_PUBLIC_NETWORK_IS_EXTERNAL: false
-          TRAEFIK_PUBLIC_NETWORK: traefik-public
-          TRAEFIK_TAG: default
-          TRAEFIK_PUBLIC_TAG: traefik-public
-          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
-          DOCKER_IMAGE_BACKEND: fmv-demo-backend
-          STACK_NAME: fmv-demo
-          DOMAIN: example.com
-        run: just build
 
   test:
     name: Unit Test
@@ -103,6 +74,34 @@ jobs:
 
       - name: Test | Run all unit tests
         run: just unit-test
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Setup | Mise-en-place
+        uses: jdx/mise-action@146a28175021df8ca24f8ee1828cc2a60f980bd5 # v3.5.1
+        with:
+          version: 2025.12.13 # [default: latest] mise version to install
+          install: true # [default: true] run `mise install`
+          cache: true # [default: true] cache mise using GitHub's cache
+          experimental: true # [default: false] enable experimental features
+      - name: Setup | Setup docker compose
+        uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
+      - name: CI
+        id: ci
+        env:
+          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
+          DOCKER_IMAGE_BACKEND: fmv-demo-backend
+          STACK_NAME: fmv-demo
+          DOMAIN: example.com
+        run: just ci
+    outputs:
+      new-release-detected: ${{ steps.ci.outputs.released }}
+      new-release-version: ${{ steps.ci.outputs.version }}
+      new-release-tag: ${{ steps.ci.outputs.tag }}
+      new-release-is-prerelease: ${{ steps.ci.outputs.is_prerelease }}
 
       # Disable until docker-compose/mongodb setup is complete
   # test-e2e:

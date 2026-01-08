@@ -1,7 +1,6 @@
+from api.dependencies.service import ServiceDep
 from fastapi import APIRouter, Body, HTTPException, status
 from models import RobotCollection, RobotProfile, RobotTask
-
-from api.dependencies.service import ServiceDep
 
 router = APIRouter()
 

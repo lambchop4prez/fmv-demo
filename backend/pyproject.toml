@@ -29,7 +29,7 @@ requires = [ "uv_build==0.9.21" ]
 build-backend = "uv_build"
 
 [tool.uv.workspace]
-members = ["src/pkg/*"]
+members = ["pkg/*"]
 
 [tool.uv.sources]
 config = { workspace = true }

@@ -23,16 +23,16 @@ import { configDefaults } from "vitest/config";
 export default defineConfig({
   resolve: {
     alias: {
-      "~/": `${path.resolve(__dirname, "src/frontend")}/`,
+      "~/": `${path.resolve(__dirname, "src")}/`,
     },
   },
 
   plugins: [
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
-      routesFolder: ["src/frontend/pages"],
+      routesFolder: ["src/pages"],
       extensions: [".vue", ".md"],
-      dts: "src/frontend/typed-router.d.ts",
+      dts: "src/typed-router.d.ts",
     }),
 
     VueMacros({
@@ -45,8 +45,8 @@ export default defineConfig({
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts({
-      layoutsDirs: "src/frontend/layouts",
-      pagesDirs: "src/frontend/pages",
+      layoutsDirs: "src/layouts",
+      pagesDirs: "src/pages",
     }),
 
     // https://github.com/vitejs/vite-plugin-basic-ssl
@@ -71,18 +71,18 @@ export default defineConfig({
         },
       ],
       dts: "src/frontend/auto-imports.d.ts",
-      dirs: ["src/frontend/composables", "src/frontend/stores"],
+      dirs: ["src/composables", "src/stores"],
       vueTemplate: true,
     }),
 
     // https://github.com/antfu/unplugin-vue-components
     Components({
-      dirs: ["src/frontend/components"],
+      dirs: ["src/components"],
       // allow auto load markdown components under `./src/components/`
       extensions: ["vue", "md"],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      dts: "src/frontend/components.d.ts",
+      dts: "src/components.d.ts",
     }),
 
     // https://github.com/antfu/unocss
@@ -157,7 +157,7 @@ export default defineConfig({
 
   // https://github.com/vitest-dev/vitest
   test: {
-    include: ["test/frontend/**/*.test.ts", "src/frontend/**/__test__/*.ts"],
+    include: ["src/**/__test__/*.ts"],
     environment: "jsdom",
     globals: true,
     setupFiles: ["vitest.setup.ts"],

@@ -67,41 +67,39 @@ services:
   #       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
   #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
-  # backend:
-  #   image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
-  #   logging:
-  #     driver: json-file
-  #     options:
-  #       max-size: 200k
-  #       max-file: "3"
-  #   env_file:
-  #     - .env
-  #   environment:
-  #     - SERVER_NAME=${DOMAIN?Variable not set}
-  #     - SERVER_HOST=https://${DOMAIN?Variable not set}
-  #     - BACKEND_MONGO_HOST=mongodb
-  #     # Allow explicit env var override for tests
-  #     # - SMTP_HOST=${SMTP_HOST}
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.backend
-  #     args:
-  #       BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
-  #       BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
-  #       BACKEND_PROCESS_MANAGER: ${BACKEND_PROCESS_MANAGER-gunicorn}
-  #       BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
-  #       INSTALL_DEV: ${INSTALL_DEV-false}
-  #   ports:
-  #     - 8000:8000
-  #   command: uv run fastapi run src/api
-  #   volumes:
-  #     - .:/app
-  #   deploy:
-  #     labels:
-  #       - traefik.enable=true
-  #       - traefik.constraint-label-stack=${TRAEFIK_TAG?Variable not set}
-  #       - traefik.http.routers.${STACK_NAME?Variable not set}-backend-http.rule=PathPrefix(`/api`) || PathPrefix(`/docs`) || PathPrefix(`/redoc`)
-  #       - traefik.http.services.${STACK_NAME?Variable not set}-backend.loadbalancer.server.port=80
+  api:
+    image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
+    logging:
+      driver: json-file
+      options:
+        max-size: 200k
+        max-file: "3"
+    env_file:
+      - .env
+    environment:
+      - SERVER_NAME=${DOMAIN?Variable not set}
+      - SERVER_HOST=https://${DOMAIN?Variable not set}
+      - BACKEND_MONGO_HOST=mongodb
+      # Allow explicit env var override for tests
+      # - SMTP_HOST=${SMTP_HOST}
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+      args:
+        BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
+        BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
+        BACKEND_PROCESS_MANAGER: ${BACKEND_PROCESS_MANAGER-gunicorn}
+        BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
+        INSTALL_DEV: ${INSTALL_DEV-false}
+    ports:
+      - 8000:8000
+    command: uv run fastapi run src/api
+    volumes:
+      - .:/app
+    profiles:
+      - backend
+      - api
+
   workers:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
     logging:
@@ -121,7 +119,7 @@ services:
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: backend/Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -131,6 +129,12 @@ services:
     command: uv run celery -A workers worker -l INFO
     volumes:
       - .:/app
+    depends_on:
+      - mongodb
+      - rabbitmq
+    profiles:
+      - backend
+      - worker
 
   frontend:
     image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}"
@@ -141,29 +145,33 @@ services:
       - VITE_API_ENDPOINT=http://backend:8000
     build:
       context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: frontend/Dockerfile
     command: pnpm dev
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.constraint-label-stack=${TRAEFIK_TAG?Variable not set}
-        - traefik.http.routers.${STACK_NAME?Variable not set}-frontend-http.rule=PathPrefix(`/`)
-        - traefik.http.services.${STACK_NAME?Variable not set}-frontend.loadbalancer.server.port=80
+    profiles:
+      - frontend
 
   mongodb:
     image: mongo
     ports:
       - 27017:27017
     # command: ["mongod", "--logpath", "/dev/null"] # Reduces logging verbosity
+    volumes:
+      - app_data:/data/db
+    profiles:
+      - backend
+      - infra
 
   rabbitmq:
     image: rabbitmq:4-management
     ports:
       - 5672:5672 # amqp port
       - 15672:15672 # Management port
+    profiles:
+      - backend
+      - infra
 
 volumes:
-  app-db-data:
+  app_data:
 
 networks:
   traefik-public:

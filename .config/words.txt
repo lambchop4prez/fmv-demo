@@ -168,6 +168,7 @@ pidtree
 pify
 pinia
 Pinia
+pipefail
 pkgr
 pluginutils
 potrace

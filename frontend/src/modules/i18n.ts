@@ -1,5 +1,5 @@
 import type { Locale } from "vue-i18n";
-import type { UserModule } from "~/types";
+import type { UserModule } from "src/types";
 import { createI18n } from "vue-i18n";
 
 // Import i18n resources
@@ -13,7 +13,7 @@ const i18n = createI18n({
 });
 
 const localesMap = Object.fromEntries(
-  Object.entries(import.meta.glob("../../../locales/*.yml")).map(
+  Object.entries(import.meta.glob("../../locales/*.yml")).map(
     ([path, loadLocale]) => [path.match(/([\w-]*)\.yml$/)?.[1], loadLocale],
   ),
 ) as Record<Locale, () => Promise<{ default: Record<string, string> }>>;
