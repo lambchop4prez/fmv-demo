@@ -70,7 +70,7 @@ export default defineConfig({
           "vue-router/auto": ["useLink"],
         },
       ],
-      dts: "src/frontend/auto-imports.d.ts",
+      dts: "src/auto-imports.d.ts",
       dirs: ["src/composables", "src/stores"],
       vueTemplate: true,
     }),

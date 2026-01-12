@@ -13,6 +13,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     README: typeof import('./components/README.md')['default']
     RobotItem: typeof import('./components/RobotItem.vue')['default']
+    RobotList: typeof import('./components/RobotList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheCounter: typeof import('./components/TheCounter.vue')['default']

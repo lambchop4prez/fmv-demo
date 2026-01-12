@@ -74,17 +74,17 @@ services:
       options:
         max-size: 200k
         max-file: "3"
-    env_file:
-      - .env
     environment:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - BACKEND_MONGO_HOST=mongodb
+      - BACKEND_REPOSITORY=mongodb
+
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: backend/Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -94,8 +94,8 @@ services:
     ports:
       - 8000:8000
     command: uv run fastapi run src/api
-    volumes:
-      - .:/app
+    # volumes:
+      # - ./backend:/app
     profiles:
       - backend
       - api
@@ -107,8 +107,6 @@ services:
       options:
         max-size: 200k
         max-file: "3"
-    env_file:
-      - .env
     environment:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
@@ -127,8 +125,8 @@ services:
         BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
         INSTALL_DEV: ${INSTALL_DEV-false}
     command: uv run celery -A workers worker -l INFO
-    volumes:
-      - .:/app
+    # volumes:
+      # - ./backend:/app
     depends_on:
       - mongodb
       - rabbitmq
@@ -138,11 +136,8 @@ services:
 
   frontend:
     image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}"
-    env_file:
-      - .env
-      # - ./frontend/.env.local
     environment:
-      - VITE_API_ENDPOINT=http://backend:8000
+      - VITE_API_ENDPOINT=http://api:8000
     build:
       context: .
       dockerfile: frontend/Dockerfile
@@ -172,8 +167,3 @@ services:
 
 volumes:
   app_data:
-
-networks:
-  traefik-public:
-    # Allow setting it to false for testing
-    external: ${TRAEFIK_PUBLIC_NETWORK_IS_EXTERNAL-true}

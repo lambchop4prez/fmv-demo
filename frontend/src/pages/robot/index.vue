@@ -22,13 +22,9 @@ onMounted(async () => {
     <div v-if="error">
       <span text-xl>{{ error.message }}</span>
     </div>
-    <ul v-if="isReady && state">
-      <li
-        v-for="robot in state.robots"
-        :key="robot.name"
-      >
-        <RobotItem :robot="robot" />
-      </li>
-    </ul>
+    <RobotList
+      v-if="isReady && state"
+      :collection="state"
+    />
   </div>
 </template>

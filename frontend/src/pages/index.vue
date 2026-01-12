@@ -52,6 +52,7 @@ useHead({
         m-3
         btn
         text-sm
+        id="go"
         @click="go"
       >
         {{ t("button.go") }}
