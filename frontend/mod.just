@@ -28,3 +28,7 @@ build: pnpm-install
 [group('dev')]
 dev: pnpm-install
     pnpm run dev
+
+[group('test')]
+e2e: pnpm-install
+    pnpm run test:e2e

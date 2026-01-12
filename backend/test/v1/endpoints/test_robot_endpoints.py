@@ -1,5 +1,8 @@
+import os
+
 from fastapi.testclient import TestClient
 
+os.environ["BACKEND_REPOSITORY"] = "inmemory"
 from api import app
 
 client = TestClient(app)

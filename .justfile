@@ -1,6 +1,7 @@
 #!/usr/bin/env -S just --justfile
 # ^ A shebang isn't required, but allows a justfile to be executed
 #   like a script, with `./.justfile test`, for example.
+
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
@@ -23,7 +24,6 @@ log lvl msg *args:
 [group('check')]
 [parallel]
 lint: frontend::lint backend::lint
-
 
 [group('check')]
 [parallel]
@@ -49,6 +49,7 @@ unit-test: frontend::unit-test backend::unit-test
 [group('ci')]
 ci:
     semantic-release -c .config/release.toml -v version --no-changelog --no-commit --no-tag
+
 [group('ci')]
 release:
     semantic-release -c .config/release.toml -v --strict version --skip-build
@@ -57,12 +58,22 @@ release:
 publish:
     semantic-release -c .config/release.toml publish
 
-[group('dev')]
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
-infra:
+[group('dev')]
+infra-up:
     docker compose --profile infra up -d
 
-[group('dev')]
 [doc('Bring down backing infrastructure')]
+[group('dev')]
 infra-down:
     docker compose --profile infra down
+
+[doc('Bring up backend')]
+[group('dev')]
+backend-up:
+    docker compose --profile backend up -d
+
+[doc('Tear down backend')]
+[group('dev')]
+backend-down:
+    docker compose --profile backend down
