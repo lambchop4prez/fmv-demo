@@ -5,20 +5,21 @@ const props = defineProps<{ robot: components['schemas']['Robot'] }>();
 </script>
 
 <template>
-  <li class="robot-item">
+  <li
+    class="robot-item"
+    text-md
+    flex
+    items-center
+    font-bold
+  >
     <div
-      text-md
-      relative
-      font-bold
-    >
-      <div>{{ props.robot.name }}</div>
-      <div
-        v-if="props.robot.is_great"
-        i-carbon-trophy
-        absolute
-        left-1
-        top-1
-      />
-    </div>
+      :i="props.robot.is_great ? 'carbon-trophy' : 'mdi-robot'"
+      me-1.5
+      h-4
+      w-4
+      shrink-0
+      aria-hidden="true"
+    />
+    {{ props.robot.name }}
   </li>
 </template>
