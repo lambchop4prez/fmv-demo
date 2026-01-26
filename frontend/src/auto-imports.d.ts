@@ -153,6 +153,7 @@ declare global {
   const useConfirmDialog: typeof import('@vueuse/core').useConfirmDialog
   const useCountdown: typeof import('@vueuse/core').useCountdown
   const useCounter: typeof import('@vueuse/core').useCounter
+  const useCreateRobot: typeof import('./stores/robot').useCreateRobot
   const useCssModule: typeof import('vue').useCssModule
   const useCssVar: typeof import('@vueuse/core').useCssVar
   const useCssVars: typeof import('vue').useCssVars
@@ -241,8 +242,9 @@ declare global {
   const useRefHistory: typeof import('@vueuse/core').useRefHistory
   const useResizeObserver: typeof import('@vueuse/core').useResizeObserver
   const useRobotList: typeof import('./composables/robotList').useRobotList
+  const useRobotProfile: typeof import('./composables/robotProfile').useRobotProfile
   const useRobotQuery: typeof import('./composables/robotApi')['useRobotQuery']
-  const useRobotStore: typeof import('./stores/robot')['useRobotStore']
+  const useRobotStore: typeof import('./stores/robot').useRobotStore
   const useRoute: typeof import('vue-router').useRoute
   const useRouter: typeof import('vue-router').useRouter
   const useSSRWidth: typeof import('@vueuse/core').useSSRWidth
@@ -559,6 +561,8 @@ declare module 'vue' {
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useRobotList: UnwrapRef<typeof import('./composables/robotList')['useRobotList']>
+    readonly useRobotProfile: UnwrapRef<typeof import('./composables/robotProfile')['useRobotProfile']>
+    readonly useRobotStore: UnwrapRef<typeof import('./stores/robot')['useRobotStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSSRWidth: UnwrapRef<typeof import('@vueuse/core')['useSSRWidth']>
