@@ -16,11 +16,11 @@
       "type": "chrome",
       "request": "launch",
       "skipFiles": [
-        "${workspaceFolder}/node_modules/**/*.js"
+        "${workspaceFolder}/frontend/node_modules/**/*.js"
       ],
       "name": "Launch Chrome(localhost)",
-      "url": "http://localhost:3333",
-      "webRoot": "${workspaceFolder}/src",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend",
       "runtimeArgs": [
         "--remote-debugging-port=9222"
       ],

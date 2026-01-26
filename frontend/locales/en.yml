@@ -4,6 +4,8 @@ button:
   go: GO
   home: Home
   robots: Robots
+  new: New
+  submit: Submit
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 intro:
@@ -13,3 +15,10 @@ intro:
   aka: Also known as
   whats-your-name: What's your name?
 not-found: Not found
+interactions:
+  fetching: Fetching
+robot:
+  name: Name
+  is_great: Is Great?
+  location: Location
+  description: Description

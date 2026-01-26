@@ -1,6 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n();
 import { useRobotList } from '~/composables/robotList';
-
 const { error, isFetching, isReady, state, execute } = useRobotList({});
 onMounted(async () => {
   await execute();
@@ -8,17 +8,21 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div m-0>
-    <h2
+  <div
+    card
+  >
+    <h1
       text-xl
       font-black
     >
       Robots
-    </h2>
+    </h1>
     <span
       v-if="isFetching"
       text-lg
-    >Fetching</span>
+    >
+      {{ t('interactions.fetching') }}
+    </span>
     <div v-if="error">
       <span text-xl>{{ error.message }}</span>
     </div>
@@ -26,5 +30,12 @@ onMounted(async () => {
       v-if="isReady && state"
       :collection="state"
     />
+    <button
+      m-3
+      btn
+      @click="$router.push('/robot/new')"
+    >
+      {{ t("button.new") }}
+    </button>
   </div>
 </template>

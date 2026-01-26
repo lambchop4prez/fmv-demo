@@ -35,7 +35,7 @@
   "i18n-ally.sortKeys": true,
 
   "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",

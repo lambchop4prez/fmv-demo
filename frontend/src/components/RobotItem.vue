@@ -20,6 +20,8 @@ const props = defineProps<{ robot: components['schemas']['Robot'] }>();
       shrink-0
       aria-hidden="true"
     />
-    {{ props.robot.name }}
+    <RouterLink :to="{name: '/robot/[name]', params: {name: props.robot.name}}">
+      {{ props.robot.name }}
+    </RouterLink>
   </li>
 </template>
