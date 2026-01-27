@@ -3,17 +3,25 @@ name: CI
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
     types: [opened, reopened, synchronize]
+
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   analyze:
     name: Static Analysis
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -50,6 +58,8 @@ jobs:
   test:
     name: Unit Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -85,6 +95,8 @@ jobs:
   ci:
     name: Continuous Integration
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
