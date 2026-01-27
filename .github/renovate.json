@@ -1,6 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>lambchop4prez/renovate-config"
+    "github>lambchop4prez/renovate-config",
+    "config:js-app",
+    "group:vite",
+    "group:linters",
+    "group:vueMonorepo",
+    "group:vueuseMonorepo"
   ]
 }
