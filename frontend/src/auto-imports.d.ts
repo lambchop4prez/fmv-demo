@@ -562,7 +562,6 @@ declare module 'vue' {
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useRobotList: UnwrapRef<typeof import('./composables/robotList')['useRobotList']>
     readonly useRobotProfile: UnwrapRef<typeof import('./composables/robotProfile')['useRobotProfile']>
-    readonly useRobotStore: UnwrapRef<typeof import('./stores/robot')['useRobotStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router')['useRoute']>
     readonly useRouter: UnwrapRef<typeof import('vue-router')['useRouter']>
     readonly useSSRWidth: UnwrapRef<typeof import('@vueuse/core')['useSSRWidth']>
