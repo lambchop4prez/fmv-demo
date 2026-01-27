@@ -7,7 +7,7 @@ catalogs:
     '@unocss/eslint-config': 66.5.12
     '@vitejs/plugin-basic-ssl': 2.1.4
     '@vitejs/plugin-vue': 6.0.3
-    beasties: 0.3.5
+    beasties: 0.4.1
     markdown-it-link-attributes: 4.0.1
     rollup: 4.54.0
     shiki: 3.21.0
