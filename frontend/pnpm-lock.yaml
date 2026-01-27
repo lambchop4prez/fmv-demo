@@ -22,8 +22,8 @@ catalogs:
       specifier: 6.0.3
       version: 6.0.3
     beasties:
-      specifier: 0.3.5
-      version: 0.3.5
+      specifier: 0.4.1
+      version: 0.4.1
     markdown-it-link-attributes:
       specifier: 4.0.1
       version: 4.0.1
@@ -259,7 +259,7 @@ importers:
         version: 2.4.6
       beasties:
         specifier: catalog:build
-        version: 0.3.5
+        version: 0.4.1
       cypress:
         specifier: catalog:dev
         version: 15.9.0
@@ -340,7 +340,7 @@ importers:
         version: 0.11.0(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       vite-ssg:
         specifier: catalog:build
-        version: 28.2.2(beasties@0.3.5)(postcss@8.5.6)(prettier@3.7.4)(unhead@2.1.2)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
+        version: 28.2.2(beasties@0.4.1)(postcss@8.5.6)(prettier@3.7.4)(unhead@2.1.2)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3))
       vite-ssg-sitemap:
         specifier: catalog:build
         version: 0.10.0
@@ -2984,9 +2984,9 @@ packages:
   bcrypt-pbkdf@1.0.2:
     resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
 
-  beasties@0.3.5:
-    resolution: {integrity: sha512-NaWu+f4YrJxEttJSm16AzMIFtVldCvaJ68b1L098KpqXmxt9xOLtKoLkKxb8ekhOrLqEJAbvT6n6SEvB/sac7A==}
-    engines: {node: '>=14.0.0'}
+  beasties@0.4.1:
+    resolution: {integrity: sha512-2Imdcw3LznDuxAbJM26RHniOLAzE6WgrK8OuvVXCQtNBS8rsnD9zsSEa3fHl4hHpUY7BYTlrpvtPVbvu9G6neg==}
+    engines: {node: '>=18.0.0'}
 
   bidi-js@1.0.3:
     resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
@@ -4805,6 +4805,12 @@ packages:
 
   postcss-media-query-parser@0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
+
+  postcss-safe-parser@7.0.1:
+    resolution: {integrity: sha512-0AioNCJZ2DPYz5ABT6bddIqlhgwhpHZ/l65YAYo0BCIn0xiDpsnTHz0gnoTGk0OXZW0JRs+cDwL8u/teRdz+8A==}
+    engines: {node: '>=18.0'}
+    peerDependencies:
+      postcss: ^8.4.31
 
   postcss-selector-parser@6.0.15:
     resolution: {integrity: sha512-rEYkQOMUCEMhsKbK66tbEU9QVIxbhN18YiniAwA7XQYTVBqrBy+P2p5JcdqsHgKM2zWylp8d7J6eszocfds5Sw==}
@@ -9009,7 +9015,7 @@ snapshots:
     dependencies:
       tweetnacl: 0.14.5
 
-  beasties@0.3.5:
+  beasties@0.4.1:
     dependencies:
       css-select: 6.0.0
       css-what: 7.0.0
@@ -9019,6 +9025,7 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.6
       postcss-media-query-parser: 0.2.3
+      postcss-safe-parser: 7.0.1(postcss@8.5.6)
 
   bidi-js@1.0.3:
     dependencies:
@@ -11058,6 +11065,10 @@ snapshots:
 
   postcss-media-query-parser@0.2.3: {}
 
+  postcss-safe-parser@7.0.1(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+
   postcss-selector-parser@6.0.15:
     dependencies:
       cssesc: 3.0.0
@@ -12227,7 +12238,7 @@ snapshots:
 
   vite-ssg-sitemap@0.10.0: {}
 
-  vite-ssg@28.2.2(beasties@0.3.5)(postcss@8.5.6)(prettier@3.7.4)(unhead@2.1.2)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)):
+  vite-ssg@28.2.2(beasties@0.4.1)(postcss@8.5.6)(prettier@3.7.4)(unhead@2.1.2)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1))(vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)))(vue@3.5.26(typescript@5.9.3)):
     dependencies:
       '@unhead/dom': 2.0.19(unhead@2.1.2)
       '@unhead/vue': 2.1.2(vue@3.5.26(typescript@5.9.3))
@@ -12239,7 +12250,7 @@ snapshots:
       vite: 7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.1)
       vue: 3.5.26(typescript@5.9.3)
     optionalDependencies:
-      beasties: 0.3.5
+      beasties: 0.4.1
       prettier: 3.7.4
       vue-router: 4.6.4(vue@3.5.26(typescript@5.9.3))
     transitivePeerDependencies:
