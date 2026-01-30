@@ -1,0 +1,18 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "packageRules": [
+        {
+            "description": "UV",
+            "groupName": "uv",
+            "matchDatasources": [
+                "github-tags",
+                "pypi",
+                "docker"
+            ],
+            "matchPackageNames": [
+                "/uv/",
+                "/uv_build/"
+            ]
+        }
+    ]
+}
