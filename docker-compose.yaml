@@ -5,8 +5,7 @@ services:
   #   networks:
   #     - ${TRAEFIK_PUBLIC_NETWORK?Not Set}
   #     - default
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   volumes:ocker.sock:/var/run/docker.sock
   #   command:
   #     # Enable Docker in Traefik, so that it reads labels from Docker services
   #     - --providers.docker
@@ -65,7 +64,8 @@ services:
   #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-https.middlewares=${STACK_NAME?Variable not set}-www-redirect
   #       # Middleware to redirect www, and redirect HTTP to HTTPS
   #       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
-  #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
+  #       - traefik.h
+  #     - /var/run/dttp.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
   api:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
@@ -79,7 +79,6 @@ services:
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - BACKEND_MONGO_HOST=mongodb
       - BACKEND_REPOSITORY=mongodb
-
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
@@ -95,10 +94,11 @@ services:
       - 8000:8000
     command: uv run fastapi run src/api
     # volumes:
-      # - ./backend:/app
+    # - ./backend:/app
     profiles:
       - backend
       - api
+      - ci
 
   workers:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
@@ -126,7 +126,7 @@ services:
         INSTALL_DEV: ${INSTALL_DEV-false}
     command: uv run celery -A workers worker -l INFO
     # volumes:
-      # - ./backend:/app
+    # - ./backend:/app
     depends_on:
       - mongodb
       - rabbitmq
@@ -141,9 +141,11 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
-    command: pnpm dev
+    ports:
+      - 5173:80
     profiles:
       - frontend
+      - ci
 
   mongodb:
     image: mongo
@@ -155,6 +157,7 @@ services:
     profiles:
       - backend
       - infra
+      - ci
 
   rabbitmq:
     image: rabbitmq:4-management
@@ -164,6 +167,7 @@ services:
     profiles:
       - backend
       - infra
+      - ci
 
 volumes:
   app_data:

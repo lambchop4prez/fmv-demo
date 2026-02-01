@@ -148,33 +148,50 @@ jobs:
       new-release-is-prerelease: ${{ steps.ci.outputs.is_prerelease }}
 
       # Disable until docker-compose/mongodb setup is complete
-  # test-e2e:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/cache@v4
-  #       with:
-  #         path: |
-  #           ~/.cache
-  #         key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+  test-e2e:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: read
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-  #     - uses: pnpm/action-setup@v3
+      - name: Setup | Frontend | Restore pnpm cache
+        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+        with:
+          path: ~/.cache/pnpm
+          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+            pnpm-${{ runner.os }}
 
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: lts/*
-  #         registry-url: https://registry.npmjs.org/
-  #         cache: pnpm
+      - name: Setup | Mise-en-place
+        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
+        with:
+          version: 2025.12.13 # [default: latest] mise version to install
+          install: true # [default: true] run `mise install`
+          cache: true # [default: true] cache mise using GitHub's cache
+          experimental: true # [default: false] enable experimental features
 
-  #     - run: pnpm install
+      - name: Setup | Setup docker compose
+        uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
 
-  #     - name: Cypress PNPM Patch
-  #       run: cp pnpm-lock.yaml package-lock.json
+      - name: Setup | Pnpm
+        run: just frontend pnpm-install
 
-  #     - name: Cypress
-  #       uses: cypress-io/github-action@v6
-  #       with:
-  #         install-command: echo
-  #         build: pnpm run build
-  #         start: npx vite preview --port 3333
+      - name: Test | Cypress PNPM Patch
+        run: cp frontend/pnpm-lock.yaml frontend/package-lock.json
+
+      - name: Test | Cypress end-to-end tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: just up
+          working-directory: frontend
+
+      - name: Teardown | Bring environment down
+        run: just down

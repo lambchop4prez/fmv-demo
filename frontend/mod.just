@@ -25,6 +25,10 @@ build: pnpm-install
     # just log info "Frontend | Build"
     pnpm run build
 
+[group('build')]
+build-container:
+    docker build .
+
 [group('dev')]
 dev: pnpm-install
     pnpm run dev
