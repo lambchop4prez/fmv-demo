@@ -15,5 +15,5 @@ dependencies = [
 workers = "workers:main"
 
 [build-system]
-requires = ["uv_build==0.9.27"]
+requires = ["uv_build==0.9.28"]
 build-backend = "uv_build"
