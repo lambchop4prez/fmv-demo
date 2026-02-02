@@ -10,8 +10,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import VueMacros from "unplugin-vue-macros/vite";
 import Markdown from "unplugin-vue-markdown/vite";
-import { VueRouterAutoImports } from "unplugin-vue-router";
-import VueRouter from "unplugin-vue-router/vite";
+import { VueRouterAutoImports } from "vue-router/unplugin";
+import VueRouter from "vue-router/vite";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import VueDevTools from "vite-plugin-vue-devtools";
@@ -32,7 +32,7 @@ export default defineConfig({
     VueRouter({
       routesFolder: ["src/pages"],
       extensions: [".vue", ".md"],
-      dts: "src/typed-router.d.ts",
+      dts: 'src/route-map.d.ts',
     }),
 
     VueMacros({
