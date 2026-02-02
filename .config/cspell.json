@@ -15,13 +15,16 @@
     }
   ],
   "useGitignore": true,
-  "dictionaries": ["project-words"],
+  "dictionaries": [
+    "project-words"
+  ],
   "ignorePaths": [
     "dist",
     "node_modules",
     ".venv",
     "/.config/words.txt",
     "locales",
-    "pnpm-lock.yaml"
+    "pnpm-lock.yaml",
+    "*.d.ts"
   ]
 }
