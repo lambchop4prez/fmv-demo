@@ -163,6 +163,7 @@ jobs:
         contents: read
     env:
       NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
+      TAG: ${{ needs.ci.outputs.new-release-version }}
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
