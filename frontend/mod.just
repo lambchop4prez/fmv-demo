@@ -2,7 +2,7 @@ set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 tag := env("DOCKER_IMAGE_FRONTEND", 'frontend')
-version := env("VERSION", "0.0.0-dirty")
+version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
 
 [group('setup')]
