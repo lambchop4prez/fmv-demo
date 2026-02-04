@@ -62,7 +62,7 @@ publish:
 
 [group('ci')]
 up:
-    docker compose --profile ci up --detach
+    docker compose --profile ci up --detach --no-build
 
 [group('ci')]
 down:
