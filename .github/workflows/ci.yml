@@ -133,14 +133,19 @@ jobs:
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@e79596b1b4769557c41cc0bb1e796ebe62acd639
 
-      - name: CI
+      - name: Continuous Integration
         id: ci
-        env:
-          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
-          DOCKER_IMAGE_BACKEND: fmv-demo-backend
-          STACK_NAME: fmv-demo
-          DOMAIN: example.com
         run: just ci
+
+      - name: Collect artifacts
+        run: just artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: artifacts
+          path: artifacts/
+
     outputs:
       new-release-detected: ${{ steps.ci.outputs.released }}
       new-release-version: ${{ steps.ci.outputs.version }}
@@ -182,6 +187,14 @@ jobs:
 
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
+
+      - name: Setup | Download artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: artifacts
+
+      - name: Setup | Load artifacts
+        run: just load
 
       - name: Setup | Pnpm
         run: just frontend pnpm-install

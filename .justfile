@@ -5,6 +5,9 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
+version := env('VERSION', '0.0.0-dirty')
+artifacts := justfile_dir() / "artifacts"
+
 mod frontend 'frontend/'
 mod backend 'backend/'
 
@@ -65,6 +68,16 @@ up:
 down:
     docker compose --profile ci down
 
+[doc('Collect artifacts for storage')]
+[group('ci')]
+[parallel]
+artifacts: frontend::artifacts backend::artifacts
+
+[doc('Load container images from artifacts')]
+[group('ci')]
+[parallel]
+load: frontend::load backend::load
+
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
 [group('dev')]
 infra-up:
@@ -84,3 +97,6 @@ backend-up:
 [group('dev')]
 backend-down:
     docker compose --profile backend down
+
+test triple=(arch() + "-unknown-unknown"):
+  echo "{{triple}}"

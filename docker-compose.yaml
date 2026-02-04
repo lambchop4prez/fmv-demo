@@ -65,7 +65,7 @@ services:
   #       # Middleware to redirect www, and redirect HTTP to HTTPS
   #       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
   #       - traefik.h
-  #     - /var/run/dttp.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
+  #     - /var/run/http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
   api:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
