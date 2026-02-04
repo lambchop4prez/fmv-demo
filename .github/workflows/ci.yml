@@ -204,14 +204,17 @@ jobs:
       - name: Setup | Pnpm
         run: just frontend pnpm-install
 
-      - name: Test | Cypress PNPM Patch
+      - name: Setup | Cypress PNPM Patch
         run: cp frontend/pnpm-lock.yaml frontend/package-lock.json
 
+      - name: Setup | Bring environment up
+        run: just up
+
       - name: Test | Cypress end-to-end tests
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@0f330ebf0d60f87608ed72f1d6232e5644aa3171
         with:
-          start: just up
           working-directory: frontend
 
       - name: Teardown | Bring environment down
+        if: always()
         run: just down
