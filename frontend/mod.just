@@ -44,7 +44,7 @@ e2e: pnpm-install
 [group('ci')]
 [doc('Collect artifacts for storage')]
 artifacts:
-    tar czf {{artifacts}}/dist-{{version}}.tar.gz dist
+    mkdir -p {{artifacts}} && tar czf {{artifacts}}/dist-{{version}}.tar.gz dist
     docker image save -o {{artifacts}}/frontend-{{version}}.tar.gz {{tag}}:{{version}}
 
 [group('ci')]
