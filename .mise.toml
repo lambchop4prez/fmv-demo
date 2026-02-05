@@ -17,7 +17,7 @@ FRONTEND_API_BASE_URL="http://localhost:8000"
 _.file = ["{{config_root}}/.secrets.env"]
 
 [tools]
-"python" = "3.14.2"
+"python" = "3.14.3"
 "aqua:astral-sh/uv" = "0.9.28"
 "aqua:casey/just" = "1.46.0"
 "aqua:charmbracelet/gum" = "0.17.0"
