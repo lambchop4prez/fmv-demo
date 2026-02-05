@@ -97,6 +97,3 @@ backend-up:
 [group('dev')]
 backend-down:
     docker compose --profile backend down
-
-test triple=(arch() + "-unknown-unknown"):
-  echo "{{triple}}"

@@ -5,6 +5,7 @@ STACK_NAME = "fmv-demo"
 
 DOCKER_IMAGE_BACKEND = "ghcr.io/lambchop4prez/fmv-demo-backend"
 DOCKER_IMAGE_FRONTEND = "ghcr.io/lambchop4prez/fmv-demo-frontend"
+TAG = "0.0.0-dirty"
 
 BACKEND_REPOSITORY = "mongodb"
 # BACKEND_REPOSITORY=inmemory

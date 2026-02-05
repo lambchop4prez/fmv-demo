@@ -216,6 +216,17 @@ jobs:
         with:
           working-directory: frontend
 
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: test-artifacts
+          if-no-files-found: ignore
+          path: |
+            frontend/test/downloads/
+            frontend/test/screenshots/
+            frontend/test/videos/
+
       - name: Teardown | Bring environment down
         if: always()
         run: just down
