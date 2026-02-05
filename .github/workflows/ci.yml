@@ -215,6 +215,7 @@ jobs:
         uses: cypress-io/github-action@0f330ebf0d60f87608ed72f1d6232e5644aa3171
         with:
           working-directory: frontend
+          config: baseUrl=http://localhost:8080
 
       - name: Upload artifacts
         if: always()

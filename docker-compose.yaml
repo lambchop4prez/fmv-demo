@@ -133,6 +133,7 @@ services:
     profiles:
       - backend
       - worker
+      - ci
 
   frontend:
     image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}"
@@ -142,7 +143,7 @@ services:
       context: .
       dockerfile: frontend/Dockerfile
     ports:
-      - 5173:80
+      - 8080:8080
     profiles:
       - frontend
       - ci
