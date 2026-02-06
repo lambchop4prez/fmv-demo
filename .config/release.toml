@@ -1,6 +1,6 @@
 [tool.semantic_release]
 assets = []
-build_command_env = []
+build_command_env = ["DOCKER_IMAGE_BACKEND", "DOCKER_IMAGE_FRONTEND"]
 build_command = """
     just build
 """

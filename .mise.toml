@@ -3,16 +3,16 @@ PROJECT_NAME = "FastAPI MongoDB Vue Stack Demo"
 DOMAIN = "localhost"
 STACK_NAME = "fmv-demo"
 
-DOCKER_IMAGE_BACKEND = "backend"
-DOCKER_IMAGE_FRONTEND = "frontend"
+DOCKER_IMAGE_BACKEND = "ghcr.io/lambchop4prez/fmv-demo-backend"
+DOCKER_IMAGE_FRONTEND = "ghcr.io/lambchop4prez/fmv-demo-frontend"
 
-BACKEND_REPOSITORY="mongodb"
+BACKEND_REPOSITORY = "mongodb"
 # BACKEND_REPOSITORY=inmemory
-BACKEND_MONGO_HOST="localhost"
-BACKEND_MONGO_DATABASE="robot"
-BACKEND_BROKER_HOST="localhost"
+BACKEND_MONGO_HOST = "localhost"
+BACKEND_MONGO_DATABASE = "robot"
+BACKEND_BROKER_HOST = "localhost"
 
-FRONTEND_API_BASE_URL="http://localhost:8000"
+FRONTEND_API_BASE_URL = "http://localhost:8000"
 
 _.file = ["{{config_root}}/.secrets.env"]
 

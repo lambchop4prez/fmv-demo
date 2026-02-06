@@ -5,6 +5,9 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
+version := env('NEW_VERSION', '0.0.0-dirty')
+artifacts := justfile_dir() / "artifacts"
+
 mod frontend 'frontend/'
 mod backend 'backend/'
 
@@ -31,7 +34,6 @@ typecheck: frontend::typecheck backend::typecheck
 
 [group('check')]
 spellcheck:
-    # just log info "Spellcheck"
     cspell .
 
 [group('check')]
@@ -40,7 +42,7 @@ analyze: spellcheck typecheck lint
 
 [group('build')]
 [parallel]
-build: frontend::build backend::build
+build: frontend::build frontend::build-container backend::build
 
 [group('test')]
 [parallel]
@@ -58,10 +60,28 @@ release:
 publish:
     semantic-release -c .config/release.toml publish
 
+[group('ci')]
+up:
+    docker compose --profile ci up --detach --no-build
+
+[group('ci')]
+down:
+    docker compose --profile ci down
+
+[doc('Collect artifacts for storage')]
+[group('ci')]
+[parallel]
+artifacts: frontend::artifacts backend::artifacts
+
+[doc('Load container images from artifacts')]
+[group('ci')]
+[parallel]
+load: frontend::load backend::load
+
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
 [group('dev')]
 infra-up:
-    docker compose --profile infra up -d
+    docker compose --profile infra up --detach
 
 [doc('Bring down backing infrastructure')]
 [group('dev')]
@@ -71,7 +91,7 @@ infra-down:
 [doc('Bring up backend')]
 [group('dev')]
 backend-up:
-    docker compose --profile backend up -d
+    docker compose --profile backend up --detach
 
 [doc('Tear down backend')]
 [group('dev')]
