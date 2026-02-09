@@ -147,8 +147,8 @@ catalogs:
       specifier: 0.2.0
       version: 0.2.0
     openapi-fetch:
-      specifier: 0.15.0
-      version: 0.15.0
+      specifier: 0.16.0
+      version: 0.16.0
     pinia:
       specifier: 3.0.4
       version: 3.0.4
@@ -192,7 +192,7 @@ importers:
         version: 0.2.0
       openapi-fetch:
         specifier: catalog:frontend
-        version: 0.15.0
+        version: 0.16.0
       pinia:
         specifier: catalog:frontend
         version: 3.0.4(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
@@ -3708,12 +3708,12 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
     engines: {node: '>=12'}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-dirs@3.0.1:
     resolution: {integrity: sha512-NBcGGFbBA9s1VzD41QXDG+3++t9Mn5t1FpLdhESY6oKY4gYTFpX4wO3sqGUa0Srjtbfj3szX0RnemmrVRUdULA==}
@@ -4514,8 +4514,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openapi-fetch@0.15.0:
-    resolution: {integrity: sha512-OjQUdi61WO4HYhr9+byCPMj0+bgste/LtSBEcV6FzDdONTs7x0fWn8/ndoYwzqCsKWIxEZwo4FN/TG1c1rI8IQ==}
+  openapi-fetch@0.16.0:
+    resolution: {integrity: sha512-EVLlvcUOugBYMXhuITAm2Ihv9EmQ7b9gJYn7hg2wvcf/GxbanhQ9olDz9I3DcS0Jr4Jv/53I2oVuIYQsFHa9mA==}
 
   openapi-typescript-helpers@0.0.15:
     resolution: {integrity: sha512-opyTPaunsklCBpTK8JGef6mfPhLSnyy5a0IN9vKtx3+4aExf+KxEqYwIy3hqkedXIB97u357uLMJsOnm3GVjsw==}
@@ -10544,7 +10544,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-fetch@0.15.0:
+  openapi-fetch@0.16.0:
     dependencies:
       openapi-typescript-helpers: 0.0.15
 
