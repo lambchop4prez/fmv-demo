@@ -147,8 +147,8 @@ catalogs:
       specifier: 0.2.0
       version: 0.2.0
     openapi-fetch:
-      specifier: 0.15.0
-      version: 0.15.0
+      specifier: 0.16.0
+      version: 0.16.0
     pinia:
       specifier: 3.0.4
       version: 3.0.4
@@ -192,7 +192,7 @@ importers:
         version: 0.2.0
       openapi-fetch:
         specifier: catalog:frontend
-        version: 0.15.0
+        version: 0.16.0
       pinia:
         specifier: catalog:frontend
         version: 3.0.4(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))
@@ -4579,8 +4579,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openapi-fetch@0.15.0:
-    resolution: {integrity: sha512-OjQUdi61WO4HYhr9+byCPMj0+bgste/LtSBEcV6FzDdONTs7x0fWn8/ndoYwzqCsKWIxEZwo4FN/TG1c1rI8IQ==}
+  openapi-fetch@0.16.0:
+    resolution: {integrity: sha512-EVLlvcUOugBYMXhuITAm2Ihv9EmQ7b9gJYn7hg2wvcf/GxbanhQ9olDz9I3DcS0Jr4Jv/53I2oVuIYQsFHa9mA==}
 
   openapi-typescript-helpers@0.0.15:
     resolution: {integrity: sha512-opyTPaunsklCBpTK8JGef6mfPhLSnyy5a0IN9vKtx3+4aExf+KxEqYwIy3hqkedXIB97u357uLMJsOnm3GVjsw==}
@@ -10703,7 +10703,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-fetch@0.15.0:
+  openapi-fetch@0.16.0:
     dependencies:
       openapi-typescript-helpers: 0.0.15
 
