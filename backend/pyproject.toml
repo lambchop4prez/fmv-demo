@@ -5,7 +5,7 @@ description = "Demo project using FastAPI, MongoDB, and Vue"
 readme = "README.md"
 requires-python = "==3.14.3"
 dependencies = [
-  "fastapi[standard]==0.128.6",
+  "fastapi[standard]==0.128.7",
   "config",
   "models",
   "service",
