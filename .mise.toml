@@ -24,5 +24,5 @@ _.file = ["{{config_root}}/.secrets.env"]
 "aqua:jqlang/jq" = "1.8.1"
 "aqua:rhysd/actionlint" = "1.7.10"
 "aqua:pnpm/pnpm" = "10.29.2"
-"npm:cspell" = "9.6.3"
+"npm:cspell" = "9.6.4"
 "pipx:python-semantic-release" = "10.5.3"
