@@ -5,11 +5,12 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
-version := env('NEW_VERSION', '0.0.0-dirty')
+tag := env("DOCKER_IMAGE_BACKEND", 'backend')
+version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
 
-mod frontend 'frontend/'
-mod backend 'backend/'
+mod frontend 'ui/'
+mod backend 'src/'
 
 [private]
 default:
@@ -41,8 +42,12 @@ spellcheck:
 analyze: spellcheck typecheck lint
 
 [group('build')]
+build-api:
+    # just log info "Backend | Build"
+    docker build . -t {{ tag }}:{{ version }}
+[group('build')]
 [parallel]
-build: frontend::build frontend::build-container backend::build
+build: frontend::build frontend::build-container build-api
 
 [group('test')]
 [parallel]

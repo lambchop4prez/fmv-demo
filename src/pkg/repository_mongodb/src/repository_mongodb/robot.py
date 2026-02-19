@@ -1,5 +1,6 @@
 from typing import Sequence
 
+from beanie.odm.operators.update.general import Set
 from models import Robot, RobotProfile
 from pymongo import AsyncMongoClient
 from repository import RobotRepository
@@ -16,7 +17,17 @@ class MongoDbRobotRepository(RobotRepository):
         return await RobotDocument.find_all(limit=1000).project(Robot).to_list()
 
     async def create(self, robot: RobotProfile) -> None:
-        await RobotDocument.insert_one(RobotDocument(**robot.model_dump()))
+        if (item := await RobotDocument.find_one({"name": robot.name})) is None:
+            await RobotDocument.insert_one(RobotDocument(**robot.model_dump()))
+        await item.update(
+            Set(
+                {
+                    RobotDocument.description: robot.description,
+                    RobotDocument.is_great: robot.is_great,
+                    RobotDocument.location: robot.location,
+                }
+            )
+        )
 
     async def find(self, name: str) -> RobotProfile | None:
         if (item := await RobotDocument.find_one({"name": name})) is None:

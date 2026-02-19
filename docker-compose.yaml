@@ -83,7 +83,7 @@ services:
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -117,7 +117,7 @@ services:
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -141,7 +141,7 @@ services:
       - VITE_API_ENDPOINT=http://api:8000
     build:
       context: .
-      dockerfile: frontend/Dockerfile
+      dockerfile: ui/Dockerfile
     ports:
       - 8080:8080
     profiles:

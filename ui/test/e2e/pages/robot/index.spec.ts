@@ -4,10 +4,7 @@ describe('Robot List', () => {
   before(() => {
     cy.fixture('seed').then((data: Array<RobotProfile>) => {
       data.forEach((element: RobotProfile) => {
-        cy.task('httpRequest', {
-          url: 'http://localhost:8000/v1/robot/',
-          body: element
-        });
+        cy.request("POST", 'http://localhost:8000/api/v1/robot/', element);
       });
     });
   })

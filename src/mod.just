@@ -28,29 +28,29 @@ unit-test: uv-sync-dev
 [group('build')]
 build:
     # just log info "Backend | Build"
-    docker build . -t {{tag}}:{{version}}
+    docker build . -t {{ tag }}:{{ version }}
 
-[group('dev')]
 [doc("Start API in dev mode")]
-api: uv-sync-dev
-    uv run fastapi dev src/api
-
 [group('dev')]
+api: uv-sync-dev
+    uv run fastapi dev api
+
 [doc("Start celery worker in dev mode")]
+[group('dev')]
 workers: uv-sync-dev
     uv run celery -A workers worker -l INFO
 
+[doc('Start both API and workers')]
 [group('dev')]
 [parallel]
-[doc('Start both API and workers')]
 dev: api workers
 
-[group('ci')]
 [doc('Collect artifacts for storage')]
-artifacts:
-    docker image save -o {{artifacts}}/backend-{{version}}.tar.gz {{tag}}:{{version}}
-
 [group('ci')]
+artifacts:
+    docker image save -o {{ artifacts }}/backend-{{ version }}.tar.gz {{ tag }}:{{ version }}
+
 [doc('Load docker image from artifact')]
+[group('ci')]
 load:
-    docker image load --input {{artifacts}}/backend-{{version}}.tar.gz
+    docker image load --input {{ artifacts }}/backend-{{ version }}.tar.gz
