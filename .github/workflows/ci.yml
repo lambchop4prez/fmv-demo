@@ -160,7 +160,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ci]
     permissions:
-        contents: read
+      contents: read
+      artifact-metadata: read
     env:
       NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
       TAG: ${{ needs.ci.outputs.new-release-version }}
