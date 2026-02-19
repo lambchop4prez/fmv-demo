@@ -206,7 +206,7 @@ jobs:
         run: just frontend pnpm-install
 
       - name: Setup | Cypress PNPM Patch
-        run: cp frontend/pnpm-lock.yaml frontend/package-lock.json
+        run: cp ui/pnpm-lock.yaml ui/package-lock.json
 
       - name: Setup | Bring environment up
         run: just up
@@ -224,9 +224,9 @@ jobs:
           name: test-artifacts
           if-no-files-found: ignore
           path: |
-            frontend/test/downloads/
-            frontend/test/screenshots/
-            frontend/test/videos/
+            ui/test/downloads/
+            ui/test/screenshots/
+            ui/test/videos/
 
       - name: Teardown | Bring environment down
         if: always()
