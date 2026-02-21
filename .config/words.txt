@@ -119,6 +119,7 @@ jsonify
 jsonpointer
 jsprim
 justfile
+keepalive
 keyv
 kolorist
 kwargs
@@ -127,6 +128,7 @@ librabbitmq
 lightningcss
 linkify
 listr
+Lockfiles
 logpath
 matchall
 mdit
@@ -143,12 +145,15 @@ musleabihf
 mypy
 napi
 nextick
+nodelay
 nodelib
 nonroot
 noopener
+nopush
 nopt
 noreferrer
 noscript
+nosniff
 nprogress
 nuxt
 nwsapi
@@ -207,6 +212,7 @@ scandir
 scslre
 scule
 Selinger
+sendfile
 setprototypeof
 shiki
 Shiki
@@ -283,6 +289,7 @@ vite
 Vite
 VITE
 vitejs
+vitepress
 vitesse
 Vitesse
 vitest
