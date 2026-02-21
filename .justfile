@@ -83,6 +83,14 @@ artifacts: frontend::artifacts backend::artifacts
 [parallel]
 load: frontend::load backend::load
 
+[doc('Collect logs from containers used in E2E testing')]
+[group('ci')]
+e2e-logs:
+    mkdir -p {{ artifacts }}/e2e
+    docker compose logs api > {{artifacts}}/e2e/api.log
+    docker compose logs workers > {{artifacts}}/e2e/workers.log
+    docker compose logs frontend > {{artifacts}}/e2e/frontend.log
+
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
 [group('dev')]
 infra-up:

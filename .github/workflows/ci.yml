@@ -229,6 +229,19 @@ jobs:
             ui/test/screenshots/
             ui/test/videos/
 
+      - name: Extract logs
+        if: always()
+        run: just e2e-logs
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: test-logs
+          if-no-files-found: ignore
+          path: |
+            artifacts/e2e/
+
       - name: Teardown | Bring environment down
         if: always()
         run: just down
