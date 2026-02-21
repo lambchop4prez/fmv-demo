@@ -206,8 +206,8 @@ jobs:
       - name: Setup | Pnpm
         run: just frontend pnpm-install
 
-      - name: Setup | Cypress PNPM Patch
-        run: cp ui/pnpm-lock.yaml ui/package-lock.json
+      # - name: Setup | Cypress PNPM Patch
+      #   run: cp ui/pnpm-lock.yaml ui/package-lock.json
 
       - name: Setup | Bring environment up
         run: just up
@@ -215,7 +215,7 @@ jobs:
       - name: Test | Cypress end-to-end tests
         uses: cypress-io/github-action@0f330ebf0d60f87608ed72f1d6232e5644aa3171
         with:
-          working-directory: frontend
+          working-directory: ui
           config: baseUrl=http://localhost:8080
 
       - name: Upload artifacts
