@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [{ name = "Tim", email = "lambchop4prez@users.noreply.github.com" }]
 requires-python = "==3.14.3"
 dependencies = [
-    "celery[librabbitmq,mongodb]==5.5.3",
+    "celery[librabbitmq,mongodb]==5.6.2",
     "celery-types==0.24.0",
     "pymongo==4.16.0",
 ]
