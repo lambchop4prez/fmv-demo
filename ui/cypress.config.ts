@@ -7,12 +7,13 @@ export default defineConfig({
   screenshotsFolder: 'test/screenshots',
   videosFolder: 'test/videos',
   e2e: {
-    baseUrl: 'http://localhost:5173/',
+    baseUrl: 'http://localhost:8080/',
     specPattern: 'test/e2e/**/*.spec.*',
     supportFile: 'test/support/e2e.ts',
     setupNodeEvents(on/*, config*/) {
       // implement node event listeners here
       on('file:preprocessor', vitePreprocessor());
+
     },
   },
 });

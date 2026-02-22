@@ -1,13 +1,14 @@
 import logging
 from contextlib import asynccontextmanager
 
-from api.util import utilities
-from api.v1 import router
 from config.api import settings
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
 from repository_mongodb import init_db
 from starlette.middleware.cors import CORSMiddleware
+
+from api.util import utilities
+from api.v1 import router
 
 API_ENDPOINT = "/api"
 API_VERSION = settings.api_version

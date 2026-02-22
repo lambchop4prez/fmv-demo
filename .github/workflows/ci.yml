@@ -9,6 +9,7 @@ on:
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
+  E2E_ENABLE: false
 
 permissions: {}
 
@@ -133,14 +134,21 @@ jobs:
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@e79596b1b4769557c41cc0bb1e796ebe62acd639
 
-      - name: CI
+      - name: Continuous Integration
         id: ci
-        env:
-          DOCKER_IMAGE_FRONTEND: fmv-demo-frontend
-          DOCKER_IMAGE_BACKEND: fmv-demo-backend
-          STACK_NAME: fmv-demo
-          DOMAIN: example.com
         run: just ci
+
+      - name: Collect artifacts
+        env:
+          NEW_VERSION: ${{ steps.ci.outputs.version }}
+        run: just artifacts
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: artifacts
+          path: artifacts/
+
     outputs:
       new-release-detected: ${{ steps.ci.outputs.released }}
       new-release-version: ${{ steps.ci.outputs.version }}
@@ -148,33 +156,95 @@ jobs:
       new-release-is-prerelease: ${{ steps.ci.outputs.is_prerelease }}
 
       # Disable until docker-compose/mongodb setup is complete
-  # test-e2e:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/cache@v4
-  #       with:
-  #         path: |
-  #           ~/.cache
-  #         key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+  test-e2e:
+    name: End-to-end Testing
+    runs-on: ubuntu-latest
 
-  #     - uses: pnpm/action-setup@v3
+    if: false # Disable for now
+    needs: [ci]
+    permissions:
+      contents: read
+      artifact-metadata: read
+    env:
+      NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
+      TAG: ${{ needs.ci.outputs.new-release-version }}
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: lts/*
-  #         registry-url: https://registry.npmjs.org/
-  #         cache: pnpm
+      - name: Setup | Frontend | Restore pnpm cache
+        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+        with:
+          path: ~/.cache/pnpm
+          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
+            pnpm-${{ runner.os }}
 
-  #     - run: pnpm install
+      - name: Setup | Mise-en-place
+        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
+        with:
+          version: 2025.12.13 # [default: latest] mise version to install
+          install: true # [default: true] run `mise install`
+          cache: true # [default: true] cache mise using GitHub's cache
+          experimental: true # [default: false] enable experimental features
 
-  #     - name: Cypress PNPM Patch
-  #       run: cp pnpm-lock.yaml package-lock.json
+      - name: Setup | Setup docker compose
+        uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
 
-  #     - name: Cypress
-  #       uses: cypress-io/github-action@v6
-  #       with:
-  #         install-command: echo
-  #         build: pnpm run build
-  #         start: npx vite preview --port 3333
+      - name: Setup | Download artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: artifacts
+          path: artifacts/
+
+      - name: Setup | Load artifacts
+        run: just load
+
+      - name: Setup | Pnpm
+        run: just frontend pnpm-install
+
+      # - name: Setup | Cypress PNPM Patch
+      #   run: cp ui/pnpm-lock.yaml ui/package-lock.json
+
+      - name: Setup | Bring environment up
+        run: just up
+
+      - name: Test | Cypress end-to-end tests
+        uses: cypress-io/github-action@0f330ebf0d60f87608ed72f1d6232e5644aa3171
+        with:
+          working-directory: ui
+          config: baseUrl=http://localhost:8080
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: test-artifacts
+          if-no-files-found: ignore
+          path: |
+            ui/test/downloads/
+            ui/test/screenshots/
+            ui/test/videos/
+
+      - name: Extract logs
+        if: always()
+        run: just e2e-logs
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: test-logs
+          if-no-files-found: ignore
+          path: |
+            artifacts/e2e/
+
+      - name: Teardown | Bring environment down
+        if: always()
+        run: just down

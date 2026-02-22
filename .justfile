@@ -5,8 +5,12 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
-mod frontend 'frontend/'
-mod backend 'backend/'
+tag := env("DOCKER_IMAGE_BACKEND", 'backend')
+version := env("NEW_VERSION", "0.0.0-dirty")
+artifacts := justfile_dir() / "artifacts"
+
+mod frontend 'ui/'
+mod backend 'src/'
 
 [private]
 default:
@@ -31,7 +35,6 @@ typecheck: frontend::typecheck backend::typecheck
 
 [group('check')]
 spellcheck:
-    # just log info "Spellcheck"
     cspell .
 
 [group('check')]
@@ -39,8 +42,12 @@ spellcheck:
 analyze: spellcheck typecheck lint
 
 [group('build')]
+build-api:
+    # just log info "Backend | Build"
+    docker build . -t {{ tag }}:{{ version }}
+[group('build')]
 [parallel]
-build: frontend::build backend::build
+build: frontend::build frontend::build-container build-api
 
 [group('test')]
 [parallel]
@@ -58,10 +65,36 @@ release:
 publish:
     semantic-release -c .config/release.toml publish
 
+[group('ci')]
+up:
+    docker compose --profile ci up --detach --no-build
+
+[group('ci')]
+down:
+    docker compose --profile ci down
+
+[doc('Collect artifacts for storage')]
+[group('ci')]
+[parallel]
+artifacts: frontend::artifacts backend::artifacts
+
+[doc('Load container images from artifacts')]
+[group('ci')]
+[parallel]
+load: frontend::load backend::load
+
+[doc('Collect logs from containers used in E2E testing')]
+[group('ci')]
+e2e-logs:
+    mkdir -p {{ artifacts }}/e2e
+    docker compose logs api > {{artifacts}}/e2e/api.log
+    docker compose logs workers > {{artifacts}}/e2e/workers.log
+    docker compose logs frontend > {{artifacts}}/e2e/frontend.log
+
 [doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
 [group('dev')]
 infra-up:
-    docker compose --profile infra up -d
+    docker compose --profile infra up --detach
 
 [doc('Bring down backing infrastructure')]
 [group('dev')]
@@ -71,7 +104,7 @@ infra-down:
 [doc('Bring up backend')]
 [group('dev')]
 backend-up:
-    docker compose --profile backend up -d
+    docker compose --profile backend up --detach
 
 [doc('Tear down backend')]
 [group('dev')]

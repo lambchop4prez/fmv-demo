@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bender",
+    "is_great": true,
+    "description": "Please insert girder",
+    "location": "Planet Express"
+  },
+  {
+    "name": "Crow T. Robot",
+    "is_great": false,
+    "description": "You know you want me baby!",
+    "location": "Satellite of Love"
+  }
+]

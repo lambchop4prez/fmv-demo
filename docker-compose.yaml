@@ -5,8 +5,7 @@ services:
   #   networks:
   #     - ${TRAEFIK_PUBLIC_NETWORK?Not Set}
   #     - default
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   volumes:ocker.sock:/var/run/docker.sock
   #   command:
   #     # Enable Docker in Traefik, so that it reads labels from Docker services
   #     - --providers.docker
@@ -65,7 +64,8 @@ services:
   #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-https.middlewares=${STACK_NAME?Variable not set}-www-redirect
   #       # Middleware to redirect www, and redirect HTTP to HTTPS
   #       # to disable www redirection remove the section: ${STACK_NAME?Variable not set}-www-redirect,
-  #       - traefik.http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
+  #       - traefik.h
+  #     - /var/run/http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
   api:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
@@ -79,12 +79,11 @@ services:
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - BACKEND_MONGO_HOST=mongodb
       - BACKEND_REPOSITORY=mongodb
-
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -95,10 +94,11 @@ services:
       - 8000:8000
     command: uv run fastapi run src/api
     # volumes:
-      # - ./backend:/app
+    # - ./backend:/app
     profiles:
       - backend
       - api
+      - ci
 
   workers:
     image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}"
@@ -117,7 +117,7 @@ services:
       # - SMTP_HOST=${SMTP_HOST}
     build:
       context: .
-      dockerfile: backend/Dockerfile
+      dockerfile: Dockerfile
       args:
         BACKEND_APP_MODULE: ${BACKEND_APP_MODULE-app.main:app}
         BACKEND_PRE_START_PATH: ${BACKEND_PRE_START_PATH-/app/prestart.sh}
@@ -126,13 +126,14 @@ services:
         INSTALL_DEV: ${INSTALL_DEV-false}
     command: uv run celery -A workers worker -l INFO
     # volumes:
-      # - ./backend:/app
+    # - ./backend:/app
     depends_on:
       - mongodb
       - rabbitmq
     profiles:
       - backend
       - worker
+      - ci
 
   frontend:
     image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}"
@@ -140,10 +141,12 @@ services:
       - VITE_API_ENDPOINT=http://api:8000
     build:
       context: .
-      dockerfile: frontend/Dockerfile
-    command: pnpm dev
+      dockerfile: ui/Dockerfile
+    ports:
+      - 8080:8080
     profiles:
       - frontend
+      - ci
 
   mongodb:
     image: mongo
@@ -155,6 +158,7 @@ services:
     profiles:
       - backend
       - infra
+      - ci
 
   rabbitmq:
     image: rabbitmq:4-management
@@ -164,6 +168,7 @@ services:
     profiles:
       - backend
       - infra
+      - ci
 
 volumes:
   app_data:

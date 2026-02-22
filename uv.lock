@@ -83,15 +83,15 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "config", editable = "pkg/config" },
+    { name = "config", editable = "src/pkg/config" },
     { name = "fastapi", extras = ["standard"], specifier = "==0.129.0" },
-    { name = "handlers", editable = "pkg/handlers" },
-    { name = "models", editable = "pkg/models" },
-    { name = "repository", editable = "pkg/repository" },
-    { name = "repository-inmemory", editable = "pkg/repository_inmemory" },
-    { name = "repository-mongodb", editable = "pkg/repository_mongodb" },
-    { name = "service", editable = "pkg/service" },
-    { name = "workers", editable = "pkg/workers" },
+    { name = "handlers", editable = "src/pkg/handlers" },
+    { name = "models", editable = "src/pkg/models" },
+    { name = "repository", editable = "src/pkg/repository" },
+    { name = "repository-inmemory", editable = "src/pkg/repository_inmemory" },
+    { name = "repository-mongodb", editable = "src/pkg/repository_mongodb" },
+    { name = "service", editable = "src/pkg/service" },
+    { name = "workers", editable = "src/pkg/workers" },
 ]
 
 [package.metadata.requires-dev]
@@ -233,7 +233,7 @@ wheels = [
 [[package]]
 name = "config"
 version = "0.1.0"
-source = { editable = "pkg/config" }
+source = { editable = "src/pkg/config" }
 dependencies = [
     { name = "pydantic-settings" },
 ]
@@ -380,7 +380,7 @@ wheels = [
 [[package]]
 name = "handlers"
 version = "0.1.0"
-source = { editable = "pkg/handlers" }
+source = { editable = "src/pkg/handlers" }
 
 [[package]]
 name = "httpcore"
@@ -570,7 +570,7 @@ wheels = [
 [[package]]
 name = "models"
 version = "0.1.0"
-source = { editable = "pkg/models" }
+source = { editable = "src/pkg/models" }
 
 [[package]]
 name = "mypy"
@@ -854,17 +854,17 @@ wheels = [
 [[package]]
 name = "repository"
 version = "0.1.0"
-source = { editable = "pkg/repository" }
+source = { editable = "src/pkg/repository" }
 
 [[package]]
 name = "repository-inmemory"
 version = "0.1.0"
-source = { editable = "pkg/repository_inmemory" }
+source = { editable = "src/pkg/repository_inmemory" }
 
 [[package]]
 name = "repository-mongodb"
 version = "0.1.0"
-source = { editable = "pkg/repository_mongodb" }
+source = { editable = "src/pkg/repository_mongodb" }
 dependencies = [
     { name = "beanie" },
     { name = "pymongo" },
@@ -982,7 +982,7 @@ wheels = [
 [[package]]
 name = "service"
 version = "0.1.0"
-source = { editable = "pkg/service" }
+source = { editable = "src/pkg/service" }
 
 [[package]]
 name = "shellingham"
@@ -1176,7 +1176,7 @@ wheels = [
 [[package]]
 name = "workers"
 version = "0.1.0"
-source = { editable = "pkg/workers" }
+source = { editable = "src/pkg/workers" }
 dependencies = [
     { name = "celery", extra = ["mongodb"] },
     { name = "celery-types" },
