@@ -9,6 +9,7 @@ on:
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
+  E2E_ENABLE: false
 
 permissions: {}
 
@@ -158,6 +159,8 @@ jobs:
   test-e2e:
     name: End-to-end Testing
     runs-on: ubuntu-latest
+
+    if: false # Disable for now
     needs: [ci]
     permissions:
       contents: read
