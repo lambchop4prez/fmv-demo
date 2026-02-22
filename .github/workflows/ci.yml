@@ -144,7 +144,7 @@ jobs:
         run: just artifacts
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: artifacts
           path: artifacts/
@@ -216,14 +216,14 @@ jobs:
         run: just up
 
       - name: Test | Cypress end-to-end tests
-        uses: cypress-io/github-action@0f330ebf0d60f87608ed72f1d6232e5644aa3171
+        uses: cypress-io/github-action@ca94677121fcaf26824c139e273c11263c1170c4
         with:
           working-directory: ui
           config: baseUrl=http://localhost:8080
 
       - name: Upload artifacts
         if: always()
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: test-artifacts
           if-no-files-found: ignore
@@ -238,7 +238,7 @@ jobs:
 
       - name: Upload logs
         if: always()
-        uses: actions/upload-artifact@47309c993abb98030a35d55ef7ff34b7fa1074b5
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         with:
           name: test-logs
           if-no-files-found: ignore
