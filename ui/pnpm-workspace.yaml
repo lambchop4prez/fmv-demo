@@ -2,7 +2,7 @@ packages: []
 
 catalogs:
   build:
-    '@intlify/unplugin-vue-i18n': 11.0.3
+    '@intlify/unplugin-vue-i18n': 11.0.7
     '@shikijs/markdown-it': 3.22.0
     '@unocss/eslint-config': 66.6.0
     '@vitejs/plugin-basic-ssl': 2.1.4
