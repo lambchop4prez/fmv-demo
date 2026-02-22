@@ -195,7 +195,7 @@ jobs:
           experimental: true # [default: false] enable experimental features
 
       - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@23d018c8d3d7324668ae2253ab48526ce0fc2bad
+        uses: docker/setup-compose-action@e79596b1b4769557c41cc0bb1e796ebe62acd639
 
       - name: Setup | Download artifacts
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
