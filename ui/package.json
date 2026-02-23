@@ -27,7 +27,7 @@
     "openapi-fetch": "catalog:frontend",
     "pinia": "catalog:frontend",
     "radix-vue": "catalog:build",
-    "reka-ui": "^2.8.2",
+    "reka-ui": "2.8.2",
     "tailwind-merge": "catalog:build",
     "unocss-preset-animations": "catalog:build",
     "unocss-preset-shadcn": "catalog:build",
