@@ -25,6 +25,7 @@
     "pinia": "catalog:frontend",
     "reka-ui": "^2.8.2",
     "unocss-preset-animations": "catalog:build",
+    "unocss-preset-shadcn": "catalog:build",
     "vue": "catalog:frontend",
     "vue-i18n": "catalog:frontend",
     "vue-router": "catalog:frontend"

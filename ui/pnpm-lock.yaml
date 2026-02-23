@@ -39,6 +39,9 @@ catalogs:
     unocss-preset-animations:
       specifier: ^1.3.0
       version: 1.3.0
+    unocss-preset-shadcn:
+      specifier: ^1.0.1
+      version: 1.0.1
     unplugin-auto-import:
       specifier: 21.0.0
       version: 21.0.0
@@ -205,6 +208,9 @@ importers:
       unocss-preset-animations:
         specifier: catalog:build
         version: 1.3.0(@unocss/preset-wind3@66.6.0)(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2)))
+      unocss-preset-shadcn:
+        specifier: catalog:build
+        version: 1.0.1(unocss-preset-animations@1.3.0(@unocss/preset-wind3@66.6.0)(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))))(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2)))
       vue:
         specifier: catalog:frontend
         version: 3.5.28(typescript@5.9.3)
@@ -5409,6 +5415,12 @@ packages:
     peerDependenciesMeta:
       '@unocss/preset-wind3':
         optional: true
+
+  unocss-preset-shadcn@1.0.1:
+    resolution: {integrity: sha512-/I39ZO2ntPyRHz+VA8pa+E/empR4sJU//zMjgI0ph5c5LttRs84gcm74pz/wO+sfqMjjN4SbSScD2n+TfE4FHw==}
+    peerDependencies:
+      unocss: '>=0.56.0 < 101'
+      unocss-preset-animations: ^1.1.1
 
   unocss@66.6.0:
     resolution: {integrity: sha512-B5QsMJzFKeTHPzF5Ehr8tSMuhxzbCR9n+XP0GyhK9/2jTcBdI0/T+rCDDr9m6vUz+lku/coCVz7VAQ2BRAbZJw==}
@@ -11556,6 +11568,11 @@ snapshots:
       unocss: 66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))
     optionalDependencies:
       '@unocss/preset-wind3': 66.6.0
+
+  unocss-preset-shadcn@1.0.1(unocss-preset-animations@1.3.0(@unocss/preset-wind3@66.6.0)(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))))(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))):
+    dependencies:
+      unocss: 66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))
+      unocss-preset-animations: 1.3.0(@unocss/preset-wind3@66.6.0)(unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2)))
 
   unocss@66.6.0(postcss@8.5.6)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2)):
     dependencies:
