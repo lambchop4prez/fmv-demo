@@ -8,9 +8,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div
-    card
-  >
+  <div>
     <h1
       text-xl
       font-black
@@ -30,12 +28,8 @@ onMounted(async () => {
       v-if="isReady && state"
       :collection="state"
     />
-    <button
-      m-3
-      btn
-      @click="$router.push('/robot/new')"
-    >
+    <Button @click="$router.push('/robot/new')">
       {{ t("button.new") }}
-    </button>
+    </Button>
   </div>
 </template>

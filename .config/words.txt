@@ -48,6 +48,7 @@ dashdash
 deepmerge
 defu
 depd
+demi
 dequal
 destr
 devcert
@@ -80,6 +81,7 @@ extsprintf
 fastapi
 fastq
 fdir
+fieldset
 filelist
 finalhandler
 frontmatter
@@ -130,6 +132,7 @@ linkify
 listr
 Lockfiles
 logpath
+lucide
 matchall
 mdit
 mdurl
@@ -149,11 +152,12 @@ nodelay
 nodelib
 nonroot
 noopener
-nopush
 nopt
+nopush
 noreferrer
 noscript
 nosniff
+nowrap
 nprogress
 nuxt
 nwsapi
@@ -199,6 +203,7 @@ refa
 regexpu
 regjsgen
 regjsparser
+reka
 relateurl
 reusify
 rfdc
@@ -214,6 +219,7 @@ scule
 Selinger
 sendfile
 setprototypeof
+Shadcn
 shiki
 Shiki
 shikijs

@@ -20,8 +20,8 @@ useHead({
     <RouterView />
     <div>
       <button
-        btn
         text-sm
+        btn
         m="3 t8"
         @click="router.back()"
       >

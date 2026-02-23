@@ -99,6 +99,8 @@ export interface components {
              * @default false
              */
             is_great: boolean;
+            /** Location */
+            location: string;
         };
         /** RobotCollection */
         RobotCollection: {
@@ -117,10 +119,10 @@ export interface components {
              * @default false
              */
             is_great: boolean;
-            /** Description */
-            description: string;
             /** Location */
             location: string;
+            /** Description */
+            description: string;
         };
         /** RobotTask */
         RobotTask: {
@@ -139,6 +141,10 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+            /** Input */
+            input?: unknown;
+            /** Context */
+            ctx?: Record<string, never>;
         };
     };
     responses: never;

@@ -6,11 +6,13 @@ import {
   presetAttributify,
   presetIcons,
   presetTypography,
-  presetUno,
   presetWebFonts,
+  presetWind4,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
+import presetAnimations from 'unocss-preset-animations';
+import { presetShadcn } from 'unocss-preset-shadcn';
 
 export default defineConfig({
   shortcuts: [
@@ -23,7 +25,7 @@ export default defineConfig({
     ['input-checkbox', 'h-4 w-4 mb-2.5 rounded border-solid text-align-left']
   ],
   presets: [
-    presetUno(),
+    presetWind4(),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
@@ -37,10 +39,24 @@ export default defineConfig({
       },
       processors: createLocalFontProcessor(),
     }),
+    presetAnimations(),
+    presetShadcn({
+      color: 'violet'
+    })
   ],
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
   ],
   safelist: 'prose prose-sm m-auto text-left'.split(' '),
+  content: {
+    pipeline: {
+      include: [
+        // the default
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+        // include js/ts files
+        "(components|src)/**/*.{js,ts}",
+      ],
+    },
+  },
 });

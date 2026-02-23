@@ -64,5 +64,6 @@ catalogs:
     '@types/nprogress': 0.2.3
 
 onlyBuiltDependencies:
-  - esbuild
   - cypress
+  - esbuild
+  - vue-demi

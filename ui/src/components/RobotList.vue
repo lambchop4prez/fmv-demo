@@ -4,22 +4,23 @@ import type { components } from '~/client/api';
 const props = defineProps<{collection: components['schemas']['RobotCollection'] }>()
 </script>
 <template>
-  <ul
-
-
-
-
-    text-body
-    flex
-    flex-col
-    list-inside
-    items-center
-    space-y-1
+  <div
+    m-auto
+    max-w-md
+    w-full
   >
-    <RobotItem
-      v-for="robot in props.collection.robots"
-      :key="robot.name"
-      :robot="robot"
-    />
-  </ul>
+    <ItemGroup>
+      <template
+        v-for="(robot, index) in props.collection.robots"
+        :key="robot.name"
+      >
+        <RobotItem
+          :robot="robot"
+        />
+        <ItemSeparator
+          v-if="index != props.collection.robots.length - 1"
+        />
+      </template>
+    </ItemGroup>
+  </div>
 </template>

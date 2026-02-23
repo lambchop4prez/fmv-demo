@@ -7,70 +7,56 @@
     const {isPosting, createRobot} = useCreateRobot();;
 </script>
 <template>
-  <div card>
+  <div class="m-auto max-w-md w-full">
     <form @submit.prevent="$emit('create', createRobot)">
-      <div>
-        <label
-          label-input
-          for="robot_name"
-        >
-          {{ t('robot.name') }}
-        </label>
-        <input
-          input-text
-          id="robot_name"
-          v-model="createRobot.name"
-        >
-      </div>
-      <div>
-        <input
-          input-checkbox
-          id="robot_is_great"
-          type="checkbox"
-          v-model="createRobot.is_great"
-        >
-        <label
-          label-checkbox
-          for="robot_is_great"
-        >
-          {{ t('robot.is_great') }}
-        </label>
-      </div>
-      <div>
-        <label
-          label-input
-          for="robot_location"
-        >
-          {{ t('robot.location') }}
-        </label>
-        <input
-          input-text
-          id="robot_location"
-          type="text"
-          v-model="createRobot.location"
-        >
-      </div>
-      <div>
-        <label
-          label-input
-          for="robot_description"
-        >
-          {{ t('robot.description') }}
-        </label>
-        <input
-          input-text
-          id="robot_description"
-          type="text"
-          v-model="createRobot.description"
-        >
-      </div>
-      <button
-        btn
-        type="submit"
-        :disabled="isPosting"
-      >
-        {{ t('button.submit') }}
-      </button>
+      <FieldGroup>
+        <Field>
+          <FieldLabel for="robot_name">
+            {{ t('robot.name') }}
+          </FieldLabel>
+          <Input
+            id="robot_name"
+            placeholder="Crow T. Robot"
+            v-model="createRobot.name"
+          />
+        </Field>
+        <Field orientation="horizontal">
+          <Checkbox
+            id="robot_is_great"
+            v-model="createRobot.is_great"
+          />
+          <FieldLabel for="robot_is_great">
+            {{ t('robot.is_great') }}
+          </FieldLabel>
+        </Field>
+        <Field>
+          <FieldDescription for="robot-location">
+            {{ t('robot.location') }}
+          </FieldDescription>
+          <Input
+            id="robot-location"
+            v-model="createRobot.location"
+            placeholder="Satellite of Love"
+          />
+        </Field>
+        <Field>
+          <FieldDescription for="robot-description">
+            {{ t('robot.description') }}
+          </FieldDescription>
+          <Textarea
+            id="robot-description"
+            v-model="createRobot.description"
+          />
+        </Field>
+        <FieldSeparator />
+        <Field>
+          <Button
+            :disabled="isPosting"
+          >
+            {{ t('button.submit') }}
+          </Button>
+        </Field>
+      </FieldGroup>
     </form>
   </div>
 </template>
