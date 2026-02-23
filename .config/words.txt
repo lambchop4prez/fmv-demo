@@ -32,6 +32,7 @@ ccount
 certresolver
 chokidar
 cliui
+clsx
 colorette
 commonmark
 confbox
