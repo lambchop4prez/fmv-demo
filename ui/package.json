@@ -20,6 +20,7 @@
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
+    "lucide-vue-next": "catalog:build",
     "nprogress": "catalog:frontend",
     "openapi-fetch": "catalog:frontend",
     "pinia": "catalog:frontend",
