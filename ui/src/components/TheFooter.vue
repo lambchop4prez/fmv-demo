@@ -15,9 +15,9 @@ async function toggleLocales() {
 <template>
   <nav
     flex="~ gap-4"
+    text-xl
     mt-6
     justify-center
-    text-xl
   >
     <RouterLink
       icon-btn

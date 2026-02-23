@@ -5,6 +5,7 @@ import RobotItem from "../RobotItem.vue";
 const fakeRobot = {
   name: "Fake",
   is_great: false,
+  location: "Somewhere fake"
 };
 
 describe("RobotItem", () => {

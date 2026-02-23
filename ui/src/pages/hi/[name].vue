@@ -33,8 +33,8 @@ useHead({
 
     <template v-if="user.otherNames.length">
       <div
-        mt-4
         text-sm
+        mt-4
       >
         <span opacity-75>{{ t('intro.aka') }}:</span>
         <ul>
@@ -56,8 +56,9 @@ useHead({
     <div>
       <button
         m="3 t6"
-        btn
+
         text-sm
+        btn
         @click="router.back()"
       >
         {{ t('button.back') }}

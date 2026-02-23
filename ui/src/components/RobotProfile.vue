@@ -3,26 +3,29 @@
     const props = defineProps<{ robot: components['schemas']['RobotProfile']}>();
 </script>
 <template>
-  <div
-    card
-  >
-    <div
-      m-auto
-      i="mdi-crown"
-      v-if="props.robot.is_great"
-    />
+  <div>
     <h1
-      text-lg
-      font-bold
+      text-4xl
+      tracking-tight
+      font-extrabold
+      text-center
+      text-balance
+      scroll-m-20
     >
+      <span
+        i="mdi-crown"
+        v-if="props.robot.is_great"
+      />
       {{ props.robot.name }}
     </h1>
-    <p
-      text-sm
+    <blockquote
+      mt-6
+      pl-6
+      border-l-2
       italic
     >
       "{{ props.robot.description }}"
-    </p>
+    </blockquote>
     <span inline-flex>
       <div
         aria-hidden="true"

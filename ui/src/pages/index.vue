@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Button from '~/components/ui/button/Button.vue';
+
 defineOptions({
   name: "IndexPage",
 });
@@ -39,24 +41,13 @@ useHead({
 
     <div py-4 />
 
-    <!-- <TheInput
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      autocomplete="false"
-      @keydown.enter="go"
-    />
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label> -->
-
     <div>
-      <button
-        m-3
-        btn
-        text-sm
+      <Button
         id="go"
         @click="go"
       >
         {{ t("button.go") }}
-      </button>
+      </Button>
     </div>
   </div>
 </template>
