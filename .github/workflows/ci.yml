@@ -198,7 +198,7 @@ jobs:
         uses: docker/setup-compose-action@e79596b1b4769557c41cc0bb1e796ebe62acd639
 
       - name: Setup | Download artifacts
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3
         with:
           name: artifacts
           path: artifacts/
