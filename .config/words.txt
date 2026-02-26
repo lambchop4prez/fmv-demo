@@ -90,6 +90,7 @@ fsevents
 fullwidth
 gensync
 Geolocation
+getattr
 getpass
 globalthis
 globrex
