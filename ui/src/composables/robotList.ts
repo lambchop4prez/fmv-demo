@@ -21,13 +21,18 @@ export function useRobotList(fetchOptions: RobotQueryOptions<paths['/api/v1/robo
     error.value = undefined;
     isReady.value = false;
     isFetching.value = true;
-    const { data, error: fetchError } = await client.GET('/api/v1/robot/', fetchOptions);
-    if (fetchError) {
-      error.value = fetchError;
+    try {
+      const { data, error: fetchError } = await client.GET('/api/v1/robot/', fetchOptions);
+      if (fetchError) {
+        error.value = fetchError;
+      }
+      else {
+        state.value = data;
+        isReady.value = true;
+      }
     }
-    else {
-      state.value = data;
-      isReady.value = true;
+    catch (err) {
+      error.value = { code: 0, message: (err as Error).message };
     }
     isFetching.value = false;
   }

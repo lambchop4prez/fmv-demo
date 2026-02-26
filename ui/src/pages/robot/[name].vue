@@ -11,12 +11,13 @@ onMounted(async () => {
 </script>
 <template>
   <div v-if="isFetching || error">
-    <span
-      v-if="isFetching"
-      text-lg
-    >
-      {{ t('interactions.fetching') }}
-    </span>
+    <RobotProfileSkeleton v-if="isFetching" />
+    <Empty v-if="error">
+      <EmptyHeader>
+        <EmptyTitle>{{ t('error') }}</EmptyTitle>
+        <EmptyDescription>{{ error[0].msg }}</EmptyDescription>
+      </EmptyHeader>
+    </Empty>
   </div>
   <RobotProfile
     v-if="isReady && state"

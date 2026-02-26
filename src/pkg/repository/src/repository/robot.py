@@ -1,8 +1,7 @@
 from abc import abstractmethod
 from typing import Protocol, Sequence
 
-from models import Robot
-from models.robot_profile import RobotProfile
+from models import Robot, RobotProfile
 
 
 class RobotRepository(Protocol):

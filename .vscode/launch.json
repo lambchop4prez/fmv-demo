@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger: FastAPI",
+      "name": "FastAPI",
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
@@ -13,18 +13,50 @@
       "jinja": true
     },
     {
+      "name": "Celery",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "celery",
+      "console": "integratedTerminal",
+      "args": [
+        "--app",
+        "workers.tasks",
+        "worker",
+        "-l",
+        "INFO"
+      ],
+      "jinja": true
+    },
+    {
       "type": "chrome",
       "request": "launch",
       "skipFiles": [
-        "${workspaceFolder}/frontend/node_modules/**/*.js"
+        "${workspaceFolder}/ui/node_modules/**/*.js"
       ],
-      "name": "Launch Chrome(localhost)",
+      "name": "Launch Chrome",
       "url": "http://localhost:5173",
-      "webRoot": "${workspaceFolder}/frontend",
+      "webRoot": "${workspaceFolder}/ui",
       "runtimeArgs": [
         "--remote-debugging-port=9222"
       ],
       "sourceMaps": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Backends (FastApi and Celery)",
+      "configurations": [
+        "FastAPI",
+        "Celery"
+      ]
+    },
+    {
+      "name": "All",
+      "configurations": [
+        "FastAPI",
+        "Celery",
+        "Launch Chrome"
+      ]
     }
   ]
 }

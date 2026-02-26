@@ -22,19 +22,25 @@ worker.config_from_object("workers.task_config")
 def on_task_publish(headers: Mapping, body: Mapping, **kwargs: dict[str, Any]) -> None:
     task_id = headers.get("id")
 
-    robot, _, _ = body
+    args, _, _ = body
+    filter = {"name": args[0]}
+    value = {
+        "$push": {
+            "tasks": {
+                "task_id": task_id,
+                "status": "QUEUED",
+                "result": None,
+                "traceback": None,
+                "children": None,
+                "robot": args[0],
+            }
+        },
+    }
 
-    # await RobotTaskDocument(robot=robot[0], task_id=task_id, status="QUEUED").insert()
-
-    cast(Backend, worker.backend).collection.insert_one(
-        {
-            "task_id": task_id,
-            "status": "QUEUED",
-            "result": None,
-            "traceback": None,
-            "children": None,
-            "robot": robot[0],
-        }
+    cast(Backend, worker.backend).collection.update_one(
+        filter,
+        value,
+        upsert=True,
     )
 
 

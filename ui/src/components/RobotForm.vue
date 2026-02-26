@@ -30,9 +30,9 @@
           </FieldLabel>
         </Field>
         <Field>
-          <FieldDescription for="robot-location">
+          <FieldLabel for="robot-location">
             {{ t('robot.location') }}
-          </FieldDescription>
+          </FieldLabel>
           <Input
             id="robot-location"
             v-model="createRobot.location"
@@ -40,9 +40,9 @@
           />
         </Field>
         <Field>
-          <FieldDescription for="robot-description">
+          <FieldLabel for="robot-description">
             {{ t('robot.description') }}
-          </FieldDescription>
+          </FieldLabel>
           <Textarea
             id="robot-description"
             v-model="createRobot.description"
@@ -52,7 +52,12 @@
         <Field>
           <Button
             :disabled="isPosting"
+            @click="$emit('create', createRobot)"
           >
+            <Spinner
+              class="animate-spin"
+              v-if="isPosting"
+            />
             {{ t('button.submit') }}
           </Button>
         </Field>

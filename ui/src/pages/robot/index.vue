@@ -9,20 +9,19 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1
-      text-xl
-      font-black
-    >
+    <h1>
       Robots
     </h1>
-    <span
+    <RobotListSkeleton
       v-if="isFetching"
-      text-lg
-    >
-      {{ t('interactions.fetching') }}
-    </span>
+    />
     <div v-if="error">
-      <span text-xl>{{ error.message }}</span>
+      <Empty>
+        <EmptyHeader>
+          <EmptyTitle>Error</EmptyTitle>
+          <EmptyDescription>{{ error.message }}</EmptyDescription>
+        </EmptyHeader>
+      </Empty>
     </div>
     <RobotList
       v-if="isReady && state"

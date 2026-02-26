@@ -21,7 +21,13 @@ class Backend(MongoBackend):
             format_date=False,
         )
         task_info["task_id"] = task_id
+        if request is not None and getattr(request, "args", None):
+            robot = request.args[0]
+        else:
+            robot = "unknown"
+
         self.collection.update_one(
-            {"task_id": task_id}, {"$set": task_info}, upsert=True
+            {"name": robot, "tasks.task_id": task_id},
+            {"$set": {"tasks.$": task_info}},
         )
         return task_info
