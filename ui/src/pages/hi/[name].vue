@@ -57,8 +57,9 @@ useHead({
       <button
         m="3 t6"
 
-        text-sm
+
         btn
+        text-sm
         @click="router.back()"
       >
         {{ t('button.back') }}

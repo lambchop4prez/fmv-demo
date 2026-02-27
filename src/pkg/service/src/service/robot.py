@@ -26,5 +26,3 @@ class RobotService:
     async def start(self, robot: Robot) -> RobotTask:
         task = primes.delay(robot.name, random.randint(3000000, 3500000))
         return RobotTask(robot=robot.name, task_id=task.id, status="CREATED")
-
-    # async def tasks(self, robot: Robot) -> Sequence[Task] | None:

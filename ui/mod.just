@@ -10,9 +10,9 @@ pnpm-install:
     pnpm install
 
 [group('check')]
-lint: pnpm-install
+lint *args: pnpm-install
     # just log info "Frontend | Lint"
-    pnpm run lint
+    pnpm run lint {{ args }}
 
 [group('check')]
 typecheck: pnpm-install
@@ -31,7 +31,7 @@ build: pnpm-install
 
 [group('build')]
 build-container:
-    docker build . -t {{tag}}:{{version}}
+    docker build . -t {{ tag }}:{{ version }}
 
 [group('dev')]
 dev: pnpm-install
@@ -41,13 +41,23 @@ dev: pnpm-install
 e2e: pnpm-install
     pnpm run test:e2e
 
-[group('ci')]
 [doc('Collect artifacts for storage')]
-artifacts:
-    mkdir -p {{artifacts}} && tar czf {{artifacts}}/dist-{{version}}.tar.gz dist
-    docker image save -o {{artifacts}}/frontend-{{version}}.tar.gz {{tag}}:{{version}}
-
 [group('ci')]
+artifacts:
+    mkdir -p {{ artifacts }} && tar czf {{ artifacts }}/dist-{{ version }}.tar.gz dist
+    docker image save -o {{ artifacts }}/frontend-{{ version }}.tar.gz {{ tag }}:{{ version }}
+
 [doc('Load docker image from artifact')]
+[group('ci')]
 load:
-    docker image load --input {{artifacts}}/frontend-{{version}}.tar.gz
+    docker image load --input {{ artifacts }}/frontend-{{ version }}.tar.gz
+
+[doc('Adds new component from Shadcn registry')]
+[group('dev')]
+add-component *args:
+    pnpm dlx shadcn-vue@latest add {{ args }}
+
+[doc('Generate API library')]
+[group('dev')]
+gen-client: pnpm-install
+    pnpm run client:gen

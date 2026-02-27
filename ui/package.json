@@ -17,6 +17,7 @@
     "client:gen": "openapi-typescript http://localhost:8000/api/v1/openapi.json -o src/client/api.d.ts"
   },
   "dependencies": {
+    "@tanstack/vue-table": "^8.21.3",
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
@@ -27,7 +28,7 @@
     "openapi-fetch": "catalog:frontend",
     "pinia": "catalog:frontend",
     "radix-vue": "catalog:build",
-    "reka-ui": "2.8.2",
+    "reka-ui": "catalog:build",
     "tailwind-merge": "catalog:build",
     "unocss-preset-animations": "catalog:build",
     "unocss-preset-shadcn": "catalog:build",

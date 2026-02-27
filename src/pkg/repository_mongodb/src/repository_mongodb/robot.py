@@ -5,7 +5,7 @@ from models import Robot, RobotProfile
 from pymongo import AsyncMongoClient
 from repository import RobotRepository
 
-from .models import RobotDocument, RobotTaskDocument
+from .models import RobotDocument
 
 
 class MongoDbRobotRepository(RobotRepository):
@@ -33,5 +33,4 @@ class MongoDbRobotRepository(RobotRepository):
     async def find(self, name: str) -> RobotProfile | None:
         if (item := await RobotDocument.find_one({"name": name})) is None:
             return None
-        tasks = await RobotTaskDocument.find({"robot": item.name}).to_list()
-        return RobotProfile(tasks=tasks, **item.model_dump())
+        return RobotProfile(**item.model_dump())

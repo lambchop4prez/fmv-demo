@@ -39,6 +39,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/robot/{name}/tasks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Tasks */
+        get: operations["robot_tasks"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/robot/{name}/run": {
         parameters: {
             query?: never;
@@ -123,6 +140,11 @@ export interface components {
             location: string;
             /** Description */
             description: string;
+            /**
+             * Tasks
+             * @default []
+             */
+            tasks: components["schemas"]["RobotTask"][] | null;
         };
         /** RobotTask */
         RobotTask: {
@@ -226,6 +248,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RobotProfile"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    robot_tasks: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                name: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RobotTask"][];
                 };
             };
             /** @description Validation Error */
