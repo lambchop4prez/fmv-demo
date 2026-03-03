@@ -21,17 +21,8 @@ Below is a tree of this project with descriptions for major directories/files.
 
 ```
 .
-├── pkg
-│   ├── config/                     Configuration models
-│   ├── handlers/                   Task handlers, called by workers
-│   ├── models/                     Pydantic models
-│   ├── repository/                 Data access API
-│   ├── repository_inmemory/        Data access implementation stub
-│   ├── repository_mongodb/         Data access implementation via MongoDB
-│   ├── service/                    Service layer, to be injected into FastAPI
-│   └── workers/                    Celery worker setup
-├── src
-│   └── api
+├── api
+│   └── src
 │       ├── dependencies            FastAPI Dependencies
 │       │   └── [...].py
 │       ├── v1                      API Versioning
@@ -43,9 +34,15 @@ Below is a tree of this project with descriptions for major directories/files.
 │       ├── __init__.py
 │       ├── main.py                 API entrypoint
 │       └── util.py
-├── Dockerfile
+├── pkg
+│   ├── config/                     Configuration models
+│   ├── handlers/                   Task handlers, called by workers
+│   ├── models/                     Pydantic models
+│   ├── repository/                 Data access API
+│   ├── repository_inmemory/        Data access implementation stub
+│   ├── repository_mongodb/         Data access implementation via MongoDB
+│   ├── service/                    Service layer, to be injected into FastAPI
+│   └── workers/                    Celery worker setup
 ├── mod.just                        `just` module defining frontend tasks
-├── pyproject.toml                  Python project configuration using `uv`
-├── README.md                       :round_pushpin: You are here
-└── uv.lock                         Lock file for reproducible builds
+└── README.md                       :round_pushpin: You are here
 ```

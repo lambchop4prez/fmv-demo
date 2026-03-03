@@ -1,0 +1,17 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    spellcheck:
+      run: just spellcheck
+    detect-secrets:
+      run: gitleaks detect --log-opts="$(git merge-base origin/main HEAD)..HEAD" --no-banner --redact --verbose
+    frontend-lint:
+      glob: '*.{js,ts,vue}'
+      root: ui
+      run: just frontend lint --fix {staged_files}
+      stage_fixed: true
+    backend-lint:
+      glob: '*.{py}'
+      root: src
+      run: just backend lint
