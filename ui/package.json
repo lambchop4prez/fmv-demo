@@ -17,7 +17,7 @@
     "client:gen": "openapi-typescript http://localhost:8000/api/v1/openapi.json -o src/client/api.d.ts"
   },
   "dependencies": {
-    "@tanstack/vue-table": "^8.21.3",
+    "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
