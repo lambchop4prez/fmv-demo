@@ -18,6 +18,10 @@
       "description": "pnpm",
       "groupName": "pnpm",
       "matchDatasources": [
+        "github-tags",
+        "npm"
+      ],
+      "matchPackageNames": [
         "/pnpm/"
       ]
     }
