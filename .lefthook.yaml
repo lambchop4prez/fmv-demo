@@ -2,6 +2,10 @@
 pre-commit:
   parallel: true
   commands:
+    actionlint:
+      glob: '*.{yml}'
+      root: .github/workflows
+      run: actionlint {staged_files}
     spellcheck:
       run: just spellcheck
     detect-secrets:
