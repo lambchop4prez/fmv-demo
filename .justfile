@@ -35,7 +35,7 @@ typecheck: frontend::typecheck backend::typecheck
 
 [group('check')]
 spellcheck:
-    cspell .
+    typos
 
 [group('check')]
 [parallel]

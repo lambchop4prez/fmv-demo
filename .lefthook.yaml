@@ -10,6 +10,7 @@ pre-commit:
       glob: '*.{js,ts,vue}'
       root: ui
       run: just frontend lint --fix {staged_files}
+      stage_fixed: true
     backend-lint:
       glob: '*.{py}'
       root: src
