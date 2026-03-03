@@ -159,8 +159,8 @@ catalogs:
       version: 3.2.5
   frontend:
     '@unhead/vue':
-      specifier: 2.1.4
-      version: 2.1.4
+      specifier: 2.1.10
+      version: 2.1.10
     '@unocss/reset':
       specifier: 66.6.3
       version: 66.6.3
@@ -207,7 +207,7 @@ importers:
         version: 8.21.3(vue@3.5.29(typescript@5.9.3))
       '@unhead/vue':
         specifier: catalog:frontend
-        version: 2.1.4(vue@3.5.29(typescript@5.9.3))
+        version: 2.1.10(vue@3.5.29(typescript@5.9.3))
       '@unocss/reset':
         specifier: catalog:frontend
         version: 66.6.3
@@ -2387,8 +2387,8 @@ packages:
     peerDependencies:
       unhead: 2.1.4
 
-  '@unhead/vue@2.1.4':
-    resolution: {integrity: sha512-MFvywgkHMt/AqbhmKOqRuzvuHBTcmmmnUa7Wm/Sg11leXAeRShv2PcmY7IiYdeeJqBMCm1jwhcs6201jj6ggZg==}
+  '@unhead/vue@2.1.10':
+    resolution: {integrity: sha512-VP78Onh2HNezLPfhYjfHqn4dxlcQsE6PJgTTs61NksO/thvilNswtgBq0N0MWCLtn43N5akEPGW2y2zxM3PWgQ==}
     peerDependencies:
       vue: '>=3.5.18'
 
@@ -5650,6 +5650,9 @@ packages:
     resolution: {integrity: sha512-Hn2tCQpoDt1wv23a68Ctc8Cr/BHpUSfaPYrkajTXOS9IKpxVRx/X5m1K2YkbK2ipgZgxXSgsUinl3x+2YdSSfg==}
     engines: {node: '>=20.18.1'}
 
+  unhead@2.1.10:
+    resolution: {integrity: sha512-We8l9uNF8zz6U8lfQaVG70+R/QBfQx1oPIgXin4BtZnK2IQpz6yazQ0qjMNVBDw2ADgF2ea58BtvSK+XX5AS7g==}
+
   unhead@2.1.4:
     resolution: {integrity: sha512-+5091sJqtNNmgfQ07zJOgUnMIMKzVKAWjeMlSrTdSGPB6JSozhpjUKuMfWEoLxlMAfhIvgOU8Me0XJvmMA/0fA==}
 
@@ -8138,10 +8141,10 @@ snapshots:
     dependencies:
       unhead: 2.1.4
 
-  '@unhead/vue@2.1.4(vue@3.5.29(typescript@5.9.3))':
+  '@unhead/vue@2.1.10(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       hookable: 6.0.1
-      unhead: 2.1.4
+      unhead: 2.1.10
       vue: 3.5.29(typescript@5.9.3)
 
   '@unocss/cli@66.6.2':
@@ -12050,6 +12053,10 @@ snapshots:
 
   undici@7.21.0: {}
 
+  unhead@2.1.10:
+    dependencies:
+      hookable: 6.0.1
+
   unhead@2.1.4:
     dependencies:
       hookable: 6.0.1
@@ -12395,7 +12402,7 @@ snapshots:
   vite-ssg@28.3.0(beasties@0.4.1)(prettier@3.8.1)(unhead@2.1.4)(vite@7.3.1(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.8.2))(vue-router@5.0.2(@vue/compiler-sfc@3.5.29)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3)):
     dependencies:
       '@unhead/dom': 2.1.4(unhead@2.1.4)
-      '@unhead/vue': 2.1.4(vue@3.5.29(typescript@5.9.3))
+      '@unhead/vue': 2.1.10(vue@3.5.29(typescript@5.9.3))
       ansis: 4.2.0
       cac: 6.7.14
       html-minifier-terser: 7.2.0
