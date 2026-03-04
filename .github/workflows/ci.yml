@@ -216,7 +216,7 @@ jobs:
         run: just up
 
       - name: Test | Cypress end-to-end tests
-        uses: cypress-io/github-action@27dfbf361b37ba320ddd11801af8b97c7ab9c63e
+        uses: cypress-io/github-action@3823d3129e69fc4585c932b48705ae8345f4601d
         with:
           working-directory: ui
           config: baseUrl=http://localhost:8080
