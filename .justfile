@@ -82,6 +82,7 @@ artifacts: frontend::artifacts backend::artifacts
 [group('ci')]
 [parallel]
 load: frontend::load backend::load
+    docker image ls
 
 [doc('Collect logs from containers used in E2E testing')]
 [group('ci')]
