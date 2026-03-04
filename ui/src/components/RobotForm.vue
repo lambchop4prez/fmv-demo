@@ -55,10 +55,6 @@
             :disabled="isPosting"
             @click="$emit('create', createRobot)"
           >
-            <Spinner
-              class="animate-spin"
-              v-if="isPosting"
-            />
             {{ t('button.submit') }}
           </Button>
         </Field>

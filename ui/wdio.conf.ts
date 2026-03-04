@@ -1,3 +1,4 @@
+import { browser } from '@wdio/globals';
 import url from 'node:url';
 import path from "path";
 
@@ -10,7 +11,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: 'local',
-  tsConfigPath: './test/tsconfig.json',
+  tsConfigPath: './tsconfig.json',
 
   //
   // ==================
@@ -228,16 +229,17 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
   // },
   /**
    * Function to be executed after a test (in Mocha/Jasmine only)
-   * @param {object}  test             test object
-   * @param {object}  context          scope object the test was executed with
+   * @param {object}  _test             test object
+   * @param {object}  _context          scope object the test was executed with
    * @param {Error}   result.error     error object in case the test fails, otherwise `undefined`
    * @param {*}       result.result    return object of test function
    * @param {number}  result.duration  duration of test
    * @param {boolean} result.passed    true if test has passed, otherwise false
    * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
    */
-  // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-  // },
+  afterTest: async function () {
+    await browser.reloadSession();
+  },
 
 
   /**
