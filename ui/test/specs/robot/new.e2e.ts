@@ -13,10 +13,10 @@ describe('New Robot Form', () => {
   it('should submit a new robot and navigate to profile', async () => {
     await NewRobotPage.open();
     const robot = {
-      name: "Bender",
-      is_great: true,
-      location: "Planet Express",
-      description: "Please insert girder"
+      name: "Crow",
+      is_great: false,
+      location: "Satellite of Love",
+      description: "You know you want me baby!"
     };
     await NewRobotPage.fill(robot);
     await NewRobotPage.submit();

@@ -10,23 +10,23 @@ interface RobotProfile {
 
 class NewRobotPage extends Page {
   public get txtName() {
-    return $('#robot-name');
+    return $('#name');
   }
 
   public get chkIsGreat() {
-    return $('#robot-is-great');
+    return $('#is_great');
   }
 
   public get txtLocation() {
-    return $('#robot-location');
+    return $('#location');
   }
 
   public get txtDescription() {
-    return $('#robot-description');
+    return $('#description');
   }
 
   public get btnSubmit() {
-    return $('#submit');
+    return $('form button[type="submit"]');
   }
 
   public async check(is_great: boolean) {

@@ -19,6 +19,7 @@
     "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
+    "@tanstack/vue-form": "^1.28.4",
     "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
@@ -36,7 +37,8 @@
     "unocss-preset-shadcn": "catalog:build",
     "vue": "catalog:frontend",
     "vue-i18n": "catalog:frontend",
-    "vue-router": "catalog:frontend"
+    "vue-router": "catalog:frontend",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@iconify-json/carbon": "catalog:dev",

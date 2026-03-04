@@ -23,3 +23,6 @@ robot:
   is_great: Is Great?
   location: Location
   description: Description
+validations:
+  too-short: Field is too short
+  too-long: Field is too long

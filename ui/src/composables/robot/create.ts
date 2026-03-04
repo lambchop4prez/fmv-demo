@@ -21,13 +21,18 @@ export function useCreateRobot() {
     error.value = undefined;
     isReady.value = false;
     isPosting.value = true;
-    const { data, error: postError } = await client.POST('/api/v1/robot/', options);
-    if (postError) {
-      error.value = postError.detail
+    try {
+      const { data, error: postError } = await client.POST('/api/v1/robot/', options);
+      if (postError) {
+        error.value = postError.detail
+      }
+      else {
+        createRobot.value = data;
+        isReady.value = true;
+      }
     }
-    else {
-      createRobot.value = data;
-      isReady.value = true;
+    catch (err) {
+      error.value = [{ msg: (err as Error).message, loc: [], type: "HTTP" }]
     }
     isPosting.value = false;
   }
