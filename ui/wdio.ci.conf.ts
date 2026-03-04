@@ -9,7 +9,8 @@ export const config: WebdriverIO.Config = {
     capabilities: [{
       browserName: 'chrome',
       'goog:chromeOptions': {
-        args: ['headless', 'disable-gpu']
+
+        args: ['start-maximized', 'headless', 'disable-gpu']
       }
     }],
     async afterTest(test, context, result) {

@@ -38,7 +38,10 @@ onMounted(async () => {
         </EmptyHeader>
       </Empty>
     </div>
-    <Button @click="$router.push('/robot/new')">
+    <Button
+      id="new"
+      @click="$router.push('/robot/new')"
+    >
       {{ t("button.new") }}
     </Button>
   </div>
