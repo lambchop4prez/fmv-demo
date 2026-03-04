@@ -11,21 +11,21 @@
     <form @submit.prevent="$emit('create', createRobot)">
       <FieldGroup>
         <Field>
-          <FieldLabel for="robot_name">
+          <FieldLabel for="robot-name">
             {{ t('robot.name') }}
           </FieldLabel>
           <Input
-            id="robot_name"
+            id="robot-name"
             placeholder="Crow T. Robot"
             v-model="createRobot.name"
           />
         </Field>
         <Field orientation="horizontal">
           <Checkbox
-            id="robot_is_great"
+            id="robot-is-great"
             v-model="createRobot.is_great"
           />
-          <FieldLabel for="robot_is_great">
+          <FieldLabel for="robot-is-great">
             {{ t('robot.is_great') }}
           </FieldLabel>
         </Field>
@@ -51,6 +51,7 @@
         <FieldSeparator />
         <Field>
           <Button
+            id="submit"
             :disabled="isPosting"
             @click="$emit('create', createRobot)"
           >

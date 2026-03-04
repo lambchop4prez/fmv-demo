@@ -21,7 +21,9 @@
       "vite-plugin-vue-layouts/client",
       "vite-plugin-pwa/client",
       "unplugin-vue-macros/macros-global",
-      "@testing-library/jest-dom"
+      "@testing-library/jest-dom",
+      "@wdio/globals/types",
+      "@wdio/mocha-framework"
     ],
     "allowJs": true,
     "strict": true,

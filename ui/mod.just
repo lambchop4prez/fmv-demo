@@ -4,6 +4,7 @@ set shell := ['bash', '-euo', 'pipefail', '-c']
 tag := env("DOCKER_IMAGE_FRONTEND", 'frontend')
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
+default_e2e_config := if env("CI", "false") == "true" { "ci" } else { 'dev' }
 
 [group('setup')]
 pnpm-install:
@@ -38,8 +39,8 @@ dev: pnpm-install
     pnpm run dev
 
 [group('test')]
-e2e: pnpm-install
-    pnpm run test:e2e
+e2e config=default_e2e_config: pnpm-install
+    pnpm run test:e2e:{{ config }}
 
 [doc('Collect artifacts for storage')]
 [group('ci')]

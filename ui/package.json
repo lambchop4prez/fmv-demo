@@ -14,7 +14,9 @@
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
     "sizecheck": "npx vite-bundle-visualizer",
-    "client:gen": "openapi-typescript http://localhost:8000/api/v1/openapi.json -o src/client/api.d.ts"
+    "client:gen": "openapi-typescript http://localhost:8000/api/v1/openapi.json -o src/client/api.d.ts",
+    "test:e2e:ci": "wdio run ./wdio.ci.conf.ts",
+    "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
     "@tanstack/vue-table": "8.21.3",
@@ -44,6 +46,7 @@
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
     "@types/markdown-it-link-attributes": "catalog:types",
+    "@types/node": "^25.3.3",
     "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",
@@ -53,6 +56,11 @@
     "@vue/eslint-config-prettier": "catalog:dev",
     "@vue/eslint-config-typescript": "catalog:dev",
     "@vue/test-utils": "catalog:dev",
+    "@wdio/cli": "^9.24.0",
+    "@wdio/globals": "^9.23.0",
+    "@wdio/local-runner": "^9.24.0",
+    "@wdio/mocha-framework": "^9.24.0",
+    "@wdio/spec-reporter": "^9.24.0",
     "beasties": "catalog:build",
     "cypress": "catalog:dev",
     "cypress-vite": "catalog:dev",
@@ -61,6 +69,7 @@
     "eslint-plugin-format": "catalog:dev",
     "eslint-plugin-playwright": "catalog:dev",
     "eslint-plugin-testing-library": "catalog:dev",
+    "expect-webdriverio": "^5.6.4",
     "https-localhost": "catalog:dev",
     "markdown-it-link-attributes": "catalog:build",
     "openapi-typescript": "catalog:dev",
@@ -82,7 +91,8 @@
     "vite-ssg": "catalog:build",
     "vite-ssg-sitemap": "catalog:build",
     "vitest": "catalog:dev",
-    "vue-tsc": "catalog:dev"
+    "vue-tsc": "catalog:dev",
+    "wdio-vite-service": "^2.1.1"
   },
   "resolutions": {
     "unplugin": "catalog:build",

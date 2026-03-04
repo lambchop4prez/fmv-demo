@@ -9,6 +9,7 @@ on:
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
+  CI: true
 
 permissions: {}
 
@@ -99,11 +100,11 @@ jobs:
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
-        with:
-          path: |
-            ~/.cache
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+      # - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
+      #   with:
+      #     path: |
+      #       ~/.cache
+      #     key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Setup | Setup environment
         uses: ./.github/actions/setup
@@ -120,8 +121,8 @@ jobs:
       - name: Setup | Load artifacts
         run: just load
 
-      - name: Setup | Pnpm
-        run: just frontend pnpm-install
+      # - name: Setup | Pnpm
+      #   run: just frontend pnpm-install
 
       # - name: Setup | Cypress PNPM Patch
       #   run: cp ui/pnpm-lock.yaml ui/package-lock.json
@@ -129,12 +130,15 @@ jobs:
       - name: Setup | Bring environment up
         run: just up
 
-      - name: Test | Cypress end-to-end tests
-        uses: cypress-io/github-action@27dfbf361b37ba320ddd11801af8b97c7ab9c63e
-        with:
-          working-directory: ui
-          config: baseUrl=http://localhost:8080
+      # - name: Test | Cypress end-to-end tests
+      #   uses: cypress-io/github-action@27dfbf361b37ba320ddd11801af8b97c7ab9c63e
+      #   with:
+      #     working-directory: ui
+      #     config: baseUrl=http://localhost:8080
 
+      - name: Run E2E tests
+        run: just frontend e2e
+      
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
@@ -142,9 +146,7 @@ jobs:
           name: test-artifacts
           if-no-files-found: ignore
           path: |
-            ui/test/downloads/
-            ui/test/screenshots/
-            ui/test/videos/
+            ui/test/logs/
 
       - name: Extract logs
         if: always()

@@ -73,5 +73,7 @@ catalogs:
 
 onlyBuiltDependencies:
   - cypress
+  - edgedriver
   - esbuild
+  - geckodriver
   - vue-demi
