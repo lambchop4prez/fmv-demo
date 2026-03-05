@@ -50,7 +50,7 @@ build-frontend-image: (_build-image './ui' image_frontend)
 
 [group('build')]
 [group('docker')]
-build-backend-image: (_build-image './ui' image_backend)
+build-backend-image: (_build-image '.' image_backend)
 
 [group('build')]
 [group('docker')]
