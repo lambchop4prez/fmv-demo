@@ -146,3 +146,38 @@ jobs:
       - name: Teardown | Bring environment down
         if: always()
         run: just down
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: [ci, test-e2e]
+    if: github.event_name != 'pull_request' && needs.ci.outputs.new-release-detected
+    permissions:
+      contents: read
+      artifact-metadata: read
+      packages: write
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Setup | Setup docker compose
+        uses: docker/setup-compose-action@112d3e30db3bf437d207fea57f22510569d1ab97
+
+      - name: Setup | Download artifacts
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3
+        with:
+          name: artifacts
+          path: artifacts/
+
+      - name: Setup | Load artifacts
+        run: just load
+      
+      - name: Release | Create release
+        run: just release
+      
+      - name: Release | Publish release
+        run: just publish
+      

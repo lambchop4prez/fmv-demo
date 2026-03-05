@@ -14,6 +14,9 @@ allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
 
+[tool.semantic_release.changelog]
+changelog_file = "artifacts/CHANGELOG.md"
+
 [tool.semantic_release.branches.main]
 match = "(main)"
 prerelease_token = "rc"
@@ -28,3 +31,7 @@ prerelease = true
 match = "*"
 prerelease = true
 prerelease_token = "dirty"
+
+[tool.semantic_release.publish]
+dist_glob_patterns = ["artifacts/*"]
+upload_to_vcs_release = true
