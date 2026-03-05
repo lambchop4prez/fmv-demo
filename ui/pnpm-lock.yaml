@@ -194,7 +194,7 @@ importers:
   .:
     dependencies:
       '@tanstack/vue-form':
-        specifier: ^1.28.4
+        specifier: 1.28.4
         version: 1.28.4(vue@3.5.29(typescript@5.9.3))
       '@tanstack/vue-table':
         specifier: 8.21.3
@@ -251,7 +251,7 @@ importers:
         specifier: catalog:frontend
         version: 5.0.2(@vue/compiler-sfc@3.5.29)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.29(typescript@5.9.3)))(vue@3.5.29(typescript@5.9.3))
       zod:
-        specifier: ^4.3.6
+        specifier: 4.3.6
         version: 4.3.6
     devDependencies:
       '@iconify-json/carbon':
@@ -276,7 +276,7 @@ importers:
         specifier: catalog:types
         version: 3.0.5
       '@types/node':
-        specifier: ^25.3.3
+        specifier: 25.3.3
         version: 25.3.3
       '@types/nprogress':
         specifier: catalog:types
@@ -306,19 +306,19 @@ importers:
         specifier: catalog:dev
         version: 2.4.6
       '@wdio/cli':
-        specifier: ^9.24.0
+        specifier: 9.24.0
         version: 9.24.0(@types/node@25.3.3)(expect-webdriverio@5.6.4)
       '@wdio/globals':
-        specifier: ^9.23.0
+        specifier: 9.23.0
         version: 9.23.0(expect-webdriverio@5.6.4)(webdriverio@9.24.0)
       '@wdio/local-runner':
-        specifier: ^9.24.0
+        specifier: 9.24.0
         version: 9.24.0(@wdio/globals@9.23.0)(webdriverio@9.24.0)
       '@wdio/mocha-framework':
-        specifier: ^9.24.0
+        specifier: 9.24.0
         version: 9.24.0
       '@wdio/spec-reporter':
-        specifier: ^9.24.0
+        specifier: 9.24.0
         version: 9.24.0
       beasties:
         specifier: catalog:build
@@ -336,7 +336,7 @@ importers:
         specifier: catalog:dev
         version: 7.16.0(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
       expect-webdriverio:
-        specifier: ^5.6.4
+        specifier: 5.6.4
         version: 5.6.4(@wdio/globals@9.23.0)(@wdio/logger@9.18.0)(webdriverio@9.24.0)
       https-localhost:
         specifier: catalog:dev
@@ -405,7 +405,7 @@ importers:
         specifier: catalog:dev
         version: 3.2.5(typescript@5.9.3)
       wdio-vite-service:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1(@types/node@25.3.3)(@wdio/types@9.24.0)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(webdriverio@9.24.0)(yaml@2.8.2)
 
 packages:
@@ -4651,9 +4651,6 @@ packages:
   import-from-esm@1.3.3:
     resolution: {integrity: sha512-U3Qt/CyfFpTUv6LOP2jRTLYjphH6zg3okMfHbyqRa/W2w6hr8OsJWVggNlR4jxuojQy81TgTJTxgSkyoteRGMQ==}
     engines: {node: '>=16.20'}
-
-  import-meta-resolve@4.0.0:
-    resolution: {integrity: sha512-okYUR7ZQPH+efeuMJGlq4f8ubUgO50kByRPyt/Cy1Io4PSRsPjxME+YlVaCOx+NIToW7hCsZNFJyTPFFKepRSA==}
 
   import-meta-resolve@4.2.0:
     resolution: {integrity: sha512-Iqv2fzaTQN28s/FwZAoFq0ZSs/7hMAHJVX+w8PZl3cY19Pxk6jFFalxQoIfW2826i/fDLXv8IiEZRIT0lDuWcg==}
@@ -9144,7 +9141,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.56.1
       debug: 4.4.3
       minimatch: 10.2.4
-      semver: 7.7.3
+      semver: 7.7.4
       tinyglobby: 0.2.15
       ts-api-utils: 2.4.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -10027,7 +10024,7 @@ snapshots:
       chokidar: 4.0.3
       create-wdio: 9.21.0(@types/node@25.3.3)
       dotenv: 17.3.1
-      import-meta-resolve: 4.0.0
+      import-meta-resolve: 4.2.0
       lodash.flattendeep: 4.4.0
       lodash.pickby: 4.6.0
       lodash.union: 4.6.0
@@ -10053,7 +10050,7 @@ snapshots:
       '@wdio/utils': 9.24.0
       deepmerge-ts: 7.1.5
       glob: 10.5.0
-      import-meta-resolve: 4.0.0
+      import-meta-resolve: 4.2.0
       jiti: 2.6.1
     transitivePeerDependencies:
       - bare-abort-controller
@@ -10728,7 +10725,7 @@ snapshots:
       normalize-package-data: 7.0.1
       read-pkg-up: 10.1.0
       recursive-readdir: 2.2.3
-      semver: 7.7.3
+      semver: 7.7.4
       type-fest: 4.41.0
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -10972,7 +10969,7 @@ snapshots:
       '@one-ini/wasm': 0.1.1
       commander: 10.0.1
       minimatch: 9.0.1
-      semver: 7.7.3
+      semver: 7.7.4
 
   ee-first@1.1.1: {}
 
@@ -11867,11 +11864,9 @@ snapshots:
   import-from-esm@1.3.3:
     dependencies:
       debug: 4.4.3
-      import-meta-resolve: 4.0.0
+      import-meta-resolve: 4.2.0
     transitivePeerDependencies:
       - supports-color
-
-  import-meta-resolve@4.0.0: {}
 
   import-meta-resolve@4.2.0: {}
 
@@ -12181,7 +12176,7 @@ snapshots:
       acorn: 8.15.0
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      semver: 7.7.3
+      semver: 7.7.4
 
   jsonfile@6.1.0:
     dependencies:
@@ -12491,13 +12486,13 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.7.3
+      semver: 7.7.4
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@7.0.1:
     dependencies:
       hosted-git-info: 8.1.0
-      semver: 7.7.3
+      semver: 7.7.4
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
