@@ -122,14 +122,13 @@ _load-image image:
 load: (_load-image 'frontend') (_load-image 'backend')
     docker image ls
 
-[group('ci')]
 [doc("Runs e2e tests and collects logs")]
+[group('ci')]
 e2e: frontend::e2e _e2e-logs
 
 [doc('Collect logs from containers used in E2E testing')]
 [group('ci')]
 _e2e-logs:
-    mkdir -p {{ artifacts }}/e2e
-    docker compose logs api > justfile_dir()/ui/test/logs/api.log
-    docker compose logs workers > justfile_dir()/ui/test/logs/workers.log
-    docker compose logs frontend > justfile_dir()/ui/test/logs/frontend.log
+    docker compose logs api > {{ justfile_dir() }}/ui/test/logs/api.log
+    docker compose logs workers > {{ justfile_dir() }}/ui/test/logs/workers.log
+    docker compose logs frontend > {{ justfile_dir() }}/ui/test/logs/frontend.log
