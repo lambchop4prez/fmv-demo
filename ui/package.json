@@ -19,7 +19,7 @@
     "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
-    "@tanstack/vue-form": "^1.28.4",
+    "@tanstack/vue-form": "1.28.4",
     "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
@@ -38,7 +38,7 @@
     "vue": "catalog:frontend",
     "vue-i18n": "catalog:frontend",
     "vue-router": "catalog:frontend",
-    "zod": "^4.3.6"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@iconify-json/carbon": "catalog:dev",
@@ -48,7 +48,7 @@
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
     "@types/markdown-it-link-attributes": "catalog:types",
-    "@types/node": "^25.3.3",
+    "@types/node": "25.3.3",
     "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",
@@ -58,17 +58,17 @@
     "@vue/eslint-config-prettier": "catalog:dev",
     "@vue/eslint-config-typescript": "catalog:dev",
     "@vue/test-utils": "catalog:dev",
-    "@wdio/cli": "^9.24.0",
-    "@wdio/globals": "^9.23.0",
-    "@wdio/local-runner": "^9.24.0",
-    "@wdio/mocha-framework": "^9.24.0",
-    "@wdio/spec-reporter": "^9.24.0",
+    "@wdio/cli": "9.24.0",
+    "@wdio/globals": "9.23.0",
+    "@wdio/local-runner": "9.24.0",
+    "@wdio/mocha-framework": "9.24.0",
+    "@wdio/spec-reporter": "9.24.0",
     "beasties": "catalog:build",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
     "eslint-plugin-playwright": "catalog:dev",
     "eslint-plugin-testing-library": "catalog:dev",
-    "expect-webdriverio": "^5.6.4",
+    "expect-webdriverio": "5.6.4",
     "https-localhost": "catalog:dev",
     "markdown-it-link-attributes": "catalog:build",
     "openapi-typescript": "catalog:dev",
@@ -91,7 +91,7 @@
     "vite-ssg-sitemap": "catalog:build",
     "vitest": "catalog:dev",
     "vue-tsc": "catalog:dev",
-    "wdio-vite-service": "^2.1.1"
+    "wdio-vite-service": "2.1.1"
   },
   "resolutions": {
     "unplugin": "catalog:build",
