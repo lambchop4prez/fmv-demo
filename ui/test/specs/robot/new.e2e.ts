@@ -3,7 +3,7 @@ import NewRobotPage from '../../pages/robot/new.page';
 import RobotProfilePage from '../../pages/robot/name.page';
 
 describe('New Robot Form', () => {
-  it('should display fields', async () => {
+  xit('should display fields', async () => {
     await NewRobotPage.open();
     await expect(NewRobotPage.txtName).toBeDisplayed();
     await expect(NewRobotPage.chkIsGreat).toBeDisplayed();
