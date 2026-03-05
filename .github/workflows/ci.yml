@@ -9,7 +9,7 @@ on:
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
-  E2E_ENABLE: false
+  CI: true
 
 permissions: {}
 
@@ -27,31 +27,8 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Setup | Backend | Restore uv cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-            uv-${{ runner.os }}
-
-      - name: Setup | Frontend | Restore pnpm cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: ~/.cache/pnpm
-          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-            pnpm-${{ runner.os }}
-
-      - name: Setup | Mise-en-place
-        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
-        with:
-          version: 2025.12.13 # [default: latest] mise version to install
-          install: true # [default: true] run `mise install`
-          cache: true # [default: true] cache mise using GitHub's cache
-          experimental: true # [default: false] enable experimental features
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
 
       - name: Analyze | Run static code analysis
         run: just analyze
@@ -65,31 +42,8 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Setup | Backend | Restore uv cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-            uv-${{ runner.os }}
-
-      - name: Setup | Frontend | Restore pnpm cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: ~/.cache/pnpm
-          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-            pnpm-${{ runner.os }}
-
-      - name: Setup | Mise-en-place
-        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
-        with:
-          version: 2025.12.13 # [default: latest] mise version to install
-          install: true # [default: true] run `mise install`
-          cache: true # [default: true] cache mise using GitHub's cache
-          experimental: true # [default: false] enable experimental features
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
 
       - name: Test | Run all unit tests
         run: just unit-test
@@ -105,31 +59,8 @@ jobs:
       - name: Setup | Force correct release branch on workflow sha
         run: git checkout -B ${{ github.ref_name }}
 
-      - name: Setup | Backend | Restore uv cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ hashFiles('backend/uv.lock') }}
-            uv-${{ runner.os }}
-
-      - name: Setup | Frontend | Restore pnpm cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: ~/.cache/pnpm
-          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-            pnpm-${{ runner.os }}
-
-      - name: Setup | Mise-en-place
-        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
-        with:
-          version: 2025.12.13 # [default: latest] mise version to install
-          install: true # [default: true] run `mise install`
-          cache: true # [default: true] cache mise using GitHub's cache
-          experimental: true # [default: false] enable experimental features
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@112d3e30db3bf437d207fea57f22510569d1ab97
@@ -155,13 +86,10 @@ jobs:
       new-release-tag: ${{ steps.ci.outputs.tag }}
       new-release-is-prerelease: ${{ steps.ci.outputs.is_prerelease }}
 
-      # Disable until docker-compose/mongodb setup is complete
   test-e2e:
-    name: End-to-end Testing
+    name: End-to-End Testing
     runs-on: ubuntu-latest
-
-    if: false # Disable for now
-    needs: [ci]
+    needs: [analyze, test, ci]
     permissions:
       contents: read
       artifact-metadata: read
@@ -171,28 +99,9 @@ jobs:
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
-        with:
-          path: |
-            ~/.cache
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
-      - name: Setup | Frontend | Restore pnpm cache
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
-        with:
-          path: ~/.cache/pnpm
-          key: pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-${{ runner.os }}-${{ hashFiles('frontend/pnpm-lock.yaml') }}
-            pnpm-${{ runner.os }}
-
-      - name: Setup | Mise-en-place
-        uses: jdx/mise-action@6d1e696aa24c1aa1bcc1adea0212707c71ab78a8 # v3.6.1
-        with:
-          version: 2025.12.13 # [default: latest] mise version to install
-          install: true # [default: true] run `mise install`
-          cache: true # [default: true] cache mise using GitHub's cache
-          experimental: true # [default: false] enable experimental features
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
         uses: docker/setup-compose-action@112d3e30db3bf437d207fea57f22510569d1ab97
@@ -206,21 +115,12 @@ jobs:
       - name: Setup | Load artifacts
         run: just load
 
-      - name: Setup | Pnpm
-        run: just frontend pnpm-install
-
-      # - name: Setup | Cypress PNPM Patch
-      #   run: cp ui/pnpm-lock.yaml ui/package-lock.json
-
       - name: Setup | Bring environment up
         run: just up
 
-      - name: Test | Cypress end-to-end tests
-        uses: cypress-io/github-action@27dfbf361b37ba320ddd11801af8b97c7ab9c63e
-        with:
-          working-directory: ui
-          config: baseUrl=http://localhost:8080
-
+      - name: Run E2E tests
+        run: just frontend e2e
+      
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
@@ -228,9 +128,7 @@ jobs:
           name: test-artifacts
           if-no-files-found: ignore
           path: |
-            ui/test/downloads/
-            ui/test/screenshots/
-            ui/test/videos/
+            ui/test/logs/
 
       - name: Extract logs
         if: always()

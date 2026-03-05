@@ -5,7 +5,10 @@
 <template>
   <Card class="m-auto max-w-lg w-full">
     <CardHeader>
-      <CardTitle text-left>
+      <CardTitle
+        id="name"
+        text-left
+      >
         <span
           i="mdi-crown"
           v-if="props.robot.is_great"

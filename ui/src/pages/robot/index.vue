@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+import { BotIcon } from 'lucide-vue-next';
 import { useRobotList } from '~/composables/robotList';
 const { error, isFetching, isReady, state, execute } = useRobotList({});
 onMounted(async () => {
@@ -24,10 +25,23 @@ onMounted(async () => {
       </Empty>
     </div>
     <RobotList
-      v-if="isReady && state"
+      v-if="isReady && state && state.robots.length > 0"
       :collection="state"
     />
-    <Button @click="$router.push('/robot/new')">
+    <div v-else>
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <BotIcon />
+          </EmptyMedia>
+          <EmptyTitle>No robots found.</EmptyTitle>
+        </EmptyHeader>
+      </Empty>
+    </div>
+    <Button
+      id="new"
+      @click="$router.push('/robot/new')"
+    >
       {{ t("button.new") }}
     </Button>
   </div>

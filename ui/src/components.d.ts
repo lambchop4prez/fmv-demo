@@ -55,7 +55,6 @@ declare module 'vue' {
     RobotListSkeleton: typeof import('./components/RobotListSkeleton.vue')['default']
     RobotProfile: typeof import('./components/RobotProfile.vue')['default']
     RobotProfileSkeleton: typeof import('./components/RobotProfileSkeleton.vue')['default']
-    RobotSkeleton: typeof import('./components/RobotSkeleton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Separator: typeof import('./components/ui/separator/Separator.vue')['default']

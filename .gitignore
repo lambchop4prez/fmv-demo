@@ -228,3 +228,4 @@ cypress/downloads
 public/assets/fonts
 .ssl
 artifacts
+ui/test/logs
