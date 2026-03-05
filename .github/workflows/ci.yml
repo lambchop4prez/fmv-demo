@@ -90,6 +90,7 @@ jobs:
     name: End-to-End Testing
     runs-on: ubuntu-latest
     needs: [analyze, test, ci]
+    if: needs.ci.outputs.new-release-detected
     permissions:
       contents: read
       artifact-metadata: read
@@ -119,7 +120,7 @@ jobs:
         run: just up
 
       - name: Run E2E tests
-        run: just frontend e2e
+        run: just e2e
       
       - name: Upload artifacts
         if: always()
@@ -129,19 +130,6 @@ jobs:
           if-no-files-found: ignore
           path: |
             ui/test/logs/
-
-      - name: Extract logs
-        if: always()
-        run: just e2e-logs
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
-        with:
-          name: test-logs
-          if-no-files-found: ignore
-          path: |
-            artifacts/e2e/
 
       - name: Teardown | Bring environment down
         if: always()
@@ -155,16 +143,28 @@ jobs:
     permissions:
       contents: read
       artifact-metadata: read
+      attestations: write
+      id-token: write
       packages: write
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup | Force release branch to be at workflow sha
+        run: |
+          git reset --hard ${{ github.sha }}
 
       - name: Setup | Setup environment
         uses: ./.github/actions/setup
 
-      - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@112d3e30db3bf437d207fea57f22510569d1ab97
+      - name: Setup | Login to GitHub Container Registry
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup | Download artifacts
         uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3

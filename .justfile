@@ -5,9 +5,12 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
-tag := env("DOCKER_IMAGE_BACKEND", 'backend')
+registry := env("DOCKER_REGISTRY", "ghcr.io")
+image_backend := env("DOCKER_IMAGE_BACKEND", "lambchop4prez/fmv-demo-backend")
+image_frontend := env("DOCKER_IMAGE_FRONTEND", "lambchop4prez/fmv-demo-frontend")
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
+default_profile := "ci"
 
 mod frontend 'ui/'
 mod backend 'src/'
@@ -42,12 +45,21 @@ spellcheck:
 analyze: spellcheck typecheck lint
 
 [group('build')]
-build-api:
-    # just log info "Backend | Build"
-    docker build . -t {{ tag }}:{{ version }}
+[group('docker')]
+build-frontend-image: (_build-image './ui' image_frontend)
+
+[group('build')]
+[group('docker')]
+build-backend-image: (_build-image './ui' image_backend)
+
+[group('build')]
+[group('docker')]
+_build-image context image:
+    docker build {{ context }} -t {{ registry }}/{{ image }}:{{ version }}
+
 [group('build')]
 [parallel]
-build: frontend::build frontend::build-container build-api
+build: frontend::build build-frontend-image build-backend-image
 
 [group('test')]
 [parallel]
@@ -59,55 +71,65 @@ ci:
 
 [group('ci')]
 release:
-    semantic-release -c .config/release.toml -v --strict version --skip-build
+    semantic-release -c .config/release.toml -v --strict version --skip-build --no-commit
 
 [group('ci')]
-publish:
+publish: _publish-release _publish-images
+
+[group('ci')]
+_publish-release:
     semantic-release -c .config/release.toml publish
 
 [group('ci')]
-up:
-    docker compose --profile ci up --detach --no-build
+_tag-and-publish image:
+    docker image tag {{ registry }}/{{ image }}:{{ version }} {{ registry }}/{{ image_backend }}:latest
+    docker image push --all-tags {{ registry }}/{{ image }}
 
 [group('ci')]
-down:
-    docker compose --profile ci down
+[parallel]
+_publish-images: (_tag-and-publish image_frontend) (_tag-and-publish image_backend)
+
+[doc("Brings up a specific profile. Can be 'ci', 'infra', 'backend', or 'frontend'")]
+[group('ci')]
+[group('dev')]
+up profile=default_profile:
+    docker compose --profile {{ profile }} up --detach --no-build
+
+[doc("Brings down a specific profile. Can be 'ci', 'infra', 'backend', or 'frontend'")]
+[group('ci')]
+[group('dev')]
+down profile=default_profile:
+    docker compose --profile {{ profile }} down
+
+_image-save filename registry image version:
+    docker image save -o {{ artifacts }}/{{ filename }}-{{ version }}.tar.gz {{ registry }}/{{ image }}:{{ version }}
 
 [doc('Collect artifacts for storage')]
 [group('ci')]
 [parallel]
-artifacts: frontend::artifacts backend::artifacts
+artifacts: frontend::artifacts (_image-save "frontend" registry image_frontend version) (_image-save "backend" registry image_backend version)
+
+[doc('Load docker image from artifact')]
+[group('ci')]
+[group('docker')]
+_load-image image:
+    docker image load --input {{ artifacts }}/{{ image }}-{{ version }}.tar.gz
 
 [doc('Load container images from artifacts')]
 [group('ci')]
+[group('docker')]
 [parallel]
-load: frontend::load backend::load
+load: (_load-image 'frontend') (_load-image 'backend')
     docker image ls
+
+[group('ci')]
+[doc("Runs e2e tests and collects logs")]
+e2e: frontend::e2e _e2e-logs
 
 [doc('Collect logs from containers used in E2E testing')]
 [group('ci')]
-e2e-logs:
+_e2e-logs:
     mkdir -p {{ artifacts }}/e2e
-    docker compose logs api > {{artifacts}}/e2e/api.log
-    docker compose logs workers > {{artifacts}}/e2e/workers.log
-    docker compose logs frontend > {{artifacts}}/e2e/frontend.log
-
-[doc('Bring up only backing infrastructure (Mongo and RabbitMQ)')]
-[group('dev')]
-infra-up:
-    docker compose --profile infra up --detach
-
-[doc('Bring down backing infrastructure')]
-[group('dev')]
-infra-down:
-    docker compose --profile infra down
-
-[doc('Bring up backend')]
-[group('dev')]
-backend-up:
-    docker compose --profile backend up --detach
-
-[doc('Tear down backend')]
-[group('dev')]
-backend-down:
-    docker compose --profile backend down
+    docker compose logs api > justfile_dir()/ui/test/logs/api.log
+    docker compose logs workers > justfile_dir()/ui/test/logs/workers.log
+    docker compose logs frontend > justfile_dir()/ui/test/logs/frontend.log

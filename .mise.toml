@@ -3,8 +3,10 @@ PROJECT_NAME = "FastAPI MongoDB Vue Stack Demo"
 DOMAIN = "localhost"
 STACK_NAME = "fmv-demo"
 
-DOCKER_IMAGE_BACKEND = "ghcr.io/lambchop4prez/fmv-demo-backend"
-DOCKER_IMAGE_FRONTEND = "ghcr.io/lambchop4prez/fmv-demo-frontend"
+DOCKER_REGISTRY = "ghcr.io"
+DOCKER_IMAGE_BACKEND = "lambchop4prez/fmv-demo-backend"
+DOCKER_IMAGE_FRONTEND = "lambchop4prez/fmv-demo-frontend"
+
 BACKEND_REPOSITORY = "mongodb"
 # BACKEND_REPOSITORY=inmemory
 BACKEND_MONGO_HOST = "localhost"
