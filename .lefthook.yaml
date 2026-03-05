@@ -19,3 +19,12 @@ pre-commit:
       glob: '*.{py}'
       root: src
       run: just backend lint
+    format-just:
+      glob:
+        - '*.just'
+        - '.justfile'
+      stage_fixed: true
+      run: |
+        for file in {staged_files}; do
+          just --justfile "$file" --fmt --unstable
+        done
