@@ -124,12 +124,12 @@ catalogs:
     eslint-plugin-format:
       specifier: 1.5.0
       version: 1.5.0
-    eslint-plugin-playwright:
-      specifier: 2.9.0
-      version: 2.9.0
     eslint-plugin-testing-library:
       specifier: 7.16.0
       version: 7.16.0
+    eslint-plugin-wdio:
+      specifier: ^9.23.0
+      version: 9.23.0
     https-localhost:
       specifier: 4.7.1
       version: 4.7.1
@@ -329,12 +329,12 @@ importers:
       eslint-plugin-format:
         specifier: catalog:dev
         version: 1.5.0(eslint@9.39.3(jiti@2.6.1))
-      eslint-plugin-playwright:
-        specifier: catalog:dev
-        version: 2.9.0(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-testing-library:
         specifier: catalog:dev
         version: 7.16.0(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
+      eslint-plugin-wdio:
+        specifier: catalog:dev
+        version: 9.23.0
       expect-webdriverio:
         specifier: 5.6.4
         version: 5.6.4(@wdio/globals@9.23.0)(@wdio/logger@9.18.0)(webdriverio@9.24.0)
@@ -4224,12 +4224,6 @@ packages:
     peerDependencies:
       eslint: ^8.40.0 || ^9.0.0 || ^10.0.0
 
-  eslint-plugin-playwright@2.9.0:
-    resolution: {integrity: sha512-k3xrG6YzrallWNFMoGUjMNeu3SFFKXN79KJQBD2PkM4PasJegqV2Up+mPY5od2UmPKQGT+MeIhCmWH8r5eYuQQ==}
-    engines: {node: '>=16.9.0'}
-    peerDependencies:
-      eslint: '>=8.40.0'
-
   eslint-plugin-prettier@5.5.4:
     resolution: {integrity: sha512-swNtI95SToIz05YINMA6Ox5R057IMAmWZ26GqPxusAp1TZzj+IdY9tXNWWD3vkF/wEqydCONcwjTFpxybBqZsg==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -4263,6 +4257,10 @@ packages:
         optional: true
       '@typescript-eslint/parser':
         optional: true
+
+  eslint-plugin-wdio@9.23.0:
+    resolution: {integrity: sha512-8tcpupzp2Qmv+uSfhzeHi42LVA9PyjkpMBPclSIkPxBfXpj4fMrejwAHu1PROh1OmJN1VQcGQUTWvSzyRcV2vA==}
+    engines: {node: '>=18.20.0'}
 
   eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
@@ -4585,10 +4583,6 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
-    engines: {node: '>=18'}
-
-  globals@17.3.0:
-    resolution: {integrity: sha512-yMqGUQVVCkD4tqjOJf3TnrvaaHDMYp4VlUSObbkIiuCPe/ofdMBFIAcBbCSRFWOnos6qRiTVStDwqPLUclaxIw==}
     engines: {node: '>=18'}
 
   globalthis@1.0.3:
@@ -11325,11 +11319,6 @@ snapshots:
       prettier: 3.8.1
       synckit: 0.11.12
 
-  eslint-plugin-playwright@2.9.0(eslint@9.39.3(jiti@2.6.1)):
-    dependencies:
-      eslint: 9.39.3(jiti@2.6.1)
-      globals: 17.3.0
-
   eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.3(jiti@2.6.1)))(eslint@9.39.3(jiti@2.6.1))(prettier@3.8.1):
     dependencies:
       eslint: 9.39.3(jiti@2.6.1)
@@ -11361,6 +11350,8 @@ snapshots:
     optionalDependencies:
       '@stylistic/eslint-plugin': 5.5.0(eslint@9.39.3(jiti@2.6.1))
       '@typescript-eslint/parser': 8.56.0(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
+
+  eslint-plugin-wdio@9.23.0: {}
 
   eslint-scope@8.4.0:
     dependencies:
@@ -11776,8 +11767,6 @@ snapshots:
   globals@11.12.0: {}
 
   globals@14.0.0: {}
-
-  globals@17.3.0: {}
 
   globalthis@1.0.3:
     dependencies:

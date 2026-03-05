@@ -6,12 +6,12 @@ import {
 import pluginVue from "eslint-plugin-vue";
 import pluginVitest from "@vitest/eslint-plugin";
 import testingLibrary from "eslint-plugin-testing-library";
-import pluginPlaywright from "eslint-plugin-playwright";
 import unocss from "@unocss/eslint-config/flat";
+import { configs as wdioConfig } from "eslint-plugin-wdio";
 
 export default defineConfigWithVueTs(
   {
-    name: "src/frontend",
+    name: "src",
     files: ["**/*.{ts,mts,tsx,vue}"],
   },
 
@@ -30,10 +30,9 @@ export default defineConfigWithVueTs(
     ...testingLibrary.configs["flat/vue"],
     files: ["src/**/__tests__/*"],
   },
-
   {
-    ...pluginPlaywright.configs["flat/recommended"],
-    files: ["e2e/**/*.{test,spec}.{js,ts,jsx,tsx}"],
+    ...wdioConfig['flat/recommended'],
+    files: ["test/**"]
   },
   {
     rules: {
