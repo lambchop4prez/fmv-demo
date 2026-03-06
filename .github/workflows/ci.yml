@@ -73,6 +73,7 @@ jobs:
         run: just ci
 
       - name: Collect artifacts
+        if: ${{ steps.ci.outputs.released }}
         env:
           NEW_VERSION: ${{ steps.ci.outputs.version }}
         run: just artifacts
@@ -149,7 +150,7 @@ jobs:
       attestations: write
       id-token: write
       packages: write
-      
+      issues: write
     env:
       NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
     steps:
