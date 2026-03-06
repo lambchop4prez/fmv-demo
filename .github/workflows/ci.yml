@@ -69,12 +69,15 @@ jobs:
         uses: docker/setup-compose-action@8cccb8c14b6500aaffebff1aa49c502c34d2e5e6
 
       - name: Continuous Integration
+        env:
+          GITHUB_TOKEN: ${{github.token}}
         id: ci
         run: just ci
 
       - name: Collect artifacts
         if: ${{ steps.ci.outputs.released }}
         env:
+          NEW_RELEASE: ${{ steps.ci.outputs.released }}
           NEW_VERSION: ${{ steps.ci.outputs.version }}
         run: just artifacts
 
