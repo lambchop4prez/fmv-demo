@@ -4,7 +4,7 @@ import Page from "../page"
 class RobotProfilePage extends Page {
 
   public get name() {
-    return $('#name');
+    return $('h3');
   }
   public open(name: string) {
     return super.open(`/robot/${name}`);
