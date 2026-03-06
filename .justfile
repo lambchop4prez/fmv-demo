@@ -132,3 +132,15 @@ _e2e-logs:
     docker compose logs api > {{ justfile_dir() }}/ui/test/logs/api.log
     docker compose logs workers > {{ justfile_dir() }}/ui/test/logs/workers.log
     docker compose logs frontend > {{ justfile_dir() }}/ui/test/logs/frontend.log
+
+[doc('Get image digest')]
+_digest image:
+    docker image inspect {{ registry }}/{{ image }}:{{ version }} | jq -r .[0].Id
+
+[group('ci')]
+[group('docker')]
+digest-backend: (_digest image_backend)
+
+[group('ci')]
+[group('docker')]
+digest-frontend: (_digest image_frontend)
