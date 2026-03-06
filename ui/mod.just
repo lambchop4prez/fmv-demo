@@ -1,7 +1,6 @@
 set quiet := true
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
-tag := env("DOCKER_IMAGE_FRONTEND", 'frontend')
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
 default_e2e_config := if env("CI", "false") == "true" { "ci" } else { 'dev' }
@@ -30,10 +29,6 @@ build: pnpm-install
     # just log info "Frontend | Build"
     pnpm run build
 
-[group('build')]
-build-container:
-    docker build . -t {{ tag }}:{{ version }}
-
 [group('dev')]
 dev: pnpm-install
     pnpm run dev
@@ -46,12 +41,6 @@ e2e config=default_e2e_config: pnpm-install
 [group('ci')]
 artifacts:
     mkdir -p {{ artifacts }} && tar czf {{ artifacts }}/dist-{{ version }}.tar.gz dist
-    docker image save -o {{ artifacts }}/frontend-{{ version }}.tar.gz {{ tag }}:{{ version }}
-
-[doc('Load docker image from artifact')]
-[group('ci')]
-load:
-    docker image load --input {{ artifacts }}/frontend-{{ version }}.tar.gz
 
 [doc('Adds new component from Shadcn registry')]
 [group('dev')]

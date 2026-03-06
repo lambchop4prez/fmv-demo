@@ -68,7 +68,7 @@ services:
   #     - /var/run/http.routers.${STACK_NAME?Variable not set}-proxy-http.middlewares=${STACK_NAME?Variable not set}-www-redirect,${STACK_NAME?Variable not set}-https-redirect
   #
   api:
-    image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${NEW_VERSION-latest}"
+    image: "${DOCKER_REGISTRY?Variable not set}/${DOCKER_IMAGE_BACKEND?Variable not set}:${NEW_VERSION-latest}"
     logging:
       driver: json-file
       options:
@@ -101,7 +101,7 @@ services:
       - ci
 
   workers:
-    image: "${DOCKER_IMAGE_BACKEND?Variable not set}:${NEW_VERSION-latest}"
+    image: "${DOCKER_REGISTRY?Variable not set}/${DOCKER_IMAGE_BACKEND?Variable not set}:${NEW_VERSION-latest}"
     logging:
       driver: json-file
       options:
@@ -136,7 +136,7 @@ services:
       - ci
 
   frontend:
-    image: "${DOCKER_IMAGE_FRONTEND?Variable not set}:${NEW_VERSION-latest}"
+    image: "${DOCKER_REGISTRY?Variable not set}/${DOCKER_IMAGE_FRONTEND?Variable not set}:${NEW_VERSION-latest}"
     environment:
       - VITE_API_ENDPOINT=http://api:8000
     build:

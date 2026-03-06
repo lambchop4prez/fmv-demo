@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
     branches: [main]
     types: [opened, reopened, synchronize]
@@ -10,6 +10,9 @@ on:
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
   CI: true
+  REGISTRY: "ghcr.io"
+  IMAGE_BACKEND: "lambchop4prez/fmv-demo-backend"
+  IMAGE_FRONTEND: "lambchop4prez/fmv-demo-frontend"
 
 permissions: {}
 
@@ -70,6 +73,7 @@ jobs:
         run: just ci
 
       - name: Collect artifacts
+        if: ${{ steps.ci.outputs.released }}
         env:
           NEW_VERSION: ${{ steps.ci.outputs.version }}
         run: just artifacts
@@ -90,6 +94,7 @@ jobs:
     name: End-to-End Testing
     runs-on: ubuntu-latest
     needs: [analyze, test, ci]
+    if: needs.ci.outputs.new-release-detected
     permissions:
       contents: read
       artifact-metadata: read
@@ -119,7 +124,7 @@ jobs:
         run: just up
 
       - name: Run E2E tests
-        run: just frontend e2e
+        run: just e2e
       
       - name: Upload artifacts
         if: always()
@@ -130,19 +135,85 @@ jobs:
           path: |
             ui/test/logs/
 
-      - name: Extract logs
-        if: always()
-        run: just e2e-logs
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
-        with:
-          name: test-logs
-          if-no-files-found: ignore
-          path: |
-            artifacts/e2e/
-
       - name: Teardown | Bring environment down
         if: always()
         run: just down
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: [ci, test-e2e]
+    if: github.event_name != 'pull_request' && needs.ci.outputs.new-release-detected
+    permissions:
+      contents: write
+      artifact-metadata: write
+      attestations: write
+      id-token: write
+      packages: write
+      issues: write
+    env:
+      NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup | Force release branch to be at workflow sha
+        run: |
+          git reset --hard ${{ github.sha }}
+
+      - name: Setup | Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Setup | Login to GitHub Container Registry
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup | Download artifacts
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3
+        with:
+          name: artifacts
+          path: artifacts/
+
+      - name: Setup | Load artifacts
+        run: just load
+
+      - name: Release | Attest artifact provenance
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
+        with:
+          subject-path: 'artifacts/**.tar.gz'
+      
+      - name: Release | Create release
+        env:
+          GITHUB_TOKEN: ${{github.token}}
+        run: just release
+      
+      - name: Release | Publish release
+        env:
+          GITHUB_TOKEN: ${{github.token}}
+        run: just publish
+      
+      - name: Release | Get image digests
+        id: digest
+        run: |
+          echo "frontend=$(just digest-frontend)" >> "$GITHUB_OUTPUT"
+          echo "backend=$(just digest-backend)" >> "$GITHUB_OUTPUT"
+      
+      - name: Release | Attest frontend image provenance
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_FRONTEND}}
+          subject-digest: ${{ steps.digest.outputs.frontend }}
+          push-to-registry: true
+      
+      - name: Release | Attest backend image provenance
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_BACKEND}}
+          subject-digest: ${{ steps.digest.outputs.backend }}
+          push-to-registry: true
+      
