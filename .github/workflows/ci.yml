@@ -75,7 +75,7 @@ jobs:
         run: just ci
 
       - name: Collect artifacts
-        if: ${{ steps.ci.outputs.released != false }}
+        if: ${{ steps.ci.outputs.released != 'false' }}
         env:
           NEW_RELEASE: ${{ steps.ci.outputs.released }}
           NEW_VERSION: ${{ steps.ci.outputs.version }}
