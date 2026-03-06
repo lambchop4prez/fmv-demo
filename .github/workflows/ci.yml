@@ -97,7 +97,7 @@ jobs:
     name: End-to-End Testing
     runs-on: ubuntu-latest
     needs: [analyze, test, ci]
-    if: needs.ci.outputs.new-release-detected
+    if: needs.ci.outputs.new-release-detected !='false'
     permissions:
       contents: read
       artifact-metadata: read
@@ -146,7 +146,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     needs: [ci, test-e2e]
-    if: github.event_name != 'pull_request' && needs.ci.outputs.new-release-detected
+    if: github.event_name != 'pull_request' && (needs.ci.outputs.new-release-detected !='false')
     permissions:
       contents: write
       artifact-metadata: write
