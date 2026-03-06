@@ -149,6 +149,7 @@ jobs:
       attestations: write
       id-token: write
       packages: write
+      
     env:
       NEW_VERSION: ${{ needs.ci.outputs.new-release-version }}
     steps:
@@ -186,6 +187,8 @@ jobs:
           subject-path: 'artifacts/**.tar.gz'
       
       - name: Release | Create release
+        env:
+          GITHUB_TOKEN: ${{github.token}}
         run: just release
       
       - name: Release | Publish release
