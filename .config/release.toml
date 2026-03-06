@@ -35,3 +35,7 @@ prerelease_token = "dirty"
 [tool.semantic_release.publish]
 dist_glob_patterns = ["artifacts/*"]
 upload_to_vcs_release = true
+
+[tool.semantic_release.remote]
+type = "github"
+token = { env = "GITHUB_TOKEN" }
