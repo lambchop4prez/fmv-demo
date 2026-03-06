@@ -144,7 +144,7 @@ jobs:
     needs: [ci, test-e2e]
     if: github.event_name != 'pull_request' && needs.ci.outputs.new-release-detected
     permissions:
-      contents: read
+      contents: write
       artifact-metadata: read
       attestations: write
       id-token: write
