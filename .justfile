@@ -135,7 +135,7 @@ _e2e-logs:
 
 [doc('Get image digest')]
 _digest image:
-    docker image inspect {{ registry }}/{{ image }}:{{ version }} | jq -r .[0].Descriptor.digest
+    docker image inspect {{ registry }}/{{ image }}:{{ version }} | jq -r .[0].RepoDigests[0] | cut -d '@' -f 2
 
 [group('ci')]
 [group('docker')]
