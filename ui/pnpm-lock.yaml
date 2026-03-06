@@ -128,7 +128,7 @@ catalogs:
       specifier: 7.16.0
       version: 7.16.0
     eslint-plugin-wdio:
-      specifier: ^9.23.0
+      specifier: 9.23.0
       version: 9.23.0
     https-localhost:
       specifier: 4.7.1
