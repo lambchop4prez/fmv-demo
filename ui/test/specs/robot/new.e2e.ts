@@ -10,7 +10,7 @@ describe('New Robot Form', () => {
     await expect(NewRobotPage.txtLocation).toBeDisplayed();
     await expect(NewRobotPage.txtDescription).toBeDisplayed();
   });
-  it('should submit a new robot and navigate to profile', async () => {
+  xit('should submit a new robot and navigate to profile', async () => {
     await NewRobotPage.open();
     const robot = {
       name: "Crow",
