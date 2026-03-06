@@ -27,6 +27,11 @@ match = "(develop)"
 prerelease_token = "dev"
 prerelease = true
 
+[tool.semantic_release.branches.renovate]
+match = "renovate/*"
+prerelease = true
+prerelease_token = "renovate"
+
 [tool.semantic_release.branches.dirty]
 match = "*"
 prerelease = true
