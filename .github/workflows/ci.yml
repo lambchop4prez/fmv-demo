@@ -145,7 +145,7 @@ jobs:
     if: github.event_name != 'pull_request' && needs.ci.outputs.new-release-detected
     permissions:
       contents: write
-      artifact-metadata: read
+      artifact-metadata: write
       attestations: write
       id-token: write
       packages: write
