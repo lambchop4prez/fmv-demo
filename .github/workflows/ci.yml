@@ -193,6 +193,8 @@ jobs:
         run: just release
       
       - name: Release | Publish release
+        env:
+          GITHUB_TOKEN: ${{github.token}}
         run: just publish
       
       - name: Release | Get image digests

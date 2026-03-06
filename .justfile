@@ -120,7 +120,7 @@ _load-image image:
 [group('docker')]
 [parallel]
 load: (_load-image 'frontend') (_load-image 'backend')
-    docker image ls
+    docker image ls --digests
 
 [doc("Runs e2e tests and collects logs")]
 [group('ci')]
@@ -135,7 +135,7 @@ _e2e-logs:
 
 [doc('Get image digest')]
 _digest image:
-    docker image inspect {{ registry }}/{{ image }}:{{ version }} | jq -r .[0].Id
+    docker image inspect {{ registry }}/{{ image }}:{{ version }} | jq -r .[0].Descriptor.digest
 
 [group('ci')]
 [group('docker')]
