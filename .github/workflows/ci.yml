@@ -167,7 +167,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Login to GitHub Container Registry
-        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2
+        uses: docker/login-action@db14339dbc0a1f0b184157be94b23a2138122354
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -183,7 +183,7 @@ jobs:
         run: just load
 
       - name: Release | Attest artifact provenance
-        uses: actions/attest@3f6ab60ba492f1f12efdd628af3d3e9dfb74dfc5
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
         with:
           subject-path: 'artifacts/**.tar.gz'
       
@@ -204,14 +204,14 @@ jobs:
           echo "backend=$(just digest-backend)" >> "$GITHUB_OUTPUT"
       
       - name: Release | Attest frontend image provenance
-        uses: actions/attest@3f6ab60ba492f1f12efdd628af3d3e9dfb74dfc5
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
         with:
           subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_FRONTEND}}
           subject-digest: ${{ steps.digest.outputs.frontend }}
           push-to-registry: true
       
       - name: Release | Attest backend image provenance
-        uses: actions/attest@3f6ab60ba492f1f12efdd628af3d3e9dfb74dfc5
+        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26
         with:
           subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_BACKEND}}
           subject-digest: ${{ steps.digest.outputs.backend }}
