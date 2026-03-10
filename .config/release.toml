@@ -14,7 +14,7 @@ allow_zero_version = true
 no_git_verify = false
 tag_format = "v{version}"
 
-[tool.semantic_release.changelog]
+[tool.semantic_release.changelog.default_templates]
 changelog_file = "artifacts/CHANGELOG.md"
 
 [tool.semantic_release.branches.main]

@@ -1,7 +1,7 @@
 from typing import Annotated
 
 from beanie import Document, Indexed
-from models import RobotProfile, RobotTask
+from models import RobotProfile, RobotTask, User
 
 
 class RobotDocument(Document, RobotProfile):
@@ -11,3 +11,7 @@ class RobotDocument(Document, RobotProfile):
 class RobotTaskDocument(Document, RobotTask):
     robot: Annotated[str, Indexed()]
     task_id: Annotated[str, Indexed(unique=True)]
+
+
+class UserDocument(Document, User):
+    identity: Annotated[str, Indexed(unique=True)]

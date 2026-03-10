@@ -1,3 +1,3 @@
-from .service import ServiceDep
+from .service import RobotServiceDep
 
-__all__ = ["ServiceDep"]
+__all__ = ["RobotServiceDep"]

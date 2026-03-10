@@ -18,13 +18,23 @@ To get started developing, first load up the backing infrastructure with `just i
 
 When done, `<Ctrl>c` to stop the dev servers and `just infra-down` to teardown the infrastructure
 
+### OAuth2
+
+When using OAuth2, a JWT secret is needed. One can be generated using the following command:
+
+```sh
+echo "BACKEND_JWT_SECRET=$(openssl rand -base64 32 | tr -- '+/' '-_')" > .secrets.env
+```
+
+
+
 ## To Do
 
 - [x] - In memory database stub
 - [x] - mongodb database adapter
 - [ ] - API Authentication (OAuth2)
-- [ ] - Complete docker-compose file
-- [ ] - Unit/E2E testing
+- [x] - Complete docker-compose file
+- [x] - Unit/E2E testing
 
 ## Reference
 
