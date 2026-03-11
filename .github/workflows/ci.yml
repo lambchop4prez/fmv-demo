@@ -115,7 +115,7 @@ jobs:
         uses: docker/setup-compose-action@1505d6d06cc1221d4e47032565aa9148834ef90c
 
       - name: Setup | Download artifacts
-        uses: actions/download-artifact@e6d03f67377d4412c7aa56a8e2e4988e6ec479dd
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: artifacts
           path: artifacts/
@@ -177,7 +177,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup | Download artifacts
-        uses: actions/download-artifact@e6d03f67377d4412c7aa56a8e2e4988e6ec479dd
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: artifacts
           path: artifacts/
