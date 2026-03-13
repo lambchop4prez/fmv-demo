@@ -194,8 +194,8 @@ importers:
   .:
     dependencies:
       '@tanstack/vue-form':
-        specifier: 1.28.4
-        version: 1.28.4(vue@3.5.29(typescript@5.9.3))
+        specifier: 1.28.5
+        version: 1.28.5(vue@3.5.29(typescript@5.9.3))
       '@tanstack/vue-table':
         specifier: 8.21.3
         version: 8.21.3(vue@3.5.29(typescript@5.9.3))
@@ -2510,8 +2510,8 @@ packages:
     resolution: {integrity: sha512-GRxmPw4OHZ2oZeIEUkEwt/NDvuEqzEYRAjzUVMs+I0pd4C7k1ySOiuJK2CqF+K/yEAR3YZNkW3ExrpDarh9Vwg==}
     engines: {node: '>=18'}
 
-  '@tanstack/form-core@1.28.4':
-    resolution: {integrity: sha512-2eox5ePrJ6kvA1DXD5QHk/GeGr3VFZ0uYR63UgQOe7bUg6h1JfXaIMqTjZK9sdGyE4oRNqFpoW54H0pZM7nObQ==}
+  '@tanstack/form-core@1.28.5':
+    resolution: {integrity: sha512-8lYnduHHfP6uaXF9+2OLnh3Fo27tH4TdtekWLG2b/Bp26ynbrWG6L4qhBgEb7VcvTpJw/RjvJF/JyFhZkG3pfQ==}
 
   '@tanstack/pacer-lite@0.1.1':
     resolution: {integrity: sha512-y/xtNPNt/YeyoVxE/JCx+T7yjEzpezmbb+toK8DDD1P4m7Kzs5YR956+7OKexG3f8aXgC3rLZl7b1V+yNUSy5w==}
@@ -2527,8 +2527,8 @@ packages:
   '@tanstack/virtual-core@3.13.18':
     resolution: {integrity: sha512-Mx86Hqu1k39icq2Zusq+Ey2J6dDWTjDvEv43PJtRCoEYTLyfaPnxIQ6iy7YAOK0NV/qOEmZQ/uCufrppZxTgcg==}
 
-  '@tanstack/vue-form@1.28.4':
-    resolution: {integrity: sha512-VlX2osCCR7uwt3unryVV+fekKQoAZYOKhGdzO9ZOE6VkXGJ0bSwl9bYc7J1S4sV9zxzFd+388JKAUh1TSyxnjQ==}
+  '@tanstack/vue-form@1.28.5':
+    resolution: {integrity: sha512-Uzv1in/7g/T616Anb1BdZzW1dzBNQ4+dxBTkEfYIwdI8FSmRp7oFJMdN5lYKZU97s+gKdMA42WIeiP6IJo0/6g==}
     peerDependencies:
       vue: ^3.4.0
 
@@ -9033,7 +9033,7 @@ snapshots:
 
   '@tanstack/devtools-event-client@0.4.1': {}
 
-  '@tanstack/form-core@1.28.4':
+  '@tanstack/form-core@1.28.5':
     dependencies:
       '@tanstack/devtools-event-client': 0.4.1
       '@tanstack/pacer-lite': 0.1.1
@@ -9047,9 +9047,9 @@ snapshots:
 
   '@tanstack/virtual-core@3.13.18': {}
 
-  '@tanstack/vue-form@1.28.4(vue@3.5.29(typescript@5.9.3))':
+  '@tanstack/vue-form@1.28.5(vue@3.5.29(typescript@5.9.3))':
     dependencies:
-      '@tanstack/form-core': 1.28.4
+      '@tanstack/form-core': 1.28.5
       '@tanstack/vue-store': 0.9.1(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
     transitivePeerDependencies:
