@@ -1,5 +1,5 @@
 FROM --platform=$BUILDPLATFORM python:3.14-slim-trixie AS builder
-COPY --from=ghcr.io/astral-sh/uv:0.10.9 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.10.10 /uv /uvx /bin/
 
 ENV PYTHONUNBUFFERED=1
 
