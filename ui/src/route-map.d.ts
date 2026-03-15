@@ -54,6 +54,13 @@ declare module 'vue-router/auto-routes' {
       { name: ParamValue<false> },
       | never
     >,
+    '/login': RouteRecordInfo<
+      '/login',
+      '/login',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/README': RouteRecordInfo<
       '/README',
       '/README',
@@ -116,6 +123,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/hi/[name].vue': {
       routes:
         | '/hi/[name]'
+      views:
+        | never
+    }
+    'src/pages/login.vue': {
+      routes:
+        | '/login'
       views:
         | never
     }
