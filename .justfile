@@ -102,7 +102,7 @@ down profile=default_profile:
     docker compose --profile {{ profile }} down
 
 _image-save filename registry image version:
-    docker image save -o {{ artifacts }}/{{ filename }}-{{ version }}.tar.gz {{ registry }}/{{ image }}:{{ version }}
+    mkdir -p {{ artifacts }} && docker image save -o {{ artifacts }}/{{ filename }}-{{ version }}.tar.gz {{ registry }}/{{ image }}:{{ version }}
 
 [doc('Collect artifacts for storage')]
 [group('ci')]
