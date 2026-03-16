@@ -59,7 +59,7 @@ _build-image context image:
 
 [group('build')]
 [parallel]
-build: frontend::build build-frontend-image build-backend-image
+build: build-frontend-image build-backend-image
 
 [group('test')]
 [parallel]
