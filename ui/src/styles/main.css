@@ -8,10 +8,10 @@ body,
   padding: 0;
 }
 
-html.dark {
+/* html.dark {
   background: #121212;
   color-scheme: dark;
-}
+} */
 
 #nprogress {
   pointer-events: none;

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Button from '~/components/ui/button/Button.vue';
-
 defineOptions({
   name: "IndexPage",
 });
@@ -16,40 +14,59 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <div text-4xl>
-      <div
-        i-mdi-robot-love
-        inline-block
-      />
-    </div>
-    <p>
-      <a
-        rel="noreferrer"
-        href="https://github.com/lambchop4prez/fmv-demo"
-        target="_blank"
-      >
-        FMV Demo
-      </a>
-    </p>
-    <p>
-      <em
-        text-sm
-        opacity-75
-      >{{ t("intro.desc") }}</em>
-    </p>
-
-    <div py-4 />
-
-    <div>
+  <Card
+    m-auto
+    max-w-md
+    w-full
+  >
+    <CardHeader
+      flex
+      flex-col
+      gap-2
+    >
+      <div>
+        <div
+          
+          
+          i-mdi-robot-love
+          text-4xl
+          inline-block 
+        />
+      </div>
+    </CardHeader>
+    <CardContent>
+      <p>
+        <Button variant="link">
+          <a
+            rel="noreferrer"
+            href="https://github.com/lambchop4prez/fmv-demo"
+            target="_blank"
+          >
+            FMV Demo
+          </a>
+        </Button>
+      </p>
+      <p>
+        <em
+          text-sm
+          opacity-75
+        >{{ t("intro.desc") }}</em>
+      </p>
+    </CardContent>
+    <CardFooter
+      flex
+      flex-col
+      gap-2
+    >
       <Button
+        as="button"
         id="go"
         @click="go"
       >
         {{ t("button.go") }}
       </Button>
-    </div>
-  </div>
+    </CardFooter>
+  </Card>
 </template>
 
 <route lang="yaml">

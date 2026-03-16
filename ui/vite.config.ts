@@ -28,7 +28,6 @@ export default defineConfig({
   },
 
   plugins: [
-    // https://github.com/posva/unplugin-vue-router
     VueRouter({
       routesFolder: ["src/pages"],
       extensions: [".vue", ".md"],

@@ -10,5 +10,5 @@ export const install: UserModule = ({ isClient, router }) => {
       const { registerSW } = await import('virtual:pwa-register');
       registerSW({ immediate: true });
     })
-    .catch(() => {});
+    .catch(() => { });
 };

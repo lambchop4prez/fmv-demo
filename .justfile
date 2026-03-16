@@ -59,7 +59,7 @@ _build-image context image:
 
 [group('build')]
 [parallel]
-build: frontend::build build-frontend-image build-backend-image
+build: build-frontend-image build-backend-image
 
 [group('test')]
 [parallel]
@@ -102,12 +102,12 @@ down profile=default_profile:
     docker compose --profile {{ profile }} down
 
 _image-save filename registry image version:
-    docker image save -o {{ artifacts }}/{{ filename }}-{{ version }}.tar.gz {{ registry }}/{{ image }}:{{ version }}
+    mkdir -p {{ artifacts }} && docker image save -o {{ artifacts }}/{{ filename }}-{{ version }}.tar.gz {{ registry }}/{{ image }}:{{ version }}
 
 [doc('Collect artifacts for storage')]
 [group('ci')]
 [parallel]
-artifacts: frontend::artifacts (_image-save "frontend" registry image_frontend version) (_image-save "backend" registry image_backend version)
+artifacts: (_image-save "frontend" registry image_frontend version) (_image-save "backend" registry image_backend version)
 
 [doc('Load docker image from artifact')]
 [group('ci')]
