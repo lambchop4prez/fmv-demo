@@ -107,7 +107,7 @@ _image-save filename registry image version:
 [doc('Collect artifacts for storage')]
 [group('ci')]
 [parallel]
-artifacts: frontend::artifacts (_image-save "frontend" registry image_frontend version) (_image-save "backend" registry image_backend version)
+artifacts: (_image-save "frontend" registry image_frontend version) (_image-save "backend" registry image_backend version)
 
 [doc('Load docker image from artifact')]
 [group('ci')]
