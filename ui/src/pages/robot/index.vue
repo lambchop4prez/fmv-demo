@@ -7,42 +7,54 @@ onMounted(async () => {
   await execute();
 });
 </script>
-
 <template>
-  <div>
-    <h1>
-      Robots
-    </h1>
-    <RobotListSkeleton
-      v-if="isFetching"
-    />
-    <div v-if="error">
-      <Empty>
-        <EmptyHeader>
-          <EmptyTitle>Error</EmptyTitle>
-          <EmptyDescription>{{ error.message }}</EmptyDescription>
-        </EmptyHeader>
-      </Empty>
-    </div>
-    <RobotList
-      v-if="isReady && state && state.robots.length > 0"
-      :collection="state"
-    />
-    <div v-else>
-      <Empty>
-        <EmptyHeader>
-          <EmptyMedia variant="icon">
-            <BotIcon />
-          </EmptyMedia>
-          <EmptyTitle>No robots found.</EmptyTitle>
-        </EmptyHeader>
-      </Empty>
-    </div>
-    <Button
-      id="new"
-      @click="$router.push('/robot/new')"
+  <Card
+    m-auto
+    max-w-md
+    w-full
+  >
+    <CardHeader>
+      <CardTitle>{{ t("robot.title") }}</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <RobotListSkeleton
+        v-if="isFetching"
+      />
+      <div v-if="error">
+        <Empty>
+          <EmptyHeader>
+            <EmptyTitle>Error</EmptyTitle>
+            <EmptyDescription>{{ error.message }}</EmptyDescription>
+          </EmptyHeader>
+        </Empty>
+      </div>
+      <RobotList
+        v-if="isReady && state && state.robots.length > 0"
+        :collection="state"
+      />
+      <div v-else>
+        <Empty>
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <BotIcon />
+            </EmptyMedia>
+            <EmptyTitle>{{ t("robot.empty") }}</EmptyTitle>
+          </EmptyHeader>
+        </Empty>
+      </div>
+    </CardContent>
+    <CardFooter
+      flex
+      flex-col
+      gap-2
     >
-      {{ t("button.new") }}
-    </Button>
-  </div>
+      <Button
+        as="button"
+        id="new"
+        @click="$router.push('/robot/new')"
+      >
+        {{ t("button.new") }}
+      </Button>
+    </CardFooter>
+  </Card>
 </template>

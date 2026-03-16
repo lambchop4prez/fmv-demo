@@ -229,3 +229,5 @@ public/assets/fonts
 .ssl
 artifacts
 ui/test/logs
+.secrets.env
+data

@@ -16,15 +16,19 @@ import { presetShadcn } from 'unocss-preset-shadcn';
 
 export default defineConfig({
   shortcuts: [
-    ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-purple-600'],
-    ['card', 'm-auto block max-w-md rounded border-solid bg-light-700 p-6 shadow-sm dark:bg-dark-700'],
-    ['label-input', 'mb-2.5 block text-align-left text-sm font-medium'],
-    ['label-checkbox', 'ms-2 mb-2.5 select-none text-align-left text-sm font-medium'],
-    ['input-text', 'mb-2.5 block  w-full rounded border-solid px-3 py-2.5 text-sm dark:bg-dark'],
-    ['input-checkbox', 'h-4 w-4 mb-2.5 rounded border-solid text-align-left']
+    // ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-purple-600'],
+    // ['card', 'm-auto block max-w-md rounded border-solid bg-light-700 p-6 shadow-sm dark:bg-dark-700'],
+    // ['label-input', 'mb-2.5 block text-align-left text-sm font-medium'],
+    // ['label-checkbox', 'ms-2 mb-2.5 select-none text-align-left text-sm font-medium'],
+    // ['input-text', 'mb-2.5 block  w-full rounded border-solid px-3 py-2.5 text-sm dark:bg-dark'],
+    // ['input-checkbox', 'h-4 w-4 mb-2.5 rounded border-solid text-align-left']
   ],
   presets: [
-    presetWind4(),
+    presetWind4({
+      preflights: {
+        reset: true,
+      },
+    }),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
@@ -40,7 +44,19 @@ export default defineConfig({
     }),
     presetAnimations(),
     presetShadcn({
-      color: 'violet'
+      color: "violet"
+      // color: {
+      //   base: "gray",
+      //   dark: {
+      //     primary: "0.71 0.13% 215%", // cyan-500
+      //     "primary-foreground": "0.30 0.05% 230%",
+      //     "card-foreground": "0.985 0.002% 247.839%"
+      //   },
+      //   light: {
+      //     primary: "0.61 0.11% 222%",
+      //     "primary-foreground": "0.98 0.02% 201%"
+      //   }
+      // }
     })
   ],
   transformers: [
