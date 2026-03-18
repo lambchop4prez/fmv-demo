@@ -47,11 +47,32 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/callback': RouteRecordInfo<
+      '/callback',
+      '/callback',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/hi/[name]': RouteRecordInfo<
       '/hi/[name]',
       '/hi/:name',
       { name: ParamValue<true> },
       { name: ParamValue<false> },
+      | never
+    >,
+    '/login': RouteRecordInfo<
+      '/login',
+      '/login',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/logout': RouteRecordInfo<
+      '/logout',
+      '/logout',
+      Record<never, never>,
+      Record<never, never>,
       | never
     >,
     '/README': RouteRecordInfo<
@@ -113,9 +134,27 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/callback.vue': {
+      routes:
+        | '/callback'
+      views:
+        | never
+    }
     'src/pages/hi/[name].vue': {
       routes:
         | '/hi/[name]'
+      views:
+        | never
+    }
+    'src/pages/login.vue': {
+      routes:
+        | '/login'
+      views:
+        | never
+    }
+    'src/pages/logout.vue': {
+      routes:
+        | '/logout'
       views:
         | never
     }

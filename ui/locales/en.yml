@@ -1,3 +1,18 @@
+auth:
+  logout:
+    title: Logging out
+  login:
+    title: Log in to your account
+    description: You need to be logged in to continue
+    redirecting: Redirecting to login...
+    processing: Processing SSO login...
+    providers:
+      sso: Login with SSO
+      apple: Login with Apple
+      google: Login with Google
+      github: Login with Github
+      microsoft: Login with Microsoft
+      passkey: Login with Passkey
 button:
   about: About
   back: Back
