@@ -1,8 +1,8 @@
 <script setup lang="ts">
+    const { t } = useI18n();
     import { z } from 'zod'
     import { useForm } from '@tanstack/vue-form';
     import type { components } from '~/client/api';
-    const { t } = useI18n();
     type RobotType = components['schemas']['RobotProfile']
     const emit = defineEmits<{create: [robot: RobotType]}>();
 
