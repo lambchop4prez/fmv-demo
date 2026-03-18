@@ -72,7 +72,6 @@
     "https-localhost": "catalog:dev",
     "markdown-it-link-attributes": "catalog:build",
     "openapi-typescript": "catalog:dev",
-    "rollup": "catalog:build",
     "shiki": "catalog:build",
     "taze": "catalog:dev",
     "typescript": "catalog:dev",
