@@ -4,7 +4,7 @@ catalogs:
   build:
     '@intlify/unplugin-vue-i18n': 11.0.7
     '@shikijs/markdown-it': 4.0.2
-    '@unocss/eslint-config': 66.6.6
+    '@unocss/eslint-config': 66.6.7
     '@vitejs/plugin-basic-ssl': 2.2.0
     '@vitejs/plugin-vue': 6.0.5
     beasties: 0.4.1
@@ -16,7 +16,7 @@ catalogs:
     reka-ui: 2.9.2
     shiki: 4.0.2
     tailwind-merge: 3.5.0
-    unocss: 66.6.6
+    unocss: 66.6.7
     unocss-preset-animations: 1.3.0
     unocss-preset-shadcn: 1.0.1
     unplugin: 3.0.0
@@ -55,7 +55,7 @@ catalogs:
     vue-tsc: 3.2.6
   frontend:
     '@unhead/vue': 2.1.12
-    '@unocss/reset': 66.6.6
+    '@unocss/reset': 66.6.7
     '@vueuse/core': 14.2.1
     nprogress: 0.2.0
     openapi-fetch: 0.17.0
