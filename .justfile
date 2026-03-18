@@ -82,7 +82,7 @@ _publish-release:
 
 [group('ci')]
 _tag-and-publish image:
-    docker image tag {{ registry }}/{{ image }}:{{ version }} {{ registry }}/{{ image_backend }}:latest
+    docker image tag {{ registry }}/{{ image }}:{{ version }} {{ registry }}/{{ image }}:latest
     docker image push --all-tags {{ registry }}/{{ image }}
 
 [group('ci')]
