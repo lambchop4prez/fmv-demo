@@ -5,7 +5,8 @@ const userManager = useUserManager();
 const error = ref<string|null>(null);
 onMounted(async () => {
   try {
-    const user = await userManager.signinRedirectCallback();
+    const user = await userManager.signinCallback();
+    
     console.log('SSO successful', user);
     await router.push('/robot');
   } catch(err) {
