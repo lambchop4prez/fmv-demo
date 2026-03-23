@@ -186,7 +186,7 @@ jobs:
         run: just load
 
       - name: Release | Attest artifact provenance
-        uses: actions/attest@e18a799f23337c367f76b067253d6f53abc6f03d
+        uses: actions/attest@ffbe5726c3b9de4da258bf497d534a3bac7ef8ba
         with:
           subject-path: 'artifacts/**.tar.gz'
       
@@ -207,14 +207,14 @@ jobs:
           echo "backend=$(just digest-backend)" >> "$GITHUB_OUTPUT"
       
       - name: Release | Attest frontend image provenance
-        uses: actions/attest@e18a799f23337c367f76b067253d6f53abc6f03d
+        uses: actions/attest@ffbe5726c3b9de4da258bf497d534a3bac7ef8ba
         with:
           subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_FRONTEND}}
           subject-digest: ${{ steps.digest.outputs.frontend }}
           push-to-registry: true
       
       - name: Release | Attest backend image provenance
-        uses: actions/attest@e18a799f23337c367f76b067253d6f53abc6f03d
+        uses: actions/attest@ffbe5726c3b9de4da258bf497d534a3bac7ef8ba
         with:
           subject-name: ${{ env.REGISTRY }}/${{env.IMAGE_BACKEND}}
           subject-digest: ${{ steps.digest.outputs.backend }}
