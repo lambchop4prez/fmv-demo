@@ -24,7 +24,7 @@ runs:
           pnpm-${{ runner.os }}
 
     - name: Setup | Mise-en-place
-      uses: jdx/mise-action@b106a2f3b6c5fe71d9bc58fef0e8284fcd2b9f70 # v4.0.0
+      uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
       with:
         # version: "latest"  # [default: latest] mise version to install
         install: true # [default: true] run `mise install`
