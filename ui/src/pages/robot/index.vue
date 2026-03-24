@@ -58,3 +58,7 @@ onMounted(async () => {
     </CardFooter>
   </Card>
 </template>
+<route lang="yaml">
+meta:
+  layout: home
+</route>

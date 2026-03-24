@@ -9,9 +9,9 @@ interface AppError {
 
 type RobotProfileQueryOption<T> = ParamsOption<T>;
 
-type RobotProfileResponse = paths['/api/v1/robot/{name}']['get']['responses']['200']['content']['application/json'];
+type RobotProfileResponse = paths['/robot/{name}']['get']['responses']['200']['content']['application/json'];
 
-export function useRobotProfile(fetchOptions: RobotProfileQueryOption<paths['/api/v1/robot/{name}']['get']>) {
+export function useRobotProfile(fetchOptions: RobotProfileQueryOption<paths['/robot/{name}']['get']>) {
   const state = ref<RobotProfileResponse>();
   const isReady = ref(false);
   const isFetching = ref(false);
@@ -22,7 +22,7 @@ export function useRobotProfile(fetchOptions: RobotProfileQueryOption<paths['/ap
     isReady.value = false;
     isFetching.value = true;
     try {
-      const { data, error: fetchError } = await client.GET('/api/v1/robot/{name}', fetchOptions);
+      const { data, error: fetchError } = await client.GET('/robot/{name}', fetchOptions);
       if (fetchError) {
         error.value = fetchError.detail;
       }

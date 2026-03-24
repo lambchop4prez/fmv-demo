@@ -6,9 +6,14 @@ const error = ref<string|null>(null);
 onMounted(async () => {
   try {
     const user = await userManager.signinCallback();
-    
-    console.log('SSO successful', user);
-    await router.push('/robot');
+    if (user && user.id_token) {
+      console.log('SSO successful', user);
+      
+      await router.push('/robot');
+    }
+    else {
+      error.value = "Login error"
+    }
   } catch(err) {
     console.error('Callback error: ', err);
     error.value = (err as Error).message;

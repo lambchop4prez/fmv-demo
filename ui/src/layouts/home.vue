@@ -1,4 +1,5 @@
 <template>
+  <SiteHeader />
   <main
     px-4
     py-10
