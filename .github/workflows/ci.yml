@@ -13,6 +13,10 @@ env:
   REGISTRY: "ghcr.io"
   IMAGE_BACKEND: "lambchop4prez/fmv-demo-backend"
   IMAGE_FRONTEND: "lambchop4prez/fmv-demo-frontend"
+  OIDC_AUDIENCE: ${{ secrets.OIDC_AUDIENCE }}
+  OIDC_ISSUER: ${{ secrets.OIDC_ISSUER }}
+  OIDC_SIGNING_KEY_ID: ${{ secrets.OIDC_SIGNING_KEY_ID }}
+  SESSION_SECRET_KEY: ${{ secrets.SESSION_SECRET_KEY }}
 
 permissions: {}
 
