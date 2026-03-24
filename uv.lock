@@ -87,12 +87,12 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "config", editable = "src/pkg/config" },
-    { name = "cryptography", specifier = ">=46.0.5" },
+    { name = "cryptography", specifier = "==46.0.5" },
     { name = "fastapi", extras = ["standard"], specifier = "==0.135.1" },
     { name = "handlers", editable = "src/pkg/handlers" },
-    { name = "itsdangerous", specifier = ">=2.2.0" },
+    { name = "itsdangerous", specifier = "==2.2.0" },
     { name = "models", editable = "src/pkg/models" },
-    { name = "pyjwt", specifier = ">=2.12.1" },
+    { name = "pyjwt", specifier = "==2.12.1" },
     { name = "repository", editable = "src/pkg/repository" },
     { name = "repository-inmemory", editable = "src/pkg/repository_inmemory" },
     { name = "repository-mongodb", editable = "src/pkg/repository_mongodb" },
