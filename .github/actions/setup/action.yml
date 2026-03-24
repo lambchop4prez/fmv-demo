@@ -24,9 +24,9 @@ runs:
           pnpm-${{ runner.os }}
 
     - name: Setup | Mise-en-place
-      uses: jdx/mise-action@c1ecc8f748cd28cdeabf76dab3cccde4ce692fe4 # v4.0.0
+      uses: jdx/mise-action@b106a2f3b6c5fe71d9bc58fef0e8284fcd2b9f70 # v4.0.0
       with:
-        version: "latest"  # [default: latest] mise version to install
+        # version: "latest"  # [default: latest] mise version to install
         install: true # [default: true] run `mise install`
         cache: true # [default: true] cache mise using GitHub's cache
         experimental: true # [default: false] enable experimental features
