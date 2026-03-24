@@ -14,9 +14,9 @@ dependencies = [
   "repository",
   "repository_inmemory",
   "repository_mongodb",
-  "pyjwt>=2.12.1",
-  "itsdangerous>=2.2.0",
-  "cryptography>=46.0.5",
+  "pyjwt==2.12.1",
+  "itsdangerous==2.2.0",
+  "cryptography==46.0.5",
 ]
 
 [dependency-groups]
