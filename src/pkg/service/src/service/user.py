@@ -8,7 +8,10 @@ class UserService:
     def __init__(self, repository: UserRepository):
         self.repository = repository
 
-    async def create(self, user: User) -> None:
+    async def exists(self, sub: str) -> bool:
+        return (await self.repository.get(sub)) is not None
+
+    async def create(self, user: User) -> User:
         return await self.repository.create(user)
 
     async def remote(self, user: User) -> None:

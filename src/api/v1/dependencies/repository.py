@@ -2,14 +2,14 @@ from typing import Annotated
 
 from fastapi import Depends
 from pymongo import AsyncMongoClient
-from repository import RobotRepository
+from repository import RobotRepository, UserRepository
 from repository_inmemory import InMemoryRobotRepository
-from repository_mongodb import MongoDbRobotRepository
+from repository_mongodb import MongoDbRobotRepository, MongoDbUserRepository
 
 from .settings import MongoSettingsDep, SettingsDep
 
 
-def get_user_repository(
+def get_robot_repository(
     settings: SettingsDep, mongo_settings: MongoSettingsDep
 ) -> RobotRepository:
     if settings.repository == "inmemory":
@@ -20,4 +20,11 @@ def get_user_repository(
         raise NotImplementedError(f"Repository {settings.repository} not implemented")
 
 
-RepositoryDep = Annotated[RobotRepository, Depends(get_user_repository)]
+RobotRepositoryDep = Annotated[RobotRepository, Depends(get_robot_repository)]
+
+
+def get_user_repository() -> UserRepository:
+    return MongoDbUserRepository()
+
+
+UserRepositoryDep = Annotated[UserRepository, Depends(get_user_repository)]
