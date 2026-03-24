@@ -1,0 +1,40 @@
+<template>
+  <header class="group-has-data-[collapsible=icon]/sidebar-wrapper:h---header-height border-b flex shrink-0 gap-2 h-(--header-height) transition-[width,height] ease-linear items-center">
+    <div
+      px-4
+      flex
+      gap-1
+      w-full
+      items-center
+      lg:px-6
+      lg:gap-2
+    >
+      <h1
+        text-base
+        font-medium
+      >
+        Welcome
+      </h1>
+      <div
+        ml-auto
+        flex
+        gap-2
+        items-center
+      >
+        <Button
+          variant="ghost"
+          as-child
+          size="sm"
+          class="hidden sm:flex"
+        >
+          <RouterLink
+            to="/login"
+            title="login"
+          >
+            <div i="mdi-robot hover:mdi-robot-excited" />
+          </RouterLink>
+        </Button>
+      </div>
+    </div>
+  </header>
+</template>

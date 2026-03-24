@@ -4,7 +4,41 @@
  */
 
 export interface paths {
-    "/api/v1/robot/": {
+    "/auth/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Login Session */
+        post: operations["login_session_auth_login_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Logout */
+        post: operations["logout_auth_logout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/robot/": {
         parameters: {
             query?: never;
             header?: never;
@@ -12,17 +46,17 @@ export interface paths {
             cookie?: never;
         };
         /** List */
-        get: operations["robot_list"];
+        get: operations["list_robot__get"];
         put?: never;
         /** Create */
-        post: operations["robot_create"];
+        post: operations["create_robot__post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/robot/{name}": {
+    "/robot/{name}": {
         parameters: {
             query?: never;
             header?: never;
@@ -30,7 +64,7 @@ export interface paths {
             cookie?: never;
         };
         /** Find */
-        get: operations["robot_find"];
+        get: operations["find_robot__name__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -39,24 +73,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/robot/{name}/tasks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Tasks */
-        get: operations["robot_tasks"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/robot/{name}/run": {
+    "/robot/{name}/run": {
         parameters: {
             query?: never;
             header?: never;
@@ -66,14 +83,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Run */
-        post: operations["robot_run"];
+        post: operations["run_robot__name__run_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/health": {
+    "/health": {
         parameters: {
             query?: never;
             header?: never;
@@ -81,7 +98,7 @@ export interface paths {
             cookie?: never;
         };
         /** Health */
-        get: operations["utilities_health"];
+        get: operations["health_health_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -148,8 +165,6 @@ export interface components {
         };
         /** RobotTask */
         RobotTask: {
-            /** Robot */
-            robot: string;
             /** Task Id */
             task_id: string;
             /** Status */
@@ -177,7 +192,47 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    robot_list: {
+    login_session_auth_login_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    logout_auth_logout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    list_robot__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -197,7 +252,7 @@ export interface operations {
             };
         };
     };
-    robot_create: {
+    create_robot__post: {
         parameters: {
             query?: never;
             header?: never;
@@ -230,7 +285,7 @@ export interface operations {
             };
         };
     };
-    robot_find: {
+    find_robot__name__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -261,38 +316,7 @@ export interface operations {
             };
         };
     };
-    robot_tasks: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                name: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["RobotTask"][];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    robot_run: {
+    run_robot__name__run_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -323,7 +347,7 @@ export interface operations {
             };
         };
     };
-    utilities_health: {
+    health_health_get: {
         parameters: {
             query?: never;
             header?: never;

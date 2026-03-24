@@ -4,7 +4,7 @@ import { useCreateRobot } from '~/composables/robot/create';
 
 const { createRobot, error, create } = useCreateRobot();
 const router = useRouter();
-type RobotProfile = paths['/api/v1/robot/']['post']['requestBody']['content']['application/json'];
+type RobotProfile = paths['/robot/']['post']['requestBody']['content']['application/json'];
 
 async function onCreate(event: RobotProfile) {
   await create({body: event}).then(async () => {

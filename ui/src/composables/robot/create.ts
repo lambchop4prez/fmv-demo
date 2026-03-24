@@ -9,7 +9,7 @@ interface CreateRobotError {
 }
 
 type CreateRobotOptions<T> = RequestBodyOption<T>;
-type RobotProfile = paths['/api/v1/robot/']['post']['responses']['201']['content']['application/json'];
+type RobotProfile = paths['/robot/']['post']['responses']['201']['content']['application/json'];
 
 export function useCreateRobot() {
   const createRobot = ref<RobotProfile>({ name: "", is_great: false, location: "", description: "", tasks: null });
@@ -17,12 +17,12 @@ export function useCreateRobot() {
   const isPosting = ref(false);
 
   const error = ref<CreateRobotError[] | undefined>();
-  async function create(options: CreateRobotOptions<paths['/api/v1/robot/']['post']>) {
+  async function create(options: CreateRobotOptions<paths['/robot/']['post']>) {
     error.value = undefined;
     isReady.value = false;
     isPosting.value = true;
     try {
-      const { data, error: postError } = await client.POST('/api/v1/robot/', options);
+      const { data, error: postError } = await client.POST('/robot/', options);
       if (postError) {
         error.value = postError.detail
       }

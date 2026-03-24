@@ -28,6 +28,7 @@
     "clsx": "catalog:build",
     "lucide-vue-next": "catalog:build",
     "nprogress": "catalog:frontend",
+    "oidc-client-ts": "^3.5.0",
     "openapi-fetch": "catalog:frontend",
     "pinia": "catalog:frontend",
     "radix-vue": "catalog:build",

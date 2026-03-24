@@ -10,6 +10,7 @@ class ApiSettings(BaseSettings):
     api_version: Literal["v1"] = "v1"
     repository: Literal["inmemory", "mongodb"] = "inmemory"
     app_name: str = "FMV Demo"
+    # session_secret: str
     # module_version: str = importlib.metadata.version("api")
 
 

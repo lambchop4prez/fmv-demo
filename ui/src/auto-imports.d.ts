@@ -150,6 +150,7 @@ declare global {
   const useClipboardItems: typeof import('@vueuse/core').useClipboardItems
   const useCloned: typeof import('@vueuse/core').useCloned
   const useColorMode: typeof import('@vueuse/core').useColorMode
+  const useConfiguredProviders: typeof import('./composables/auth').useConfiguredProviders
   const useConfirmDialog: typeof import('@vueuse/core').useConfirmDialog
   const useCountdown: typeof import('@vueuse/core').useCountdown
   const useCounter: typeof import('@vueuse/core').useCounter
@@ -290,6 +291,8 @@ declare global {
   const useToggle: typeof import('@vueuse/core').useToggle
   const useTransition: typeof import('@vueuse/core').useTransition
   const useUrlSearchParams: typeof import('@vueuse/core').useUrlSearchParams
+  const useUserManager: typeof import('./composables/auth').useUserManager
+  const useUserManagerSettings: typeof import('./composables/auth').useUserManagerSettings
   const useUserMedia: typeof import('@vueuse/core').useUserMedia
   const useUserStore: typeof import('./stores/user').useUserStore
   const useVModel: typeof import('@vueuse/core').useVModel
@@ -609,6 +612,8 @@ declare module 'vue' {
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
+    readonly useUserManager: UnwrapRef<typeof import('./composables/auth')['useUserManager']>
+    readonly useUserManagerSettings: UnwrapRef<typeof import('./composables/auth')['useUserManagerSettings']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
     readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
