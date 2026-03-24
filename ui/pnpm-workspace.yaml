@@ -21,7 +21,7 @@ catalogs:
     unocss-preset-shadcn: 1.0.1
     unplugin: 3.0.0
     unplugin-auto-import: 21.0.0
-    unplugin-vue-components: 31.0.0
+    unplugin-vue-components: 32.0.0
     unplugin-vue-macros: 2.14.5
     unplugin-vue-markdown: 29.2.0
     vite: 8.0.2
