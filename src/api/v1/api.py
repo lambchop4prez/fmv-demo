@@ -6,7 +6,7 @@ from api.v1.router import router
 api = FastAPI(
     title=settings.app_name,
     openapi_url="/openapi.json",
-    root_path_in_servers="/api/v1",
+    root_path_in_servers=True,
     root_path="/api/v1",
 )
 

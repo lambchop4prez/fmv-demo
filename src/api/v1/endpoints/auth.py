@@ -43,7 +43,7 @@ async def login_session(
     response: Response,
     service: UserServiceDep,
     token: Dict[str, Any] = Depends(validate_token),
-) -> User:
+) -> User | None:
     if (payload := token.get("payload")) is not None:
         user = User(**payload)
         if not (await service.exists(user.sub)):
@@ -51,6 +51,7 @@ async def login_session(
             await service.create(user)
         await rotate_session(request, response)
         return user
+    return None
 
 
 @router.post("/logout")

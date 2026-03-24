@@ -6,7 +6,7 @@ from models import User
 
 class UserRepository(Protocol):
     @abstractmethod
-    async def get(self, sub: str) -> User:
+    async def get(self, sub: str) -> User | None:
         raise NotImplementedError()
 
     @abstractmethod
