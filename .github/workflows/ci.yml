@@ -70,7 +70,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@e29e0ecd235838be5f2e823f8f512a72dc55f662
+        uses: docker/setup-compose-action@9753a7600cc878e21559c3f653ab8bbdbf3dc11d
 
       - name: Continuous Integration
         env:
@@ -116,7 +116,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@e29e0ecd235838be5f2e823f8f512a72dc55f662
+        uses: docker/setup-compose-action@9753a7600cc878e21559c3f653ab8bbdbf3dc11d
 
       - name: Setup | Download artifacts
         uses: actions/download-artifact@484a0b528fb4d7bd804637ccb632e47a0e638317
