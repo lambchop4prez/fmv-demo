@@ -1,5 +1,6 @@
 import ssl
 from typing import Annotated, Any
+from authlib.integrations.starlette_client import OAuth
 
 from config.oidc import oidc_settings
 from fastapi import Depends, HTTPException, status
@@ -9,6 +10,7 @@ from fastapi.security import (
     SecurityScopes,
 )
 import jwt
+from config.oauth import oauth_settings
 
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
@@ -86,3 +88,19 @@ async def validate_scope(
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN, detail="Not Authorized"
         )
+
+
+async def oauth_config() -> OAuth:
+    oauth = OAuth()
+    oauth.register("google", client_id="", client_secret="")
+    oauth.register("github", client_id="", client_secret="")
+    oauth.register(
+        "pocketid",
+        client_id=oauth_settings.client_id,
+        client_secret=oauth_settings.client_secret,
+        issuer=oauth_settings.issuer,
+        code_challenge_method="S256",
+        server_metadata_url=f"{oauth_settings.issuer}/.well-known/openid-configuration",
+        client_kwargs={"scope": "openid profile email groups", "verify": False},
+    )
+    return oauth

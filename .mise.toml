@@ -12,6 +12,7 @@ BACKEND_REPOSITORY = "mongodb"
 BACKEND_MONGO_HOST = "localhost"
 BACKEND_MONGO_DATABASE = "robot"
 BACKEND_BROKER_HOST = "localhost"
+BACKEND_FRONTEND_BASE_URL = "http://localhost:5173"
 
 CORS_ALLOW_ORIGINS = '["http://localhost:8000", "http://localhost:5173"]'
 

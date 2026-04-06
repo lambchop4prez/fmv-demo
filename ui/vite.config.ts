@@ -32,6 +32,7 @@ export default defineConfig({
       routesFolder: ["src/pages"],
       extensions: [".vue", ".md"],
       dts: 'src/route-map.d.ts',
+
     }),
 
     VueMacros({

@@ -11,6 +11,12 @@ const { t } = useI18n();
 useHead({
   title: () => t("button.home"),
 });
+import client from '~/lib';
+async function getMe() {
+  const { data, error } = await client.GET("/user/me");
+  console.log(data);
+  console.log(error)
+}
 </script>
 
 <template>
@@ -65,6 +71,13 @@ useHead({
       >
         {{ t("button.go") }}
       </Button>
+      <Button
+        as="button"
+        id="me"
+        @click="getMe"
+      >
+        Me
+      </Button>
     </CardFooter>
   </Card>
 </template>
@@ -72,4 +85,5 @@ useHead({
 <route lang="yaml">
 meta:
   layout: default
+  public: true
 </route>

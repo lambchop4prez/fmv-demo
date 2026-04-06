@@ -17,6 +17,8 @@ dependencies = [
   "pyjwt==2.12.1",
   "itsdangerous==2.2.0",
   "cryptography==46.0.5",
+  "authlib>=1.6.9",
+  "types-authlib>=1.6.9.20260303",
 ]
 
 [dependency-groups]

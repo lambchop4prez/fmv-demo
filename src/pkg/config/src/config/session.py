@@ -10,8 +10,8 @@ class SessionSettings(BaseSettings):
     secret_key: str
     session_cookie: str = "session"
     max_age: int = 1800  # 30 minutes
-    same_site: Literal["lax", "strict", "none"] = "strict"
-    https_only: bool = True
+    same_site: Literal["lax", "strict", "none"] = "lax"
+    https_only: bool = False
 
 
 session_settings = SessionSettings()

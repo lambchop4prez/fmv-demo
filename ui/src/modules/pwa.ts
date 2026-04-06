@@ -1,8 +1,8 @@
 import type { UserModule } from '~/types';
 
 // https://github.com/antfu/vite-plugin-pwa#automatic-reload-when-new-content-available
-export const install: UserModule = ({ isClient, router }) => {
-  if (!isClient)
+export const install: UserModule = ({ router }) => {
+  if (import.meta.env.SSR)
     return;
 
   router.isReady()

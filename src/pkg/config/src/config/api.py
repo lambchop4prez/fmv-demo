@@ -12,6 +12,7 @@ class ApiSettings(BaseSettings):
     app_name: str = "FMV Demo"
     # session_secret: str
     # module_version: str = importlib.metadata.version("api")
+    frontend_base_url: str = "http://localhost:5173"
 
 
 settings = ApiSettings()

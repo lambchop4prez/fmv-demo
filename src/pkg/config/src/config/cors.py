@@ -12,7 +12,7 @@ class CorsSettings(BaseSettings):
     allow_origins: Sequence[str] = [""]
     allow_methods: Sequence[str] = ["*"]
     allow_headers: Sequence[str] = ["*"]
-    allow_credentials: bool = False
+    allow_credentials: bool = True
 
 
 cors_settings = CorsSettings()

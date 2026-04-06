@@ -231,3 +231,4 @@ artifacts
 ui/test/logs
 .secrets.env
 data
+!ui/src/lib

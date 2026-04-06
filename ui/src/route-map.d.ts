@@ -55,6 +55,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/error': RouteRecordInfo<
+      '/error',
+      '/error',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/hi/[name]': RouteRecordInfo<
       '/hi/[name]',
       '/hi/:name',
@@ -138,6 +145,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/callback.vue': {
       routes:
         | '/callback'
+      views:
+        | never
+    }
+    'src/pages/error.vue': {
+      routes:
+        | '/error'
       views:
         | never
     }

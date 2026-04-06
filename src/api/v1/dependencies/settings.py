@@ -1,10 +1,10 @@
 from typing import Annotated
 
 from config import ApiSettings, MongoSettings
-from fastapi import Depends, Request
+from fastapi import Depends
 
 
-def load_settings(request: Request) -> ApiSettings:
+def load_settings() -> ApiSettings:
     return ApiSettings()
 
 

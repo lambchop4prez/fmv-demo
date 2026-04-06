@@ -24,10 +24,13 @@ export const useUserStore = defineStore("user", () => {
     savedName.value = name;
   }
 
+  const isAuthenticated = ref(false)
+
   return {
     setNewName,
     otherNames,
     savedName,
+    isAuthenticated
   };
 });
 

@@ -1,16 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
-const userManager = useUserManager();
-const router = useRouter();
-async function handleSubmit() {
-  await userManager.signinRedirect();
-}
-onMounted(async () => {
-  const user = await userManager.getUser();
-  if (user) {
-    await router.push('/');
-  }
-})
+const formSubmit = `${import.meta.env.VITE_API_ENDPOINT}/auth/pocketid/login`
 </script>
 <template>
   <Card>
@@ -19,7 +9,10 @@ onMounted(async () => {
       <CardDescription>{{ t("auth.login.description") }}</CardDescription>
     </CardHeader>
     <CardContent>
-      <form @submit.prevent="handleSubmit">
+      <form
+        :action="formSubmit"
+        method="get"
+      >
         <FieldGroup>
           <Field>
             <Button

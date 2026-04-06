@@ -7,6 +7,7 @@ from fastapi.routing import APIRoute
 from repository_mongodb import init_db
 from api.v1.api import api as v1
 
+
 API_ENDPOINT = "/api"
 API_VERSION = settings.api_version
 
