@@ -23,7 +23,7 @@ _.file = ["{{config_root}}/.secrets.env"]
 [tools]
 "python" = "3.14.3"
 "aqua:evilmartians/lefthook" = "2.1.4"
-"aqua:astral-sh/uv" = "0.11.1"
+"aqua:astral-sh/uv" = "0.11.3"
 "aqua:casey/just" = "1.48.0"
 "aqua:charmbracelet/gum" = "0.17.0"
 "aqua:rhysd/actionlint" = "1.7.11"
