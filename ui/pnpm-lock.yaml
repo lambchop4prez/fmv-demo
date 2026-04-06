@@ -89,8 +89,8 @@ catalogs:
       version: 0.10.0
   dev:
     '@iconify-json/carbon':
-      specifier: 1.2.19
-      version: 1.2.19
+      specifier: 1.2.20
+      version: 1.2.20
     '@iconify-json/mdi':
       specifier: 1.2.3
       version: 1.2.3
@@ -256,7 +256,7 @@ importers:
     devDependencies:
       '@iconify-json/carbon':
         specifier: catalog:dev
-        version: 1.2.19
+        version: 1.2.20
       '@iconify-json/mdi':
         specifier: catalog:dev
         version: 1.2.3
@@ -1623,8 +1623,8 @@ packages:
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify-json/carbon@1.2.19':
-    resolution: {integrity: sha512-l89XjtEeSA5fxlxPTNSU9AA+rxaz/Dn0X/ux0/3awR+tAayY8iJqWQu3AKxhchfx3LB/fX1Nv3ZppZzrBAt7aA==}
+  '@iconify-json/carbon@1.2.20':
+    resolution: {integrity: sha512-wqyxKEbIRdzGdfCAwQqn8iSfO6jx0m1toZAAQdx1NFjxd6iFl1YY4eKI1woWt7XOxs7s7phMW530kDD867JZGw==}
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
@@ -8423,7 +8423,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@iconify-json/carbon@1.2.19':
+  '@iconify-json/carbon@1.2.20':
     dependencies:
       '@iconify/types': 2.0.0
 
