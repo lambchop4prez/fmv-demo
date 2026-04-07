@@ -15,7 +15,6 @@ useHead({
 
 <template>
   <Card
-    m-auto
     max-w-md
     w-full
   >
@@ -42,7 +41,7 @@ useHead({
             href="https://github.com/lambchop4prez/fmv-demo"
             target="_blank"
           >
-            FMV Demo
+            {{ t("intro.project") }}
           </a>
         </Button>
       </p>
@@ -50,7 +49,9 @@ useHead({
         <em
           text-sm
           opacity-75
-        >{{ t("intro.desc") }}</em>
+        >
+          {{ t("intro.desc") }}
+        </em>
       </p>
     </CardContent>
     <CardFooter

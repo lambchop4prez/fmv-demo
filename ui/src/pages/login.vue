@@ -7,5 +7,5 @@
 
 <route lang="yaml">
 meta:
-  layout: centered
+  layout: public
 </route>

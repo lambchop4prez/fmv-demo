@@ -24,6 +24,7 @@ button:
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 intro:
+  project: FMV Demo
   desc: FastAPI, MongoDB, and Vue Stack Demo
   dynamic-route: Demo of dynamic route
   hi: Hi, {name}!
@@ -43,3 +44,5 @@ robot:
 validations:
   too-short: Field is too short
   too-long: Field is too long
+jobs:
+  title: Jobs

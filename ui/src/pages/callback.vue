@@ -58,5 +58,5 @@ onMounted(async () => {
 
 <route lang="yaml">
 meta:
-  layout: centered
+  layout: public
 </route>

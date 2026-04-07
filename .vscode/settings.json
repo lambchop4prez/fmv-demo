@@ -1,13 +1,11 @@
 {
-  "python.testing.pytestArgs": [
-  ],
+  "python.testing.pytestArgs": [],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
   "[python]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
-
   "cSpell.words": [
     "antfu",
     "demi",
@@ -29,32 +27,62 @@
     "vitest",
     "vueuse"
   ],
-  "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.localesPaths": "locales",
-  "i18n-ally.sortKeys": true,
-
+  "i18n-ally-next.sourceLanguage": "en",
+  "i18n-ally-next.autoDetection": false,
+  "i18n-ally-next.enabledFrameworks": [
+    "vue"
+  ],
+  "i18n-ally-next.localesPaths": [
+    "ui/locales"
+  ],
   "prettier.enable": false,
   "editor.formatOnSave": true,
-
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
-
   "eslint.rules.customizations": [
-    { "rule": "style/*", "severity": "off" },
-    { "rule": "format/*", "severity": "off" },
-    { "rule": "*-indent", "severity": "off" },
-    { "rule": "*-spacing", "severity": "off" },
-    { "rule": "*-spaces", "severity": "off" },
-    { "rule": "*-order", "severity": "off" },
-    { "rule": "*-dangle", "severity": "off" },
-    { "rule": "*-newline", "severity": "off" },
-    { "rule": "*quotes", "severity": "off" },
-    { "rule": "*semi", "severity": "off" }
+    {
+      "rule": "style/*",
+      "severity": "off"
+    },
+    {
+      "rule": "format/*",
+      "severity": "off"
+    },
+    {
+      "rule": "*-indent",
+      "severity": "off"
+    },
+    {
+      "rule": "*-spacing",
+      "severity": "off"
+    },
+    {
+      "rule": "*-spaces",
+      "severity": "off"
+    },
+    {
+      "rule": "*-order",
+      "severity": "off"
+    },
+    {
+      "rule": "*-dangle",
+      "severity": "off"
+    },
+    {
+      "rule": "*-newline",
+      "severity": "off"
+    },
+    {
+      "rule": "*quotes",
+      "severity": "off"
+    },
+    {
+      "rule": "*semi",
+      "severity": "off"
+    }
   ],
-
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -67,7 +95,6 @@
     "jsonc",
     "yaml"
   ],
-
   "vite.https": true,
   "vite.port": 5173,
   "vite.host": "localhost",

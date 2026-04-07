@@ -3,7 +3,7 @@
     const props = defineProps<{ robot: components['schemas']['RobotProfile']}>();
 </script>
 <template>
-  <Card class="m-auto max-w-lg w-full">
+  <Card class="max-w-lg w-full">
     <CardHeader>
       <CardTitle
         id="name"
