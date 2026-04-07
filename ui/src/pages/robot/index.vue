@@ -9,7 +9,7 @@ onMounted(async () => {
 </script>
 <template>
   <Card
-    max-w-xl
+    max-w-md
     w-full
   >
     <CardHeader>

@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AppShell: typeof import('./components/AppShell.vue')['default']
+    AppShell: typeof import('./components/shell/AppShell.vue')['default']
     AppSidebar: typeof import('./components/shell/AppSidebar.vue')['default']
     Avatar: typeof import('./components/ui/avatar/Avatar.vue')['default']
     AvatarFallback: typeof import('./components/ui/avatar/AvatarFallback.vue')['default']

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Home } from 'lucide-vue-next';
+import { BrandingProps } from '.';
 
+const props = defineProps<{branding: BrandingProps}>();
 const {t} = useI18n();
 </script>
 <template>
@@ -24,7 +25,10 @@ const {t} = useI18n();
             items-center
             justify-center
           >
-            <Home size-4 />
+            <component
+              :is="props.branding.logo"
+              size-4
+            />
           </div>
           <div
             text-sm
@@ -37,7 +41,7 @@ const {t} = useI18n();
               font-medium
               truncate
             >
-              {{ t("intro.project") }}
+              {{ props.branding.name }}
             </span>
             <span
               font-xs

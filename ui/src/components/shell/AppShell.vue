@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { AppShellProps } from '.';
+
+defineProps<{shell: AppShellProps}>()
 </script>
 
 <template>
   <SidebarProvider>
-    <AppSidebar />
+    <AppSidebar v-bind="shell.sidebar" />
     <SidebarInset>
       <NavHeader />
       <div

@@ -1,53 +1,15 @@
 <script setup lang="ts">
-import { BotIcon, Settings } from 'lucide-vue-next';
-import { SidebarProps } from '../ui/sidebar';
-const { t } = useI18n();
-const props = withDefaults(defineProps<SidebarProps>(), {
+import { AppSidebarProps } from '.';
+
+const props = withDefaults(defineProps<AppSidebarProps>(), {
   collapsible: 'icon'
 })
-const navItems = [{
-  title: t("robot.title"),
-  url: '#',
-  icon: BotIcon,
-  items: [
-    {
-      title: "none",
-      url: "#"
-    },
-    {
-      title: "none",
-      url: "#"
-    },
-    {
-      title: "None",
-      url: "#"
-    }
-  ]
-},
-{
-  title: t("jobs.title"),
-  url: "#",
-  icon: Settings,
-  items: [{
-      title: "none",
-      url: "#"
-    },
-    {
-      title: "none",
-      url: "#"
-    },
-    {
-      title: "None",
-      url: "#"
-    }]
-}
-]
 </script>
 <template>
   <Sidebar v-bind="props">
-    <SidebarHeader><NavHome /></SidebarHeader>
+    <SidebarHeader><NavHome :branding="props.branding" /></SidebarHeader>
     <SidebarContent>
-      <NavMain :items="navItems" />
+      <NavMain :items="props.nav" />
     </SidebarContent>
     <SidebarFooter>
       <NavUser />

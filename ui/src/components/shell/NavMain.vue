@@ -1,15 +1,6 @@
 <script setup lang="ts">
-import { ChevronRight, LucideIcon } from 'lucide-vue-next';
-interface NavItem {
-  title: string;
-  url: string;
-  icon?: LucideIcon;
-  isActive?: boolean;
-  items?: {
-    title: string;
-    url: string
-  }[];
-};
+import { ChevronRight } from 'lucide-vue-next';
+import { NavItem } from '.';
 
 defineProps<{items: NavItem[]}>();
 </script>
