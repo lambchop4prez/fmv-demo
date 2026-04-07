@@ -29,7 +29,6 @@
 </script>
 <template>
   <Card
-    m-auto
     max-w-md
     w-full
   >

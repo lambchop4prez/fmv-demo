@@ -24,3 +24,7 @@ onMounted(async () => {
     :robot="state"
   />
 </template>
+<route lang="yaml">
+meta:
+  layout: default
+</route>
