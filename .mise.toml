@@ -21,7 +21,7 @@ VITE_API_ENDPOINT = "http://localhost:8000/api/v1"
 _.file = ["{{config_root}}/.secrets.env"]
 
 [tools]
-"python" = "3.14.3"
+"python" = "3.14.4"
 "aqua:evilmartians/lefthook" = "2.1.5"
 "aqua:astral-sh/uv" = "0.11.3"
 "aqua:casey/just" = "1.49.0"
