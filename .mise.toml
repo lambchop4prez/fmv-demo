@@ -32,3 +32,5 @@ _.file = ["{{config_root}}/.secrets.env"]
 "aqua:gitleaks/gitleaks" = "8.30.1"
 "aqua:crate-ci/typos" = "1.45.0"
 jq = "1.8.1"
+rust = "1.94.1"
+"cargo:tauri-cli" = "2.10.1"

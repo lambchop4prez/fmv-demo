@@ -1,2 +1,2 @@
 [files]
-extend-exclude = ["ui/locales/*.yml"]
+extend-exclude = ["ui/locales/*.yml", "ui/src-tauri/gen/*"]

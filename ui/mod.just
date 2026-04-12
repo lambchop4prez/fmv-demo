@@ -33,6 +33,10 @@ build: pnpm-install
 dev: pnpm-install
     pnpm run dev
 
+[group('dev')]
+app-dev: pnpm-install
+    pnpm tauri dev
+
 [group('test')]
 e2e config=default_e2e_config: pnpm-install
     pnpm run test:e2e:{{ config }}
