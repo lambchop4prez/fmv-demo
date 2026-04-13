@@ -8,23 +8,27 @@
 - [`just`](https://just.systems) Just a task runner
 - [Docker](https://www.docker.com/) Containerization platform
 
-To get started, make sure to have `mise` (and docker) installed, clone this repo and run `mise install`. That will install everything needed to run this project (except Docker).
+To get started, make sure to have `mise` (and docker) installed.
 
 `just` is used as a task runner, you can see the available tasks by running `just --list`
 
 ## Development
 
-To get started developing, first load up the backing infrastructure with `just up infra`. Then, start up all the dev servers locally with `just dev`. Simple as that.
+To get started developing, clone the repo and install the dev tools with `mise install`. Setup your
+environment by running `just setup` and bring up the infrastructure with `just up infra`. Then, 
+start up all the dev servers locally with `just dev`. Simple as that.
 
 Additional variations of dev servers can be run via `just backend dev`, `just backend api`, `just backend workers`, and `just frontend dev`.
 
-When done, `<Ctrl>c` to stop the dev servers and `just down infra` to teardown the infrastructure
+When done, `<Ctrl>c` to stop the dev servers and `just down infra` to teardown the infrastructure.
+
+For more information, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## To Do
 
 - [x] - In memory database stub
 - [x] - mongodb database adapter
-- [ ] - API Authentication (OAuth2)
+- [ ] - API Authentication (OAuth2/OIDC)
 - [x] - Complete docker-compose file
 - [x] - Unit/E2E testing
 

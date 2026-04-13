@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs"
 import { fileURLToPath } from "node:url";
 import VueI18n from "@intlify/unplugin-vue-i18n/vite";
 import Shiki from "@shikijs/markdown-it";
@@ -163,6 +164,13 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, "e2e/**"],
     root: fileURLToPath(new URL("./", import.meta.url)),
     reporters: process.env.CI ? ["dot", "github-actions"] : ["dot"],
+  },
+
+  server: {
+    https: process.env.NODE_ENV === 'development' ? {
+      cert: process.env.VITE_DEV_CERT && fs.readFileSync(process.env.VITE_DEV_CERT),
+      key: process.env.VITE_DEV_CERT_KEY && fs.readFileSync(process.env.VITE_DEV_CERT_KEY)
+    } : undefined
   },
 
   // https://github.com/antfu/vite-ssg
