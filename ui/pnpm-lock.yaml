@@ -40,8 +40,8 @@ catalogs:
       specifier: 1.9.17
       version: 1.9.17
     reka-ui:
-      specifier: 2.9.5
-      version: 2.9.5
+      specifier: 2.9.6
+      version: 2.9.6
     shiki:
       specifier: 4.0.2
       version: 4.0.2
@@ -231,7 +231,7 @@ importers:
         version: 1.9.17(vue@3.5.32(typescript@5.9.3))
       reka-ui:
         specifier: catalog:build
-        version: 2.9.5(vue@3.5.32(typescript@5.9.3))
+        version: 2.9.6(vue@3.5.32(typescript@5.9.3))
       tailwind-merge:
         specifier: catalog:build
         version: 3.5.0
@@ -3603,6 +3603,7 @@ packages:
   basic-ftp@5.2.0:
     resolution: {integrity: sha512-VoMINM2rqJwJgfdHq6RiUudKt2BV+FY5ZFezP/ypmwayk68+NzzAQy4XXLlqsGD4MCzq3DrmNFD/uUmBJuGoXw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   beasties@0.4.1:
     resolution: {integrity: sha512-2Imdcw3LznDuxAbJM26RHniOLAzE6WgrK8OuvVXCQtNBS8rsnD9zsSEa3fHl4hHpUY7BYTlrpvtPVbvu9G6neg==}
@@ -5996,8 +5997,8 @@ packages:
     resolution: {integrity: sha512-dQUtn90WanSNl+7mQKcXAgZxvUe7Z0SqXlgzv0za4LwiUhyzBC58yQO3liFoUgu8GiJVInAhJjkj1N0EtQ5nkQ==}
     hasBin: true
 
-  reka-ui@2.9.5:
-    resolution: {integrity: sha512-6cZGIMgEeslpFLJ7IihaCSMPp1cJgl2eDkZ2vBMdl+HPUVBaV/iDPMWu3abT2KUkj1lir+oyHq5KelOTT9OheQ==}
+  reka-ui@2.9.6:
+    resolution: {integrity: sha512-K6bL457owpvWONc7hsjFxo3HDC9s6IzhRqShW0w9JSKelPGfRbkHD558UQTn/NH1cvrXVHygKyC7fExFmRketg==}
     peerDependencies:
       vue: '>= 3.4.0'
 
@@ -13438,7 +13439,7 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
-  reka-ui@2.9.5(vue@3.5.32(typescript@5.9.3)):
+  reka-ui@2.9.6(vue@3.5.32(typescript@5.9.3)):
     dependencies:
       '@floating-ui/dom': 1.7.5
       '@floating-ui/vue': 1.1.10(vue@3.5.32(typescript@5.9.3))
