@@ -18,13 +18,15 @@ To get started developing, first load up the backing infrastructure with `just u
 
 Additional variations of dev servers can be run via `just backend dev`, `just backend api`, `just backend workers`, and `just frontend dev`.
 
-When done, `<Ctrl>c` to stop the dev servers and `just down infra` to teardown the infrastructure
+When done, `<Ctrl>c` to stop the dev servers and `just down infra` to teardown the infrastructure.
+
+For more information, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## To Do
 
 - [x] - In memory database stub
 - [x] - mongodb database adapter
-- [ ] - API Authentication (OAuth2)
+- [ ] - API Authentication (OAuth2/OIDC)
 - [x] - Complete docker-compose file
 - [x] - Unit/E2E testing
 

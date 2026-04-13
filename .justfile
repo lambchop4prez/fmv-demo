@@ -11,6 +11,7 @@ image_frontend := env("DOCKER_IMAGE_FRONTEND", "lambchop4prez/fmv-demo-frontend"
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
 default_profile := "ci"
+cert_dir := justfile_dir() + '/.cert'
 
 mod frontend 'ui/'
 mod backend 'src/'
@@ -27,6 +28,13 @@ default:
 [private]
 log lvl msg *args:
     gum log --time rfc822 -s --level "{{ lvl }}" "{{ msg }}" {{ args }}
+
+[doc("Initial setup of dev environment")]
+[group('dev')]
+setup:
+    lefthook install
+    mkcert --install
+    mkdir -p {{ cert_dir }} && mkcert -key-file {{ cert_dir }}/key.pem -cert-file {{ cert_dir }}/cert.pem localhost 127.0.0.1 ::1
 
 [group('check')]
 [parallel]
