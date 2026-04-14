@@ -49,7 +49,7 @@
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
     "@types/markdown-it-link-attributes": "catalog:types",
-    "@types/node": "25.5.2",
+    "@types/node": "25.6.0",
     "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",
