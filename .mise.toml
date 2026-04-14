@@ -24,6 +24,7 @@ _.file = ["{{config_root}}/.secrets.env"]
 
 [tools]
 "python" = "3.14.4"
+"node" = "24.14.0"
 "aqua:evilmartians/lefthook" = "2.1.5"
 "aqua:astral-sh/uv" = "0.11.6"
 "aqua:casey/just" = "1.49.0"
@@ -33,5 +34,5 @@ _.file = ["{{config_root}}/.secrets.env"]
 "pipx:python-semantic-release" = "10.5.3"
 "aqua:gitleaks/gitleaks" = "8.30.1"
 "aqua:crate-ci/typos" = "1.45.1"
-jq = "1.8.1"
-"aqua:FiloSottile/mkcert" = "latest"
+"aqua:jqlang/jq" = "1.8.1"
+"aqua:FiloSottile/mkcert" = "1.4.4"
