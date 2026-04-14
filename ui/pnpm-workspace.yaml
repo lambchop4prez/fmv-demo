@@ -7,7 +7,7 @@ catalogs:
     '@unocss/eslint-config': 66.6.7
     '@vitejs/plugin-basic-ssl': 2.3.0
     '@vitejs/plugin-vue': 6.0.6
-    beasties: 0.4.1
+    beasties: 0.4.2
     class-variance-authority: 0.7.1
     clsx: 2.1.1
     lucide-vue-next: 0.577.0
