@@ -9,7 +9,6 @@ onMounted(async () => {
 </script>
 <template>
   <Card
-    m-auto
     max-w-md
     w-full
   >
@@ -60,5 +59,5 @@ onMounted(async () => {
 </template>
 <route lang="yaml">
 meta:
-  layout: home
+  layout: default
 </route>

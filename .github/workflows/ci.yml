@@ -70,7 +70,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@e29e0ecd235838be5f2e823f8f512a72dc55f662
+        uses: docker/setup-compose-action@1fa88fe2e935813e5475ad24ab94ae289f799ce5
 
       - name: Continuous Integration
         env:
@@ -116,7 +116,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Setup docker compose
-        uses: docker/setup-compose-action@e29e0ecd235838be5f2e823f8f512a72dc55f662
+        uses: docker/setup-compose-action@1fa88fe2e935813e5475ad24ab94ae289f799ce5
 
       - name: Setup | Download artifacts
         uses: actions/download-artifact@484a0b528fb4d7bd804637ccb632e47a0e638317
@@ -174,7 +174,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Setup | Login to GitHub Container Registry
-        uses: docker/login-action@292fe2d7ee5389e283d2c71e565819146798c2e2
+        uses: docker/login-action@ba754150c9dbbaa912ae0ac3cfba43f84195cef2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}

@@ -19,7 +19,7 @@
     "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
-    "@tanstack/vue-form": "1.28.5",
+    "@tanstack/vue-form": "1.29.0",
     "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
@@ -51,7 +51,7 @@
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
     "@types/markdown-it-link-attributes": "catalog:types",
-    "@types/node": "25.5.0",
+    "@types/node": "25.6.0",
     "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",

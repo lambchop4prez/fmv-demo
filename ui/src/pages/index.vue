@@ -21,7 +21,6 @@ async function getMe() {
 
 <template>
   <Card
-    m-auto
     max-w-md
     w-full
   >
@@ -48,7 +47,7 @@ async function getMe() {
             href="https://github.com/lambchop4prez/fmv-demo"
             target="_blank"
           >
-            FMV Demo
+            {{ t("intro.project") }}
           </a>
         </Button>
       </p>
@@ -56,7 +55,9 @@ async function getMe() {
         <em
           text-sm
           opacity-75
-        >{{ t("intro.desc") }}</em>
+        >
+          {{ t("intro.desc") }}
+        </em>
       </p>
     </CardContent>
     <CardFooter

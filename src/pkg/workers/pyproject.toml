@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [{ name = "Tim", email = "lambchop4prez@users.noreply.github.com" }]
-requires-python = "==3.14.3"
+requires-python = "==3.14.4"
 dependencies = [
     "celery[librabbitmq,mongodb]==5.5.3",
     "celery-types==0.26.0",
@@ -15,5 +15,5 @@ dependencies = [
 workers = "workers:main"
 
 [build-system]
-requires = ["uv_build==0.11.0"]
+requires = ["uv_build==0.11.6"]
 build-backend = "uv_build"

@@ -1,0 +1,44 @@
+<template>
+  <SidebarMenu>
+    <SidebarMenuItem>
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <SidebarMenuButton
+            size="lg"
+            class="data-[state=open]:text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent"
+          >
+            <Avatar
+              rounded-lg
+              h-8
+              w-8
+            >
+              <AvatarImage
+                src="foo.png"
+                alt="Username"
+              />
+              <AvatarFallback rounded-lg>
+                CN
+              </AvatarFallback>
+            </Avatar>
+            <div
+              text-sm
+              leading-tight
+              text-left
+              flex-1
+              grid
+            >
+              <span
+                font-medium
+                truncate
+              >Username</span>
+              <span
+                text-xs
+                truncate
+              >user@example.com</span>
+            </div>
+          </SidebarMenuButton>
+        </DropdownMenuTrigger>
+      </DropdownMenu>
+    </SidebarMenuItem>
+  </SidebarMenu>
+</template>
