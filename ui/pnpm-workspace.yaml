@@ -50,7 +50,7 @@ catalogs:
     https-localhost: 4.7.1
     openapi-typescript: 7.13.0
     taze: 19.11.0
-    typescript: 5.9.3
+    typescript: 6.0.3
     vitest: 4.1.4
     vue-tsc: 3.2.6
   frontend:
