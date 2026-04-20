@@ -8,7 +8,7 @@ requires-python = "==3.14.4"
 dependencies = [
     "celery[librabbitmq,mongodb]==5.5.3",
     "celery-types==0.26.0",
-    "pymongo==4.16.0",
+    "pymongo==4.17.0",
 ]
 
 [project.scripts]
