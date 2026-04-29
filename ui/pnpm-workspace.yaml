@@ -61,7 +61,7 @@ catalogs:
     openapi-fetch: 0.17.0
     pinia: 3.0.4
     vue: 3.5.32
-    vue-i18n: 11.3.2
+    vue-i18n: 11.4.0
     vue-router: 5.0.4
   types:
     '@types/markdown-it-link-attributes': 3.0.5
