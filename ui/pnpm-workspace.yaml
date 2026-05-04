@@ -52,7 +52,7 @@ catalogs:
     taze: 19.11.0
     typescript: 5.9.3
     vitest: 4.1.4
-    vue-tsc: 3.2.6
+    vue-tsc: 3.2.8
   frontend:
     '@unhead/vue': 2.1.13
     '@unocss/reset': 66.6.8
