@@ -40,8 +40,8 @@ catalogs:
       specifier: 1.9.17
       version: 1.9.17
     reka-ui:
-      specifier: 2.9.6
-      version: 2.9.6
+      specifier: 2.9.7
+      version: 2.9.7
     shiki:
       specifier: 4.0.2
       version: 4.0.2
@@ -231,7 +231,7 @@ importers:
         version: 1.9.17(vue@3.5.32(typescript@5.9.3))
       reka-ui:
         specifier: catalog:build
-        version: 2.9.6(vue@3.5.32(typescript@5.9.3))
+        version: 2.9.7(vue@3.5.32(typescript@5.9.3))
       tailwind-merge:
         specifier: catalog:build
         version: 3.5.0
@@ -6046,8 +6046,8 @@ packages:
     resolution: {integrity: sha512-dQUtn90WanSNl+7mQKcXAgZxvUe7Z0SqXlgzv0za4LwiUhyzBC58yQO3liFoUgu8GiJVInAhJjkj1N0EtQ5nkQ==}
     hasBin: true
 
-  reka-ui@2.9.6:
-    resolution: {integrity: sha512-K6bL457owpvWONc7hsjFxo3HDC9s6IzhRqShW0w9JSKelPGfRbkHD558UQTn/NH1cvrXVHygKyC7fExFmRketg==}
+  reka-ui@2.9.7:
+    resolution: {integrity: sha512-aX7foYYR20v4+majO58OJJdBNfLMm0eJb448l9N4JVy8JB7GXOr4H/S4a+J1pkcoxZH8Cb7YHpJ855+miAm7sA==}
     peerDependencies:
       vue: '>= 3.4.0'
 
@@ -13567,7 +13567,7 @@ snapshots:
     dependencies:
       jsesc: 0.5.0
 
-  reka-ui@2.9.6(vue@3.5.32(typescript@5.9.3)):
+  reka-ui@2.9.7(vue@3.5.32(typescript@5.9.3)):
     dependencies:
       '@floating-ui/dom': 1.7.5
       '@floating-ui/vue': 1.1.10(vue@3.5.32(typescript@5.9.3))
