@@ -8,7 +8,11 @@
       "module": "uvicorn",
       "args": [
         "api:app",
-        "--reload"
+        "--reload",
+        "--ssl-keyfile",
+        "${workspaceFolder}/.cert/key.pem",
+        "--ssl-certfile",
+        "${workspaceFolder}/.cert/cert.pem"
       ],
       "jinja": true
     },

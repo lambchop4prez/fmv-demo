@@ -19,6 +19,7 @@ dependencies = [
   "cryptography==46.0.7",
   "authlib>=1.6.9",
   "types-authlib>=1.6.9.20260303",
+  "joserfc>=1.6.4",
 ]
 
 [dependency-groups]
