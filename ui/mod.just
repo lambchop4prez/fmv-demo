@@ -1,9 +1,12 @@
-set quiet := true
+set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"
 default_e2e_config := if env("CI", "false") == "true" { "ci" } else { 'dev' }
+cert_dir := justfile_dir() + '/.cert'
+cert := cert_dir + "/cert.pem"
+key := cert_dir + "/key.pem"
 
 [group('setup')]
 pnpm-install:

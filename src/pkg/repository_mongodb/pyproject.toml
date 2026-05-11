@@ -4,12 +4,12 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [ { name = "Tim", email = "lambchop4prez@users.noreply.github.com" } ]
-requires-python = "==3.14.3"
+requires-python = "==3.14.4"
 dependencies = [
   "beanie==2.1.0",
-  "pymongo==4.16.0",
+  "pymongo==4.17.0",
 ]
 
 [build-system]
-requires = [ "uv_build==0.11.3" ]
+requires = [ "uv_build==0.11.13" ]
 build-backend = "uv_build"
