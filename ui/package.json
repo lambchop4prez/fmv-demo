@@ -26,6 +26,7 @@
     "@vueuse/core": "catalog:frontend",
     "class-variance-authority": "catalog:build",
     "clsx": "catalog:build",
+    "eslint-plugin-vue": "^10.9.1",
     "lucide-vue-next": "catalog:build",
     "nprogress": "catalog:frontend",
     "oidc-client-ts": "3.5.0",
