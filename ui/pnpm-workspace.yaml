@@ -1,5 +1,11 @@
 packages: []
 
+allowBuilds:
+  edgedriver: true
+  esbuild: true
+  geckodriver: true
+  vue-demi: true
+
 catalogs:
   build:
     '@intlify/unplugin-vue-i18n': 11.2.3
