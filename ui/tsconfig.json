@@ -6,12 +6,11 @@
       "DOM",
       "ESNext"
     ],
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
       "~/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "resolveJsonModule": true,
@@ -19,7 +18,6 @@
       "vitest",
       "vite/client",
       "vite-plugin-vue-layouts/client",
-      "vite-plugin-pwa/client",
       "unplugin-vue-macros/macros-global",
       "@testing-library/jest-dom",
       "@wdio/globals/types",
