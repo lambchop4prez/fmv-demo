@@ -19,6 +19,7 @@
     "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
+    "@lucide/vue": "^1.16.0",
     "@tanstack/vue-form": "1.32.0",
     "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
@@ -26,7 +27,6 @@
     "@vueuse/core": "catalog:frontend",
     "class-variance-authority": "catalog:build",
     "clsx": "catalog:build",
-    "lucide-vue-next": "catalog:build",
     "nprogress": "catalog:frontend",
     "oidc-client-ts": "3.5.0",
     "openapi-fetch": "catalog:frontend",
