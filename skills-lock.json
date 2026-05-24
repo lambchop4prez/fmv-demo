@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "just": {
+      "source": "casey/just",
+      "sourceType": "github",
+      "skillPath": "skills/just/SKILL.md",
+      "computedHash": "da9eb61caf8468d813997618f923370cfe77ff4ebd6bb19b47bd4e91c19437d2"
+    }
+  }
+}
