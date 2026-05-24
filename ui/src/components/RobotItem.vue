@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { components } from '~/client/api';
-import { ChevronRightIcon, Bot } from 'lucide-vue-next'
+import { ChevronRightIcon, Bot } from '@lucide/vue'
 
 const props = defineProps<{ robot: components['schemas']['Robot'] }>();
 </script>

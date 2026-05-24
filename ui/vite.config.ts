@@ -2,19 +2,15 @@ import path from "node:path";
 import fs from "node:fs"
 import { fileURLToPath } from "node:url";
 import VueI18n from "@intlify/unplugin-vue-i18n/vite";
-import Shiki from "@shikijs/markdown-it";
 import { unheadVueComposablesImports } from "@unhead/vue";
 import Vue from "@vitejs/plugin-vue";
-import LinkAttributes from "markdown-it-link-attributes";
 import Unocss from "unocss/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import VueMacros from "unplugin-vue-macros/vite";
-import Markdown from "unplugin-vue-markdown/vite";
 import { VueRouterAutoImports } from "vue-router/unplugin";
 import VueRouter from "vue-router/vite";
 import { defineConfig } from "vite";
-import { VitePWA } from "vite-plugin-pwa";
 import VueDevTools from "vite-plugin-vue-devtools";
 import Layouts from "vite-plugin-vue-layouts";
 import generateSitemap from "vite-ssg-sitemap";
@@ -49,13 +45,6 @@ export default defineConfig({
       pagesDirs: "src/pages",
     }),
 
-    // https://github.com/vitejs/vite-plugin-basic-ssl
-    // basicSsl({
-    //   name: 'devcert',
-    //   domains: ['localhost', '127.0.0.1'],
-    //   certDir: '.ssl',
-    // }),
-
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       include: [/\.[jt]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
@@ -88,60 +77,6 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     Unocss(),
-
-    // https://github.com/unplugin/unplugin-vue-markdown
-    // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-    Markdown({
-      wrapperClasses: "prose prose-sm m-auto text-left",
-      headEnabled: true,
-      async markdownItSetup(md) {
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: "_blank",
-            rel: "noopener",
-          },
-        });
-        md.use(
-          await Shiki({
-            defaultColor: false,
-            themes: {
-              light: "vitesse-light",
-              dark: "vitesse-dark",
-            },
-          }),
-        );
-      },
-    }),
-
-    // https://github.com/antfu/vite-plugin-pwa
-    VitePWA({
-      registerType: "autoUpdate",
-      includeAssets: ["favicon.svg", "safari-pinned-tab.svg"],
-      manifest: {
-        name: "Vitesse",
-        short_name: "Vitesse",
-        theme_color: "#ffffff",
-        icons: [
-          {
-            src: "/pwa-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "/pwa-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-          {
-            src: "/pwa-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-        ],
-      },
-    }),
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
     VueI18n({
