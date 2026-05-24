@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-vue-next";
+import { LucideIcon } from "@lucide/vue";
 import { SidebarProps } from "../ui/sidebar";
 
 export interface NavItem {
