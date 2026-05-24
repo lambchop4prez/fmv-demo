@@ -44,13 +44,6 @@ declare module 'vue-router/auto-routes' {
       { all: ParamValue<false> },
       | never
     >,
-    '/about': RouteRecordInfo<
-      '/about',
-      '/about',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/callback': RouteRecordInfo<
       '/callback',
       '/callback',
@@ -68,13 +61,6 @@ declare module 'vue-router/auto-routes' {
     '/logout': RouteRecordInfo<
       '/logout',
       '/logout',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/README': RouteRecordInfo<
-      '/README',
-      '/README',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -125,12 +111,6 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/about.md': {
-      routes:
-        | '/about'
-      views:
-        | never
-    }
     'src/pages/callback.vue': {
       routes:
         | '/callback'
@@ -146,12 +126,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/logout.vue': {
       routes:
         | '/logout'
-      views:
-        | never
-    }
-    'src/pages/README.md': {
-      routes:
-        | '/README'
       views:
         | never
     }
