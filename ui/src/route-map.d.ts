@@ -14,6 +14,9 @@ import type {
   ParamValueZeroOrMore,
   ParamValueZeroOrOne,
 } from 'vue-router'
+import type {
+  _ExtractParamParserType,
+} from 'vue-router/experimental'
 
 declare module 'vue-router' {
   interface TypesConfig {
@@ -53,13 +56,6 @@ declare module 'vue-router/auto-routes' {
       '/callback',
       Record<never, never>,
       Record<never, never>,
-      | never
-    >,
-    '/hi/[name]': RouteRecordInfo<
-      '/hi/[name]',
-      '/hi/:name',
-      { name: ParamValue<true> },
-      { name: ParamValue<false> },
       | never
     >,
     '/login': RouteRecordInfo<
@@ -138,12 +134,6 @@ declare module 'vue-router/auto-routes' {
     'src/pages/callback.vue': {
       routes:
         | '/callback'
-      views:
-        | never
-    }
-    'src/pages/hi/[name].vue': {
-      routes:
-        | '/hi/[name]'
       views:
         | never
     }

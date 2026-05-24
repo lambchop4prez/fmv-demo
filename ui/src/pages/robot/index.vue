@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
-import { BotIcon } from 'lucide-vue-next';
+import { BotIcon } from '@lucide/vue';
 import { useRobotList } from '~/composables/robotList';
 const { error, isFetching, isReady, state, execute } = useRobotList({});
 onMounted(async () => {

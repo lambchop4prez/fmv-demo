@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Bot, Cog, Settings } from 'lucide-vue-next';
+import { Bot, Cog, Settings } from '@lucide/vue';
 const { t } = useI18n();
 const shell = {
   sidebar: {
