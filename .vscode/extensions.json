@@ -15,5 +15,6 @@
     "ms-python.vscode-python-envs",
     "charliermarsh.ruff",
     "rust-lang.rust-analyzer",
+    "tauri-apps.tauri-vscode"
   ]
 }
