@@ -1,4 +1,4 @@
-set quiet := true
+set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 cert_dir := justfile_dir() + '/.cert'

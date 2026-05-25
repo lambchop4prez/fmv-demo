@@ -1,4 +1,4 @@
-set quiet := true
+set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 version := env("NEW_VERSION", "0.0.0-dirty")
@@ -35,6 +35,10 @@ build: pnpm-install
 [group('dev')]
 dev: pnpm-install
     pnpm run dev
+
+[group('dev')]
+app-dev: pnpm-install
+    pnpm tauri dev
 
 [group('test')]
 e2e config=default_e2e_config: pnpm-install

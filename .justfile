@@ -2,7 +2,7 @@
 # ^ A shebang isn't required, but allows a justfile to be executed
 #   like a script, with `./.justfile test`, for example.
 
-set quiet := true
+set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 registry := env("DOCKER_REGISTRY", "ghcr.io")

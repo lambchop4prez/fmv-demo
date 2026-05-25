@@ -46,6 +46,8 @@
     "@iconify-json/carbon": "catalog:dev",
     "@iconify-json/mdi": "catalog:dev",
     "@intlify/unplugin-vue-i18n": "catalog:build",
+    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/cli": "^2.10.1",
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
     "@types/node": "25.9.1",
