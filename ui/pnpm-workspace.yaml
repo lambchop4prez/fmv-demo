@@ -64,7 +64,7 @@ catalogs:
     openapi-fetch: 0.17.0
     pinia: 3.0.4
     vue: 3.5.35
-    vue-i18n: 11.4.4
+    vue-i18n: 11.4.6
     vue-router: 5.0.6
   types:
     "@types/nprogress": 0.2.3
