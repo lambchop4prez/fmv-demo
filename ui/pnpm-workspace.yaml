@@ -12,7 +12,7 @@ catalog:
 
 catalogs:
   build:
-    "@intlify/unplugin-vue-i18n": 11.2.3
+    "@intlify/unplugin-vue-i18n": 11.2.4
     "@unocss/eslint-config": 66.7.0
     "@vitejs/plugin-basic-ssl": 2.3.0
     "@vitejs/plugin-vue": 6.0.7
