@@ -48,7 +48,7 @@
     "@intlify/unplugin-vue-i18n": "catalog:build",
     "@testing-library/jest-dom": "catalog:dev",
     "@testing-library/vue": "catalog:dev",
-    "@types/node": "25.9.1",
+    "@types/node": "25.9.4",
     "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",
