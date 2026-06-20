@@ -1,114 +1,76 @@
-<!-- Context: project-intelligence/notes | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: project-intelligence/living | Priority: medium | Version: 1.0 | Updated: 2026-06-19 -->
 
 # Living Notes
 
-> Active issues, technical debt, open questions, and insights that don't fit elsewhere. Keep this alive.
+> Active issues, technical debt, open questions, and lessons learned.
+
+**Purpose**: Track the current state of the project and things to watch.
+**Last Updated**: 2026-06-19
 
 ## Quick Reference
 
-- **Purpose**: Capture current state, problems, and open questions
-- **Update**: Weekly or when status changes
-- **Archive**: Move resolved items to bottom with status
+- **Update When**: New issues arise, debt is addressed, lessons are learned
+- **Audience**: Developers, AI agents
 
 ## Technical Debt
 
-| Item | Impact | Priority | Mitigation |
-|------|--------|----------|------------|
-| [Debt item] | [What risk it creates] | [High/Med/Low] | [How to manage] |
-
-### Technical Debt Details
-
-**[Debt Item]**  
-*Priority*: [High/Med/Low]  
-*Impact*: [What happens if not addressed]  
-*Root Cause*: [Why this debt exists]  
-*Proposed Solution*: [How to fix it]  
-*Effort*: [Small/Medium/Large]  
-*Status*: [Acknowledged | Scheduled | In Progress | Deferred]
+| Item | Impact | Priority |
+|------|--------|----------|
+| Traefik proxy commented out in docker-compose | No reverse proxy for local dev | Low |
+| No GitHub workflows (`.github/` is empty) | CI runs locally only via `just ci` | Medium |
+| Authentication implemented but not enabled | JWT/PyJWT installed, session middleware exists, but auth endpoints not active | High |
 
 ## Open Questions
 
-| Question | Stakeholders | Status | Next Action |
-|----------|--------------|--------|-------------|
-| [Question] | [Who needs to decide] | [Open/In Progress] | [What needs to happen] |
-
-### Open Question Details
-
-**[Question]**  
-*Context*: [Why this question matters]  
-*Stakeholders*: [Who needs to be involved]  
-*Options*: [What are the possibilities]  
-*Timeline*: [When does this need resolution]  
-*Status*: [Open/In Progress/Blocked]
+| Question | Context | Status |
+|----------|---------|--------|
+| Should API v2 be planned now? | v1 is stable, but OAuth2/OIDC may require breaking changes | Open |
+| Redis vs MongoDB for Celery result backend? | MongoDB works but Redis is the Celery default | Open |
+| SSR vs SSG for frontend? | Currently using vite-ssg (static generation) | Open |
 
 ## Known Issues
 
-| Issue | Severity | Workaround | Status |
-|-------|----------|------------|--------|
-| [Issue] | [Critical/High/Med/Low] | [Temporary fix] | [Known/In Progress/Fixed] |
-
-### Issue Details
-
-**[Issue Title]**  
-*Severity*: [Critical/High/Med/Low]  
-*Impact*: [Who/what is affected]  
-*Reproduction*: [Steps to reproduce if applicable]  
-*Workaround*: [Temporary solution if exists]  
-*Root Cause*: [If known]  
-*Fix Plan*: [How to properly fix]  
-*Status*: [Known/In Progress/Fixed in vX.X]
+| Issue | Description | Workaround |
+|-------|-------------|------------|
+| Python 3.14 pin | Must use exactly 3.14.5, no other version | Use `mise` for version management |
+| TLS cert regeneration | `.cert/` must exist before dev servers start | Run `just setup` first |
 
 ## Insights & Lessons Learned
 
-### What Works Well
-- [Positive pattern 1] - [Why it works]
-- [Positive pattern 2] - [Why it works]
-
-### What Could Be Better
-- [Area for improvement 1] - [Why it's a problem]
-- [Area for improvement 2] - [Why it's a problem]
-
-### Lessons Learned
-- [Lesson 1] - [Context and implication]
-- [Lesson 2] - [Context and implication]
+- **uv workspace members** provide clean separation without complex build configs
+- **Protocol-based repositories** work well for swappable data layers in Python
+- **OpenAPI codegen** eliminates frontend/backend type drift
+- **mise + just** combination handles both runtime versions and task running elegantly
+- **Docker profiles** allow selective service startup (infra only, backend only, etc.)
 
 ## Patterns & Conventions
 
-### Code Patterns Worth Preserving
-- [Pattern 1] - [Where it lives, why it's good]
-- [Pattern 2] - [Where it lives, why it's good]
-
-### Gotchas for Maintainers
-- [Gotcha 1] - [What to watch out for]
-- [Gotcha 2] - [What to watch out for]
+- Always use `async def` for FastAPI endpoints
+- Repository Protocol lives in `repository/`, implementations in `repository_*`
+- Frontend composables auto-imported — no explicit `import { useX }` needed
+- Vue pages use `<route lang="yaml">` meta blocks for layout assignment
+- All env vars loaded from `.mise.toml` → `.secrets.env` chain
 
 ## Active Projects
 
-| Project | Goal | Owner | Timeline |
-|---------|------|-------|----------|
-| [Project] | [What we're doing] | [Who owns it] | [When it matters] |
+| Project | Description | Status |
+|---------|-------------|--------|
+| API Authentication | OAuth2/OIDC implementation | In Progress |
 
-## Archive (Resolved Items)
+## Archive
 
-Moved here for historical reference. Current team should refer to current notes above.
+| Item | Resolved | Notes |
+|------|----------|-------|
+| Project-context.md deprecation | Yes | Replaced by project-intelligence/ structure |
 
-### Resolved: [Item]
-- **Resolved**: [Date]
-- **Resolution**: [What was decided/done]
-- **Learnings**: [What we learned from this]
+## 📂 Codebase References
 
-## Onboarding Checklist
-
-- [ ] Review known technical debt and understand impact
-- [ ] Know what open questions exist and who's involved
-- [ ] Understand current issues and workarounds
-- [ ] Be aware of patterns and gotchas
-- [ ] Know active projects and timelines
-- [ ] Understand the team's priorities
+**Auth endpoints**: `src/api/v1/endpoints/auth.py` — implemented but not enabled
+**Celery tasks**: `src/pkg/workers/src/workers/tasks.py` — prime computation task
+**Docker profiles**: `docker-compose.yaml` — infra, backend, frontend, ci
+**Version pinning**: `.mise.toml` — Python 3.14.5, Node 24.16.0
 
 ## Related Files
 
-- `decisions-log.md` - Past decisions that inform current state
-- `business-domain.md` - Business context for current priorities
-- `technical-domain.md` - Technical context for current state
-- `business-tech-bridge.md` - Context for current trade-offs
+- Technical Domain (`technical-domain.md`) — Current architecture
+- Decisions Log (`decisions-log.md`) — Why decisions were made

@@ -1,65 +1,61 @@
-<!-- Context: project-intelligence/nav | Priority: high | Version: 1.0 | Updated: 2025-01-12 -->
+<!-- Context: project-intelligence/nav | Priority: high | Version: 1.1 | Updated: 2026-06-19 -->
 
 # Project Intelligence
 
 > Start here for quick project understanding. These files bridge business and technical domains.
+
+**Last Updated**: 2026-06-19
 
 ## Structure
 
 ```
 .opencode/context/project-intelligence/
 ├── navigation.md              # This file - quick overview
-├── business-domain.md         # Business context and problem statement
-├── technical-domain.md        # Stack, architecture, technical decisions
-├── business-tech-bridge.md    # How business needs map to solutions
-├── decisions-log.md           # Major decisions with rationale
-└── living-notes.md            # Active issues, debt, open questions
+├── technical-domain.md        # Tech stack, architecture, patterns (populated)
+├── business-domain.md         # Business context, goals, roadmap (populated)
+├── business-tech-bridge.md    # Business needs → technical solutions (populated)
+├── decisions-log.md           # Major decisions with rationale (populated)
+└── living-notes.md            # Active issues, debt, open questions (populated)
 ```
 
 ## Quick Routes
 
 | What You Need | File | Description |
 |---------------|------|-------------|
-| Understand the "why" | `business-domain.md` | Problem, users, value proposition |
-| Understand the "how" | `technical-domain.md` | Stack, architecture, integrations |
-| See the connection | `business-tech-bridge.md` | Business → technical mapping |
-| Know the context | `decisions-log.md` | Why decisions were made |
-| Current state | `living-notes.md` | Active issues and open questions |
-| All of the above | Read all files in order | Full project intelligence |
+| Tech stack & patterns | `technical-domain.md` | FastAPI + Vue + MongoDB, code patterns, naming |
+| Business context | `business-domain.md` | Project identity, goals, roadmap |
+| Business → Tech mapping | `business-tech-bridge.md` | How features map to implementation |
+| Decision rationale | `decisions-log.md` | Why key decisions were made |
+| Current state & debt | `living-notes.md` | Active issues, open questions, lessons |
+| All of the above | Read all files | Complete project intelligence |
 
 ## Usage
 
-**New Team Member / Agent**:
-1. Start with `navigation.md` (this file)
-2. Read all files in order for complete understanding
-3. Follow onboarding checklist in each file
+**New Developer / Agent**:
+1. Start with `technical-domain.md` for the tech stack and patterns
+2. Read `business-domain.md` for project context
+3. Follow onboarding checklist in `living-notes.md`
 
 **Quick Reference**:
-- Business focus → `business-domain.md`
-- Technical focus → `technical-domain.md`
-- Decision context → `decisions-log.md`
+- Backend patterns → `technical-domain.md` (Code Patterns section)
+- Frontend patterns → `technical-domain.md` (Component Pattern section)
+- API conventions → `technical-domain.md` (Naming Conventions section)
+- Architecture decisions → `decisions-log.md`
 
 ## Integration
 
 This folder is referenced from:
 - `.opencode/context/core/standards/project-intelligence.md` (standards and patterns)
-- `.opencode/context/core/system/context-guide.md` (context loading)
+- `.opencode/command/add-context.md` (interactive wizard for updating)
 
 See `.opencode/context/core/context-system.md` for the broader context architecture.
 
 ## Maintenance
 
 Keep this folder current:
-- Update when business direction changes
-- Document decisions as they're made
-- Review `living-notes.md` regularly
-- Archive resolved items from decisions-log.md
+- Update when tech stack changes → `technical-domain.md`
+- Document decisions as they're made → `decisions-log.md`
+- Review `living-notes.md` regularly for active issues
+- Run `/add-context --update` to guide updates
 
-**Management Guide**: See `.opencode/context/core/standards/project-intelligence-management.md` for complete lifecycle management including:
-- How to update, add, and remove files
-- How to create new subfolders
-- Version tracking and frontmatter standards
-- Quality checklists and anti-patterns
-- Governance and ownership
-
-See `.opencode/context/core/standards/project-intelligence.md` for the standard itself.
+**Management Guide**: See `.opencode/context/core/standards/project-intelligence-management.md` for complete lifecycle management.
