@@ -37,3 +37,5 @@ _.file = ["{{config_root}}/.secrets.env"]
 "aqua:jqlang/jq" = "1.8.1"
 "aqua:FiloSottile/mkcert" = "1.4.4"
 "aqua:earendil-works/pi" = "latest"
+tmux = "latest"
+opencode = "latest"
