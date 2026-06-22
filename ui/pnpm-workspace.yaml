@@ -52,7 +52,7 @@ catalogs:
     eslint-plugin-testing-library: 7.16.0
     eslint-plugin-wdio: 9.23.0
     openapi-typescript: 7.13.0
-    taze: 19.13.0
+    taze: 19.14.1
     typescript: 6.0.3
     vitest: 4.1.7
     vue-tsc: 3.3.1
