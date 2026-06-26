@@ -20,7 +20,7 @@ catalogs:
     class-variance-authority: 0.7.1
     clsx: 2.1.1
     radix-vue: 1.9.17
-    reka-ui: 2.9.8
+    reka-ui: 2.10.1
     tailwind-merge: 3.6.0
     unocss: 66.7.0
     unocss-preset-animations: 1.3.0
