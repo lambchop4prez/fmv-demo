@@ -31,8 +31,8 @@ catalogs:
     unplugin-vue-macros: 2.14.5
     vite: 8.0.14
     vite-bundle-visualizer: 1.2.1
-    vite-plugin-inspect: 11.3.3
-    vite-plugin-vue-devtools: 8.1.2
+    vite-plugin-inspect: 11.4.1
+    vite-plugin-vue-devtools: 8.1.5
     vite-plugin-vue-layouts: 0.11.0
     vite-ssg: 28.3.0
     vite-ssg-sitemap: 0.10.0
