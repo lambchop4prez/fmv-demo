@@ -19,7 +19,7 @@
     "test:e2e:dev": "wdio run ./wdio.dev.conf.ts"
   },
   "dependencies": {
-    "@lucide/vue": "1.16.0",
+    "@lucide/vue": "1.23.0",
     "@tanstack/vue-form": "1.32.0",
     "@tanstack/vue-table": "8.21.3",
     "@unhead/vue": "catalog:frontend",
