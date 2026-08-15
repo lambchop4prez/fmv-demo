@@ -26,7 +26,7 @@ catalogs:
     unocss-preset-animations: 1.3.0
     unocss-preset-shadcn: 1.0.1
     unplugin: 3.3.0
-    unplugin-auto-import: 21.0.0
+    unplugin-auto-import: 21.1.0
     unplugin-vue-components: 32.1.0
     unplugin-vue-macros: 2.14.5
     vite: 8.0.16
