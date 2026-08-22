@@ -172,8 +172,8 @@ importers:
   .:
     dependencies:
       '@lucide/vue':
-        specifier: 1.16.0
-        version: 1.16.0(vue@3.5.35(typescript@6.0.3))
+        specifier: 1.33.0
+        version: 1.33.0(vue@3.5.35(typescript@6.0.3))
       '@tanstack/vue-form':
         specifier: 1.32.0
         version: 1.32.0(vue@3.5.35(typescript@6.0.3))
@@ -1412,8 +1412,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lucide/vue@1.16.0':
-    resolution: {integrity: sha512-kiHx0fe49DMjQuvNaEOu9Jou6u9FwdqQ8xbZIKlD47sXrOI8g59kIeeQL42NBLI4AvO+UJsbaPX0hEK/4rHSBQ==}
+  '@lucide/vue@1.33.0':
+    resolution: {integrity: sha512-8d3HnIIglHnosvsnm+IWNy8XhYYJvkf4YEgQqb74HnY3ihzdz+7XX4MxMZoyKdw7pbKOGno2HoaHTq7DH/v5AA==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -7306,7 +7306,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/vue@1.16.0(vue@3.5.35(typescript@6.0.3))':
+  '@lucide/vue@1.33.0(vue@3.5.35(typescript@6.0.3))':
     dependencies:
       vue: 3.5.35(typescript@6.0.3)
 
