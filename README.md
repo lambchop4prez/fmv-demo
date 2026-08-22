@@ -14,8 +14,9 @@ To get started, make sure to have `mise` (and docker) installed.
 
 ## Development
 
-To get started developing, clone the repo and install the dev tools with `mise install`. Setup your
-environment by running `just setup` and bring up the infrastructure with `just up infra`. Then, 
+To get started developing, clone the repo and install dependent tools by running `mise install`.
+
+Setup your environment by running `just setup` and bring up the infrastructure with `just up infra`. Then, 
 start up all the dev servers locally with `just dev`. Simple as that.
 
 Additional variations of dev servers can be run via `just backend dev`, `just backend api`, `just backend workers`, and `just frontend dev`.
@@ -23,6 +24,12 @@ Additional variations of dev servers can be run via `just backend dev`, `just ba
 When done, `<Ctrl>c` to stop the dev servers and `just down infra` to teardown the infrastructure.
 
 For more information, see [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+More information can be found in:
+
+  - [Frontend](./ui/README.md)
+  - [Backend](./src/README.md)
+  - [CONTRIBUTING.md](./CONTRIBU?TING.md)
 
 ## To Do
 
