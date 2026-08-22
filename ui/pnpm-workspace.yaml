@@ -16,7 +16,7 @@ catalogs:
     "@unocss/eslint-config": 66.7.0
     "@vitejs/plugin-basic-ssl": 2.3.0
     "@vitejs/plugin-vue": 6.0.7
-    beasties: 0.4.2
+    beasties: 0.4.3
     class-variance-authority: 0.7.1
     clsx: 2.1.1
     radix-vue: 1.9.17
