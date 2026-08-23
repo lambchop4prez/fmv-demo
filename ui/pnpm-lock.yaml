@@ -123,8 +123,8 @@ catalogs:
       specifier: 7.13.0
       version: 7.13.0
     taze:
-      specifier: 19.17.2
-      version: 19.17.2
+      specifier: 21.1.0
+      version: 21.1.0
     typescript:
       specifier: 6.0.3
       version: 6.0.3
@@ -324,7 +324,7 @@ importers:
         version: 7.13.0(typescript@6.0.3)
       taze:
         specifier: catalog:dev
-        version: 19.17.2
+        version: 21.1.0
       typescript:
         specifier: catalog:dev
         version: 6.0.3
@@ -5562,8 +5562,8 @@ packages:
   tar-stream@3.1.8:
     resolution: {integrity: sha512-U6QpVRyCGHva435KoNWy9PRoi2IFYCgtEhq9nmrPPpbRacPs9IH4aJ3gbrFC8dPcXvdSZ4XXfXT5Fshbp2MtlQ==}
 
-  taze@19.17.2:
-    resolution: {integrity: sha512-1WH+LUf5H0R07EF606fuP5TuHPVvtrMIPpn69EkqaOVJYg0foL8xnD+lEs0s19Zfmplul5nRd3TpbbF0twXCkw==}
+  taze@21.1.0:
+    resolution: {integrity: sha512-NkFkadmqqpaVZ9x3bV4cul1xQnUknhs1HzE3Q/VXHKS7np2Kg7ZNL7nNsEsBXKsafmgepa+aZNtzoegDgsymPw==}
     hasBin: true
 
   teex@1.0.1:
@@ -11964,7 +11964,7 @@ snapshots:
       - bare-buffer
       - react-native-b4a
 
-  taze@19.17.2:
+  taze@21.1.0:
     dependencies:
       '@antfu/ni': 30.5.0
       '@henrygd/queue': 1.2.0
