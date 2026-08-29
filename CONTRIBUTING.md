@@ -30,7 +30,7 @@ just up frontend # Bring up infrastructure and frontend. Useful for backend deve
 With the required infrastructure up, development servers can be started with the following commands.
 
 ```sh
-just frontend dev
+just ui dev
 just backend dev
 ```
 

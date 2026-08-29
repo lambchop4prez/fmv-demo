@@ -71,7 +71,7 @@ Business: Run long-running computation without blocking API
 |---------------------|-------------------|------------|
 | "Just add a feature" | API versioning requires additive-only changes | New endpoints ok; breaking changes need v2 |
 | "Test without Docker" | Infra requires MongoDB + RabbitMQ | Use `BACKEND_REPOSITORY=inmemory` for stub |
-| "Frontend types match backend" | Types must be regenerated after API changes | Run `just frontend gen-client` after changes |
+| "Frontend types match backend" | Types must be regenerated after API changes | Run `just ui gen-client` after changes |
 | "Local dev = production" | TLS required locally for browser APIs | `just setup` generates mkcert certs |
 
 ## Stakeholder Communication

@@ -88,7 +88,7 @@
 | **Decision** | Generate TypeScript types from FastAPI OpenAPI spec using `@hey-api/openapi-ts` |
 | **Rationale** | Single source of truth (FastAPI Pydantic models → OpenAPI → TypeScript types). No drift between backend and frontend types. |
 | **Alternatives** | Manual TypeScript interfaces, tRPC, GraphQL |
-| **Impact** | Run `just frontend gen-client` after API changes. Types in `ui/src/client/api.d.ts`. |
+| **Impact** | Run `just ui gen-client` after API changes. Types in `ui/src/client/api.d.ts`. |
 
 **Refs**: `ui/package.json` (client:gen script), `ui/src/client/api.d.ts`
 

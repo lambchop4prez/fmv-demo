@@ -3,7 +3,9 @@
 #   like a script, with `./.justfile test`, for example.
 
 set quiet
+set default-list
 set shell := ['bash', '-euo', 'pipefail', '-c']
+set script-interpreter := ['bash', '-euo', 'pipefail']
 
 registry := env("DOCKER_REGISTRY", "ghcr.io")
 image_backend := env("DOCKER_IMAGE_BACKEND", "lambchop4prez/fmv-demo-backend")
@@ -13,17 +15,9 @@ artifacts := justfile_dir() / "artifacts"
 default_profile := "ci"
 cert_dir := justfile_dir() + '/.cert'
 
-mod frontend 'ui/'
+mod ui 'ui/'
 mod backend 'src/'
 
-[private]
-default:
-    just log info "Frontend"
-    just --list frontend
-    just log info "Backend"
-    just --list backend
-    just log info "All"
-    just --list
 
 [private]
 log lvl msg *args:
@@ -38,11 +32,11 @@ setup:
 
 [group('check')]
 [parallel]
-lint: frontend::lint backend::lint
+lint: ui::lint backend::lint
 
 [group('check')]
 [parallel]
-typecheck: frontend::typecheck backend::typecheck
+typecheck: ui::typecheck backend::typecheck
 
 [group('check')]
 spellcheck:
@@ -71,7 +65,7 @@ build: build-frontend-image build-backend-image
 
 [group('test')]
 [parallel]
-unit-test: frontend::unit-test backend::unit-test
+unit-test: ui::unit-test backend::unit-test
 
 [group('ci')]
 ci:
@@ -132,7 +126,7 @@ load: (_load-image 'frontend') (_load-image 'backend')
 
 [doc("Runs e2e tests and collects logs")]
 [group('ci')]
-e2e: frontend::e2e _e2e-logs
+e2e: ui::e2e _e2e-logs
 
 [doc('Collect logs from containers used in E2E testing')]
 [group('ci')]
