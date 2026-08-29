@@ -2,7 +2,7 @@
 # ^ A shebang isn't required, but allows a justfile to be executed
 #   like a script, with `./.justfile test`, for example.
 
-set quiet := true
+set quiet
 set shell := ['bash', '-euo', 'pipefail', '-c']
 
 registry := env("DOCKER_REGISTRY", "ghcr.io")
@@ -152,3 +152,114 @@ digest-backend: (_digest image_backend)
 [group('ci')]
 [group('docker')]
 digest-frontend: (_digest image_frontend)
+
+[doc("Rename the project from 'fmv-demo' to a new name across all tracked files. Prompts for missing values. Dry-run first.")]
+[group('template')]
+[script]
+rename name="" owner="lambchop4prez" title="":
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    old_owner="{{ owner }}"
+    old_display="FastAPI MongoDB Vue Stack Demo"
+    new_kebab="{{ name }}"
+    new_title="{{ title }}"
+
+    interactive=false
+    if [[ -t 0 ]]; then interactive=true; fi
+
+    if [[ -z "$new_kebab" && "$interactive" == true ]]; then
+        new_kebab=$(gum input --placeholder "my-app" --prompt "New project name (kebab-case)? ")
+    fi
+    if [[ -z "$new_kebab" ]]; then
+        just log error "usage: just rename <kebab-case-name> [owner] [title]"
+        exit 1
+    fi
+    if [[ ! "$new_kebab" =~ ^[a-z][a-z0-9]*(-[a-z0-9]+)*$ ]]; then
+        just log error "project name must be kebab-case, got '$new_kebab'"
+        exit 1
+    fi
+    if [[ "$new_kebab" == "fmv-demo" ]]; then
+        just log warn "new name equals current name; nothing to do"
+        exit 0
+    fi
+
+    new_owner="$old_owner"
+    if [[ "$interactive" == true ]] && gum confirm "Replace GitHub owner '${old_owner}'?"; then
+        new_owner=$(gum input --value "$old_owner" --prompt "New GitHub owner? ")
+    fi
+
+    if [[ "$new_owner" =~ [^a-zA-Z0-9._-] ]]; then
+        just log error "owner must be alphanumeric (dots/dashes ok), got '$new_owner'"
+        exit 1
+    fi
+
+    # Derive case variants from the kebab-case name (perl: portable macOS/Linux)
+    new_pascal=$(perl -pe 's/(^|-)([a-z])/\u\2/g' <<< "$new_kebab")
+    new_camel=$(perl -pe 's/-([a-z])/\u\1/g' <<< "$new_kebab")
+    new_snake="${new_kebab//-/_}"
+    new_screaming="${new_snake^^}"
+    new_title="${new_title:-$(tr '-' ' ' <<< "$new_kebab" | perl -pe 's/\b([a-z])/\u\1/g')}"
+
+    if [[ "${new_kebab}${new_owner}${new_title}" == *'|'* ]]; then
+        just log error "name/owner/title must not contain '|'"
+        exit 1
+    fi
+
+    # Ordered replacement pairs, most specific first
+    pairs=(
+        "${old_display}||${new_title}"
+        "${old_owner}/fmv-demo||${new_owner}/${new_kebab}"
+        "FMV Demo||${new_title}"
+        "FMV Frontend||${new_title} Frontend"
+        "FMV Backend||${new_title} Backend"
+        "FMV||${new_pascal}"
+        "fmv_demo||${new_snake}"
+        "FMV_DEMO||${new_screaming}"
+        "FmvDemo||${new_pascal}"
+        "fmvDemo||${new_camel}"
+        "fmv-demo||${new_kebab}"
+    )
+    if [[ "$new_owner" != "$old_owner" ]]; then
+        pairs+=("${old_owner}||${new_owner}")
+    fi
+
+    scan_re=$(IFS='|'; echo "${pairs[*]%%||*}")
+
+    just log info "dry run: 'fmv-demo' -> '${new_kebab}' (owner: '${new_owner}', title: '${new_title}')"
+    total=0
+    changed=()
+    while IFS= read -r f; do
+        n=$(grep -oE "$scan_re" "$f" 2>/dev/null | wc -l) || n=0
+        if (( n > 0 )); then
+            printf '  %-52s %s\n' "$f" "$n"
+            changed+=("$f")
+            total=$((total + n))
+        fi
+    done < <(git ls-files | grep -vE '(uv\.lock|pnpm-lock\.yaml|package-lock\.json)$')
+
+    if (( total == 0 )); then
+        just log warn "no matches found; nothing renamed"
+        exit 0
+    fi
+    just log info "total: ${total} occurrences across ${#changed[@]} files"
+
+    if [[ "$interactive" == true ]] && ! gum confirm "Apply rename to ${#changed[@]} files?"; then
+        just log warn "aborted; no files changed"
+        exit 0
+    fi
+
+    for f in "${changed[@]}"; do
+        for pair in "${pairs[@]}"; do
+            old="${pair%%||*}"
+            new="${pair##*||}"
+            perl -pi -e "s|\b\Q${old}\E\b|${new}|g" "$f"
+        done
+    done
+
+    just log info "rename complete"
+    just log info "manual follow-up:"
+    just log info "  1. rename the checkout: mv ../$(basename "$PWD") ../${new_kebab}"
+    just log info "  2. update the remote: git remote set-url origin git@github.com:${new_owner}/${new_kebab}.git"
+    just log info "  3. review .secrets.env and .mise.toml (audience, docker image names)"
+    just log info "  4. re-run: just setup && just analyze"
