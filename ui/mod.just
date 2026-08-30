@@ -1,5 +1,7 @@
-set quiet := true
+set quiet
+set default-list
 set shell := ['bash', '-euo', 'pipefail', '-c']
+set script-interpreter := ['bash', '-euo', 'pipefail']
 
 version := env("NEW_VERSION", "0.0.0-dirty")
 artifacts := justfile_dir() / "artifacts"

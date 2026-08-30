@@ -4,7 +4,6 @@ allowBuilds:
   edgedriver: true
   esbuild: true
   geckodriver: true
-  inotify: set this to true or false
   vue-demi: true
 
 catalog:
