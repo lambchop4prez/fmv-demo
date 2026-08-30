@@ -24,7 +24,6 @@
     "@unocss/preset-web-fonts": "66.8.1",
     "@unocss/reset": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
-    "build": "0.1.4",
     "class-variance-authority": "catalog:build",
     "clsx": "catalog:build",
     "nprogress": "catalog:frontend",
