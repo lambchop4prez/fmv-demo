@@ -29,7 +29,7 @@ More information can be found in:
 
   - [Frontend](./ui/README.md)
   - [Backend](./src/README.md)
-  - [CONTRIBUTING.md](./CONTRIBU?TING.md)
+  - [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## To Do
 

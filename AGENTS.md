@@ -39,8 +39,7 @@ Backend check commands run inside `src/` (via `just backend lint`, etc.). Fronte
 - **Frontend codegen**: Run `just ui gen-client` to regenerate `ui/src/client/api.d.ts` from the live OpenAPI spec at `http://localhost:8000/api/v1/openapi.json`.
 - **Pre-commit hooks** (lefthook): actionlint, spellcheck, gitleaks, frontend lint (stage_fixed), backend lint, justfile formatting. Run `lefthook run pre-commit` manually.
 - **Conventional Commits**: Required for `semantic-release`. Types: `feat`, `fix`, `test`, `build`, `ci`, `docs`, `style`, `refactor`, `perf`, `chore`. Scopes: `ui`, `api`, `workers`, `deps`. Use `!` before `:` for breaking changes.
-- **No GitHub workflows yet**: `.github/` is empty. CI runs via `just ci` / `just publish` locally or in external CI.
-- **Python 3.14.5 only**: `pyproject.toml` pins `==3.14.5`. Don't use a different version.
+- **Python 3.14.7 only**: `pyproject.toml` pins `==3.14.7`. Don't use a different version.
 - **uv workspace**: Backend deps use `uv` with workspace members. Always run `uv sync` (or `just backend uv-sync-dev`) before running backend commands.
 
 ## Testing
