@@ -50,7 +50,7 @@ catalogs:
     eslint-plugin-wdio: 9.23.0
     openapi-typescript: 7.13.0
     typescript: 6.0.3
-    vitest: 4.1.11
+    vitest: 5.0.0
     vue-tsc: 3.3.11
   frontend:
     "@unhead/vue": 3.4.0
