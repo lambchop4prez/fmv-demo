@@ -64,7 +64,7 @@
     "eslint-plugin-testing-library": "catalog:dev",
     "eslint-plugin-vue": "catalog:",
     "eslint-plugin-wdio": "catalog:dev",
-    "expect-webdriverio": "5.7.0",
+    "expect-webdriverio": "6.0.10",
     "openapi-typescript": "catalog:dev",
     "typescript": "catalog:dev",
     "unocss": "catalog:build",
