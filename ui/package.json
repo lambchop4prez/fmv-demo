@@ -19,7 +19,7 @@
   "dependencies": {
     "@lucide/vue": "1.33.0",
     "@tanstack/vue-form": "1.33.5",
-    "@tanstack/vue-table": "9.1.2",
+    "@tanstack/vue-table": "9.2.4",
     "@unhead/vue": "catalog:frontend",
     "@unocss/preset-web-fonts": "66.8.1",
     "@unocss/reset": "catalog:frontend",
