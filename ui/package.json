@@ -21,7 +21,7 @@
     "@tanstack/vue-form": "1.33.5",
     "@tanstack/vue-table": "9.1.2",
     "@unhead/vue": "catalog:frontend",
-    "@unocss/preset-web-fonts": "66.8.1",
+    "@unocss/preset-web-fonts": "66.10.0",
     "@unocss/reset": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "class-variance-authority": "catalog:build",
