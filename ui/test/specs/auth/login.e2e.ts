@@ -42,7 +42,8 @@ async function apiStatus(path: string): Promise<number> {
         const res = await fetch(`${base}${p}`, { credentials: "include" });
         return res.status;
       }
-      catch {
+      catch (err) {
+        console.log(err)
         // CORS blocked or network error — caller asserts on the number.
         return 0;
       }
