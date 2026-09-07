@@ -129,6 +129,9 @@ jobs:
 
       - name: Setup | Load artifacts
         run: just load
+        
+      - name: Setup | Build mock idp
+        run: docker compose build mock-idp
 
       - name: Setup | Bring environment up
         run: just up
