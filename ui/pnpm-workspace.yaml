@@ -37,12 +37,12 @@ catalogs:
     "@vue-macros/volar": 3.1.4
     "@vue/eslint-config-prettier": 10.2.0
     "@vue/eslint-config-typescript": 14.9.0
-    eslint: 10.4.0
+    eslint: 10.10.0
     eslint-plugin-format: 2.0.1
-    eslint-plugin-playwright: 2.9.0
-    eslint-plugin-testing-library: 7.16.0
-    eslint-plugin-vue: ^10.9.1
-    eslint-plugin-wdio: 9.23.0
+    eslint-plugin-playwright: 2.11.0
+    eslint-plugin-testing-library: 7.16.2
+    eslint-plugin-vue: 10.9.1
+    eslint-plugin-wdio: 9.31.3
     openapi-typescript: 7.13.0
     typescript: 6.0.3
     vue-tsc: 3.3.11
@@ -64,7 +64,7 @@ catalogs:
   test:
     "@testing-library/jest-dom": 7.0.1
     "@testing-library/vue": 8.1.0
-    "@vitest/eslint-plugin": 1.6.9
+    "@vitest/eslint-plugin": 1.6.27
     "@vue/test-utils": 2.5.0
     "@wdio/cli": 9.31.2
     "@wdio/globals": 9.31.1
