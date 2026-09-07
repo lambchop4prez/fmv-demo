@@ -6,13 +6,11 @@ allowBuilds:
   geckodriver: true
   vue-demi: true
 
-catalog:
-  eslint-plugin-vue: ^10.9.1
-
 catalogs:
   build:
     "@intlify/unplugin-vue-i18n": 11.2.5
     "@unocss/eslint-config": 66.8.1
+    "@unocss/preset-web-fonts": 66.8.1
     "@vitejs/plugin-basic-ssl": 2.3.0
     "@vitejs/plugin-vue": 6.0.8
     beasties: 0.4.3
@@ -36,33 +34,48 @@ catalogs:
     vite-ssg: 28.3.0
     vite-ssg-sitemap: 0.10.0
   dev:
-    "@testing-library/jest-dom": 7.0.1
-    "@testing-library/vue": 8.1.0
-    "@vitest/eslint-plugin": 1.6.9
     "@vue-macros/volar": 3.1.4
     "@vue/eslint-config-prettier": 10.2.0
     "@vue/eslint-config-typescript": 14.9.0
-    "@vue/test-utils": 2.4.11
     eslint: 10.4.0
     eslint-plugin-format: 2.0.1
     eslint-plugin-playwright: 2.9.0
     eslint-plugin-testing-library: 7.16.0
+    eslint-plugin-vue: ^10.9.1
     eslint-plugin-wdio: 9.23.0
     openapi-typescript: 7.13.0
     typescript: 6.0.3
-    vitest: 4.1.11
     vue-tsc: 3.3.11
   frontend:
+    "@lucide/vue": 1.33.0
+    "@tanstack/vue-form": 1.33.5
+    "@tanstack/vue-table": 9.1.2
     "@unhead/vue": 3.4.0
     "@unocss/reset": 66.8.1
     "@vueuse/core": 14.4.0
     nprogress: 0.2.0
+    oidc-client-ts: 3.5.0
     openapi-fetch: 0.17.0
     pinia: 4.0.3
     vue: 3.5.41
     vue-i18n: 11.4.8
     vue-router: 5.0.6
+    zod: 4.4.3
+  test:
+    "@testing-library/jest-dom": 7.0.1
+    "@testing-library/vue": 8.1.0
+    "@vitest/eslint-plugin": 1.6.9
+    "@vue/test-utils": 2.4.11
+    "@wdio/cli": 9.31.2
+    "@wdio/globals": 9.31.1
+    "@wdio/local-runner": 9.31.2
+    "@wdio/mocha-framework": 9.31.2
+    "@wdio/spec-reporter": 9.31.2
+    expect-webdriverio: 5.7.0
+    vitest: 4.1.11
+    wdio-vite-service: 2.1.1
   types:
+    "@types/node": 25.9.5
     "@types/nprogress": 0.2.3
 
 onlyBuiltDependencies:
