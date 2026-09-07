@@ -8,6 +8,17 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
   pnpm install --frozen-lockfile
 
 COPY . .
+# Vite vars bake into the static bundle at build time; runtime env cannot
+# change them (compose's VITE_API_ENDPOINT is inert here). Defaults match the
+# ci compose stack (frontend :8080, api :8000, mock IdP :8443); pass explicit
+# --build-args for other deployments. redirect/post_logout URIs fall back to
+# the runtime window origin in auth.ts, so they are not baked.
+ARG VITE_API_ENDPOINT=http://localhost:8000/api/v1
+ARG VITE_OIDC_AUTHORITY=https://localhost:8443/realms/fmv
+ARG VITE_OIDC_CLIENT_ID=fmv-web
+ENV VITE_API_ENDPOINT=${VITE_API_ENDPOINT} \
+    VITE_OIDC_AUTHORITY=${VITE_OIDC_AUTHORITY} \
+    VITE_OIDC_CLIENT_ID=${VITE_OIDC_CLIENT_ID}
 RUN pnpm build
 
 FROM nginx:stable-alpine AS production-stage

@@ -27,6 +27,7 @@
     "class-variance-authority": "catalog:build",
     "clsx": "catalog:build",
     "nprogress": "catalog:frontend",
+    "oidc-client-ts": "3.5.0",
     "openapi-fetch": "catalog:frontend",
     "pinia": "catalog:frontend",
     "radix-vue": "catalog:build",

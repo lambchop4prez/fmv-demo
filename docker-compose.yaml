@@ -79,6 +79,27 @@ services:
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - BACKEND_MONGO_HOST=mongodb
       - BACKEND_REPOSITORY=mongodb
+      # --- OIDC / session (canonical names in .secrets.env.example) ----------
+      # Secrets come from the environment only; compose fails fast when unset.
+      - SESSION_SECRET_KEY=${SESSION_SECRET_KEY:?Variable not set}
+      - OIDC__DEFAULT_PROVIDER=${OIDC__DEFAULT_PROVIDER:-keycloak}
+      - OIDC__PROVIDERS__KEYCLOAK__ISSUER=${OIDC__PROVIDERS__KEYCLOAK__ISSUER:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__AUDIENCE=${OIDC__PROVIDERS__KEYCLOAK__AUDIENCE:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__CLIENT_ID=${OIDC__PROVIDERS__KEYCLOAK__CLIENT_ID:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__ROLE_CLAIMS=${OIDC__PROVIDERS__KEYCLOAK__ROLE_CLAIMS:-groups}
+      # Dev-only opt-out (D7): the mock IdP serves a self-signed/mkcert cert.
+      # The settings default is true; production deployments must keep it true.
+      - OIDC__PROVIDERS__KEYCLOAK__VERIFY_SSL=${OIDC__PROVIDERS__KEYCLOAK__VERIFY_SSL:-false}
+      # Static-key stub (D2): tokens verified offline against this mounted
+      # public JWKS fixture — no network call to the mock IdP is made.
+      - OIDC__PROVIDERS__KEYCLOAK__STATIC_JWKS_FILE=${OIDC__PROVIDERS__KEYCLOAK__STATIC_JWKS_FILE:-/app/src/test/fixtures/oidc_test_jwks.json}
+      # Session cookies (D1=a) require credentials; origins stay explicit in env.
+      - CORS_ALLOW_CREDENTIALS=true
+      # Explicit origins (wildcard + credentials is invalid CORS). Covers the
+      # ci frontend (http://localhost:8080) and dev vite (https://localhost:5173).
+      - CORS_ALLOW_ORIGINS=${CORS_ALLOW_ORIGINS:-["http://localhost:8080","https://localhost:5174","https://localhost:8800"]}
+      # "production" rejects the static_jwks stub at startup (fail closed).
+      - BACKEND_ENVIRONMENT=${BACKEND_ENVIRONMENT:-dev}
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
@@ -93,8 +114,9 @@ services:
     ports:
       - 8000:8000
     command: uv run fastapi run src/api
-    # volumes:
-    # - ./backend:/app
+    volumes:
+      # Public JWKS fixture (kid fmv-test-key-1) for offline token verification.
+      - ./src/test/fixtures:/app/src/test/fixtures:ro
     profiles:
       - backend
       - api
@@ -113,6 +135,18 @@ services:
       - BACKEND_REPOSITORY=mongodb
       - BACKEND_MONGO_HOST=mongodb
       - BACKEND_BROKER_HOST=rabbitmq
+      # --- OIDC / session (parity with api; canonical names in .secrets.env.example) ---
+      # Workers do not validate tokens today, but share the settings model;
+      # keep env parity so a worker that imports auth config never crashes.
+      - SESSION_SECRET_KEY=${SESSION_SECRET_KEY:?Variable not set}
+      - OIDC__DEFAULT_PROVIDER=${OIDC__DEFAULT_PROVIDER:-keycloak}
+      - OIDC__PROVIDERS__KEYCLOAK__ISSUER=${OIDC__PROVIDERS__KEYCLOAK__ISSUER:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__AUDIENCE=${OIDC__PROVIDERS__KEYCLOAK__AUDIENCE:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__CLIENT_ID=${OIDC__PROVIDERS__KEYCLOAK__CLIENT_ID:?Variable not set}
+      - OIDC__PROVIDERS__KEYCLOAK__ROLE_CLAIMS=${OIDC__PROVIDERS__KEYCLOAK__ROLE_CLAIMS:-groups}
+      - OIDC__PROVIDERS__KEYCLOAK__VERIFY_SSL=${OIDC__PROVIDERS__KEYCLOAK__VERIFY_SSL:-false}
+      - OIDC__PROVIDERS__KEYCLOAK__STATIC_JWKS_FILE=${OIDC__PROVIDERS__KEYCLOAK__STATIC_JWKS_FILE:-/app/src/test/fixtures/oidc_test_jwks.json}
+      - BACKEND_ENVIRONMENT=${BACKEND_ENVIRONMENT:-dev}
       # Allow explicit env var override for tests
       # - SMTP_HOST=${SMTP_HOST}
     build:
@@ -125,8 +159,9 @@ services:
         BACKEND_WITH_RELOAD: ${BACKEND_WITH_RELOAD-false}
         INSTALL_DEV: ${INSTALL_DEV-false}
     command: uv run celery -A workers worker -l INFO
-    # volumes:
-    # - ./backend:/app
+    volumes:
+      # Same public JWKS fixture as api; workers never need the private key.
+      - ./src/test/fixtures:/app/src/test/fixtures:ro
     depends_on:
       - mongodb
       - rabbitmq
@@ -169,6 +204,51 @@ services:
       - backend
       - infra
       - ci
+
+  # Mock OIDC identity provider for local dev and e2e ONLY (decision D6).
+  # This is NOT Keycloak. It serves OIDC discovery, the static public JWKS,
+  # and a login page at ${OIDC__PROVIDERS__KEYCLOAK__ISSUER} (dev value:
+  # https://localhost:8443/realms/fmv), signing id_tokens with the committed
+  # TEST private key fixture (kid "fmv-test-key-1"). The api verifies tokens
+  # offline via its STATIC_JWKS_FILE mount — it never calls this service.
+  # `just up` runs compose with --no-build, so build the image once first:
+  #   docker compose --profile infra build mock-idp
+  mock-idp:
+    image: fmv-demo-mock-idp:local
+    build:
+      context: ./ci/mock-idp
+    logging:
+      driver: json-file
+      options:
+        max-size: 200k
+        max-file: "3"
+    environment:
+      - MOCK_IDP_ISSUER=${OIDC__PROVIDERS__KEYCLOAK__ISSUER:?Variable not set}
+      - MOCK_IDP_CLIENT_ID=${OIDC__PROVIDERS__KEYCLOAK__CLIENT_ID:?Variable not set}
+      - MOCK_IDP_AUDIENCE=${OIDC__PROVIDERS__KEYCLOAK__AUDIENCE:?Variable not set}
+      - MOCK_IDP_KID=${MOCK_IDP_KID:-fmv-test-key-1}
+      # Groups map to scopes via the provider's role_claims (D3). Include the
+      # robot:* scopes so the protected robot routes are reachable in dev/e2e.
+      - MOCK_IDP_GROUPS=${MOCK_IDP_GROUPS:-robot:read,robot:write,robot:run,user,admin}
+      - MOCK_IDP_PRIVATE_KEY_FILE=/fixtures/oidc_test_private_key.pem
+      - MOCK_IDP_JWKS_FILE=/fixtures/oidc_test_jwks.json
+    volumes:
+      # Shared test fixtures: same keypair the api verifies against.
+      - ./src/test/fixtures:/fixtures:ro
+      # mkcert certs from `just setup`; the service self-signs when absent.
+      - ./.cert:/certs:ro
+    ports:
+      - 8443:8443
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import ssl,urllib.request; urllib.request.urlopen('https://localhost:8443/realms/fmv/.well-known/openid-configuration', context=ssl._create_unverified_context(), timeout=3)" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    profiles:
+      - infra
+      - ci
+      - backend
 
 volumes:
   app_data:

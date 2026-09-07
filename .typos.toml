@@ -1,2 +1,10 @@
+# typos (spellcheck) configuration.
+# - ui/locales/*.yml are translation files (non-English by design).
+# - base64url key fixtures contain random sequences that trip the dictionary
+#   (e.g. "Iy", "PFL"); they are generated, not prose.
 [files]
-extend-exclude = ["ui/locales/*.yml"]
+extend-exclude = [
+  "ui/locales/*.yml",
+  "src/test/fixtures/oidc_test_jwks.json",
+  "src/test/fixtures/oidc_test_private_key.pem",
+]

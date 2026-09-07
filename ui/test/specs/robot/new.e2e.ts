@@ -1,8 +1,15 @@
 import { expect } from '@wdio/globals';
 import NewRobotPage from '../../pages/robot/new.page';
 import RobotProfilePage from '../../pages/robot/name.page';
+import { loginViaTestSession } from '../../utils/session';
 
 describe('New Robot Form', () => {
+  // The default layout guard redirects to /login without a session;
+  // bootstrap the API session before each test (afterTest reloads it away).
+  beforeEach(async () => {
+    await loginViaTestSession();
+  });
+
   it('should display fields', async () => {
     await NewRobotPage.open();
     await expect(NewRobotPage.txtName).toBeDisplayed();

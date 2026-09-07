@@ -1,3 +1,11 @@
+"""MongoDB connection settings.
+
+Built lazily via ``get_mongo_settings`` so importing this module performs no
+required configuration work (clean-clone CI).
+"""
+
+from functools import lru_cache
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -9,4 +17,6 @@ class MongoSettings(BaseSettings):
     DATABASE: str = "robot"
 
 
-settings = MongoSettings()
+@lru_cache
+def get_mongo_settings() -> MongoSettings:
+    return MongoSettings()

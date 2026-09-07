@@ -18,7 +18,6 @@ cert_dir := justfile_dir() + '/.cert'
 mod ui 'ui/'
 mod backend 'src/'
 
-
 [private]
 log lvl msg *args:
     gum log --time rfc822 -s --level "{{ lvl }}" "{{ msg }}" {{ args }}
@@ -126,7 +125,7 @@ load: (_load-image 'frontend') (_load-image 'backend')
 
 [doc("Runs e2e tests and collects logs")]
 [group('ci')]
-e2e: ui::e2e _e2e-logs
+e2e: ui::e2e && _e2e-logs
 
 [doc('Collect logs from containers used in E2E testing')]
 [group('ci')]

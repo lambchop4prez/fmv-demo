@@ -112,6 +112,9 @@ jobs:
       - name: Setup | Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Setup | Use example secrets
+        run: cp .secrets.env.example .secrets.env && echo SESSION_SECRET_KEY=$(openssl rand -hex 32) >> .secrets.env
+
       - name: Setup | Setup environment
         uses: ./.github/actions/setup
 
@@ -126,6 +129,9 @@ jobs:
 
       - name: Setup | Load artifacts
         run: just load
+        
+      - name: Setup | Build mock idp
+        run: docker compose build mock-idp
 
       - name: Setup | Bring environment up
         run: just up
