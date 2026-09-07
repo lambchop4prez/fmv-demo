@@ -15,7 +15,9 @@ BACKEND_BROKER_HOST = "localhost"
 # Environment gate: "production" rejects the static_jwks dev/CI stub at startup (fail closed).
 BACKEND_ENVIRONMENT = "dev"
 
-CORS_ALLOW_ORIGINS = '["https://localhost:8000", "https://localhost:5173"]'
+# http://localhost:8080 is the ci compose frontend origin (docker-compose.yaml
+# exposes 8080); mise exports [env] into CI, so the compose default never applies.
+CORS_ALLOW_ORIGINS = '["https://localhost:8000", "https://localhost:5173", "http://localhost:8080"]'
 # Session cookies (D1=a) require credentials; origins above stay explicit (no wildcard).
 CORS_ALLOW_CREDENTIALS = "true"
 

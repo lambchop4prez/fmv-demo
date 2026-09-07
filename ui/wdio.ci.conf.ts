@@ -19,7 +19,10 @@ export const config: WebdriverIO.Config = {
     }],
     async afterTest(test, context, result) {
       if (result.error) {
-        const screenshot = `./test/logs/FAIL-${browser.capabilities.browserName}-${test.title.split(' ').join('-')}.png`;
+        // Titles can contain '/' and ',' (e.g. "...session, /robot renders...");
+        // unsanitized they make saveScreenshot write into missing subdirectories.
+        const safeTitle = test.title.replace(/[^a-zA-Z0-9._-]+/g, '-');
+        const screenshot = `./test/logs/FAIL-${browser.capabilities.browserName}-${safeTitle}.png`;
         await browser.saveScreenshot(screenshot);
       }
     },
