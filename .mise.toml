@@ -49,6 +49,8 @@ _.file = ["{{config_root}}/.secrets.env"]
 "aqua:charmbracelet/gum" = "2.0.0"
 "aqua:rhysd/actionlint" = "1.7.12"
 "aqua:pnpm/pnpm" = "11.23.0"
+# @yarnpkg/libzip@3.2.2 (transitive, Yarn support unused here) lacks provenance; published manually by arcanis. Review/remove exclusion if republished with provenance.
+"npm:renovate" = { version = "44.69.3", trust_policy_excludes = ["@yarnpkg/libzip@3.2.2"] }
 "pipx:python-semantic-release" = "10.6.1"
 "aqua:gitleaks/gitleaks" = "8.30.1"
 "aqua:crate-ci/typos" = "1.49.0"

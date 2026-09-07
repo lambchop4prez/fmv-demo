@@ -19,6 +19,12 @@ pre-commit:
       glob: "*.{py}"
       root: src
       run: just backend lint
+    renovate-validate:
+      glob:
+        - ".renovate/*.json"
+        - "renovate.json*"
+        - ".renovaterc*"
+      run: renovate-config-validator --no-global {staged_files}
     format-just:
       glob:
         - "*.just"
