@@ -24,6 +24,81 @@
       "matchPackageNames": [
         "/pnpm/"
       ]
+    },
+    {
+      "description": "pnpm catalog: build, non-major updates grouped",
+      "groupName": "pnpm catalog:build",
+      "groupSlug": "pnpm-catalog-build",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "pnpm.catalog.build"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "pnpm catalog: dev, non-major updates grouped",
+      "groupName": "pnpm catalog:dev",
+      "groupSlug": "pnpm-catalog-dev",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "pnpm.catalog.dev"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "pnpm catalog: frontend, non-major updates grouped",
+      "groupName": "pnpm catalog:frontend",
+      "groupSlug": "pnpm-catalog-frontend",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "pnpm.catalog.frontend"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "pnpm catalog: test, non-major updates grouped",
+      "groupName": "pnpm catalog:test",
+      "groupSlug": "pnpm-catalog-test",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "pnpm.catalog.test"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "pnpm catalog: types, non-major updates grouped",
+      "groupName": "pnpm catalog:types",
+      "groupSlug": "pnpm-catalog-types",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "pnpm.catalog.types"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
     }
   ]
 }

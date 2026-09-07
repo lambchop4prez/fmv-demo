@@ -1,4 +1,12 @@
+"""CORS settings.
+
+Built lazily via ``get_cors_settings`` so importing this module performs no
+required configuration work (clean-clone CI).
+"""
+
 from collections.abc import Sequence
+from functools import lru_cache
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -15,4 +23,6 @@ class CorsSettings(BaseSettings):
     allow_credentials: bool = False
 
 
-cors_settings = CorsSettings()
+@lru_cache
+def get_cors_settings() -> CorsSettings:
+    return CorsSettings()

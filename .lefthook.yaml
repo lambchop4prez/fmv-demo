@@ -3,26 +3,32 @@ pre-commit:
   parallel: true
   commands:
     actionlint:
-      glob: '*.{yml}'
+      glob: "*.{yml}"
       root: .github/workflows
       run: actionlint {staged_files}
     spellcheck:
       run: just spellcheck
     detect-secrets:
-      run: gitleaks detect --log-opts="$(git merge-base origin/main HEAD)..HEAD" --no-banner --redact --verbose
+      run: gitleaks git --config .config/gitleaks.toml --pre-commit --staged --no-banner --redact --verbose
     frontend-lint:
-      glob: '*.{js,ts,vue}'
+      glob: "*.{js,ts,vue}"
       root: ui
-      run: just frontend lint --fix {staged_files}
+      run: just ui lint --fix {staged_files}
       stage_fixed: true
     backend-lint:
-      glob: '*.{py}'
+      glob: "*.{py}"
       root: src
       run: just backend lint
+    renovate-validate:
+      glob:
+        - ".renovate/*.json"
+        - "renovate.json*"
+        - ".renovaterc*"
+      run: renovate-config-validator --no-global {staged_files}
     format-just:
       glob:
-        - '*.just'
-        - '.justfile'
+        - "*.just"
+        - ".justfile"
       stage_fixed: true
       run: |
         for file in {staged_files}; do

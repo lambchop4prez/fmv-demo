@@ -26,7 +26,7 @@ unit-test: uv-sync-dev
 [doc("Start API in dev mode")]
 [group('dev')]
 api: uv-sync-dev
-    uv run uvicorn api:app --ssl-keyfile={{ cert_dir }}/key.pem --ssl-certfile={{ cert_dir }}/cert.pem --port 8000 --reload 
+    uv run uvicorn api:app --ssl-keyfile={{ cert_dir }}/key.pem --ssl-certfile={{ cert_dir }}/cert.pem --port 8800 --reload 
 
 [doc("Start celery worker in dev mode")]
 [group('dev')]

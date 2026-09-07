@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowLists]]
+description = "Allow mock-idp private key"
+paths = ["src/test/fixtures/oidc_test_private_key.pem"]

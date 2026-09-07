@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "alg": "RS256",
+      "kid": "fmv-test-key-1",
+      "n": "5K6jgLT04ilOXf_KZbFq6aU1U3QCyIhjPdCw5TKLFLSEyzHwS5rkhyR_arCl86kTJ-hrZ1T2aZlHl11axHXjg0eCRxWESZrTxbvAbB0Asa-4A5cKIJiFkEiNv50iHrf5PzMPHb5YC9tCk27rtfaeSwKeNknqEn8MXPFLMNI-U2ES_I_UdShzrAaB_4Q9paUI7TWb_X3FiOFshkf1eO9AKtx5IAozddY7pf1IyXOGEQ5CZxPf5nynVvSeU4xJ8aAwq51Ohn2twgWNCEIWpvpYlvItlTWEa8w8nOJkWbVXK5_6pwKbm0H7fosxYhGg_tZIryEiiZDOJKuIglYGqWD0iQ",
+      "e": "AQAB"
+    }
+  ]
+}
