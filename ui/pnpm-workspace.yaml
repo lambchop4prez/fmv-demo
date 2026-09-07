@@ -65,7 +65,7 @@ catalogs:
     "@testing-library/jest-dom": 7.0.1
     "@testing-library/vue": 8.1.0
     "@vitest/eslint-plugin": 1.6.9
-    "@vue/test-utils": 2.4.11
+    "@vue/test-utils": 2.5.0
     "@wdio/cli": 9.31.2
     "@wdio/globals": 9.31.1
     "@wdio/local-runner": 9.31.2
