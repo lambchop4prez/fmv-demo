@@ -12,6 +12,9 @@ catalogs:
     '@unocss/eslint-config':
       specifier: 66.8.1
       version: 66.8.1
+    '@unocss/preset-web-fonts':
+      specifier: 66.8.1
+      version: 66.8.1
     '@vitejs/plugin-basic-ssl':
       specifier: 2.3.0
       version: 2.3.0
@@ -75,20 +78,7 @@ catalogs:
     vite-ssg-sitemap:
       specifier: 0.10.0
       version: 0.10.0
-  default:
-    eslint-plugin-vue:
-      specifier: ^10.9.1
-      version: 10.9.1
   dev:
-    '@testing-library/jest-dom':
-      specifier: 7.0.1
-      version: 7.0.1
-    '@testing-library/vue':
-      specifier: 8.1.0
-      version: 8.1.0
-    '@vitest/eslint-plugin':
-      specifier: 1.6.9
-      version: 1.6.9
     '@vue-macros/volar':
       specifier: 3.1.4
       version: 3.1.4
@@ -98,9 +88,6 @@ catalogs:
     '@vue/eslint-config-typescript':
       specifier: 14.9.0
       version: 14.9.0
-    '@vue/test-utils':
-      specifier: 2.4.11
-      version: 2.4.11
     eslint:
       specifier: 10.4.0
       version: 10.4.0
@@ -110,6 +97,9 @@ catalogs:
     eslint-plugin-testing-library:
       specifier: 7.16.0
       version: 7.16.0
+    eslint-plugin-vue:
+      specifier: ^10.9.1
+      version: 10.9.1
     eslint-plugin-wdio:
       specifier: 9.23.0
       version: 9.23.0
@@ -119,13 +109,19 @@ catalogs:
     typescript:
       specifier: 6.0.3
       version: 6.0.3
-    vitest:
-      specifier: 4.1.11
-      version: 4.1.11
     vue-tsc:
       specifier: 3.3.11
       version: 3.3.11
   frontend:
+    '@lucide/vue':
+      specifier: 1.33.0
+      version: 1.33.0
+    '@tanstack/vue-form':
+      specifier: 1.33.5
+      version: 1.33.5
+    '@tanstack/vue-table':
+      specifier: 9.1.2
+      version: 9.1.2
     '@unhead/vue':
       specifier: 3.4.0
       version: 3.4.0
@@ -138,6 +134,9 @@ catalogs:
     nprogress:
       specifier: 0.2.0
       version: 0.2.0
+    oidc-client-ts:
+      specifier: 3.5.0
+      version: 3.5.0
     openapi-fetch:
       specifier: 0.17.0
       version: 0.17.0
@@ -153,7 +152,50 @@ catalogs:
     vue-router:
       specifier: 5.0.6
       version: 5.0.6
+    zod:
+      specifier: 4.4.3
+      version: 4.4.3
+  test:
+    '@testing-library/jest-dom':
+      specifier: 7.0.1
+      version: 7.0.1
+    '@testing-library/vue':
+      specifier: 8.1.0
+      version: 8.1.0
+    '@vitest/eslint-plugin':
+      specifier: 1.6.9
+      version: 1.6.9
+    '@vue/test-utils':
+      specifier: 2.4.11
+      version: 2.4.11
+    '@wdio/cli':
+      specifier: 9.31.2
+      version: 9.31.2
+    '@wdio/globals':
+      specifier: 9.31.1
+      version: 9.31.1
+    '@wdio/local-runner':
+      specifier: 9.31.2
+      version: 9.31.2
+    '@wdio/mocha-framework':
+      specifier: 9.31.2
+      version: 9.31.2
+    '@wdio/spec-reporter':
+      specifier: 9.31.2
+      version: 9.31.2
+    expect-webdriverio:
+      specifier: 5.7.0
+      version: 5.7.0
+    vitest:
+      specifier: 4.1.11
+      version: 4.1.11
+    wdio-vite-service:
+      specifier: 2.1.1
+      version: 2.1.1
   types:
+    '@types/node':
+      specifier: 25.9.5
+      version: 25.9.5
     '@types/nprogress':
       specifier: 0.2.3
       version: 0.2.3
@@ -163,19 +205,19 @@ importers:
   .:
     dependencies:
       '@lucide/vue':
-        specifier: 1.33.0
+        specifier: catalog:frontend
         version: 1.33.0(vue@3.5.41(typescript@6.0.3))
       '@tanstack/vue-form':
-        specifier: 1.33.5
+        specifier: catalog:frontend
         version: 1.33.5(vue@3.5.41(typescript@6.0.3))
       '@tanstack/vue-table':
-        specifier: 9.1.2
+        specifier: catalog:frontend
         version: 9.1.2(vue@3.5.41(typescript@6.0.3))
       '@unhead/vue':
         specifier: catalog:frontend
         version: 3.4.0(@oxc-project/types@0.146.0)(esbuild@0.27.1)(lightningcss@1.33.0)(oxc-parser@0.131.0)(rolldown@1.2.5)(rollup@4.60.4)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))(vue@3.5.41(typescript@6.0.3))
       '@unocss/preset-web-fonts':
-        specifier: 66.8.1
+        specifier: catalog:build
         version: 66.8.1
       '@unocss/reset':
         specifier: catalog:frontend
@@ -193,7 +235,7 @@ importers:
         specifier: catalog:frontend
         version: 0.2.0
       oidc-client-ts:
-        specifier: 3.5.0
+        specifier: catalog:frontend
         version: 3.5.0
       openapi-fetch:
         specifier: catalog:frontend
@@ -226,20 +268,20 @@ importers:
         specifier: catalog:frontend
         version: 5.0.6(@vue/compiler-sfc@3.5.41)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3)))(vue@3.5.41(typescript@6.0.3))
       zod:
-        specifier: 4.4.3
+        specifier: catalog:frontend
         version: 4.4.3
     devDependencies:
       '@intlify/unplugin-vue-i18n':
         specifier: catalog:build
         version: 11.2.5(@vue/compiler-dom@3.5.35)(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(rollup@4.60.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))(vue-i18n@11.4.10(vue@3.5.41(typescript@6.0.3)))(vue@3.5.41(typescript@6.0.3))
       '@testing-library/jest-dom':
-        specifier: catalog:dev
+        specifier: catalog:test
         version: 7.0.1(@testing-library/dom@10.4.1)(vitest@4.1.11(@types/node@25.9.5)(jsdom@28.0.0(supports-color@10.2.2))(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0)))
       '@testing-library/vue':
-        specifier: catalog:dev
-        version: 8.1.0(@vue/compiler-dom@3.5.35)(@vue/compiler-sfc@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
+        specifier: catalog:test
+        version: 8.1.0(@vue/compiler-dom@3.5.41)(@vue/compiler-sfc@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
       '@types/node':
-        specifier: 25.9.5
+        specifier: catalog:types
         version: 25.9.5
       '@types/nprogress':
         specifier: catalog:types
@@ -254,7 +296,7 @@ importers:
         specifier: catalog:build
         version: 6.0.8(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))(vue@3.5.41(typescript@6.0.3))
       '@vitest/eslint-plugin':
-        specifier: catalog:dev
+        specifier: catalog:test
         version: 1.6.9(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@4.1.11(@types/node@25.9.5)(jsdom@28.0.0(supports-color@10.2.2))(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0)))
       '@vue-macros/volar':
         specifier: catalog:dev
@@ -266,22 +308,22 @@ importers:
         specifier: catalog:dev
         version: 14.9.0(eslint-plugin-vue@10.9.1(@typescript-eslint/parser@8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(vue-eslint-parser@10.4.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)))(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@vue/test-utils':
-        specifier: catalog:dev
-        version: 2.4.11(@vue/compiler-dom@3.5.35)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
+        specifier: catalog:test
+        version: 2.4.11(@vue/compiler-dom@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
       '@wdio/cli':
-        specifier: 9.31.2
+        specifier: catalog:test
         version: 9.31.2(@types/node@25.9.5)(expect-webdriverio@5.7.0)(supports-color@10.2.2)
       '@wdio/globals':
-        specifier: 9.31.1
+        specifier: catalog:test
         version: 9.31.1(expect-webdriverio@5.7.0)(webdriverio@9.31.2(supports-color@10.2.2))
       '@wdio/local-runner':
-        specifier: 9.31.2
+        specifier: catalog:test
         version: 9.31.2(@wdio/globals@9.31.1)(supports-color@10.2.2)(webdriverio@9.31.2(supports-color@10.2.2))
       '@wdio/mocha-framework':
-        specifier: 9.31.2
+        specifier: catalog:test
         version: 9.31.2(supports-color@10.2.2)
       '@wdio/spec-reporter':
-        specifier: 9.31.2
+        specifier: catalog:test
         version: 9.31.2
       beasties:
         specifier: catalog:build
@@ -296,13 +338,13 @@ importers:
         specifier: catalog:dev
         version: 7.16.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-vue:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 10.9.1(@typescript-eslint/parser@8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(vue-eslint-parser@10.4.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2))
       eslint-plugin-wdio:
         specifier: catalog:dev
         version: 9.23.0
       expect-webdriverio:
-        specifier: 5.7.0
+        specifier: catalog:test
         version: 5.7.0(@wdio/globals@9.31.1)(@wdio/logger@9.29.1)(webdriverio@9.31.2(supports-color@10.2.2))
       openapi-typescript:
         specifier: catalog:dev
@@ -344,13 +386,13 @@ importers:
         specifier: catalog:build
         version: 0.10.0
       vitest:
-        specifier: catalog:dev
+        specifier: catalog:test
         version: 4.1.11(@types/node@25.9.5)(jsdom@28.0.0(supports-color@10.2.2))(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))
       vue-tsc:
         specifier: catalog:dev
         version: 3.3.11(typescript@6.0.3)
       wdio-vite-service:
-        specifier: 2.1.1
+        specifier: catalog:test
         version: 2.1.1(@types/node@25.9.5)(@wdio/types@9.31.2)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.17.6)(tsx@4.19.2)(webdriverio@9.31.2(supports-color@10.2.2))(yaml@2.9.0)
 
 packages:
@@ -2885,16 +2927,6 @@ packages:
 
   '@vue/shared@3.5.41':
     resolution: {integrity: sha512-IOnwSCma8j+9xJT6b8H0dEYidC80NsYmNMlZxRsukYcSoGaDBohog5hDxzeUXdFeGWFA++vWvxqOmrr96VlqMA==}
-
-  '@vue/test-utils@2.4.10':
-    resolution: {integrity: sha512-SmoZ5EA1kYiAFs9NkYdiFFQF+cSnUwnvlYEbY+DogWQZUiqOm/Y29eSbc5T6yi75SgSF9863SBeXniIEoPajCA==}
-    peerDependencies:
-      '@vue/compiler-dom': 3.x
-      '@vue/server-renderer': 3.x
-      vue: 3.x
-    peerDependenciesMeta:
-      '@vue/server-renderer':
-        optional: true
 
   '@vue/test-utils@2.4.11':
     resolution: {integrity: sha512-GDqaqZsA6m2E5vNzej0aYiIb6BX8xV9pNSbbbXKOfEYwg7ZNblVX8suyqmUBThq8VIrgAJNxn+z72hVtUeiWHA==}
@@ -7637,11 +7669,11 @@ snapshots:
     optionalDependencies:
       vitest: 4.1.11(@types/node@25.9.5)(jsdom@28.0.0(supports-color@10.2.2))(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))
 
-  '@testing-library/vue@8.1.0(@vue/compiler-dom@3.5.35)(@vue/compiler-sfc@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))':
+  '@testing-library/vue@8.1.0(@vue/compiler-dom@3.5.41)(@vue/compiler-sfc@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 9.3.4
-      '@vue/test-utils': 2.4.10(@vue/compiler-dom@3.5.35)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
+      '@vue/test-utils': 2.4.11(@vue/compiler-dom@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))
       vue: 3.5.41(typescript@6.0.3)
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.41
@@ -7764,7 +7796,7 @@ snapshots:
   '@typescript-eslint/project-service@8.59.4(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.59.4(typescript@6.0.3)
-      '@typescript-eslint/types': 8.59.4
+      '@typescript-eslint/types': 8.67.0
       debug: 4.4.3(supports-color@10.2.2)
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -8123,8 +8155,8 @@ snapshots:
 
   '@vitest/eslint-plugin@1.6.9(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@4.1.11(@types/node@25.9.5)(jsdom@28.0.0(supports-color@10.2.2))(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0)))':
     dependencies:
-      '@typescript-eslint/scope-manager': 8.56.1
-      '@typescript-eslint/utils': 8.56.1(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+      '@typescript-eslint/scope-manager': 8.67.0
+      '@typescript-eslint/utils': 8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint: 10.4.0(jiti@2.6.1)(supports-color@10.2.2)
     optionalDependencies:
       typescript: 6.0.3
@@ -8767,18 +8799,9 @@ snapshots:
 
   '@vue/shared@3.5.41': {}
 
-  '@vue/test-utils@2.4.10(@vue/compiler-dom@3.5.35)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))':
+  '@vue/test-utils@2.4.11(@vue/compiler-dom@3.5.41)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))':
     dependencies:
-      '@vue/compiler-dom': 3.5.35
-      js-beautify: 1.14.9
-      vue: 3.5.41(typescript@6.0.3)
-      vue-component-type-helpers: 3.2.7
-    optionalDependencies:
-      '@vue/server-renderer': 3.5.41
-
-  '@vue/test-utils@2.4.11(@vue/compiler-dom@3.5.35)(@vue/server-renderer@3.5.41)(vue@3.5.41(typescript@6.0.3))':
-    dependencies:
-      '@vue/compiler-dom': 3.5.35
+      '@vue/compiler-dom': 3.5.41
       js-beautify: 1.14.9
       vue: 3.5.41(typescript@6.0.3)
       vue-component-type-helpers: 3.2.7
@@ -10067,6 +10090,10 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
+
+  fdir@6.5.0(picomatch@4.0.5):
+    optionalDependencies:
+      picomatch: 4.0.5
 
   figures@6.1.0:
     dependencies:
@@ -12249,11 +12276,11 @@ snapshots:
   vite@7.3.3(@types/node@25.9.5)(jiti@2.6.1)(lightningcss@1.33.0)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0):
     dependencies:
       esbuild: 0.27.1
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
-      postcss: 8.5.15
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
+      postcss: 8.5.26
       rollup: 4.60.4
-      tinyglobby: 0.2.16
+      tinyglobby: 0.2.17
     optionalDependencies:
       '@types/node': 25.9.5
       fsevents: 2.3.3
