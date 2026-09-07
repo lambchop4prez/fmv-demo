@@ -12,13 +12,29 @@ BACKEND_REPOSITORY = "mongodb"
 BACKEND_MONGO_HOST = "localhost"
 BACKEND_MONGO_DATABASE = "robot"
 BACKEND_BROKER_HOST = "localhost"
+# Environment gate: "production" rejects the static_jwks dev/CI stub at startup (fail closed).
+BACKEND_ENVIRONMENT = "dev"
 
 CORS_ALLOW_ORIGINS = '["https://localhost:8000", "https://localhost:5173"]'
+# Session cookies (D1=a) require credentials; origins above stay explicit (no wildcard).
+CORS_ALLOW_CREDENTIALS = "true"
 
 FRONTEND_API_BASE_URL = "https://localhost:8000"
-VITE_API_ENDPOINT = "https://localhost:8000/api/v1"
+VITE_API_ENDPOINT = "https://localhost:8800/api/v1"
 VITE_DEV_CERT = "{{config_root}}/.cert/cert.pem"
 VITE_DEV_CERT_KEY = "{{config_root}}/.cert/key.pem"
+
+# OIDC frontend settings, read by ui/src/composables/auth.ts (useUserManagerSettings).
+# COUPLING: VITE_OIDC_AUTHORITY MUST equal OIDC__PROVIDERS__KEYCLOAK__ISSUER in
+# .secrets.env.example (both https://localhost:8443/realms/fmv) so the dev mock IdP
+# matches. The mock IdP is NOT real Keycloak.
+# VITE_OIDC_SILENT_REDIRECT_URI is optional; auth.ts falls back to VITE_OIDC_REDIRECT_URI.
+VITE_OIDC_AUTHORITY = "https://localhost:8443/realms/fmv"
+VITE_OIDC_CLIENT_ID = "fmv-web"
+VITE_OIDC_REDIRECT_URI = "https://localhost:5173/callback"
+VITE_OIDC_RESPONSE_TYPE = "code"
+VITE_OIDC_SCOPE = "openid profile email groups"
+VITE_OIDC_POST_LOGOUT_REDIRECT_URI = "https://localhost:5173/logout"
 
 _.file = ["{{config_root}}/.secrets.env"]
 

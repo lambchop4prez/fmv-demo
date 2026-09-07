@@ -9,7 +9,7 @@ pre-commit:
     spellcheck:
       run: just spellcheck
     detect-secrets:
-      run: gitleaks detect --log-opts="$(git merge-base origin/main HEAD)..HEAD" --no-banner --redact --verbose
+      run: gitleaks git --config .config/gitleaks.toml --pre-commit --staged --no-banner --redact --verbose
     frontend-lint:
       glob: "*.{js,ts,vue}"
       root: ui

@@ -41,6 +41,7 @@ workers = { workspace = true }
 
 [tool.mypy]
 plugins = ['pydantic.mypy']
+exclude = "conftest\\.py$"
 disallow_untyped_defs = true
 disallow_any_unimported = true
 no_implicit_optional = true

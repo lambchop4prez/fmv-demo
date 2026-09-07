@@ -10,6 +10,7 @@ export {}
 declare global {
   const EffectScope: typeof import('vue').EffectScope
   const LucideIcon: typeof import('lucide-vue-next').LucideIcon
+  const apiBaseUrl: typeof import('./composables/auth').apiBaseUrl
   const asyncComputed: typeof import('@vueuse/core').asyncComputed
   const autoResetRef: typeof import('@vueuse/core').autoResetRef
   const computed: typeof import('vue').computed
@@ -342,6 +343,7 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly apiBaseUrl: UnwrapRef<typeof import('./composables/auth')['apiBaseUrl']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -615,6 +617,8 @@ declare module 'vue' {
     readonly useToggle: UnwrapRef<typeof import('@vueuse/core')['useToggle']>
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
+    readonly useUserManager: UnwrapRef<typeof import('./composables/auth')['useUserManager']>
+    readonly useUserManagerSettings: UnwrapRef<typeof import('./composables/auth')['useUserManagerSettings']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
     readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>

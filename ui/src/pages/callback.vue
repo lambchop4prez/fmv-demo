@@ -37,6 +37,7 @@ onMounted(async () => {
           {{ error }}
         </p>
         <Button
+          as="button"
           variant="outline"
           @click="$router.push('/')"
         >

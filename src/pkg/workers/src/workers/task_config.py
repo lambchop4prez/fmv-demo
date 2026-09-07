@@ -1,9 +1,11 @@
-from config.mongo import settings
+from config.mongo import get_mongo_settings
+
+mongo_settings = get_mongo_settings()
 
 result_backend = "mongodb"
 mongodb_backend_settings = {
-    "host": settings.HOST,
+    "host": mongo_settings.HOST,
     "port": 27017,
-    "database": settings.DATABASE,
+    "database": mongo_settings.DATABASE,
     "taskmeta_collection": "RobotDocument",
 }
