@@ -49,7 +49,7 @@ catalogs:
   frontend:
     "@lucide/vue": 1.33.0
     "@tanstack/vue-form": 1.33.5
-    "@tanstack/vue-table": 9.1.2
+    "@tanstack/vue-table": 9.2.4
     "@unhead/vue": 3.4.0
     "@unocss/reset": 66.8.1
     "@vueuse/core": 14.4.0
