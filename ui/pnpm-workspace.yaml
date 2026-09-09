@@ -71,7 +71,7 @@ catalogs:
     "@wdio/local-runner": 9.31.2
     "@wdio/mocha-framework": 9.31.2
     "@wdio/spec-reporter": 9.31.2
-    expect-webdriverio: 5.7.0
+    expect-webdriverio: 6.0.10
     vitest: 4.1.11
     wdio-vite-service: 2.1.1
   types:
