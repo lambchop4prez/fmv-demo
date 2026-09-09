@@ -72,7 +72,7 @@ catalogs:
     "@wdio/mocha-framework": 9.31.2
     "@wdio/spec-reporter": 9.31.2
     expect-webdriverio: 5.7.0
-    vitest: 4.1.11
+    vitest: 5.0.0
     wdio-vite-service: 2.1.1
   types:
     "@types/node": 25.9.5
