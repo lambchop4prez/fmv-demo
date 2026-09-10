@@ -59,8 +59,8 @@ catalogs:
     pinia: 4.0.3
     vue: 3.5.41
     vue-i18n: 11.4.10
-    vue-router: 5.0.6
-    zod: 4.4.3
+    vue-router: 5.3.1
+    zod: 4.6.2
   test:
     "@testing-library/jest-dom": 7.0.1
     "@testing-library/vue": 8.1.0
