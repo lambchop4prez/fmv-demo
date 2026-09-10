@@ -75,7 +75,7 @@ catalogs:
     vitest: 4.1.11
     wdio-vite-service: 2.1.1
   types:
-    "@types/node": 25.9.5
+    "@types/node": 25.9.6
     "@types/nprogress": 0.2.3
 
 onlyBuiltDependencies:
