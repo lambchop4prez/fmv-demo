@@ -2,6 +2,6 @@
 # NOT part of the uv workspace — it is a throwaway container, loosely pinned.
 # TEST ONLY, NEVER PRODUCTION.
 fastapi==0.141.1
-uvicorn>=0.30
+uvicorn==0.52.4
 PyJWT[crypto]==2.13.0
 python-multipart==0.0.32
