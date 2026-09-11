@@ -47,7 +47,7 @@ catalogs:
     typescript: 6.0.3
     vue-tsc: 3.3.11
   frontend:
-    "@lucide/vue": 1.33.0
+    "@lucide/vue": 1.45.0
     "@tanstack/vue-form": 1.33.5
     "@tanstack/vue-table": 9.1.2
     "@unhead/vue": 3.4.0
