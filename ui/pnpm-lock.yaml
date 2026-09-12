@@ -79,6 +79,9 @@ catalogs:
       specifier: 0.10.0
       version: 0.10.0
   dev:
+    '@tauri-apps/cli':
+      specifier: ^2.11.4
+      version: 2.11.4
     '@vue-macros/volar':
       specifier: 3.1.4
       version: 3.1.4
@@ -122,6 +125,9 @@ catalogs:
     '@tanstack/vue-table':
       specifier: 9.1.2
       version: 9.1.2
+    '@tauri-apps/api':
+      specifier: ^2.11.1
+      version: 2.11.1
     '@unhead/vue':
       specifier: 3.4.0
       version: 3.4.0
@@ -275,10 +281,10 @@ importers:
         specifier: catalog:build
         version: 11.2.5(@vue/compiler-dom@3.5.35)(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(rollup@4.60.4)(supports-color@10.2.2)(typescript@6.0.3)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.27.1)(jiti@2.6.1)(terser@5.17.6)(tsx@4.19.2)(yaml@2.9.0))(vue-i18n@11.4.10(vue@3.5.41(typescript@6.0.3)))(vue@3.5.41(typescript@6.0.3))
       '@tauri-apps/api':
-        specifier: ^2.10.1
+        specifier: catalog:frontend
         version: 2.11.1
       '@tauri-apps/cli':
-        specifier: ^2.10.1
+        specifier: catalog:dev
         version: 2.11.4
       '@testing-library/jest-dom':
         specifier: catalog:test
