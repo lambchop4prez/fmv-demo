@@ -61,4 +61,4 @@ _.file = ["{{config_root}}/.secrets.env"]
 opencode = "1.18.21"
 ripgrep = "15.2.0"
 fd = "10.5.0"
-fzf = "0.74.3"
+fzf = "0.74.4"
