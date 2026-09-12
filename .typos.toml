@@ -5,6 +5,7 @@
 [files]
 extend-exclude = [
   "ui/locales/*.yml",
+  "ui/src-tauri/gen/*",
   "src/test/fixtures/oidc_test_jwks.json",
   "src/test/fixtures/oidc_test_private_key.pem",
 ]

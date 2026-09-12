@@ -98,5 +98,9 @@
   "vite.https": true,
   "vite.port": 5173,
   "vite.host": "localhost",
-  "vite.devCommand": "pnpm dev"
+  "vite.devCommand": "pnpm dev",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
 }

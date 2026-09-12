@@ -42,10 +42,12 @@
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "catalog:build",
+    "@tauri-apps/api": "catalog:frontend",
+    "@tauri-apps/cli": "catalog:dev",
     "@testing-library/jest-dom": "catalog:test",
     "@testing-library/vue": "catalog:test",
-    "@types/nprogress": "catalog:types",
     "@types/node": "catalog:types",
+    "@types/nprogress": "catalog:types",
     "@unocss/eslint-config": "catalog:build",
     "@vitejs/plugin-basic-ssl": "catalog:build",
     "@vitejs/plugin-vue": "catalog:build",

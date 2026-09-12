@@ -21,6 +21,7 @@ export default defineConfigWithVueTs(
     "**/coverage/**",
     "src/volt/**",
     "src/gql/**",
+    "src-tauri/target/**"
   ]),
 
   pluginVue.configs["flat/strongly-recommended"],
