@@ -16,7 +16,7 @@ dependencies = [
   "repository_mongodb",
   "pyjwt==2.13.0",
   "itsdangerous==2.2.0",
-  "cryptography==50.0.0",
+  "cryptography==50.0.1",
 ]
 
 [dependency-groups]
