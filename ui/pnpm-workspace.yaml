@@ -50,7 +50,7 @@ catalogs:
     "@lucide/vue": 1.33.0
     "@tanstack/vue-form": 1.33.5
     "@tanstack/vue-table": 9.1.2
-    "@unhead/vue": 3.4.0
+    "@unhead/vue": 3.4.1
     "@unocss/reset": 66.8.1
     "@vueuse/core": 14.4.0
     nprogress: 0.2.0
