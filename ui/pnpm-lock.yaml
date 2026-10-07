@@ -101,8 +101,8 @@ catalogs:
       specifier: ^10.9.1
       version: 10.9.1
     eslint-plugin-wdio:
-      specifier: 9.23.0
-      version: 9.23.0
+      specifier: 10.0.1
+      version: 10.0.1
     openapi-typescript:
       specifier: 7.13.0
       version: 7.13.0
@@ -342,7 +342,7 @@ importers:
         version: 10.9.1(@typescript-eslint/parser@8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(vue-eslint-parser@10.4.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2))
       eslint-plugin-wdio:
         specifier: catalog:dev
-        version: 9.23.0
+        version: 10.0.1(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(globals@17.13.0)(typescript-eslint@8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))
       expect-webdriverio:
         specifier: catalog:test
         version: 5.7.0(@wdio/globals@9.31.1)(@wdio/logger@9.29.1)(webdriverio@9.31.2(supports-color@10.2.2))
@@ -3835,9 +3835,16 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-wdio@9.23.0:
-    resolution: {integrity: sha512-8tcpupzp2Qmv+uSfhzeHi42LVA9PyjkpMBPclSIkPxBfXpj4fMrejwAHu1PROh1OmJN1VQcGQUTWvSzyRcV2vA==}
-    engines: {node: '>=18.20.0'}
+  eslint-plugin-wdio@10.0.1:
+    resolution: {integrity: sha512-66NeSa9mZHJJqn0cPWzEInrshR+7xSFqmtd4CmEnx3JEaGCIkkDy7IESEQHSrgjj/7B9yZyIENu9kj4bc6celg==}
+    engines: {node: '>=22.19.0'}
+    peerDependencies:
+      eslint: ^10.0.0
+      globals: ^16.5.0 || ^17.0.0
+      typescript-eslint: ^8.56.0
+    peerDependenciesMeta:
+      typescript-eslint:
+        optional: true
 
   eslint-scope@9.1.2:
     resolution: {integrity: sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==}
@@ -4115,6 +4122,10 @@ packages:
   globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
+
+  globals@17.13.0:
+    resolution: {integrity: sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg==}
+    engines: {node: '>=18'}
 
   gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
@@ -9952,7 +9963,12 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/parser': 8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
 
-  eslint-plugin-wdio@9.23.0: {}
+  eslint-plugin-wdio@10.0.1(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(globals@17.13.0)(typescript-eslint@8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)):
+    dependencies:
+      eslint: 10.4.0(jiti@2.6.1)(supports-color@10.2.2)
+      globals: 17.13.0
+    optionalDependencies:
+      typescript-eslint: 8.67.0(eslint@10.4.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
 
   eslint-scope@9.1.2:
     dependencies:
@@ -10290,6 +10306,8 @@ snapshots:
       once: 1.4.0
 
   globals@11.12.0: {}
+
+  globals@17.13.0: {}
 
   gopd@1.2.0: {}
 
