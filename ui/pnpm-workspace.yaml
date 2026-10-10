@@ -45,7 +45,7 @@ catalogs:
     eslint-plugin-wdio: 9.23.0
     openapi-typescript: 7.13.0
     typescript: 6.0.3
-    vue-tsc: 3.3.11
+    vue-tsc: 3.3.13
   frontend:
     "@lucide/vue": 1.33.0
     "@tanstack/vue-form": 1.33.5
