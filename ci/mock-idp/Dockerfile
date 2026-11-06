@@ -1,7 +1,7 @@
 # Mock OIDC IdP for local dev and e2e ONLY. TEST ONLY, NEVER PRODUCTION.
 # Build once before `just up` (which runs compose with --no-build):
 #   docker compose --profile infra build mock-idp
-FROM python:3.14-slim-trixie
+FROM python:3.15-slim-trixie
 
 ENV PYTHONUNBUFFERED=1
 
