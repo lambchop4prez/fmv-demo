@@ -60,5 +60,5 @@ _.file = ["{{config_root}}/.secrets.env"]
 "aqua:FiloSottile/mkcert" = "1.4.4"
 opencode = "1.18.21"
 ripgrep = "15.2.0"
-fd = "10.5.0"
+fd = "10.5.2"
 fzf = "0.74.3"
