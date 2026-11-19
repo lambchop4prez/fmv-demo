@@ -62,7 +62,7 @@ catalogs:
     vue-router: 5.0.6
     zod: 4.4.3
   test:
-    "@testing-library/jest-dom": 7.0.1
+    "@testing-library/jest-dom": 8.0.0
     "@testing-library/vue": 8.1.0
     "@vitest/eslint-plugin": 1.6.9
     "@vue/test-utils": 2.5.0
