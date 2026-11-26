@@ -48,7 +48,7 @@ catalogs:
     vue-tsc: 3.3.11
   frontend:
     "@lucide/vue": 1.33.0
-    "@tanstack/vue-form": 1.33.5
+    "@tanstack/vue-form": 1.33.6
     "@tanstack/vue-table": 9.1.2
     "@unhead/vue": 3.4.0
     "@unocss/reset": 66.8.1
